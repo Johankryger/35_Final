@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="minecraft" />
+        <module name="35_Final" />
       </profile>
     </annotationProcessing>
   </component>

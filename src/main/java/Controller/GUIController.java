@@ -8,13 +8,46 @@ import java.awt.*;
 public class GUIController {
 
     private GUI_Field[] fields = {
-            new GUI_Street(),new GUI_Street(),new GUI_Street(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),
-            new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),
-            new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),
-            new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),
-            new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),
-            new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),
-            new GUI_Chance(),new GUI_Chance(),new GUI_Chance(),new GUI_Chance()
+            new GUI_Start("Start","","Modtag 4000kr efter passering af start",Color.RED,Color.BLACK),
+            new GUI_Street(),
+            new GUI_Street(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance(),
+            new GUI_Chance()
     };
     private GUI gui = new GUI(fields);
     private GUI_Player[] gui_players;
@@ -61,7 +94,7 @@ public class GUIController {
                 choosenPlayer = p;
             }
         }
-        //move player one square forthward at a time
+        //move player one square forward at a time
         for (int i = from; i != to; i = (i + 1) %40) {
             sleep(300);
             fields[i].setCar(choosenPlayer, false);
@@ -96,6 +129,20 @@ public class GUIController {
         } catch (Exception e) {
 
         }
+    }
+
+
+    public void buyStreet(String name, int pos){
+        // finds player with the name and the players piece color
+        Color carColor = null;
+
+        for(GUI_Player p: gui_players){
+            if(p.getName().equals(name)){
+                carColor = p.getCar().getPrimaryColor();
+            }
+        }
+
+        ((GUI_Street) fields[pos]).setBorder(carColor);
     }
 
 
