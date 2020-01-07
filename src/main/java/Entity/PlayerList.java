@@ -4,11 +4,12 @@ public class PlayerList {
     private Player[] players;
     private int index = 0;
 
-    public PlayerList(int amountOfPlayers) {
-        players = new Player[amountOfPlayers];
+    public PlayerList() {
+
     }
 
-    public void addPlayers(String[] playerNames) {
+    public void addPlayers(String[] playerNames, int amountOfPlayers) {
+        this.players = new Player[amountOfPlayers];
 //        Player[] players = new Player[playerNames.length];
         for (int i = 0; i < playerNames.length; i++) {
             players[i] = new Player(playerNames[i]);
