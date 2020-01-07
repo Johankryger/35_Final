@@ -1,3 +1,7 @@
+package Entity;
+
+import Entity.Balance;
+
 public class Player {
     private String name;
     private int ID;

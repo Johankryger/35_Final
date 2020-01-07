@@ -1,3 +1,5 @@
+package Entity;
+
 public class PlayerList {
     private Player[] players;
     private int index = 0;

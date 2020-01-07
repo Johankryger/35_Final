@@ -1,3 +1,7 @@
+package Entity;
+
+import Entity.Die;
+
 public class DiceCup {
     //Attributes
     private int faceValueSum;
