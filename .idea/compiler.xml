@@ -13,7 +13,6 @@
     <bytecodeTargetLevel>
       <module name="35_FINAL" target="1.7" />
       <module name="35_M1" target="1.7" />
-      <module name="minecraft" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
