@@ -11,9 +11,9 @@ public class Brewery extends Property {
 
     @Override
     public void squareAction(PlayerList playerList, GUIController gui, int diceSum) {
-        if (owner == "bank") {
+        if (owner.equals("bank")) {
             String option = gui.button("Want to buy " + fieldName + "?", "Buy", "Auction");
-            if (option == "Buy") {
+            if (option.equals("Buy")) {
                 playerList.getPlayer().getBalance().pay(price);
                 gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
             }
