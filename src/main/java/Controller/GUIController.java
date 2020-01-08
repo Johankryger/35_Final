@@ -196,8 +196,9 @@ public class GUIController {
 
 
 
-    public void button(String msg, String buttons) {
-        gui.getUserButtonPressed(msg, buttons);
+    public String button(String msg, String ... buttons) {
+        String buttonPressed = gui.getUserButtonPressed(msg, buttons);
+        return buttonPressed;
     }
 
 

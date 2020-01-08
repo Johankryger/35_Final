@@ -1,16 +1,17 @@
 package Entity;
 
-public abstract class Square {
-    private int fieldPosition;
+import Controller.GUIController;
 
-    private String fieldName;
+public abstract class Square {
+    protected int fieldPosition;
+    protected String fieldName;
 
 
     public Square(int fieldPosition, String fieldName) {
         this.fieldPosition = fieldPosition;
     }
 
-    public abstract void squareAction();
+    public abstract void squareAction(PlayerList playerList, GUIController gui, int diceSum);
 
 }
 
