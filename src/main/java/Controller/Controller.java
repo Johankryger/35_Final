@@ -15,10 +15,13 @@ public class Controller {
 
 
         while (true) {
+           // Throwing dice process
             guiController.button(playerList.getPlayer().getName() + "'s tur.", "Kast terning");
             diceCup.rollDice();
             int[] values = diceCup.getFaceValueArray();
             guiController.showDice(values);
+
+            // Movement process
             int startPos = playerList.getPlayer().getFieldPos();
             playerList.getPlayer().move(diceCup.getFaceValueSum(), true);
             guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos, playerList.getPlayer().getFieldPos());
