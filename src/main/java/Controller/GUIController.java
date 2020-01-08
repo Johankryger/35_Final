@@ -126,10 +126,16 @@ public class GUIController {
         return names;
     }
 
-    public void showDice(int die1, int die2) {
-        if (die1 >= 1 && die2 >= 1 && die1 <= 6 && die2 <= 6){
-            gui.setDice(die1,die2);
-        }
+//    public void showDice(int die1, int die2) {
+//        if (die1 >= 1 && die2 >= 1 && die1 <= 6 && die2 <= 6){
+//            gui.setDice(die1,die2);
+//        }
+//    }
+
+    public void showDice(int[] faceValueArray) {
+        //if (faceValueArray[0] >= 1 && faceValueArray[1] >= 1 && faceValueArray[0] <= 6 && faceValueArray[1] <= 6){
+            gui.setDice(faceValueArray[0],faceValueArray[1]);
+        //}
     }
 
     //makes an animation of player's piece moving

@@ -17,6 +17,11 @@ public class Controller {
         while (true) {
             guiController.button(playerList.getPlayer().getName() + "'s tur.", "Kast terning");
             diceCup.rollDice();
+            int[] values = diceCup.getFaceValueArray();
+            guiController.showDice(values);
+            System.out.println("Hlgkpp");
+            System.out.println(diceCup.getFaceValueSum());
+            System.out.println(values[1] + ",  " + values[0]);
             int startPos = playerList.getPlayer().getFieldPos();
             playerList.getPlayer().move(diceCup.getFaceValueSum(), true);
             guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos, playerList.getPlayer().getFieldPos());
