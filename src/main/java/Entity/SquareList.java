@@ -44,7 +44,12 @@ public class SquareList {
 
     public Square getSquare(int fieldNr) {
         Square therightSquare = null;
-        for (Square s : square) {
+        for (Street s : streets) {
+            if (s.fieldPosition == fieldNr)
+                therightSquare = s;
+        }
+
+        for (Ship s : ships){
             if (s.fieldPosition == fieldNr)
                 therightSquare = s;
         }
