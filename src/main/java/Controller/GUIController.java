@@ -126,8 +126,12 @@ public class GUIController {
         return names;
     }
 
-    public void showDice() {
-        gui.setDice(6,6);
+    public void showDice(int die1, int die2) {
+        gui.setDice(die1,die2);
+    }
+
+    public void showDice(int[] values) {
+        gui.setDice(values[0],values[1]);
     }
 
     //makes an animation of player's piece moving
@@ -188,6 +192,12 @@ public class GUIController {
         }
 
         ((GUI_Street) fields[pos]).setBorder(carColor);
+    }
+
+
+
+    public void button(String msg, String buttons) {
+        gui.getUserButtonPressed(msg, buttons);
     }
 
 
