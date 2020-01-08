@@ -1,8 +1,8 @@
 package Entity;
 
 public class SquareList {
-    private Street[] streets = new Street[22];
-    private Square[] square = {};
+    private Street[] streets;
+    private Ship[] ships;
 
     public SquareList() {
         this.streets = new Street[]{
@@ -29,6 +29,17 @@ public class SquareList {
                 new Street(37, "Frederiksbergsgade", 7000,700,4000,3500,10000,22000,26000,30000),
                 new Street(39,"Rådhuspladsen", 7000,1000,4000,4000,12000,28000,34000,40000)
         };
+
+        this.ships = new Ship[]{
+                new Ship(5,"Helsingør-Helsingborg",4000,500,1000,2000,4000),
+                new Ship(15,"Mols-Linien",4000,500,1000,2000,4000),
+                new Ship(25, "Gedser-Rostock",4000,500,1000,2000,4000),
+                new Ship(35,"Rødby-Puttgarden",4000,500,1000,2000,4000)
+        };
+
+
+
+
     }
 
     public Square getSquare(int fieldNr) {
@@ -40,12 +51,5 @@ public class SquareList {
         return therightSquare;
     }
 
-    public ShipList(){
-        this.ships = new Ship[]{
-                new Ship(5,"Helsingør-Helsingborg",4000,500,1000,2000,4000),
-                new Ship(15,"Mols-Linien",4000,500,1000,2000,4000),
-                new Ship(25, "Gedser-Rostock",4000,500,1000,2000,4000),
-                new Ship(35,"Rødby-Puttgarden",4000,500,1000,2000,4000)
-        };
-    }
+
 }
