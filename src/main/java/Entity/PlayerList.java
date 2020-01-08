@@ -28,7 +28,7 @@ public class PlayerList {
         Player choosenPlayer = null;
 
         for (Player p : players) {
-            if (name == p.getName()) {
+            if (name.equals(p.getName())) {
                 choosenPlayer = p;
             }
         }
@@ -40,5 +40,8 @@ public class PlayerList {
         this.index = ++index % players.length;
     }
 
-
+    public void transfer(int amount, String from, String to){
+        searchPlayer(from).getBalance().pay(amount);
+        searchPlayer(to).getBalance().add(amount);
+    }
 }

@@ -56,7 +56,7 @@ public class Player {
         return name;
     }
 
-    public boolean isGotChanceCard() {
+    public boolean hasGotChanceCard() {
         return gotChanceCard;
     }
 
