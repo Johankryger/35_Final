@@ -3,6 +3,7 @@ package Entity;
 public abstract class Property extends Square {
     private int price;
     private int rent;
+    private String owner = "";
 
     public Property(int fieldPosition, String fieldName, int price, int rent) {
         super(fieldPosition, fieldName);
