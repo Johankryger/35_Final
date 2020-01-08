@@ -1,5 +1,7 @@
 package Entity;
 
+import Controller.GUIController;
+
 public class Parking extends Square {
 
 
@@ -8,7 +10,9 @@ public class Parking extends Square {
     }
 
     @Override
-    public void squareAction() {
+    public void squareAction(PlayerList playerList, GUIController gui, int diceSum) {
 
     }
+
+
 }
