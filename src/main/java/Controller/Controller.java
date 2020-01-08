@@ -22,6 +22,9 @@ public class Controller {
             int startPos = playerList.getPlayer().getFieldPos();
             playerList.getPlayer().move(diceCup.getFaceValueSum(), true);
             guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos, playerList.getPlayer().getFieldPos());
+//            if(playerList.getPlayer().hasGotChanceCard()){
+//                chancelist.drawCard();
+            //}
             playerList.nextPlayer();
         }
 
