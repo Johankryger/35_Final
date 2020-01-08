@@ -190,6 +190,8 @@ public class GUIController {
         ((GUI_Street) fields[pos]).setBorder(carColor);
     }
 
-
+    public void button(String msg, String ... buttons) {
+        gui.getUserButtonPressed(msg, buttons);
+    }
 
 }
