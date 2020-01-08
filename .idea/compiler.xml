@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="minecraft" />
-        <module name="35_Final" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="minecraft" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

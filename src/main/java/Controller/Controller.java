@@ -9,8 +9,10 @@ public class Controller {
     private PlayerList playerList = new PlayerList();
 
     public void start() {
+        //Returns a string array of names
         String[] names = guiController.startMenu();
         playerList.addPlayers(names, names.length);
+
 
         while (true) {
             diceCup.rollDice();
@@ -19,5 +21,7 @@ public class Controller {
             guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos, playerList.getPlayer().getFieldPos());
 
         }
+
+
     }
 }
