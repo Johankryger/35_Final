@@ -3,9 +3,13 @@ package Entity;
 import Controller.GUIController;
 
 public class Ship extends Property{
+    int twoShipCoRent, threeShipCoRent, fourShipCoRent;
 
-    public Ship(int fieldPosition, String fieldName, int price, int rent) {
+    public Ship(int fieldPosition, String fieldName, int price, int rent, int twoShipCoRent, int threeShipCoRent, int fourShipCoRent) {
         super(fieldPosition, fieldName, price, rent);
+        this.twoShipCoRent = twoShipCoRent;
+        this.threeShipCoRent = threeShipCoRent;
+        this.fourShipCoRent = fourShipCoRent;
     }
 
     @Override
