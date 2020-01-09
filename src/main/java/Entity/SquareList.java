@@ -5,6 +5,8 @@ public class SquareList {
     private Ship[] ships;
     private Tax[] taxes;
     private Brewery[] breweries;
+    private ChanceField[] chanceFields;
+    private Parking[] parkings;
     private DiceCup diceCup = new DiceCup();
 
     public SquareList() {
@@ -50,6 +52,21 @@ public class SquareList {
                 new Brewery(12,"TUBORG SQUASH",3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum())
         };
 
+        this.chanceFields = new ChanceField[] {
+                new ChanceField(2, "Chance"),
+                new ChanceField(7, "Chance"),
+                new ChanceField(17, "Chance"),
+                new ChanceField(22, "Chance"),
+                new ChanceField(33, "Chance"),
+                new ChanceField(36, "Chance")
+        };
+
+        this.parkings = new Parking[] {
+                new Parking(0, "Start"),
+                new Parking(10, "visit"),
+                new Parking(20, "parking")
+        };
+
     }
 
     public Square getSquare(int fieldNr) {
@@ -63,10 +80,23 @@ public class SquareList {
             if (s.fieldPosition == fieldNr)
                 therightSquare = s;
         }
-        for (Brewery s: breweries) {
-            if (s.twoBreweriesRent == fieldNr)
-                therightSquare = s;
+        for (Brewery b: breweries) {
+            if (b.fieldPosition == fieldNr)
+                therightSquare = b;
         }
+        for (Tax t : taxes) {
+            if (t.fieldPosition == fieldNr)
+                therightSquare = t;
+        }
+        for (ChanceField c : chanceFields) {
+            if (c.fieldPosition == fieldNr)
+                therightSquare = c;
+        }
+        for (Parking p : parkings) {
+            if (p.fieldPosition == fieldNr)
+                therightSquare = p;
+        }
+
 
         return therightSquare;
     }
