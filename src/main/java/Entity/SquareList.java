@@ -63,6 +63,11 @@ public class SquareList {
             if (s.fieldPosition == fieldNr)
                 therightSquare = s;
         }
+        for (Brewery s: breweries) {
+            if (s.twoBreweriesRent == fieldNr)
+                therightSquare = s;
+        }
+
         return therightSquare;
     }
 
