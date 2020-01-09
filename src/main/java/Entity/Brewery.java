@@ -4,9 +4,10 @@ package Entity;
 import Controller.GUIController;
 
 public class Brewery extends Property {
-
-    public Brewery(int fieldPosition, String fieldName, int price, int rent) {
+    int twoBreweriesRent;
+    public Brewery(int fieldPosition, String fieldName, int price, int rent, int twoBreweriesRent) {
         super(fieldPosition, fieldName, price, rent);
+        this.twoBreweriesRent = twoBreweriesRent;
     }
 
     @Override

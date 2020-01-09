@@ -4,6 +4,8 @@ public class SquareList {
     private Street[] streets;
     private Ship[] ships;
     private Tax[] taxes;
+    private Brewery[] breweries;
+    private DiceCup diceCup = new DiceCup();
 
     public SquareList() {
         this.streets = new Street[]{
@@ -43,7 +45,9 @@ public class SquareList {
                 new Tax(38,"Statsskat")
         };
 
-
+        this.breweries = new Brewery[]{
+               new Brewery(28,"Coca-Cola", 3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum())
+        };
 
     }
 
