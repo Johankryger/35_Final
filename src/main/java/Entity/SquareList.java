@@ -7,7 +7,6 @@ public class SquareList {
     private Brewery[] breweries;
     private ChanceField[] chanceFields;
     private Parking[] parkings;
-    private DiceCup diceCup = new DiceCup();
 
     public SquareList() {
         this.streets = new Street[]{
@@ -48,8 +47,8 @@ public class SquareList {
         };
 
         this.breweries = new Brewery[]{
-                new Brewery(28,"Coca-Cola", 3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum()),
-                new Brewery(12,"TUBORG SQUASH",3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum())
+                new Brewery(28,"Coca-Cola", 3000,100),
+                new Brewery(12,"TUBORG SQUASH",3000,100)
         };
 
         this.chanceFields = new ChanceField[] {
