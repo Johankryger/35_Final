@@ -18,7 +18,9 @@ public abstract class Property extends Square {
         return isMortgaged;
     }
 
-    public void setOwner(String name, int position){}
+    public void setOwner(String name){
+        this.owner = name;
+    }
     public String getOwner(){return owner;}
 
 }

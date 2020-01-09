@@ -71,7 +71,7 @@ public class SquareList {
         String color = "null";
         boolean canMortgage = false;
         for (Street s : streets) {
-            if (s.getFieldPosition() == position){
+            if (s.getFieldPosition() == position ){
                 color = s.getColor();
             }
         }
@@ -86,6 +86,7 @@ public class SquareList {
         int counter=0;
 
         for (int i = 0; i < streets.length; i++) {
+
             if (streets[i].getOwner().equals(name) && !streets[i].getMortgaged() && mortgagedeable(streets[i].getFieldPosition())){
                 counter++;
             }
