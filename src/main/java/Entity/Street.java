@@ -25,6 +25,7 @@ public class Street extends Property {
                 playerList.getPlayer().getBalance().pay(price);
                 gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
                 setOwner(playerList.getPlayer().getName(),playerList.getPlayer().getFieldPos());
+                gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
             }
             else {
                 //setAuction(True, fieldPosition);
