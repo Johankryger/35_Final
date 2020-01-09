@@ -5,7 +5,7 @@ import Controller.GUIController;
 
 public class Brewery extends Property {
     int twoBreweriesRent;
-    public Brewery(int fieldPosition, String fieldName, int price, int rent, int twoBreweriesRent) {
+    public Brewery(int fieldPosition, String fieldName, int price, int rent) {
         super(fieldPosition, fieldName, price, rent);
         this.twoBreweriesRent = twoBreweriesRent;
     }
@@ -18,6 +18,9 @@ public class Brewery extends Property {
                 playerList.getPlayer().getBalance().pay(price);
                 gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
             }
+        } else if (!owner.equals(playerList.getPlayer().getName())){
+            playerList.transfer(rent * diceSum,playerList.getPlayer().getName(),owner);
         }
+
     }
 }

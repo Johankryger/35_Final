@@ -5,7 +5,8 @@ public class SquareList {
     private Ship[] ships;
     private Tax[] taxes;
     private Brewery[] breweries;
-    private DiceCup diceCup = new DiceCup();
+    private ChanceField[] chanceFields;
+    private Parking[] parkings;
 
     public SquareList() {
         this.streets = new Street[]{
@@ -46,8 +47,23 @@ public class SquareList {
         };
 
         this.breweries = new Brewery[]{
-                new Brewery(28,"Coca-Cola", 3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum()),
-                new Brewery(12,"TUBORG SQUASH",3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum())
+                new Brewery(28,"Coca-Cola", 3000,100),
+                new Brewery(12,"TUBORG SQUASH",3000,100)
+        };
+
+        this.chanceFields = new ChanceField[] {
+                new ChanceField(2, "Chance"),
+                new ChanceField(7, "Chance"),
+                new ChanceField(17, "Chance"),
+                new ChanceField(22, "Chance"),
+                new ChanceField(33, "Chance"),
+                new ChanceField(36, "Chance")
+        };
+
+        this.parkings = new Parking[] {
+                new Parking(0, "Start"),
+                new Parking(10, "visit"),
+                new Parking(20, "parking")
         };
 
     }
@@ -120,13 +136,46 @@ public class SquareList {
             if (s.fieldPosition == fieldNr)
                 therightSquare = s;
         }
-        for (Brewery s: breweries) {
-            if (s.twoBreweriesRent == fieldNr)
-                therightSquare = s;
+        for (Brewery b: breweries) {
+            if (b.fieldPosition == fieldNr)
+                therightSquare = b;
         }
+        for (Tax t : taxes) {
+            if (t.fieldPosition == fieldNr)
+                therightSquare = t;
+        }
+        for (ChanceField c : chanceFields) {
+            if (c.fieldPosition == fieldNr)
+                therightSquare = c;
+        }
+        for (Parking p : parkings) {
+            if (p.fieldPosition == fieldNr)
+                therightSquare = p;
+        }
+
 
         return therightSquare;
     }
 
-
+    public void checkForPairsStreet() {
+        for (int i = 0; i < 2; i++) {
+            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
+                streets[i].setPaired(true);
+                streets[i + 1].setPaired(true);
+            }
+        }
+        for (int i = 2; i < 20; i++) {
+            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && streets[i].getOwner().equals(streets[i + 2].getOwner()) && !streets[i].getOwner().equals("")) {
+                streets[i].setPaired(true);
+                streets[i + 1].setPaired(true);
+                streets[i + 2].setPaired(true);
+            }
+        }
+        for (int i = 20; i < 22; i++) {
+            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
+                streets[i].setPaired(true);
+                streets[i + 1].setPaired(true);
+            }
+        }
+    }
 }
