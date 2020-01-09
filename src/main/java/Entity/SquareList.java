@@ -101,5 +101,25 @@ public class SquareList {
         return therightSquare;
     }
 
-
+    public void checkForPairsStreet() {
+        for (int i = 0; i < 2; i++) {
+            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
+                streets[i].setPaired(true);
+                streets[i + 1].setPaired(true);
+            }
+        }
+        for (int i = 2; i < 20; i++) {
+            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && streets[i].getOwner().equals(streets[i + 2].getOwner()) && !streets[i].getOwner().equals("")) {
+                streets[i].setPaired(true);
+                streets[i + 1].setPaired(true);
+                streets[i + 2].setPaired(true);
+            }
+        }
+        for (int i = 20; i < 22; i++) {
+            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
+                streets[i].setPaired(true);
+                streets[i + 1].setPaired(true);
+            }
+        }
+    }
 }
