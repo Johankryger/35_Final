@@ -68,7 +68,7 @@ public class SquareList {
         };
 
         this.jail = new Jail[]{
-                new Jail(9,"Fængsel")
+                new Jail(30,"Fængsel")
         };
     }
 

@@ -29,6 +29,8 @@ public class GameLogic {
             //sets player in jail if rolled pair 3 times in a row.
             if (pairCounter==3){
                 playerList.getPlayer().setInJail(true);
+                int startPos = playerList.getPlayer().getFieldPos();
+                guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos,10);
                 playerList.getPlayer().setFieldPos(10);
                 playerList.nextPlayer();
                 pairCounter=0;
