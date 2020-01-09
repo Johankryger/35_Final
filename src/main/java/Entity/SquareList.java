@@ -82,7 +82,50 @@ public class SquareList {
         }
         return canMortgage;
     }
-    public String[] owenrShipArray(String name){
+    public Property[] ownershipArray(String playerName) {
+        int counter = 0;
+
+        for (Street s : streets) {
+            if (s.getOwner().equals(playerName)) {
+                counter++;
+            }
+        }
+        for (Ship s : ships) {
+            if (s.getOwner().equals(playerName)) {
+                counter++;
+            }
+        }
+        for (Brewery s : breweries) {
+            if (s.getOwner().equals(playerName)) {
+                counter++;
+            }
+        }
+
+        Property[] properties = new Property[counter];
+        counter = 0;
+        for (Street s : streets) {
+            if (s.getOwner().equals(playerName)) {
+                properties[counter] = s;
+                counter++;
+            }
+        }
+        for (Ship s : ships) {
+            if (s.getOwner().equals(playerName)) {
+                properties[counter] = s;
+                counter++;
+            }
+        }
+        for (Brewery s : breweries) {
+            if (s.getOwner().equals(playerName)) {
+                properties[counter] = s;
+                counter++;
+            }
+        }
+        return properties;
+    }
+
+
+    public String[] canMortgageArray(String name){
         int counter=0;
 
         for (int i = 0; i < streets.length; i++) {
@@ -157,7 +200,6 @@ public class SquareList {
 
         return therightSquare;
     }
-
     public void checkForPairsStreet() {
         for (int i = 0; i < 2; i++) {
             if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
@@ -178,5 +220,24 @@ public class SquareList {
                 streets[i + 1].setPaired(true);
             }
         }
+    }
+    public String[] mortgagedProperties(String name) {
+        Property[] properties = ownershipArray(name);
+        int counter = 0;
+        for(Property p : properties) {
+            if(p.isMortgaged){
+                counter++;
+            }
+        }
+        String[] mortgagedProperties = new String[counter];
+        counter = 0;
+
+        for (Property p : properties) {
+            if (p.isMortgaged){
+                mortgagedProperties[counter] = p.fieldName;
+                counter++;
+            }
+        }
+        return mortgagedProperties;
     }
 }

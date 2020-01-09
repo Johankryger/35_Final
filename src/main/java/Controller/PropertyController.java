@@ -7,11 +7,21 @@ public class PropertyController {
 
 
     public String[] makeMortgageArray(String playerName, SquareList squareList){
-        String[] onwershipArray = squareList.owenrShipArray(playerName);
-        String[] mortgageMenu = new String[onwershipArray.length +1];
-        mortgageMenu[0] = "Go Back";
+        String[] canMortgageArray = squareList.canMortgageArray(playerName);
+        String[] mortgageMenu = new String[canMortgageArray.length +1];
+        mortgageMenu[0] = "Go back";
         for (int i = 1; i < mortgageMenu.length; i++) {
-            mortgageMenu[i] = onwershipArray[i-1];
+            mortgageMenu[i] = canMortgageArray[i-1];
+        }
+        return mortgageMenu;
+    }
+
+    public String[] unMortgageArray(String playerName,SquareList squareList){
+        String[] removableMortgage = squareList.mortgagedProperties(playerName);
+        String[] mortgageMenu = new String[removableMortgage.length+1];
+        mortgageMenu[0] = "Go back";
+        for (int i = 1; i < mortgageMenu.length; i++){
+            mortgageMenu[i] = removableMortgage[i-1];
         }
         return mortgageMenu;
     }
@@ -19,8 +29,27 @@ public class PropertyController {
     public void manageMenu(GUIController guiController, PlayerList playerList, SquareList squareList) {
         String option = guiController.button("Choose", "Manage properties", "Roll dice");
         if (option.equals("Manage properties")) {
-            guiController.scrollList("Choose mortgage", makeMortgageArray(playerList.getPlayer().getName(), squareList));
+            String option2 = guiController.scrollList("Choose option", "Go back", "Mortgage", "Unmortgage", "Buy house", "Sell house");
+
+            switch (option2){
+                case "Go back":
+                    manageMenu(guiController,playerList,squareList);
+                    break;
+                case "Mortgage":
+                    String mortgageOption = guiController.scrollList("Choose property", makeMortgageArray(playerList.getPlayer().getName(),squareList));
+                    break;
+                case "Unmortgage":
+                    String unMortgageOption = guiController.scrollList("Choose property", unMortgageArray(playerList.getPlayer().getName(),squareList));
+                    break;
+                case "Buy house":
+
+                    break;
+                case "Sell house":
+
+                    break;
+            }
         }
+
     }
 
 
