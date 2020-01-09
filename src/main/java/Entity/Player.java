@@ -16,6 +16,7 @@ public class Player {
     private int turnsInARow = 0;
     private boolean extraTurn = false;
     private boolean gotChanceCard;
+    private boolean gotFreeJailCard = true;
 
     public Player(String name) {
         this.name = name;
@@ -62,6 +63,14 @@ public class Player {
 
     public void setGotChanceCard(boolean gotChanceCard) {
         this.gotChanceCard = gotChanceCard;
+    }
+
+    public boolean isGotFreeJailCard() {
+        return gotFreeJailCard;
+    }
+
+    public void setGotFreeJailCard(boolean gotFreeJailCard) {
+        this.gotFreeJailCard = gotFreeJailCard;
     }
 
     public int getTurnsInJail() {

@@ -19,6 +19,32 @@ public class GameLogic {
 
 
         while (true) {
+            if (playerList.getPlayer().isInJail() && playerList.getPlayer().isGotFreeJailCard()) {
+
+                String jailMsg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "Betal 1000kr", "Brug et løsladelseskort", "Prøv lykken og rul!");
+                if (jailMsg.equals("Betal 1000kr")) {
+                    playerList.getPlayer().getBalance().pay(1000);
+                    playerList.getPlayer().setInJail(false);
+                    guiController.updateBalance(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount());
+                }
+
+                if (jailMsg.equals("Brug et løsladelseskort")) {
+                    playerList.getPlayer().setGotFreeJailCard(false);
+                    playerList.getPlayer().setInJail(false);
+                }
+                playerList.getPlayer().setInJail(false);
+            }
+
+            else if (playerList.getPlayer().isInJail()){
+                String jailMsg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "Betal 1000kr", "Prøv lykken og rul!");
+                if (jailMsg.equals("Betal 1000kr")) {
+                    playerList.getPlayer().getBalance().pay(1000);
+                    playerList.getPlayer().setInJail(false);
+                    guiController.updateBalance(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount());
+                }
+                playerList.getPlayer().setInJail(false);
+            }
+
             // Throwing dice process
             guiController.button(playerList.getPlayer().getName() + "'s tur.", "Kast terning");
             diceCup.rollDice();
@@ -37,9 +63,13 @@ public class GameLogic {
             }
 
             else {
+                if (playerList.getPlayer().isInJail() && !getPair()){
+                    playerList.nextPlayer();
+                }
+
                 // Movement process
                 int startPos = playerList.getPlayer().getFieldPos();
-                playerList.getPlayer().move(diceCup.getFaceValueSum(), true);
+                playerList.getPlayer().move(2, true);
                 guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos, playerList.getPlayer().getFieldPos());
 
                 // Land on and squarelist
@@ -58,8 +88,8 @@ public class GameLogic {
 
     //method for checking pair in dices
     public boolean getPair() {
-        int[] dicearr = diceCup.getFaceValueArray();
-//        int[] dicearr = {1,1};
+//        int[] dicearr = diceCup.getFaceValueArray();
+        int[] dicearr = {1,1};
         if (!(dicearr[0] == dicearr[1])) {
             pairCounter = 0;
             return false;
