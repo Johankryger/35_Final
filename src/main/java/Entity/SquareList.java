@@ -3,6 +3,7 @@ package Entity;
 public class SquareList {
     private Street[] streets;
     private Ship[] ships;
+    private Tax[] taxes;
 
     public SquareList() {
         this.streets = new Street[]{
@@ -37,6 +38,10 @@ public class SquareList {
                 new Ship(35,"Rødby-Puttgarden",4000,500,1000,2000,4000)
         };
 
+        this.taxes = new Tax[]{
+                new Tax(4,"Indkomstskat"),
+                new Tax(38,"Statsskat")
+        };
 
 
 
