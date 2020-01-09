@@ -7,6 +7,7 @@ public class SquareList {
     private Brewery[] breweries;
     private ChanceField[] chanceFields;
     private Parking[] parkings;
+    private Jail[] jail;
 
     public SquareList() {
         this.streets = new Street[]{
@@ -66,6 +67,9 @@ public class SquareList {
                 new Parking(20, "parking")
         };
 
+        this.jail = new Jail[]{
+                new Jail(9,"Fængsel")
+        };
     }
 
     public Square getSquare(int fieldNr) {
@@ -95,7 +99,10 @@ public class SquareList {
             if (p.fieldPosition == fieldNr)
                 therightSquare = p;
         }
-
+        for (Jail j : jail) {
+            if (j.fieldPosition == fieldNr)
+                therightSquare = j;
+        }
 
         return therightSquare;
     }
