@@ -4,9 +4,9 @@ import Controller.GUIController;
 
 public class Street extends Property {
     int housePrice, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, numberOfHouses;
-
+    String color;
     public Street(int fieldPosition, String fieldName, int price, int rent, int housePrice,
-                  int oneHouseRent, int twoHouseRent, int threeHouseRent, int fourHouseRent, int hotelRent) {
+                  int oneHouseRent, int twoHouseRent, int threeHouseRent, int fourHouseRent, int hotelRent, String color) {
         super(fieldPosition, fieldName, price, rent);
         this.oneHouseRent = oneHouseRent;
         this.twoHouseRent = twoHouseRent;
@@ -14,6 +14,7 @@ public class Street extends Property {
         this.fourHouseRent = fourHouseRent;
         this.hotelRent = hotelRent;
         this.housePrice = housePrice;
+        this.color = color;
     }
 
     @Override
@@ -46,4 +47,6 @@ public class Street extends Property {
     public int getNumberOfHouses(){
         return numberOfHouses;
     }
+    public String getColor(){return color;}
+
 }

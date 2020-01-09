@@ -10,6 +10,9 @@ public abstract class Square {
     public Square(int fieldPosition, String fieldName) {
         this.fieldPosition = fieldPosition;
     }
+    public int getFieldPosition(){
+        return fieldPosition;
+    }
 
     public abstract void squareAction(PlayerList playerList, GUIController gui, int diceSum);
 
