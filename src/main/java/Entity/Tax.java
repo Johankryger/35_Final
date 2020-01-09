@@ -19,5 +19,6 @@ public class Tax extends Square {
         }
         playerList.getPlayer().getBalance().pay(taxAmount);
         gui.button("You pay " + taxAmount + " in taxes", "Ok");
+        gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
     }
 }
