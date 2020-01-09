@@ -8,6 +8,7 @@ public abstract class Square {
 
 
     public Square(int fieldPosition, String fieldName) {
+        this.fieldName = fieldName;
         this.fieldPosition = fieldPosition;
     }
     public int getFieldPosition(){
