@@ -20,8 +20,7 @@ public class Controller {
            // Throwing dice process
             guiController.button(playerList.getPlayer().getName() + "'s tur.", "Kast terning");
             diceCup.rollDice();
-            int[] values = diceCup.getFaceValueArray();
-            guiController.showDice(values);
+            guiController.showDice(diceCup.getFaceValueArray());
 
             // Movement process
             int startPos = playerList.getPlayer().getFieldPos();

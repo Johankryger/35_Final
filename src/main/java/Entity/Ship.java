@@ -34,4 +34,7 @@ public class Ship extends Property{
             playerList.transfer(price,playerList.getPlayer().getName(),owner);
         }
     }
+
+
+
 }
