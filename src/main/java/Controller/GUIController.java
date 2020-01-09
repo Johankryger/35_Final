@@ -187,7 +187,12 @@ public class GUIController {
             }
         }
 
-        ((GUI_Street) fields[pos]).setBorder(carColor);
+        if (fields[pos] instanceof GUI_Street)
+            ((GUI_Street) fields[pos]).setBorder(carColor);
+        if (fields[pos] instanceof GUI_Street)
+            ((GUI_Shipping) fields[pos]).setBorder(carColor);
+        if (fields[pos] instanceof GUI_Street)
+            ((GUI_Brewery) fields[pos]).setBorder(carColor);
     }
 
 

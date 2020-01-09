@@ -27,11 +27,7 @@ public class Ship extends Property{
             }
         }
         else if (!owner.equals(playerList.getPlayer().getName())){
-            for (int i = 0; i < ; i++) {
-                if (owner.equals)
-                shipCounter++;
-            }
-            playerList.transfer(price,playerList.getPlayer().getName(),owner);
+            playerList.transfer(rent,playerList.getPlayer().getName(),owner);
         }
     }
 
