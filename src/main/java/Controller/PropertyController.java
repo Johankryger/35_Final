@@ -19,7 +19,7 @@ public class PropertyController {
     public void manageMenu(GUIController guiController, PlayerList playerList, SquareList squareList) {
         String option = guiController.button("Choose", "Manage properties", "Roll dice");
         if (option.equals("Manage properties")) {
-            guiController.button("Choose mortgage", makeMortgageArray(playerList.getPlayer().getName(), squareList));
+            guiController.scrollList("Choose mortgage", makeMortgageArray(playerList.getPlayer().getName(), squareList));
         }
     }
 

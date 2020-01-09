@@ -177,6 +177,12 @@ public class GUIController {
     }
 
 
+    public String scrollList(String messsage, String ... arrayOptions){
+        return gui.getUserSelection(messsage, arrayOptions);
+    }
+
+
+
     public void buyStreet(String name, int pos){
         // finds player with the name and the players piece color
         Color carColor = null;
