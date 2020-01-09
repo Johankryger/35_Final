@@ -51,6 +51,48 @@ public class SquareList {
         };
 
     }
+    public String[] owenrShipArray(String name){
+        int counter=0;
+
+        for (int i = 0; i < streets.length; i++) {
+            if (streets[i].getOwner().equals(name) && !streets[i].getMortgaged()){
+                counter++;
+            }
+        }
+        for (int i = 0; i < breweries.length; i++) {
+            if (breweries[i].getOwner().equals(name) && !breweries[i].getMortgaged()){
+                counter++;
+            }
+        }
+        for (int i = 0; i < ships.length; i++) {
+            if (ships[i].getOwner().equals(name) && !ships[i].getMortgaged()){
+                counter++;
+            }
+
+        }
+        String[] ownedProperties = new String[counter];
+
+        counter=0;
+        for (int i = 0; i < streets.length; i++) {
+            if (streets[i].getOwner().equals(name) && !streets[i].getMortgaged()){
+                ownedProperties[counter] = streets[i].fieldName;
+                counter++;
+            }
+        }
+        for (int i = 0; i < breweries.length; i++) {
+            if (breweries[i].getOwner().equals(name) && !breweries[i].getMortgaged()){
+                ownedProperties[counter] = breweries[i].fieldName;
+                counter++;
+            }
+        }
+        for (int i = 0; i < ships.length; i++) {
+            if (ships[i].getOwner().equals(name) && !ships[i].getMortgaged()) {
+                ownedProperties[counter] = ships[i].fieldName;
+                counter++;
+            }
+        }
+        return ownedProperties;
+    }
 
     public Square getSquare(int fieldNr) {
         Square therightSquare = null;
