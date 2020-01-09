@@ -9,6 +9,7 @@ public class Controller {
     private DiceCup diceCup = new DiceCup();
     private PlayerList playerList = new PlayerList();
     private SquareList squareList = new SquareList();
+    private PropertyController propertyController = new PropertyController();
 
     public void start() {
         //Returns a string array of names
@@ -17,6 +18,7 @@ public class Controller {
 
 
         while (true) {
+            propertyController.manageMenu(guiController, playerList, squareList);
            // Throwing dice process
             guiController.button(playerList.getPlayer().getName() + "'s tur.", "Kast terning");
             diceCup.rollDice();

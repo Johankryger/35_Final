@@ -1,5 +1,6 @@
 package Controller;
 
+import Entity.PlayerList;
 import Entity.SquareList;
 
 public class PropertyController {
@@ -15,6 +16,12 @@ public class PropertyController {
         return mortgageMenu;
     }
 
+    public void manageMenu(GUIController guiController, PlayerList playerList, SquareList squareList) {
+        String option = guiController.button("Choose", "Manage properties", "Roll dice");
+        if (option.equals("Manage properties")) {
+            guiController.button("Choose mortgage", makeMortgageArray(playerList.getPlayer().getName(), squareList));
+        }
+    }
 
 
 }
