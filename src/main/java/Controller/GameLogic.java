@@ -25,25 +25,31 @@ public class GameLogic {
                 if (jailMsg.equals("Betal 1000kr")) {
                     playerList.getPlayer().getBalance().pay(1000);
                     playerList.getPlayer().setInJail(false);
-                    guiController.updateBalance(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount());
+                    guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+                    playerList.getPlayer().resetTurnsInJail();
                 }
 
                 if (jailMsg.equals("Brug et løsladelseskort")) {
                     playerList.getPlayer().setGotFreeJailCard(false);
                     playerList.getPlayer().setInJail(false);
+                    playerList.getPlayer().resetTurnsInJail();
                 }
-                playerList.getPlayer().setInJail(false);
-            }
+                else {
+                    playerList.getPlayer().setInJail(true);
+                }
 
-            else if (playerList.getPlayer().isInJail()){
+            } else if (playerList.getPlayer().isInJail()) {
                 String jailMsg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "Betal 1000kr", "Prøv lykken og rul!");
                 if (jailMsg.equals("Betal 1000kr")) {
                     playerList.getPlayer().getBalance().pay(1000);
                     playerList.getPlayer().setInJail(false);
-                    guiController.updateBalance(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount());
+                    guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+                    playerList.getPlayer().resetTurnsInJail();
+                } else {
+                    playerList.getPlayer().setInJail(true);
                 }
-                playerList.getPlayer().setInJail(false);
             }
+
 
             // Throwing dice process
             guiController.button(playerList.getPlayer().getName() + "'s tur.", "Kast terning");
@@ -53,17 +59,25 @@ public class GameLogic {
             //Sets extraTurn to true/false depending on getPair method
             playerList.getPlayer().extraTurn(getPair());
             //sets player in jail if rolled pair 3 times in a row.
-            if (pairCounter==3){
+            if (pairCounter == 3) {
                 playerList.getPlayer().setInJail(true);
                 int startPos = playerList.getPlayer().getFieldPos();
-                guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos,10);
+                guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos, 10);
                 playerList.getPlayer().setFieldPos(10);
                 playerList.nextPlayer();
-                pairCounter=0;
-            }
-
-            else {
-                if (playerList.getPlayer().isInJail() && !getPair()){
+                pairCounter = 0;
+            } else {
+                if (playerList.getPlayer().isInJail() && !getPair()) {
+                    if (playerList.getPlayer().getTurnsInJail() == 2) {
+                        if (playerList.getPlayer().getBalance().getAmount() < 1000) {
+                            playerList.getPlayer().setHasLost(true);
+                        }
+                        playerList.getPlayer().getBalance().pay(1000);
+                        playerList.getPlayer().setInJail(false);
+                        guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+                        playerList.getPlayer().resetTurnsInJail();
+                    }
+                    playerList.getPlayer().addTurnInJail();
                     playerList.nextPlayer();
                 }
 
