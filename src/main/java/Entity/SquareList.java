@@ -46,7 +46,8 @@ public class SquareList {
         };
 
         this.breweries = new Brewery[]{
-               new Brewery(28,"Coca-Cola", 3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum())
+                new Brewery(28,"Coca-Cola", 3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum()),
+                new Brewery(12,"TUBORG SQUASH",3000,100 * diceCup.getFaceValueSum(),200 * diceCup.getFaceValueSum())
         };
 
     }
