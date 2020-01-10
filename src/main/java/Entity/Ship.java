@@ -27,6 +27,7 @@ public class Ship extends Property{
             }
         } else if (!owner.equals(playerList.getPlayer().getName())) {
             if (!playerList.searchPlayer(owner).isInJail()) {
+                gui.button("Du har landet på "+ owner+ "'s grund og skal betale leje: " + rent,"Betal");
                 playerList.transfer(rent, playerList.getPlayer().getName(), owner);
                 gui.updateBalance(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount());
                 gui.updateBalance(playerList.searchPlayer(owner).getName(),playerList.searchPlayer(owner).getBalance().getAmount());            }
