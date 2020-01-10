@@ -115,6 +115,10 @@ public class GameLogic {
             guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
         }
 
+    public void updateProperties() {
+        squareList.checkPairs();
+    }
+
 
     //method for checking pair in dices
     public boolean getPair() {

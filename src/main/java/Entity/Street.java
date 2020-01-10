@@ -4,7 +4,7 @@ import Controller.GUIController;
 
 public class Street extends Property {
     int housePrice, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, numberOfHouses;
-    boolean paired;
+    private boolean canBuildHouse = false;
 
     String color;
     public Street(int fieldPosition, String fieldName, int price, int rent, int housePrice,
@@ -47,12 +47,27 @@ public class Street extends Property {
         numberOfHouses--;
     }
 
+    public void setCanBuildHouse(boolean canBuildHouse) {
+        this.canBuildHouse = canBuildHouse;
+    }
+
+    public boolean isCanBuildHouse() {
+        return canBuildHouse;
+    }
+
     public int getNumberOfHouses(){
         return numberOfHouses;
     }
 
     public void setPaired(boolean paired){
-        this.paired = paired;
+        // only when paired is changed
+        if (this.isPaired && !paired) {
+            this.rent = this.rent / 2;
+        } else if (!this.isPaired && paired) {
+            this.rent = this.rent * 2;
+        }
+
+        this.isPaired = paired;
     }
     public String getColor(){return color;}
 

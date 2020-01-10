@@ -15,6 +15,10 @@ public abstract class Square {
         return fieldPosition;
     }
 
+    public String getFieldName() {
+        return fieldName;
+    }
+
     public abstract void squareAction(PlayerList playerList, GUIController gui, int diceSum);
 
 }

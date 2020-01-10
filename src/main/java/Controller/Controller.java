@@ -13,6 +13,7 @@ public class Controller {
         while(true) {
             String option = "manage bygninger";
             while (option.equals("manage bygninger")) {
+                gameLogic.updateProperties();
                 option = gameLogic.menu();
             }
             gameLogic.jailLogic(option);
@@ -20,13 +21,13 @@ public class Controller {
             gameLogic.getPair();
             gameLogic.searchForJail();
             if (gameLogic.getPlayer().isInJail()){
-                gameLogic.nextPlayer();
+                //gameLogic.nextPlayer();
             }
             else{
                 gameLogic.movePlayer();
                 gameLogic.landOn();
                 if (!gameLogic.getPlayer().hasExtraTurn()){
-                    gameLogic.nextPlayer();
+                    //gameLogic.nextPlayer();
                 }
             }
         }
