@@ -12,10 +12,13 @@ public class Player {
     private boolean inJail;
     private int turnsInJail;
 
+    public int pairCounter = 0;
+
     private boolean aboutToStartCash;
     private int turnsInARow = 0;
     private boolean extraTurn = false;
     private boolean gotChanceCard;
+    private boolean gotFreeJailCard = false;
 
     public Player(String name) {
         this.name = name;
@@ -38,6 +41,10 @@ public class Player {
 
     public boolean isHasLost() {
         return hasLost;
+    }
+
+    public void setHasLost(boolean hasLost) {
+        this.hasLost = hasLost;
     }
 
     public Balance getBalance() {
@@ -64,6 +71,14 @@ public class Player {
         this.gotChanceCard = gotChanceCard;
     }
 
+    public boolean hasGotFreeJailCard() {
+        return gotFreeJailCard;
+    }
+
+    public void setGotFreeJailCard(boolean gotFreeJailCard) {
+        this.gotFreeJailCard = gotFreeJailCard;
+    }
+
     public int getTurnsInJail() {
         return turnsInJail;
     }
@@ -72,7 +87,7 @@ public class Player {
         this.extraTurn = extraTurn;
     }
 
-    public boolean isExtraTurn() {
+    public boolean hasExtraTurn() {
         return extraTurn;
     }
 
@@ -95,4 +110,24 @@ public class Player {
     public boolean isInJail() {
         return inJail;
     }
+
+    public int getPairCounter(){return pairCounter;}
+
+    public void incrementPairCounter(){pairCounter++;}
+
+    public void resetPairCounter(){pairCounter = 0;}
+
+    public boolean payJailBail (int money){
+        getBalance().pay(money);
+        setInJail(false);
+        resetTurnsInJail();
+        return true;
+    }
+
+    public void useBailCard(){
+        setGotFreeJailCard(false);
+        setInJail(false);
+        resetTurnsInJail();
+    }
+
 }
