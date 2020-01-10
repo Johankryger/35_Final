@@ -21,13 +21,13 @@ public class Controller {
             gameLogic.getPair();
             gameLogic.searchForJail();
             if (gameLogic.getPlayer().isInJail()){
-                //gameLogic.nextPlayer();
+                gameLogic.nextPlayer();
             }
             else{
                 gameLogic.movePlayer();
                 gameLogic.landOn();
                 if (!gameLogic.getPlayer().hasExtraTurn()){
-                    //gameLogic.nextPlayer();
+                    gameLogic.nextPlayer();
                 }
             }
         }
