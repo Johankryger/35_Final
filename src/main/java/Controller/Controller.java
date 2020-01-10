@@ -10,6 +10,7 @@ public class Controller {
     public void start() {
         gameLogic.turn();
         while(true) {
+            gameLogic.checkForLoser();
             gameLogic.startTurn();
             gameLogic.logicRollDice();
             gameLogic.getPair();

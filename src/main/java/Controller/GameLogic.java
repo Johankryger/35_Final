@@ -1,13 +1,11 @@
 package Controller;
 
 import Controller.GUIController;
-import Entity.DiceCup;
-import Entity.Player;
-import Entity.PlayerList;
-import Entity.SquareList;
+import Entity.*;
 
 public class GameLogic {
     private final int JAIL_BAIL_PRICE = 1000;
+    private int scoreBoard=1;
 
     private GUIController guiController = new GUIController();
     private DiceCup diceCup = new DiceCup();
@@ -18,6 +16,7 @@ public class GameLogic {
         //Returns a string array of names
         String[] names = guiController.startMenu();
         playerList.addPlayers(names, names.length);
+        scoreBoard = playerList.getAllPlayers().length;
     }
 
     public Player getPlayer(){
@@ -118,14 +117,33 @@ public class GameLogic {
     }
 
     // Throwing dice process
-    public void logicRollDice(){
-        Player player = playerList.getPlayer();
-        guiController.button(player.getName() + "'s tur.", "Kast terning");
-        diceCup.rollDice();
-        guiController.showDice(diceCup.getFaceValueArray());
+    public void logicRollDice() {
+        if (!playerList.getPlayer().isHasLost()) {
+            Player player = playerList.getPlayer();
+            guiController.button(player.getName() + "'s tur.", "Kast terning");
+            diceCup.rollDice();
+            guiController.showDice(diceCup.getFaceValueArray());
+        }
+        else{
+            playerList.nextPlayer();
+        }
     }
 
     public void nextPlayer(){
         playerList.nextPlayer();
+    }
+
+    public void checkForLoser() {
+        Player[] playerArray = playerList.getAllPlayers();
+        for (int i = 0; i < playerArray.length; i++) {
+            Player playerName = playerArray[i];
+            if (playerName.getBalance().getAmount() < 0 && !playerName.isHasLost()) {
+                guiController.removeLoser(playerName.getName(), playerName.getFieldPos());
+                playerList.getPlayer().setFinalScore(scoreBoard--);
+                playerList.getPlayer().setHasLost(true);
+                playerList.getPlayer().setInJail(false);
+                squareList.setBankOwner(playerName.getName());
+            }
+        }
     }
 }

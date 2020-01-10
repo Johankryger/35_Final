@@ -191,4 +191,22 @@ public class SquareList {
         }
         return mortgagedProperties;
     }
+
+    public void setBankOwner(String loserName){
+        for (Street street : streets) {
+            if (street.getOwner().equals(loserName)) {
+                street.setOwner("bank");
+            }
+        }
+        for (Brewery brewery : breweries) {
+            if (brewery.getOwner().equals(loserName)) {
+                brewery.setOwner("bank");
+            }
+        }
+        for (Ship ships : ships) {
+            if (ships.getOwner().equals(loserName)) {
+                ships.setOwner("bank");
+            }
+        }
+    }
 }

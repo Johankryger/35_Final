@@ -221,6 +221,13 @@ public class GUIController {
         return buttonPressed;
     }
 
-
-
+    public void removeLoser(String name, int position){
+        GUI_Player choosenPlayer = null;
+        for (GUI_Player p: gui_players) {
+            if (p.getName().equals(name)){
+                choosenPlayer = p;
+            }
+        }
+        fields[position].setCar(choosenPlayer, false);
+    }
 }
