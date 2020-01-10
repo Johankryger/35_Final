@@ -37,9 +37,11 @@ public class PropertyController {
                     break;
                 case "Mortgage":
                     String mortgageOption = guiController.scrollList("Choose property", makeMortgageArray(playerList.getPlayer().getName(),squareList));
+                    manageMenu(guiController,playerList,squareList);
                     break;
                 case "Unmortgage":
                     String unMortgageOption = guiController.scrollList("Choose property", unMortgageArray(playerList.getPlayer().getName(),squareList));
+                    manageMenu(guiController,playerList,squareList);
                     break;
                 case "Buy house":
 
