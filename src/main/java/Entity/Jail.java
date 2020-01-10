@@ -12,7 +12,7 @@ public class Jail extends Square {
     public void squareAction(PlayerList playerList, GUIController gui, int diceSum) {
         int startPos = playerList.getPlayer().getFieldPos();
         playerList.getPlayer().setFieldPos(10);
-        gui.movePlayerInJail(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount(),startPos, 10);
+        gui.movePlayerInJail(playerList.getPlayer().getName(),startPos);
         playerList.getPlayer().setInJail(true);
     }
 }

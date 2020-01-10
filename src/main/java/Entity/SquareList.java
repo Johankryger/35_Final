@@ -14,7 +14,7 @@ public class SquareList {
     public SquareList() {
         this.streets = new Street[]{
                 new Street(1, "Rødovrevej", 1200, 50, 1000, 250, 750, 2250, 4000, 6000,"Blue"),
-                new Street(4, "Hvidovrevej", 1200, 50, 1000, 250, 750, 2250, 4000, 6000, "Blue"),
+                new Street(3, "Hvidovrevej", 1200, 50, 1000, 250, 750, 2250, 4000, 6000, "Blue"),
                 new Street(6,"Roskildevej", 2000,100,1000,600,1800,5400,8000,11000, "Orange"),
                 new Street(8,"Valby langgade", 2000,100,1000,600,1800,5400,8000,11000,"Orange"),
                 new Street(9,"Allégade", 2400,150,1000,800,2000,6000,9000,12000, "Orange"),

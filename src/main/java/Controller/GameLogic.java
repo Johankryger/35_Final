@@ -64,7 +64,7 @@ public class GameLogic {
             if (player.getPairCounter() == 3) {
                 player.setInJail(true);
                 int startPos = player.getFieldPos();
-                guiController.movePlayerInJail(player.getName(), player.getBalance().getAmount(), startPos, 10);
+                guiController.movePlayerInJail(player.getName(),startPos);
                 player.setFieldPos(10);
                 player.resetPairCounter();
             } else {

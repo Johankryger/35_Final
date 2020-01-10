@@ -21,17 +21,15 @@ public class Ship extends Property{
                 gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
                 setOwner(playerList.getPlayer().getName());
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-            }
-            else {
+            } else {
                 //setAuction(True, fieldPosition);
                 //gui.auction(fieldPosition);
             }
-        }
-        else if (!owner.equals(playerList.getPlayer().getName())){
-            playerList.transfer(rent,playerList.getPlayer().getName(),owner);
+        } else if (!owner.equals(playerList.getPlayer().getName())) {
+            if (!playerList.searchPlayer(owner).isInJail()) {
+                playerList.transfer(rent, playerList.getPlayer().getName(), owner);
+                gui.updateBalance(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount());
+                gui.updateBalance(playerList.searchPlayer(owner).getName(),playerList.searchPlayer(owner).getBalance().getAmount());            }
         }
     }
-
-
-
 }

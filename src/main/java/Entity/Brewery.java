@@ -16,9 +16,12 @@ public class Brewery extends Property {
                 playerList.getPlayer().getBalance().pay(price);
                 gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
             }
-        } else if (!owner.equals(playerList.getPlayer().getName())){
-            playerList.transfer(rent * diceSum,playerList.getPlayer().getName(),owner);
+        } else if (!owner.equals(playerList.getPlayer().getName())) {
+            if (!playerList.searchPlayer(owner).isInJail()) {
+                playerList.transfer(rent * diceSum, playerList.getPlayer().getName(), owner);
+                gui.updateBalance(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount());
+                gui.updateBalance(playerList.searchPlayer(owner).getName(),playerList.searchPlayer(owner).getBalance().getAmount());
+            }
         }
-
     }
 }
