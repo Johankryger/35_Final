@@ -64,7 +64,7 @@ public class GameLogic {
             if (player.getPairCounter() == 3) {
                 player.setInJail(true);
                 int startPos = player.getFieldPos();
-                guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, 10);
+                guiController.movePlayerInJail(player.getName(), player.getBalance().getAmount(), startPos, 10);
                 player.setFieldPos(10);
                 player.resetPairCounter();
             } else {
@@ -92,7 +92,7 @@ public class GameLogic {
     //}
     //gives turn to next player if extraTurn is false
 
-        public void movePlayer(){
+        public void movePlayer() {
             // Movement process
             Player player = playerList.getPlayer();
             int startPos = player.getFieldPos();
@@ -107,6 +107,7 @@ public class GameLogic {
         int[] dicearr = diceCup.getFaceValueArray();
 //        int[] dicearr = {1,1};
         if (!(dicearr[0] == dicearr[1])) {
+            player.extraTurn(false);
             player.resetPairCounter();
             return false;
         }

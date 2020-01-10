@@ -156,6 +156,19 @@ public class GUIController {
 
     }
 
+    public void movePlayerInJail(String name, int balance, int from, int to) {
+        //finds the player with that name
+        GUI_Player choosenPlayer = null;
+        for (GUI_Player p: gui_players) {
+            if (p.getName().equals(name)){
+                choosenPlayer = p;
+            }
+        }
+        //moves player instantly to jail
+        fields[30].setCar(choosenPlayer,false);
+        fields[10].setCar(choosenPlayer,true);
+    }
+
     public void updateBalance(String name, int balance) {
         //finds the player with that name
         GUI_Player choosenPlayer = null;

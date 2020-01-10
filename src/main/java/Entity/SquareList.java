@@ -72,9 +72,8 @@ public class SquareList {
         this.jail = new Jail[]{
                 new Jail(30,"Fængsel")
         };
-        this.squares = new Square[][]{ships, streets, taxes, breweries, chanceFields, parkings};
+        this.squares = new Square[][]{ships, streets, taxes, breweries, chanceFields, parkings,jail};
         this.properties = new Property[][] {ships, streets, breweries};
-
     }
 
 
