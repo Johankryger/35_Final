@@ -13,14 +13,12 @@ public class GameLogic {
     private DiceCup diceCup = new DiceCup();
     private PlayerList playerList = new PlayerList();
     private SquareList squareList = new SquareList();
-    private int pairCounter=0;
-    Player player = playerList.getPlayer();
 
     public void turn() {
         //Returns a string array of names
         String[] names = guiController.startMenu();
         playerList.addPlayers(names, names.length);
-
+        Player player = playerList.getPlayer();
 
         while (true) {
 
@@ -53,9 +51,7 @@ public class GameLogic {
 
 
             // Throwing dice process
-            guiController.button(player.getName() + "'s tur.", "Kast terning");
-            diceCup.rollDice();
-            guiController.showDice(diceCup.getFaceValueArray());
+            logicRollDice();
 
             //Sets extraTurn to true/false depending on getPair method
             player.extraTurn(getPair());
@@ -101,6 +97,7 @@ public class GameLogic {
 
     //method for checking pair in dices
     public boolean getPair() {
+        Player player = playerList.getPlayer();
 //        int[] dicearr = diceCup.getFaceValueArray();
         int[] dicearr = {1,1};
         if (!(dicearr[0] == dicearr[1])) {
@@ -109,5 +106,12 @@ public class GameLogic {
         }
             player.incrementPairCounter();
             return true;
+    }
+
+    public void logicRollDice(){
+        Player player = playerList.getPlayer();
+        guiController.button(player.getName() + "'s tur.", "Kast terning");
+        diceCup.rollDice();
+        guiController.showDice(diceCup.getFaceValueArray());
     }
 }

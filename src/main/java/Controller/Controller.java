@@ -5,7 +5,6 @@ import Entity.PlayerList;
 import Entity.SquareList;
 
 public class Controller {
-    private GUIController guiController = new GUIController();
     private DiceCup diceCup = new DiceCup();
     private PlayerList playerList = new PlayerList();
     private SquareList squareList = new SquareList();
