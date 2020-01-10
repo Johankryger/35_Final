@@ -42,7 +42,14 @@ public class PropertyController {
                     manageMenu(guiController,playerList,squareList);
                     break;
                 case "Buy house":
-
+                    String[] build = squareList.getbuildableStreets(playerList.getPlayer().getName());
+                    String[] buildMenu = new String[build.length+1];
+                    buildMenu[0] = "Go back";
+                    for (int i = 1; i < buildMenu.length; i++) {
+                        buildMenu[i] = build[i-1];
+                    }
+                    String buildHouseOption = guiController.scrollList("Choose property", buildMenu);
+                    manageMenu(guiController,playerList,squareList);
                     break;
                 case "Sell house":
 
