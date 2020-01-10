@@ -26,6 +26,8 @@ public class PropertyController {
         return mortgageMenu;
     }
 
+
+
     public void manageMenu(GUIController guiController, PlayerList playerList, SquareList squareList) {
 
             String option2 = guiController.scrollList("Choose option", "Go back", "Mortgage", "Unmortgage", "Buy house", "Sell house");
