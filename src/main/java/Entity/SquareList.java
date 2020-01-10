@@ -8,6 +8,8 @@ public class SquareList {
     private ChanceField[] chanceFields;
     private Parking[] parkings;
     private Jail[] jail;
+    private Square[][] squares;
+    private Property[][] properties;
 
     public SquareList() {
         this.streets = new Street[]{
@@ -70,143 +72,85 @@ public class SquareList {
         this.jail = new Jail[]{
                 new Jail(30,"Fængsel")
         };
+        this.squares = new Square[][]{ships, streets, taxes, breweries, chanceFields, parkings};
+        this.properties = new Property[][] {ships, streets, breweries};
+
     }
-    public boolean mortgagedeable(int position){
-        String color = "null";
-        boolean canMortgage = false;
-        for (Street s : streets) {
-            if (s.getFieldPosition() == position ){
-                color = s.getColor();
-            }
-        }
-        for (Street s : streets) {
-            if (s.getColor().equals(color) && s.getNumberOfHouses() == 0){
-                canMortgage = true;
-            }
-        }
-        return canMortgage;
-    }
-    public Property[] ownershipArray(String playerName) {
+
+
+    public Property[] ownedProperty(String playerName) {
         int counter = 0;
 
-        for (Street s : streets) {
-            if (s.getOwner().equals(playerName)) {
-                counter++;
+        for (int i = 0; i < properties.length; i++) {
+            for (int j = 0; j < properties[i].length; j++) {
+                if (properties[i][j].getOwner().equals(playerName))
+                    counter++;
             }
         }
-        for (Ship s : ships) {
-            if (s.getOwner().equals(playerName)) {
-                counter++;
-            }
-        }
-        for (Brewery s : breweries) {
-            if (s.getOwner().equals(playerName)) {
+
+        Property[] ownedProperties = new Property[counter];
+        counter = 0;
+
+        for (int i = 0; i < properties.length; i++) {
+            for (int j = 0; j < properties[i].length; j++) {
+                if (properties[i][j].getOwner().equals(playerName))
+                    ownedProperties[counter] = properties[i][j];
                 counter++;
             }
         }
 
-        Property[] properties = new Property[counter];
-        counter = 0;
-        for (Street s : streets) {
-            if (s.getOwner().equals(playerName)) {
-                properties[counter] = s;
-                counter++;
-            }
-        }
-        for (Ship s : ships) {
-            if (s.getOwner().equals(playerName)) {
-                properties[counter] = s;
-                counter++;
-            }
-        }
-        for (Brewery s : breweries) {
-            if (s.getOwner().equals(playerName)) {
-                properties[counter] = s;
-                counter++;
-            }
-        }
-        return properties;
+        return ownedProperties;
     }
 
 
     public String[] canMortgageArray(String name){
-        int counter=0;
+        Property[] properties = ownedProperty(name);
+        int counter2 = 0;
 
-        for (int i = 0; i < streets.length; i++) {
+        for(Property p : properties) {
+            if (p instanceof Street) {
+                for (Street s : streets) {
+                    if (s.getColor().equals(((Street) p).getColor()) && s.getNumberOfHouses() == 0 && !p.getMortgaged()){
+                        counter2++;
+                    }
+                }
+            } else {
+                if(p.getOwner().equals(name) && !p.getMortgaged())
+                    counter2++;
+            }
+        }
+        String[] mortgagedProperties = new String[counter2];
+        counter2 = 0;
 
-            if (streets[i].getOwner().equals(name) && !streets[i].getMortgaged() && mortgagedeable(streets[i].getFieldPosition())){
-                counter++;
-            }
-        }
-        for (int i = 0; i < breweries.length; i++) {
-            if (breweries[i].getOwner().equals(name) && !breweries[i].getMortgaged() ){
-                counter++;
-            }
-        }
-        for (int i = 0; i < ships.length; i++) {
-            if (ships[i].getOwner().equals(name) && !ships[i].getMortgaged()){
-                counter++;
-            }
+        for(Property p : properties) {
+            if (p instanceof Street) {
+                for (Street s : streets) {
+                    if (s.getColor().equals(((Street) p).getColor()) && s.getNumberOfHouses() == 0 && !p.getMortgaged())
+                        mortgagedProperties[counter2] = p.fieldName;
 
+                }
+            } else {
+                if(p.getOwner().equals(name) && !p.getMortgaged())
+                    mortgagedProperties[counter2] = p.fieldName;
+            }
         }
-        String[] ownedProperties = new String[counter];
 
-        counter=0;
-        for (int i = 0; i < streets.length; i++) {
-            if (streets[i].getOwner().equals(name) && !streets[i].getMortgaged() && mortgagedeable(streets[i].getFieldPosition())){
-                ownedProperties[counter] = streets[i].fieldName;
-                counter++;
-            }
-        }
-        for (int i = 0; i < breweries.length; i++) {
-            if (breweries[i].getOwner().equals(name) && !breweries[i].getMortgaged()){
-                ownedProperties[counter] = breweries[i].fieldName;
-                counter++;
-            }
-        }
-        for (int i = 0; i < ships.length; i++) {
-            if (ships[i].getOwner().equals(name) && !ships[i].getMortgaged()) {
-                ownedProperties[counter] = ships[i].fieldName;
-                counter++;
-            }
-        }
-        return ownedProperties;
+        return mortgagedProperties;
     }
 
     public Square getSquare(int fieldNr) {
         Square therightSquare = null;
-        for (Street s : streets) {
-            if (s.fieldPosition == fieldNr)
-                therightSquare = s;
-        }
 
-        for (Ship s : ships){
-            if (s.fieldPosition == fieldNr)
-                therightSquare = s;
-        }
-        for (Brewery b: breweries) {
-            if (b.fieldPosition == fieldNr)
-                therightSquare = b;
-        }
-        for (Tax t : taxes) {
-            if (t.fieldPosition == fieldNr)
-                therightSquare = t;
-        }
-        for (ChanceField c : chanceFields) {
-            if (c.fieldPosition == fieldNr)
-                therightSquare = c;
-        }
-        for (Parking p : parkings) {
-            if (p.fieldPosition == fieldNr)
-                therightSquare = p;
-        }
-        for (Jail j : jail) {
-            if (j.fieldPosition == fieldNr)
-                therightSquare = j;
+        for (int i = 0; i < squares.length; i++) {
+            for (int j = 0; j < squares[i].length; j++) {
+                if (squares[i][j].getFieldPosition() == fieldNr)
+                    therightSquare = squares[i][j];
+            }
         }
 
         return therightSquare;
     }
+
     public void checkForPairsStreet() {
         for (int i = 0; i < 2; i++) {
             if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
@@ -228,8 +172,9 @@ public class SquareList {
             }
         }
     }
+
     public String[] mortgagedProperties(String name) {
-        Property[] properties = ownershipArray(name);
+        Property[] properties = ownedProperty(name);
         int counter = 0;
         for(Property p : properties) {
             if(p.isMortgaged){
