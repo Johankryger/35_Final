@@ -2,15 +2,19 @@ package Controller;
 
 import Controller.GUIController;
 import Entity.DiceCup;
+import Entity.Player;
 import Entity.PlayerList;
 import Entity.SquareList;
 
 public class GameLogic {
+    private final int JAIL_BAIL_PRICE = 1000;
+
     private GUIController guiController = new GUIController();
     private DiceCup diceCup = new DiceCup();
     private PlayerList playerList = new PlayerList();
     private SquareList squareList = new SquareList();
     private int pairCounter=0;
+    Player player = playerList.getPlayer();
 
     public void turn() {
         //Returns a string array of names
@@ -19,81 +23,76 @@ public class GameLogic {
 
 
         while (true) {
-            if (playerList.getPlayer().isInJail() && playerList.getPlayer().isGotFreeJailCard()) {
+
+            if (player.isInJail() && player.hasGotFreeJailCard()) {
 
                 String jailMsg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "Betal 1000kr", "Brug et løsladelseskort", "Prøv lykken og rul!");
                 if (jailMsg.equals("Betal 1000kr")) {
-                    playerList.getPlayer().getBalance().pay(1000);
-                    playerList.getPlayer().setInJail(false);
-                    guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-                    playerList.getPlayer().resetTurnsInJail();
+                    player.payJailBail(JAIL_BAIL_PRICE);
+                    guiController.updateBalance(player.getName(), player.getBalance().getAmount());
+
                 }
 
                 if (jailMsg.equals("Brug et løsladelseskort")) {
-                    playerList.getPlayer().setGotFreeJailCard(false);
-                    playerList.getPlayer().setInJail(false);
-                    playerList.getPlayer().resetTurnsInJail();
+                  player.useBailCard();
                 }
                 else {
-                    playerList.getPlayer().setInJail(true);
+                    player.setInJail(true);
                 }
 
-            } else if (playerList.getPlayer().isInJail()) {
+            } else if (player.isInJail()) {
                 String jailMsg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "Betal 1000kr", "Prøv lykken og rul!");
                 if (jailMsg.equals("Betal 1000kr")) {
-                    playerList.getPlayer().getBalance().pay(1000);
-                    playerList.getPlayer().setInJail(false);
-                    guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-                    playerList.getPlayer().resetTurnsInJail();
+                    player.payJailBail(JAIL_BAIL_PRICE);
+                    guiController.updateBalance(player.getName(), player.getBalance().getAmount());
+
                 } else {
-                    playerList.getPlayer().setInJail(true);
+                    player.setInJail(true);
                 }
             }
 
 
             // Throwing dice process
-            guiController.button(playerList.getPlayer().getName() + "'s tur.", "Kast terning");
+            guiController.button(player.getName() + "'s tur.", "Kast terning");
             diceCup.rollDice();
             guiController.showDice(diceCup.getFaceValueArray());
 
             //Sets extraTurn to true/false depending on getPair method
-            playerList.getPlayer().extraTurn(getPair());
+            player.extraTurn(getPair());
             //sets player in jail if rolled pair 3 times in a row.
-            if (pairCounter == 3) {
-                playerList.getPlayer().setInJail(true);
-                int startPos = playerList.getPlayer().getFieldPos();
-                guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos, 10);
-                playerList.getPlayer().setFieldPos(10);
+            if (player.getPairCounter() == 3) {
+                player.setInJail(true);
+                int startPos = player.getFieldPos();
+                guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, 10);
+                player.setFieldPos(10);
                 playerList.nextPlayer();
-                pairCounter = 0;
+                player.resetPairCounter();
             } else {
-                if (playerList.getPlayer().isInJail() && !getPair()) {
-                    if (playerList.getPlayer().getTurnsInJail() == 2) {
-                        if (playerList.getPlayer().getBalance().getAmount() < 1000) {
-                            playerList.getPlayer().setHasLost(true);
+                if (player.isInJail() && !getPair()) {
+                    if (player.getTurnsInJail() == 2) {
+                        if (player.getBalance().getAmount() < JAIL_BAIL_PRICE) {
+                            player.setHasLost(true);
                         }
-                        playerList.getPlayer().getBalance().pay(1000);
-                        playerList.getPlayer().setInJail(false);
-                        guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-                        playerList.getPlayer().resetTurnsInJail();
+                        player.payJailBail(JAIL_BAIL_PRICE);
+                        guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                     }
-                    playerList.getPlayer().addTurnInJail();
+                    player.addTurnInJail();
                     playerList.nextPlayer();
                 }
 
                 // Movement process
-                int startPos = playerList.getPlayer().getFieldPos();
-                playerList.getPlayer().move(2, true);
-                guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), startPos, playerList.getPlayer().getFieldPos());
+                int startPos = player.getFieldPos();
+                player.move(2, true);
+                guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
 
                 // Land on and squarelist
-                squareList.getSquare(playerList.getPlayer().getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
+                squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
 
-//            if(playerList.getPlayer().hasGotChanceCard()){
+//            if(player.hasGotChanceCard()){
 //                chancelist.drawCard();
                 //}
                 //gives turn to next player if extraTurn is false
-                if (!playerList.getPlayer().isExtraTurn()) {
+                if (!player.hasExtraTurn()) {
                     playerList.nextPlayer();
                 }
             }
@@ -105,10 +104,10 @@ public class GameLogic {
 //        int[] dicearr = diceCup.getFaceValueArray();
         int[] dicearr = {1,1};
         if (!(dicearr[0] == dicearr[1])) {
-            pairCounter = 0;
+            player.resetPairCounter();
             return false;
         }
-            pairCounter++;
+            player.incrementPairCounter();
             return true;
     }
 }
