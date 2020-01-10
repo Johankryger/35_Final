@@ -7,10 +7,15 @@ import Entity.SquareList;
 public class Controller {
     private GameLogic gameLogic = new GameLogic();
 
+
     public void start() {
         gameLogic.turn();
         while(true) {
-            gameLogic.startTurn();
+            String option = "manage bygninger";
+            while (option.equals("manage bygninger")) {
+                option = gameLogic.menu();
+            }
+            gameLogic.jailLogic(option);
             gameLogic.logicRollDice();
             gameLogic.getPair();
             gameLogic.searchForJail();

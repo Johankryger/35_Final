@@ -13,6 +13,7 @@ public class GameLogic {
     private DiceCup diceCup = new DiceCup();
     private PlayerList playerList = new PlayerList();
     private SquareList squareList = new SquareList();
+    private PropertyController propertyController = new PropertyController();
 
     public void turn() {
         //Returns a string array of names
@@ -25,12 +26,27 @@ public class GameLogic {
         return player;
     }
 
+    public String menu() {
+        String msg = "";
+        if (playerList.getPlayer().isInJail() && playerList.getPlayer().hasGotFreeJailCard()) {
+            msg = guiController.button("Hvad vil du foretage dig?","manage bygninger", "Betal 1000kr", "Brug et løsladelseskort", "Prøv lykken og rul!");
+        } else if (playerList.getPlayer().isInJail()) {
+            msg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "manage bygninger", "Betal 1000kr", "Prøv lykken og rul!");
+        } else {
+            msg = guiController.button("det er " + playerList.getPlayer().getName() + "s tur", "manage bygninger", "kast terninger");
+        }
+        if (msg.equals("manage bygninger")) {
+            propertyController.manageMenu(guiController, playerList, squareList);
+        }
+        return msg;
+    }
 
-    public void startTurn() {
+
+    public void jailLogic(String option) {
         Player player = playerList.getPlayer();
+        String jailMsg = option;
         if (player.isInJail() && player.hasGotFreeJailCard()) {
 
-            String jailMsg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "Betal 1000kr", "Brug et løsladelseskort", "Prøv lykken og rul!");
             if (jailMsg.equals("Betal 1000kr")) {
                 player.payJailBail(JAIL_BAIL_PRICE);
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
@@ -44,7 +60,6 @@ public class GameLogic {
             }
 
         } else if (player.isInJail()) {
-            String jailMsg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "Betal 1000kr", "Prøv lykken og rul!");
             if (jailMsg.equals("Betal 1000kr")) {
                 player.payJailBail(JAIL_BAIL_PRICE);
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
@@ -107,6 +122,7 @@ public class GameLogic {
         int[] dicearr = diceCup.getFaceValueArray();
 //        int[] dicearr = {1,1};
         if (!(dicearr[0] == dicearr[1])) {
+            player.extraTurn(false);
             player.resetPairCounter();
             return false;
         }
@@ -118,8 +134,6 @@ public class GameLogic {
 
     // Throwing dice process
     public void logicRollDice(){
-        Player player = playerList.getPlayer();
-        guiController.button(player.getName() + "'s tur.", "Kast terning");
         diceCup.rollDice();
         guiController.showDice(diceCup.getFaceValueArray());
     }
@@ -127,4 +141,7 @@ public class GameLogic {
     public void nextPlayer(){
         playerList.nextPlayer();
     }
+
+
+
 }

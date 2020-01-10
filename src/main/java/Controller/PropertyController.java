@@ -27,13 +27,11 @@ public class PropertyController {
     }
 
     public void manageMenu(GUIController guiController, PlayerList playerList, SquareList squareList) {
-        String option = guiController.button("Choose", "Manage properties", "Roll dice");
-        if (option.equals("Manage properties")) {
+
             String option2 = guiController.scrollList("Choose option", "Go back", "Mortgage", "Unmortgage", "Buy house", "Sell house");
 
             switch (option2){
                 case "Go back":
-                    manageMenu(guiController,playerList,squareList);
                     break;
                 case "Mortgage":
                     String mortgageOption = guiController.scrollList("Choose property", makeMortgageArray(playerList.getPlayer().getName(),squareList));
@@ -51,8 +49,6 @@ public class PropertyController {
                     break;
             }
         }
-
-    }
 
 
 }
