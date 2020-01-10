@@ -77,44 +77,25 @@ public class SquareList {
     public Property[] ownedProperty(String playerName) {
         int counter = 0;
 
-
-        for (Street s : streets) {
-            if (s.getOwner().equals(playerName)) {
-                counter++;
-            }
-        }
-        for (Ship s : ships) {
-            if (s.getOwner().equals(playerName)) {
-                counter++;
-            }
-        }
-        for (Brewery s : breweries) {
-            if (s.getOwner().equals(playerName)) {
-                counter++;
+        for (int i = 0; i < properties.length; i++) {
+            for (int j = 0; j < properties[i].length; j++) {
+                if (properties[i][j].getOwner().equals(playerName))
+                    counter++;
             }
         }
 
-        Property[] properties = new Property[counter];
+        Property[] ownedProperties = new Property[counter];
         counter = 0;
-        for (Street s : streets) {
-            if (s.getOwner().equals(playerName)) {
-                properties[counter] = s;
+
+        for (int i = 0; i < properties.length; i++) {
+            for (int j = 0; j < properties[i].length; j++) {
+                if (properties[i][j].getOwner().equals(playerName))
+                    ownedProperties[counter] = properties[i][j];
                 counter++;
             }
         }
-        for (Ship s : ships) {
-            if (s.getOwner().equals(playerName)) {
-                properties[counter] = s;
-                counter++;
-            }
-        }
-        for (Brewery s : breweries) {
-            if (s.getOwner().equals(playerName)) {
-                properties[counter] = s;
-                counter++;
-            }
-        }
-        return properties;
+
+        return ownedProperties;
     }
 
 
@@ -155,35 +136,17 @@ public class SquareList {
 
     public Square getSquare(int fieldNr) {
         Square therightSquare = null;
-        for (Street s : streets) {
-            if (s.fieldPosition == fieldNr)
-                therightSquare = s;
-        }
 
-        for (Ship s : ships){
-            if (s.fieldPosition == fieldNr)
-                therightSquare = s;
+        for (int i = 0; i < squares.length; i++) {
+            for (int j = 0; j < squares[i].length; j++) {
+                if (squares[i][j].getFieldPosition() == fieldNr)
+                    therightSquare = squares[i][j];
+            }
         }
-        for (Brewery b: breweries) {
-            if (b.fieldPosition == fieldNr)
-                therightSquare = b;
-        }
-        for (Tax t : taxes) {
-            if (t.fieldPosition == fieldNr)
-                therightSquare = t;
-        }
-        for (ChanceField c : chanceFields) {
-            if (c.fieldPosition == fieldNr)
-                therightSquare = c;
-        }
-        for (Parking p : parkings) {
-            if (p.fieldPosition == fieldNr)
-                therightSquare = p;
-        }
-
 
         return therightSquare;
     }
+
     public void checkForPairsStreet() {
         for (int i = 0; i < 2; i++) {
             if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
@@ -205,6 +168,7 @@ public class SquareList {
             }
         }
     }
+
     public String[] mortgagedProperties(String name) {
         Property[] properties = ownedProperty(name);
         int counter = 0;
