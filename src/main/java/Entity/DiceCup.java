@@ -20,8 +20,11 @@ public class DiceCup {
 
     //rollDice method
     public int rollDice() {
-        faceValueArray[0] = firstDie.roll();
-        faceValueArray[1] = secondDie.roll();
+        //faceValueArray[0] = firstDie.roll();
+        //faceValueArray[1] = secondDie.roll();
+
+        faceValueArray[0] = 3;
+        faceValueArray[1] = 3;
 
         faceValueSum = faceValueArray[0] + faceValueArray[1];
         return faceValueSum;
