@@ -7,6 +7,8 @@ public class SquareList {
     private Brewery[] breweries;
     private ChanceField[] chanceFields;
     private Parking[] parkings;
+    private Square[][] squares;
+    private Property[][] properties;
 
     public SquareList() {
         this.streets = new Street[]{
@@ -66,11 +68,15 @@ public class SquareList {
                 new Parking(20, "parking")
         };
 
+        this.squares = new Square[][]{ships, streets, taxes, breweries, chanceFields, parkings};
+        this.properties = new Property[][] {ships, streets, breweries};
+
     }
     
 
     public Property[] ownedProperty(String playerName) {
         int counter = 0;
+
 
         for (Street s : streets) {
             if (s.getOwner().equals(playerName)) {
