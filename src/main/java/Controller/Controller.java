@@ -17,9 +17,7 @@ public class Controller {
                 option = gameLogic.menu();
             }
             gameLogic.jailLogic(option);
-            gameLogic.logicRollDice();
-            gameLogic.getPair();
-            gameLogic.searchForJail();
+            gameLogic.rollDiceLogic();
             if (gameLogic.getPlayer().isInJail()){
                 gameLogic.nextPlayer();
             }

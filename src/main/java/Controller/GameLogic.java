@@ -137,9 +137,45 @@ public class GameLogic {
     }
 
     // Throwing dice process
-    public void logicRollDice(){
+    public void rollDiceLogic(){
+        Player player = playerList.getPlayer();
+
+        // roll dice
         diceCup.rollDice();
-        guiController.showDice(diceCup.getFaceValueArray());
+        int[] dicearr = diceCup.getFaceValueArray();
+        guiController.showDice(dicearr);
+//        int[] dicearr = {1,1};
+        // checks for pairs
+        if (dicearr[0] == dicearr[1]) {
+            player.setInJail(false);
+            player.incrementPairCounter();
+            player.extraTurn(true);
+        } else {
+            player.extraTurn(false);
+            player.resetPairCounter();
+        }
+
+        //sets player in jail if rolled pair 3 times in a row.
+        if (player.getPairCounter() == 3) {
+            player.setInJail(true);
+            int startPos = player.getFieldPos();
+            guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, 10);
+            player.setFieldPos(10);
+            player.resetPairCounter();
+        } else {
+            if (player.isInJail() && !getPair()) {
+                if (player.getTurnsInJail() == 2) {
+                    if (player.getBalance().getAmount() < JAIL_BAIL_PRICE) {
+                        player.setHasLost(true);
+                    }
+                    player.payJailBail(JAIL_BAIL_PRICE);
+                    guiController.updateBalance(player.getName(), player.getBalance().getAmount());
+                }
+                player.addTurnInJail();
+            }
+        }
+
+
     }
 
     public void nextPlayer(){
