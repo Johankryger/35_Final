@@ -23,6 +23,14 @@ public abstract class Property extends Square {
         return rent;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public boolean isPaired() {
+        return isPaired;
+    }
+
     public void setOwner(String name){
         this.owner = name;
     }

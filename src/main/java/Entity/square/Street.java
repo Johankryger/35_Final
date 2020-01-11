@@ -63,6 +63,10 @@ public class Street extends Property {
         return numberOfHouses;
     }
 
+    public int getHousePrice() {
+        return housePrice;
+    }
+
     public void setPaired(boolean paired){
         // only when paired is changed
         if (this.isPaired && !paired) {

@@ -215,28 +215,6 @@ public class SquareList {
         return theRightShip;
     }
 
-    public void checkForPairsStreet() {
-        for (int i = 0; i < 2; i++) {
-            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
-                streets[i].setPaired(true);
-                streets[i + 1].setPaired(true);
-            }
-        }
-        for (int i = 2; i < 20; i++) {
-            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && streets[i].getOwner().equals(streets[i + 2].getOwner()) && !streets[i].getOwner().equals("")) {
-                streets[i].setPaired(true);
-                streets[i + 1].setPaired(true);
-                streets[i + 2].setPaired(true);
-            }
-        }
-        for (int i = 20; i < 22; i++) {
-            if (streets[i].getOwner().equals(streets[i + 1].getOwner()) && !streets[i].getOwner().equals("")) {
-                streets[i].setPaired(true);
-                streets[i + 1].setPaired(true);
-            }
-        }
-    }
-
     public String[] mortgagedProperties(String name) {
         Property[] properties = ownedProperty(name);
         int counter = 0;
@@ -275,6 +253,21 @@ public class SquareList {
         return pairedStreets;
     }
 
+    public String[] getOwnedStreetNames(String playerName) {
+        Property[] properties = ownedProperty(playerName);
+        int counter = 0;
+        for (Property p : properties) {
+            counter++;
+        }
+        String[] pairedStreets = new String[counter];
+        counter = 0;
+        for (Property p : properties) {
+            pairedStreets[counter] = p.getFieldName();
+            counter++;
+        }
+        return pairedStreets;
+    }
+
     public int getAmountOfHouses(String playerName) {
         Street[] pairedStreets = getPairedStreets(playerName);
 
@@ -290,15 +283,22 @@ public class SquareList {
 
     public int getAmountOfHotels(String playerName) {
         Street[] pairedStreets = getPairedStreets(playerName);
-
         int counter = 0;
         for (Street s : pairedStreets){
             if (s.getNumberOfHouses() == 5){
                 counter++;
             }
         }
-
         return counter;
+    }
+
+    public Street searchStreet(String fieldName) {
+        Street choosen = null;
+        for (int i = 0; i < streets.length; i++) {
+            if (streets[i].getFieldName().equals(fieldName))
+                choosen = streets[i];
+        }
+        return choosen;
     }
 
     public String[] getbuildableStreets(String playerName){

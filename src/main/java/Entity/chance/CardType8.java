@@ -19,7 +19,7 @@ public class CardType8 extends ChanceCard {
         guiController.showChanceCard(msg);
         String playerName = playerList.getPlayer().getName();
         int amountOfHouses = squareList.getAmountOfHouses(playerName);
-        int amountOfHotels = squareList.getAmountOfHouses(playerName);
+        int amountOfHotels = squareList.getAmountOfHotels(playerName);
 
         int totalTax = amountOfHouses * houseTax + amountOfHotels * hotelTax;
 
