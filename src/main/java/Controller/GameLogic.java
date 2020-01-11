@@ -71,34 +71,6 @@ public class GameLogic {
 
         //Sets extraTurn to true/false depending on getPair method
     }
-        public void searchForJail() {
-            Player player = playerList.getPlayer();
-            //sets player in jail if rolled pair 3 times in a row.
-            if (player.getPairCounter() == 3) {
-                player.setInJail(true);
-                int startPos = player.getFieldPos();
-                guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, 10);
-                player.setFieldPos(10);
-                player.resetPairCounter();
-            } else {
-                if (player.isInJail() && !getPair()) {
-                    if (player.getTurnsInJail() == 2) {
-                        if (player.getBalance().getAmount() < JAIL_BAIL_PRICE) {
-                            player.setHasLost(true);
-                        }
-                        player.payJailBail(JAIL_BAIL_PRICE);
-                        guiController.updateBalance(player.getName(), player.getBalance().getAmount());
-                    }
-                    player.addTurnInJail();
-                }
-            }
-        }
-
-         public void landOn(){
-             Player player = playerList.getPlayer();
-             // Land on and squarelist
-                squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
-            }
 
     //            if(player.hasGotChanceCard()){
     //                chancelist.drawCard();
