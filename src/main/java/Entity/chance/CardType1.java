@@ -16,5 +16,6 @@ public class CardType1 extends ChanceCard {
     public void chanceAction(PlayerList playerList, SquareList squareList, GUIController guiController) {
         guiController.showChanceCard(msg);
         playerList.getPlayer().getBalance().add(amountAdded);
+        guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
     }
 }

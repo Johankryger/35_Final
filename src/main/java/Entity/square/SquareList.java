@@ -274,6 +274,33 @@ public class SquareList {
         }
         return pairedStreets;
     }
+
+    public int getAmountOfHouses(String playerName) {
+        Street[] pairedStreets = getPairedStreets(playerName);
+
+        int counter = 0;
+        for (Street s : pairedStreets){
+            if (s.getNumberOfHouses() < 5){
+                counter += s.getNumberOfHouses();
+            }
+        }
+
+        return counter;
+    }
+
+    public int getAmountOfHotels(String playerName) {
+        Street[] pairedStreets = getPairedStreets(playerName);
+
+        int counter = 0;
+        for (Street s : pairedStreets){
+            if (s.getNumberOfHouses() == 5){
+                counter++;
+            }
+        }
+
+        return counter;
+    }
+
     public String[] getbuildableStreets(String playerName){
         Street[] pairedStreets = getPairedStreets(playerName);
 
