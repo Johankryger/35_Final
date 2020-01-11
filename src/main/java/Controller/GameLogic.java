@@ -77,7 +77,7 @@ public class GameLogic {
     //}
     //gives turn to next player if extraTurn is false
 
-        public void movePlayer(){
+    public void movePlayer(){
             // Movement process
             Player player = playerList.getPlayer();
             int startPos = player.getFieldPos();
@@ -91,7 +91,7 @@ public class GameLogic {
                 player.setGotChanceCard(false);
             }
 
-        }
+    }
 
     public void updateProperties() {
         squareList.checkPairs();
@@ -125,7 +125,7 @@ public class GameLogic {
 //        int[] dicearr = {1,1};
         // checks for pairs
         if (dicearr[0] == dicearr[1]) {
-            player.setInJail(false);
+            player.setInJail(false); // in case you are in jail, you will get out if you get a pair
             player.incrementPairCounter();
             player.extraTurn(true);
         } else {

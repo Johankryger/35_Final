@@ -16,7 +16,9 @@ public class Brewery extends Property {
             String option = gui.button("Want to buy " + fieldName + "?", "Buy", "Auction");
             if (option.equals("Buy")) {
                 playerList.getPlayer().getBalance().pay(price);
+                gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
                 gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
+                owner = playerList.getPlayer().getName();
             }
         } else if (!owner.equals(playerList.getPlayer().getName())){
             gui.button("You pay " + rent * diceSum + " to " + owner, "Okay");
