@@ -257,13 +257,16 @@ public class SquareList {
         Property[] properties = ownedProperty(playerName);
         int counter = 0;
         for (Property p : properties) {
-            counter++;
+            if (p.getOwner().equals(playerName))
+                counter++;
         }
         String[] pairedStreets = new String[counter];
         counter = 0;
         for (Property p : properties) {
-            pairedStreets[counter] = p.getFieldName();
-            counter++;
+            if (p.getOwner().equals(playerName)) {
+                pairedStreets[counter] = p.getFieldName();
+                counter++;
+            }
         }
         return pairedStreets;
     }
