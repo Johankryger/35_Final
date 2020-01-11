@@ -19,7 +19,6 @@ public class Controller {
             }
             else{
                 gameLogic.movePlayer();
-                gameLogic.landOn();
                 if (!gameLogic.getPlayer().hasExtraTurn()){
                     gameLogic.nextPlayer();
                 }

@@ -111,6 +111,13 @@ public class GameLogic {
             int startPos = player.getFieldPos();
             player.move(diceCup.getFaceValueSum(), true);
             guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
+
+            // Land on and squarelist
+            squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
+            if (player.hasGotChanceCard()) {
+                chanceList.pickCard(playerList, squareList, guiController);
+            }
+
         }
 
     public void updateProperties() {
