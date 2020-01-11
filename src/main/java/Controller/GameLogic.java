@@ -50,22 +50,19 @@ public class GameLogic {
             if (jailMsg.equals("Betal 1000kr")) {
                 player.payJailBail(JAIL_BAIL_PRICE);
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
-
+                player.setInJail(false);
             }
 
             if (jailMsg.equals("Brug et løsladelseskort")) {
                 player.useBailCard();
-            } else {
-                player.setInJail(true);
+                player.setInJail(false);
             }
 
         } else if (player.isInJail()) {
             if (jailMsg.equals("Betal 1000kr")) {
                 player.payJailBail(JAIL_BAIL_PRICE);
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
-
-            } else {
-                player.setInJail(true);
+                player.setInJail(false);
             }
         }
 
