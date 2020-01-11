@@ -1,4 +1,4 @@
-package Entity;
+package Entity.square;
 
 public class Balance {
     private int amount = 30000;

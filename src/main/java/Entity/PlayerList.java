@@ -20,6 +20,14 @@ public class PlayerList {
         return players;
     }
 
+    public String[] getPlayerNames() {
+        String[] names = new String[players.length];
+        for (int i = 0; i < players.length; i++) {
+            names[i] = players[i].getName();
+        }
+        return names;
+    }
+
     public Player getPlayer() {
         return players[index];
     }

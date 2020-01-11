@@ -1,4 +1,4 @@
-package Entity;
+package Entity.square;
 
 public class SquareList {
     private Street[] streets;
@@ -201,6 +201,17 @@ public class SquareList {
         }
 
         return therightSquare;
+    }
+
+    public Ship getShip(int fieldNr) {
+        Ship theRightShip = null;
+
+        for (Ship s : ships) {
+            if (s.getFieldPosition() == fieldNr)
+                theRightShip = s;
+        }
+
+        return theRightShip;
     }
 
     public void checkForPairsStreet() {

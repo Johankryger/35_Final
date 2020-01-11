@@ -1,6 +1,7 @@
-package Entity;
+package Entity.square;
 
 import Controller.GUIController;
+import Entity.PlayerList;
 
 public class Ship extends Property{
     int twoShipCoRent, threeShipCoRent, fourShipCoRent;
@@ -31,6 +32,8 @@ public class Ship extends Property{
             playerList.transfer(rent,playerList.getPlayer().getName(),owner);
         }
     }
+
+
 
     public void setShipCount(int ships) {
         switch (ships) {

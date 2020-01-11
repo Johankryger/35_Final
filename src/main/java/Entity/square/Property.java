@@ -1,4 +1,4 @@
-package Entity;
+package Entity.square;
 
 public abstract class Property extends Square {
     protected int price;
@@ -17,6 +17,10 @@ public abstract class Property extends Square {
     }
     public boolean getMortgaged(){
         return isMortgaged;
+    }
+
+    public int getRent() {
+        return rent;
     }
 
     public void setOwner(String name){

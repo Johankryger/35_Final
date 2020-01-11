@@ -1,6 +1,7 @@
-package Entity;
+package Entity.square;
 
 import Controller.GUIController;
+import Entity.PlayerList;
 
 public abstract class Square {
     protected int fieldPosition;

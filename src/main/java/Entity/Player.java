@@ -1,6 +1,6 @@
 package Entity;
 
-import Entity.Balance;
+import Entity.square.Balance;
 
 public class Player {
     private String name;

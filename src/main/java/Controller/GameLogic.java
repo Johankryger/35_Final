@@ -1,10 +1,10 @@
 package Controller;
 
-import Controller.GUIController;
 import Entity.DiceCup;
 import Entity.Player;
 import Entity.PlayerList;
-import Entity.SquareList;
+import Entity.chance.ChanceList;
+import Entity.square.SquareList;
 
 public class GameLogic {
     private final int JAIL_BAIL_PRICE = 1000;
@@ -14,6 +14,7 @@ public class GameLogic {
     private PlayerList playerList = new PlayerList();
     private SquareList squareList = new SquareList();
     private PropertyController propertyController = new PropertyController();
+    private ChanceList chanceList = new ChanceList();
 
     public void turn() {
         //Returns a string array of names

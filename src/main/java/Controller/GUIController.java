@@ -153,7 +153,39 @@ public class GUIController {
                 fields[i + 1].setCar(choosenPlayer, true);
              }
         }
+    }
 
+    public void movePlayerFast(String name, int from, int to) {
+        //finds the player with that name
+        GUI_Player choosenPlayer = null;
+        for (GUI_Player p: gui_players) {
+            if (p.getName().equals(name)){
+                choosenPlayer = p;
+            }
+        }
+        fields[from].setCar(choosenPlayer, false);
+        fields[to].setCar(choosenPlayer, true);
+    }
+
+    public void moveBackwards(String name, int from, int to) {
+        //finds the player with that name
+        GUI_Player choosenPlayer = null;
+        for (GUI_Player p: gui_players) {
+            if (p.getName().equals(name)){
+                choosenPlayer = p;
+            }
+        }
+        //move player one square forward at a time
+        for (int i = from; i != to; i = ((i - 1) + 40) % 40) {
+            sleep(300);
+            System.out.println(i);
+            fields[i].setCar(choosenPlayer, false);
+            if (i == 0) {
+                fields[39].setCar(choosenPlayer, true);
+            } else {
+                fields[i - 1].setCar(choosenPlayer, true);
+            }
+        }
     }
 
     public void updateBalance(String name, int balance) {
@@ -181,7 +213,9 @@ public class GUIController {
         return gui.getUserSelection(messsage, arrayOptions);
     }
 
-
+    public void showChanceCard(String msg) {
+        gui.displayChanceCard(msg);
+    }
 
     public void buyStreet(String name, int pos){
         // finds player with the name and the players piece color
