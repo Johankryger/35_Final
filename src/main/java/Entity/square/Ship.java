@@ -29,7 +29,10 @@ public class Ship extends Property{
             }
         }
         else if (!owner.equals(playerList.getPlayer().getName())){
+            gui.button("You pay " + rent + " to " + owner, "Okay");
             playerList.transfer(rent,playerList.getPlayer().getName(),owner);
+            gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+            gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
         }
     }
 

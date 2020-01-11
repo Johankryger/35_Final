@@ -93,9 +93,10 @@ public class SquareList {
 
         for (int i = 0; i < properties.length; i++) {
             for (int j = 0; j < properties[i].length; j++) {
-                if (properties[i][j].getOwner().equals(playerName))
+                if (properties[i][j].getOwner().equals(playerName)) {
                     ownedProperties[counter] = properties[i][j];
-                counter++;
+                    counter++;
+                }
             }
         }
 

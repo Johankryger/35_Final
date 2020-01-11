@@ -19,7 +19,10 @@ public class Brewery extends Property {
                 gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
             }
         } else if (!owner.equals(playerList.getPlayer().getName())){
+            gui.button("You pay " + rent * diceSum + " to " + owner, "Okay");
             playerList.transfer(rent * diceSum,playerList.getPlayer().getName(),owner);
+            gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+            gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
         }
 
     }

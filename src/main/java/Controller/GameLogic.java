@@ -116,6 +116,7 @@ public class GameLogic {
             squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
             if (player.hasGotChanceCard()) {
                 chanceList.pickCard(playerList, squareList, guiController);
+                player.setGotChanceCard(false);
             }
 
         }

@@ -39,8 +39,10 @@ public class ChanceList {
     }
 
     public void pickCard(PlayerList playerList, SquareList squareList, GUIController guiController) {
-        chanceCards[cardIndex].chanceAction(playerList, squareList, guiController);
-        cardIndex = cardIndex++ % chanceCards.length;
+        chanceCards[cardDeck[cardIndex] - 1].chanceAction(playerList, squareList, guiController);
+        cardIndex = (cardIndex + 1) % chanceCards.length;
+        guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+        guiController.button("Du har trukket et chancekort", "Okeydokey!");
     }
 
 

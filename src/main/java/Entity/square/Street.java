@@ -36,7 +36,10 @@ public class Street extends Property {
             }
         }
         else if (!owner.equals(playerList.getPlayer().getName())){
-            playerList.transfer(price,playerList.getPlayer().getName(),owner);
+            gui.button("You pay " + rent + " to " + owner, "Okay");
+            playerList.transfer(rent,playerList.getPlayer().getName(),owner);
+            gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+            gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
         }
     }
 
