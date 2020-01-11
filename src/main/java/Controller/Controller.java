@@ -1,7 +1,7 @@
 package Controller;
 
 public class Controller {
-    private GameLogic gameLogic = new GameLogic();
+    private GameController gameLogic = new GameController();
 
 
     public void start() {

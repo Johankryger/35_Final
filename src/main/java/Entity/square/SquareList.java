@@ -257,18 +257,48 @@ public class SquareList {
         Property[] properties = ownedProperty(playerName);
         int counter = 0;
         for (Property p : properties) {
-            if (p.getOwner().equals(playerName))
+            if (p instanceof Street)
                 counter++;
         }
-        String[] pairedStreets = new String[counter];
+        String[] pairedStreets = new String[properties.length];
         counter = 0;
         for (Property p : properties) {
-            if (p.getOwner().equals(playerName)) {
+            if (p instanceof Street) {
                 pairedStreets[counter] = p.getFieldName();
                 counter++;
             }
         }
         return pairedStreets;
+    }
+
+    public String[] getOwnedPropertyNames(String playerName) {
+        Property[] properties = ownedProperty(playerName);
+
+        String[] pairedStreets = new String[properties.length];
+        for (int i = 0; i < properties.length; i++) {
+            pairedStreets[i] = properties[i].getFieldName();
+        }
+        return pairedStreets;
+    }
+
+    public Street searchStreet(String fieldName) {
+        Street choosen = null;
+        for (int i = 0; i < streets.length; i++) {
+            if (streets[i].getFieldName().equals(fieldName))
+                choosen = streets[i];
+        }
+        return choosen;
+    }
+
+    public Property searchProperty(String fieldName) {
+        Property choosen = null;
+        for (int i = 0; i < properties.length; i++) {
+            for (int j = 0; j < properties[i].length; j++) {
+                if (properties[i][j].getFieldName().equals(fieldName))
+                    choosen = properties[i][j];
+            }
+        }
+        return choosen;
     }
 
     public int getAmountOfHouses(String playerName) {
@@ -295,14 +325,7 @@ public class SquareList {
         return counter;
     }
 
-    public Street searchStreet(String fieldName) {
-        Street choosen = null;
-        for (int i = 0; i < streets.length; i++) {
-            if (streets[i].getFieldName().equals(fieldName))
-                choosen = streets[i];
-        }
-        return choosen;
-    }
+
 
     public String[] getbuildableStreets(String playerName){
         Street[] pairedStreets = getPairedStreets(playerName);

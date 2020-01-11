@@ -6,7 +6,7 @@ import Entity.PlayerList;
 import Entity.chance.ChanceList;
 import Entity.square.SquareList;
 
-public class GameLogic {
+public class GameController {
     private final int JAIL_BAIL_PRICE = 1000;
 
     private GUIController guiController = new GUIController();
