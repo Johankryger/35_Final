@@ -1,6 +1,7 @@
 package logic;
 
 import Entity.PlayerList;
+import Entity.square.Property;
 import Entity.square.SquareList;
 
 public class GameLogic {
@@ -57,6 +58,36 @@ public class GameLogic {
             canafford = true;
         }
         return  canafford;
+    }
+
+    public static boolean canMortgage(Property property, SquareList squareList) {
+        boolean canMortgage = true;
+        String fieldName = property.getFieldName();
+
+        // if the property is already mortgaged, the proprty cannot be mortgaged
+        if (property.getMortgaged()) {
+            canMortgage = false;
+        }
+        // if the property is not a street
+        else if (squareList.searchStreet(fieldName) == null) {
+            canMortgage = true;
+        // if the street is not paired
+        } else if (!squareList.searchStreet(fieldName).isPaired()){
+            canMortgage = true;
+        // if the street is paired and all the streets of same color has 0 houses build
+        } else if (property.isPaired() && squareList.searchStreet(fieldName).getNumberOfHouses() == 0) {
+            String color = squareList.searchStreet(fieldName).getColor();
+            String[] ownedStreets = squareList.getOwnedStreetNames(property.getOwner());
+            canMortgage = true;
+            for (int i = 0; i < ownedStreets.length; i++) {
+                if (squareList.searchStreet(ownedStreets[i]).getColor().equals(color) && squareList.searchStreet(ownedStreets[i]).getNumberOfHouses() != 0) {
+                    canMortgage = false;
+                }
+            }
+        }
+
+
+        return canMortgage;
     }
 
 }
