@@ -1,8 +1,10 @@
 package Controller;
 
-public class Controller {
-    private GameController gameLogic = new GameController();
+import message.Message;
 
+public class Controller {
+    private Message message = new Message("Dansk");
+    private GameController gameLogic = new GameController();
 
     public void start() {
         gameLogic.turn();

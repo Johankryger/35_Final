@@ -2,6 +2,7 @@ package Controller;
 
 import gui_fields.*;
 import gui_main.GUI;
+import message.Message;
 
 import java.awt.*;
 
@@ -110,6 +111,8 @@ public class GUIController {
 
 
     public String[] startMenu() {
+        String language = gui.getUserButtonPressed("Choose language", "Dansk", "English");
+        Message.setLanguage(language);
         int amountOfPlayers = gui.getUserInteger("How many players?", 3 ,6);
 
         String[] names = new String[amountOfPlayers];
