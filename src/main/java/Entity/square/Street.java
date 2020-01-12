@@ -26,7 +26,7 @@ public class Street extends Property {
             String option = gui.button("Want to buy " + fieldName + "?", "Buy", "Auction");
             if (option.equals("Buy")) {
                 playerList.getPlayer().getBalance().pay(price);
-                gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
+                gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
                 owner = playerList.getPlayer().getName();
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
             }
@@ -44,11 +44,45 @@ public class Street extends Property {
     }
 
     public void addHouse(){
-        numberOfHouses++;
+        this.numberOfHouses++;
+        switch (numberOfHouses) {
+            case 1:
+                this.rent = oneHouseRent;
+                break;
+            case 2:
+                this.rent = twoHouseRent;
+                break;
+            case 3:
+                this.rent = threeHouseRent;
+                break;
+            case 4:
+                this.rent = fourHouseRent;
+                break;
+            case 5:
+                this.rent = hotelRent;
+                break;
+        }
     }
 
     public void removeHouse(){
         numberOfHouses--;
+        switch (numberOfHouses) {
+            case 0:
+                this.rent = defaultRent;
+                break;
+            case 1:
+                this.rent = oneHouseRent;
+                break;
+            case 2:
+                this.rent = twoHouseRent;
+                break;
+            case 3:
+                this.rent = threeHouseRent;
+                break;
+            case 4:
+                this.rent = fourHouseRent;
+                break;
+        }
     }
 
     public void setCanBuildHouse(boolean canBuildHouse) {

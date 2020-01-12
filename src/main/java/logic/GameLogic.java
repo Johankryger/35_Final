@@ -87,6 +87,8 @@ public class GameLogic {
                     canMortgage = false;
                 }
             }
+        } else if (squareList.searchStreet(fieldName).getNumberOfHouses() > 0) {
+            canMortgage = false;
         }
         return canMortgage;
     }

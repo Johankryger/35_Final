@@ -12,7 +12,7 @@ public class ChanceList {
     private ChanceCard[] chanceCards = {
             new CardType1("De har vundet i Klasse lotteriet. Modtag 500 kr.", 500),
             new CardType1("De har modtaget Deres tandlægeregning. Betal 2000 kr.", -2000),
-            new CardType7("gå i fængsel makker")
+            //new CardType7("gå i fængsel makker")
     };
     private int[] cardDeck = new int[chanceCards.length];
 
@@ -21,7 +21,7 @@ public class ChanceList {
 
         for (int i = 0; i < cardDeck.length; i++) {
             while (true) {
-                int randomNumber = random.nextInt(3) + 1;
+                int randomNumber = random.nextInt(chanceCards.length) + 1;
 
                 boolean newNumber = true;
                 for (int j = 0; j < cardDeck.length; j++) {

@@ -19,7 +19,7 @@ public class Ship extends Property{
             String option = gui.button("Want to buy " + fieldName + "?", "Buy", "Auction");
             if (option.equals("Buy")) {
                 playerList.getPlayer().getBalance().pay(price);
-                gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
+                gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
                 owner = playerList.getPlayer().getName();
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
             }

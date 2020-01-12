@@ -97,7 +97,7 @@ public class GUIController {
     private GUI gui = new GUI(fields);
     private GUI_Player[] gui_players;
     private GUI_Car[] gui_cars = {
-            new GUI_Car(Color.BLACK, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
+            new GUI_Car(Color.magenta, Color.magenta, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
             new GUI_Car(Color.CYAN, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
             new GUI_Car(Color.red, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
             new GUI_Car(Color.yellow, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
@@ -217,7 +217,7 @@ public class GUIController {
         gui.displayChanceCard(msg);
     }
 
-    public void buyStreet(String name, int pos){
+    public void buyProperty(String name, int pos){
         // finds player with the name and the players piece color
         Color carColor = null;
 
@@ -235,6 +235,32 @@ public class GUIController {
             ((GUI_Brewery) fields[pos]).setBorder(carColor);
     }
 
+    public void mortgageProperty(String name, int pos) {
+        // finds player with the name and the players piece color
+        Color carColor = null;
+
+        for(GUI_Player p: gui_players){
+            if(p.getName().equals(name)){
+                carColor = p.getCar().getPrimaryColor();
+            }
+        }
+
+        if (fields[pos] instanceof GUI_Street)
+            ((GUI_Street) fields[pos]).setBorder(carColor, Color.black);
+        if (fields[pos] instanceof GUI_Shipping)
+            ((GUI_Shipping) fields[pos]).setBorder(carColor, Color.black);
+        if (fields[pos] instanceof GUI_Brewery)
+            ((GUI_Brewery) fields[pos]).setBorder(carColor, Color.black);
+    }
+
+    public void setHouses(int houses, int pos) {
+        if (houses == 5) {
+            ((GUI_Street) fields[pos]).setHotel(true);
+        } else {
+            ((GUI_Street) fields[pos]).setHotel(false);
+            ((GUI_Street) fields[pos]).setHouses(houses);
+        }
+    }
 
 
     public String button(String msg, String ... buttons) {

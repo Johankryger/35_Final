@@ -17,7 +17,7 @@ public class Brewery extends Property {
             if (option.equals("Buy")) {
                 playerList.getPlayer().getBalance().pay(price);
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-                gui.buyStreet(playerList.getPlayer().getName(), fieldPosition);
+                gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
                 owner = playerList.getPlayer().getName();
             }
         } else if (!owner.equals(playerList.getPlayer().getName())){
