@@ -14,7 +14,7 @@ public class Jail extends Square {
         gui.button("You've been jailed!", "OK :(");
         int startPos = playerList.getPlayer().getFieldPos();
         playerList.getPlayer().setFieldPos(10);
-        gui.movePlayer(playerList.getPlayer().getName(),playerList.getPlayer().getBalance().getAmount(),startPos, 10);
+        gui.movePlayerFast(playerList.getPlayer().getName(), startPos, 10);
         playerList.getPlayer().setInJail(true);
     }
 }
