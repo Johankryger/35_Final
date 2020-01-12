@@ -301,29 +301,6 @@ public class SquareList {
         return choosen;
     }
 
-    public int getAmountOfHouses(String playerName) {
-        Street[] pairedStreets = getPairedStreets(playerName);
-
-        int counter = 0;
-        for (Street s : pairedStreets){
-            if (s.getNumberOfHouses() < 5){
-                counter += s.getNumberOfHouses();
-            }
-        }
-
-        return counter;
-    }
-
-    public int getAmountOfHotels(String playerName) {
-        Street[] pairedStreets = getPairedStreets(playerName);
-        int counter = 0;
-        for (Street s : pairedStreets){
-            if (s.getNumberOfHouses() == 5){
-                counter++;
-            }
-        }
-        return counter;
-    }
 
 
 
