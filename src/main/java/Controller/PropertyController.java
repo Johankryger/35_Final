@@ -20,8 +20,11 @@ public class PropertyController {
         counter = 1;
 
         for (int i = 0; i < mortgageMenu.length; i++) {
-            if (GameLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList))
+            if (GameLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList)) {
                 mortgageMenu[counter] = ownedProperties[i];
+                counter++;
+            }
+
         }
 
         return mortgageMenu;
@@ -41,8 +44,11 @@ public class PropertyController {
         counter = 1;
 
         for (int i = 0; i < ownedProperties.length; i++) {
-            if (squareList.searchProperty(ownedProperties[i]).getMortgaged())
+            if (squareList.searchProperty(ownedProperties[i]).getMortgaged()) {
                 unmortgageMenu[counter] = ownedProperties[i];
+                counter++;
+            }
+
         }
 
         return unmortgageMenu;
@@ -62,8 +68,10 @@ public class PropertyController {
         counter = 1;
 
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (GameLogic.canBuildHouse(squareList.searchStreet(ownedStreets[i]), squareList))
+            if (GameLogic.canBuildHouse(squareList.searchStreet(ownedStreets[i]), squareList)){
                 buyHouseMenu[counter] = ownedStreets[i];
+                counter++;
+            }
         }
 
         return buyHouseMenu;
@@ -83,8 +91,11 @@ public class PropertyController {
         counter = 1;
 
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (GameLogic.canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList))
+            if (GameLogic.canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList)) {
                 sellHouseMenu[counter] = ownedStreets[i];
+                counter++;
+            }
+
         }
 
         return sellHouseMenu;
@@ -110,6 +121,12 @@ public class PropertyController {
                     break;
                 case "Buy house":
                     String buildHouseOption = guiController.scrollList("Choose property", buyHouseArray(name, squareList));
+                    if (!buildHouseOption.equals("Go back")) {
+                        int housePrice = squareList.searchStreet(buildHouseOption).getHousePrice();
+                        playerList.getPlayer().getBalance().pay(housePrice);
+                        squareList.searchStreet(buildHouseOption).addHouse();
+                        guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
+                    }
                     manageMenu(guiController,playerList,squareList);
                     break;
                 case "Sell house":
