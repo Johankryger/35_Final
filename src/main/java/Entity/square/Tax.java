@@ -13,7 +13,7 @@ public class Tax extends Square {
 
     @Override
     public void squareAction(PlayerList playerList, GUIController gui, int diceSum) {
-        if(fieldPosition==4){
+        if(fieldPosition==4) {
             taxAmount = 4000;
         }
         else {
