@@ -3,6 +3,7 @@ package logic;
 import Entity.PlayerList;
 import Entity.square.Property;
 import Entity.square.SquareList;
+import Entity.square.Street;
 
 public class GameLogic {
 
@@ -67,13 +68,15 @@ public class GameLogic {
         // if the property is already mortgaged, the proprty cannot be mortgaged
         if (property.getMortgaged()) {
             canMortgage = false;
-        }
+
         // if the property is not a street
-        else if (squareList.searchStreet(fieldName) == null) {
+        } else if (squareList.searchStreet(fieldName) == null) {
             canMortgage = true;
+
         // if the street is not paired
-        } else if (!squareList.searchStreet(fieldName).isPaired()){
+        } else if (!squareList.searchStreet(fieldName).isPaired()) {
             canMortgage = true;
+
         // if the street is paired and all the streets of same color has 0 houses build
         } else if (property.isPaired() && squareList.searchStreet(fieldName).getNumberOfHouses() == 0) {
             String color = squareList.searchStreet(fieldName).getColor();
@@ -85,9 +88,27 @@ public class GameLogic {
                 }
             }
         }
-
-
         return canMortgage;
+    }
+
+    public static boolean canBuildHouse(Street street, SquareList squareList) {
+        boolean canBuild = true;
+        String owner = street.getOwner();
+        int numberOfHouses = street.getNumberOfHouses();
+        String color = street.getColor();
+
+        if (!street.isPaired() || numberOfHouses == 5) {
+            canBuild = false;
+        } else {
+            String[] ownedStreets = squareList.getOwnedStreetNames(owner);
+            for (int i = 0; i < ownedStreets.length; i++) {
+                Street theOtherStreet = squareList.searchStreet(ownedStreets[i]);
+                if (theOtherStreet.getColor().equals(color) && numberOfHouses > theOtherStreet.getNumberOfHouses()) {
+                    canBuild = false;
+                }
+            }
+        }
+        return canBuild;
     }
 
 }
