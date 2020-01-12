@@ -14,12 +14,13 @@ public class GameController {
     private PlayerList playerList = new PlayerList();
     private SquareList squareList = new SquareList();
     private PropertyController propertyController = new PropertyController();
-    private ChanceList chanceList = new ChanceList();
+    private ChanceList chanceList;
 
     public void turn() {
         //Returns a string array of names
         String[] names = guiController.startMenu();
         playerList.addPlayers(names, names.length);
+        chanceList = new ChanceList();
     }
 
     public Player getPlayer(){

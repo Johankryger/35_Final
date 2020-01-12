@@ -107,7 +107,16 @@ public class GUIController {
     };
 
 
-
+    public GUI_Player searchGUIPlayer(String name) {
+        //finds the player with that name
+        GUI_Player choosenPlayer = null;
+        for (GUI_Player p: gui_players) {
+            if (p.getName().equals(name)){
+                choosenPlayer = p;
+            }
+        }
+        return choosenPlayer;
+    }
 
 
     public String[] startMenu() {
@@ -135,13 +144,7 @@ public class GUIController {
 
     //makes an animation of player's piece moving
     public void movePlayer(String name, int balance, int from, int to) {
-        //finds the player with that name
-        GUI_Player choosenPlayer = null;
-        for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
-                choosenPlayer = p;
-            }
-        }
+        GUI_Player choosenPlayer = searchGUIPlayer(name);
         //move player one square forward at a time
         for (int i = from; i != to; i = (i + 1) %40) {
             sleep(300);
@@ -159,25 +162,13 @@ public class GUIController {
     }
 
     public void movePlayerFast(String name, int from, int to) {
-        //finds the player with that name
-        GUI_Player choosenPlayer = null;
-        for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
-                choosenPlayer = p;
-            }
-        }
+        GUI_Player choosenPlayer = searchGUIPlayer(name);
         fields[from].setCar(choosenPlayer, false);
         fields[to].setCar(choosenPlayer, true);
     }
 
     public void moveBackwards(String name, int from, int to) {
-        //finds the player with that name
-        GUI_Player choosenPlayer = null;
-        for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
-                choosenPlayer = p;
-            }
-        }
+        GUI_Player choosenPlayer = searchGUIPlayer(name);
         //move player one square forward at a time
         for (int i = from; i != to; i = ((i - 1) + 40) % 40) {
             sleep(300);
@@ -192,14 +183,7 @@ public class GUIController {
     }
 
     public void updateBalance(String name, int balance) {
-        //finds the player with that name
-        GUI_Player choosenPlayer = null;
-        for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
-                choosenPlayer = p;
-            }
-        }
-
+        GUI_Player choosenPlayer = searchGUIPlayer(name);
         choosenPlayer.setBalance(balance);
     }
 
