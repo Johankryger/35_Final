@@ -16,5 +16,6 @@ public class Jail extends Square {
         playerList.getPlayer().setFieldPos(10);
         gui.movePlayerFast(playerList.getPlayer().getName(), startPos, 10);
         playerList.getPlayer().setInJail(true);
+        playerList.getPlayer().extraTurn(false);
     }
 }

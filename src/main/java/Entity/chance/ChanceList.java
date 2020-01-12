@@ -11,9 +11,9 @@ import java.util.Random;
 public class ChanceList {
     private int cardIndex = 0;
     private ChanceCard[] chanceCards = {
-            new CardType1(Message.getMessage("Chancecard", 32), 500),
-            new CardType1("De har modtaget Deres tandlægeregning. Betal 2000 kr.", -2000),
-            //new CardType7("gå i fængsel makker")
+//            new CardType1(Message.getMessage("Chancecard", 32), 500),
+//            new CardType1("De har modtaget Deres tandlægeregning. Betal 2000 kr.", -2000),
+            new CardType7("gå i fængsel makker")
     };
     private int[] cardDeck = new int[chanceCards.length];
 

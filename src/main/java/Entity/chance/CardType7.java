@@ -15,5 +15,6 @@ public class CardType7 extends ChanceCard {
         guiController.movePlayerFast(playerList.getPlayer().getName(), playerList.getPlayer().getFieldPos(), 10);
         playerList.getPlayer().setFieldPos(10);
         playerList.getPlayer().setInJail(true);
+        playerList.getPlayer().extraTurn(false);
     }
 }

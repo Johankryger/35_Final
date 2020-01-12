@@ -15,10 +15,10 @@ public class Die {
     public int roll() {
         Random random = new Random();
         faceValue = random.nextInt(sides)+1;
-        return faceValue;
+        return 1;
     }
 
     public int getFaceValue() {
-        return faceValue;
+        return 1;
     }
 }

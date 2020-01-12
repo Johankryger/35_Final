@@ -21,6 +21,7 @@ public class Controller {
             }
             else{
                 gameLogic.movePlayer();
+                System.out.println(gameLogic.getPlayer().hasExtraTurn());
                 if (!gameLogic.getPlayer().hasExtraTurn()){
                     gameLogic.nextPlayer();
                 }

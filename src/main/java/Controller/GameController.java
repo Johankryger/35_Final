@@ -99,21 +99,21 @@ public class GameController {
     }
 
 
-    //method for checking pair in dices
-    public boolean getPair() {
-        Player player = playerList.getPlayer();
-        int[] dicearr = diceCup.getFaceValueArray();
-//        int[] dicearr = {1,1};
-        if (!(dicearr[0] == dicearr[1])) {
-            player.extraTurn(false);
-            player.resetPairCounter();
-            return false;
-        }
-        player.setInJail(false);
-        player.incrementPairCounter();
-        player.extraTurn(true);
-        return true;
-    }
+//    //method for checking pair in dices
+//    public boolean getPair() {
+//        Player player = playerList.getPlayer();
+//        int[] dicearr = diceCup.getFaceValueArray();
+////        int[] dicearr = {1,1};
+//        if (!(dicearr[0] == dicearr[1])) {
+//            player.extraTurn(false);
+//            player.resetPairCounter();
+//            return false;
+//        }
+//        player.setInJail(false);
+//        player.incrementPairCounter();
+//        player.extraTurn(true);
+//        return true;
+//    }
 
     // Throwing dice process
     public void rollDiceLogic(){
@@ -138,11 +138,11 @@ public class GameController {
         if (player.getPairCounter() == 3) {
             player.setInJail(true);
             int startPos = player.getFieldPos();
-            guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, 10);
+            guiController.movePlayerFast(player.getName(), startPos, 10);
             player.setFieldPos(10);
             player.resetPairCounter();
         } else {
-            if (player.isInJail() && !getPair()) {
+            if (player.isInJail() && !player.hasExtraTurn()) {
                 if (player.getTurnsInJail() == 2) {
                     if (player.getBalance().getAmount() < JAIL_BAIL_PRICE) {
                         player.setHasLost(true);
