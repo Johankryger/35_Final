@@ -19,7 +19,7 @@ public class PropertyController {
         mortgageMenu[0] = "Go back";
         counter = 1;
 
-        for (int i = 0; i < mortgageMenu.length; i++) {
+        for (int i = 0; i < ownedProperties.length; i++) {
             if (GameLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList)) {
                 mortgageMenu[counter] = ownedProperties[i];
                 counter++;
@@ -113,10 +113,28 @@ public class PropertyController {
                     break;
                 case "Mortgage":
                     String mortgageOption = guiController.scrollList("Choose property", makeMortgageArray(name,squareList));
+                    if (!mortgageOption.equals("Go back")) {
+                        squareList.searchProperty(mortgageOption).setMortgaged(true);
+                        int moneyBack = squareList.searchProperty(mortgageOption).getPrice() / 2;
+                        playerList.getPlayer().getBalance().add(moneyBack);
+                        guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
+                    }
                     manageMenu(guiController,playerList,squareList);
                     break;
                 case "Unmortgage":
                     String unMortgageOption = guiController.scrollList("Choose property", unMortgageArray(name,squareList));
+                    if (!unMortgageOption.equals("Go back")) {
+                        squareList.searchProperty(unMortgageOption).setMortgaged(false);
+                        double toPay = squareList.searchProperty(unMortgageOption).getPrice() / 2 * 1.1;
+                        if (toPay % 100 >= 50) {
+                            toPay = toPay - (toPay % 100) + 100;
+                        } else {
+                            toPay = toPay - (toPay % 100);
+                        }
+                        int mortgagePrice = (int) toPay;
+                        playerList.getPlayer().getBalance().pay(mortgagePrice);
+                        guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
+                    }
                     manageMenu(guiController,playerList,squareList);
                     break;
                 case "Buy house":
@@ -131,6 +149,12 @@ public class PropertyController {
                     break;
                 case "Sell house":
                     String sellHouseOption = guiController.scrollList("Choose property", sellHouseArray(name, squareList));
+                    if (!sellHouseOption.equals("Go back")) {
+                        int housePrice = squareList.searchStreet(sellHouseOption).getHousePrice() / 2;
+                        playerList.getPlayer().getBalance().add(housePrice);
+                        squareList.searchStreet(sellHouseOption).removeHouse();
+                        guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
+                    }
                     manageMenu(guiController,playerList,squareList);
                     break;
             }

@@ -3,6 +3,7 @@ package Entity.square;
 public abstract class Property extends Square {
     protected int price;
     protected int rent;
+    protected int defaultRent;
     protected String owner = "bank";
     protected boolean isMortgaged;
     protected boolean isPaired = false;
@@ -11,8 +12,14 @@ public abstract class Property extends Square {
         super(fieldPosition, fieldName);
         this.price = price;
         this.rent = rent;
+        this.defaultRent = rent;
     }
     public void setMortgaged(boolean mortgaged){
+        if (mortgaged && !this.isMortgaged) {
+            this.rent = 0;
+        } else if (!mortgaged && this.isMortgaged) {
+            this.rent = this.defaultRent;
+        }
         this.isMortgaged = mortgaged;
     }
     public boolean getMortgaged(){
