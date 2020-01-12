@@ -20,6 +20,7 @@ public class ChanceList {
     public ChanceList() {
         Random random = new Random();
 
+        // this for-loop generates an unique random number between 1 and chanceCards.length and enters them into the cardDeck array
         for (int i = 0; i < cardDeck.length; i++) {
             while (true) {
                 int randomNumber = random.nextInt(chanceCards.length) + 1;

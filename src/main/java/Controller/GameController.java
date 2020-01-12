@@ -20,7 +20,7 @@ public class GameController {
         //Returns a string array of names
         String[] names = guiController.startMenu();
         playerList.addPlayers(names, names.length);
-        chanceList = new ChanceList();
+        chanceList = new ChanceList(); // chanceList object is made after startMenu() because startMenu() sets the language
     }
 
     public Player getPlayer(){
