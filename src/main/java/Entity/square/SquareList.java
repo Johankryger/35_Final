@@ -104,40 +104,6 @@ public class SquareList {
     }
 
 
-    public String[] canMortgageArray(String name){
-        Property[] properties = ownedProperty(name);
-        int counter2 = 0;
-
-        for(Property p : properties) {
-            if (p instanceof Street) {
-                for (Street s : streets) {
-                    if (s.getColor().equals(((Street) p).getColor()) && s.getNumberOfHouses() == 0 && !p.getMortgaged()){
-                        counter2++;
-                    }
-                }
-            } else {
-                if(p.getOwner().equals(name) && !p.getMortgaged())
-                    counter2++;
-            }
-        }
-        String[] mortgagedProperties = new String[counter2];
-        counter2 = 0;
-
-        for(Property p : properties) {
-            if (p instanceof Street) {
-                for (Street s : streets) {
-                    if (s.getColor().equals(((Street) p).getColor()) && s.getNumberOfHouses() == 0 && !p.getMortgaged())
-                        mortgagedProperties[counter2] = p.getFieldName();
-
-                }
-            } else {
-                if(p.getOwner().equals(name) && !p.getMortgaged())
-                    mortgagedProperties[counter2] = p.getFieldName();
-            }
-        }
-
-        return mortgagedProperties;
-    }
 
 
     public void checkPairs() {
@@ -215,25 +181,6 @@ public class SquareList {
         return theRightShip;
     }
 
-    public String[] mortgagedProperties(String name) {
-        Property[] properties = ownedProperty(name);
-        int counter = 0;
-        for(Property p : properties) {
-            if(p.isMortgaged){
-                counter++;
-            }
-        }
-        String[] mortgagedProperties = new String[counter];
-        counter = 0;
-
-        for (Property p : properties) {
-            if (p.isMortgaged){
-                mortgagedProperties[counter] = p.getFieldName();
-                counter++;
-            }
-        }
-        return mortgagedProperties;
-    }
 
     public Street[] getPairedStreets(String playerName) {
         int counter = 0;
@@ -300,8 +247,6 @@ public class SquareList {
         }
         return choosen;
     }
-
-
 
 
     public String[] getbuildableStreets(String playerName){

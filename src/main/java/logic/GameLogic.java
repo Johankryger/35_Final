@@ -111,4 +111,24 @@ public class GameLogic {
         return canBuild;
     }
 
+    public static boolean canSellHouse(Street street, SquareList squareList) {
+        boolean canSellHouse = true;
+        int numberOfHouses = street.getNumberOfHouses();
+        String streetName = street.getFieldName();
+        String name = street.getOwner();
+        String[] streetsOwned = squareList.getOwnedStreetNames(name);
+        String color = street.getColor();
+
+        if (numberOfHouses == 0) {
+            canSellHouse = false;
+        } else {
+            for (int i = 0; i < streetsOwned.length; i++) {
+                if (squareList.searchStreet(streetName).getColor().equals(color) && numberOfHouses < squareList.searchStreet(streetsOwned[i]).getNumberOfHouses())
+                    canSellHouse = false;
+            }
+        }
+
+        return canSellHouse;
+    }
+
 }
