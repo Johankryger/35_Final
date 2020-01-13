@@ -44,6 +44,17 @@ public class GameController {
         return msg;
     }
 
+    public void checkForLost(int amountToPay) {
+        String[] playerNames = playerList.getPlayerNames();
+        for (int i = 0; i < playerNames.length; i++) {
+            if (playerList.searchPlayer(playerNames[i]).isNeedsToLiquidate()) {
+                propertyController.liquidateMenu(playerList, playerNames[i], squareList, guiController, amountToPay);
+            } else if (playerList.searchPlayer(playerNames[i]).isHasLost()) {
+                //
+            }
+        }
+    }
+
 
     public void jailLogic(String option) {
         Player player = playerList.getPlayer();

@@ -8,6 +8,7 @@ public class Player {
     private boolean hasLost = false;
     private int fieldPos = 0;
     private int liqudationValue;
+    private boolean needsToLiquidate;
 
     private boolean inJail;
     private int turnsInJail;
@@ -45,6 +46,14 @@ public class Player {
 
     public boolean isHasLost() {
         return hasLost;
+    }
+
+    public boolean isNeedsToLiquidate() {
+        return needsToLiquidate;
+    }
+
+    public void setNeedsToLiquidate(boolean needsToLiquidate) {
+        this.needsToLiquidate = needsToLiquidate;
     }
 
     public void setHasLost(boolean hasLost) {
