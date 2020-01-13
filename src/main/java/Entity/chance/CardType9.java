@@ -4,7 +4,7 @@ import Controller.GUIController;
 import Entity.PlayerList;
 import Entity.square.SquareList;
 import logic.GameLogic;
-
+// metode brugt til matador legatet der betaler 40.000 hvis din totale værdi er under 15.000
 public class CardType9 extends ChanceCard {
     public CardType9(String msg) {
         super(msg);
