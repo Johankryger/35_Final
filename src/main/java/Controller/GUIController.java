@@ -134,7 +134,6 @@ public class GUIController {
             gui.addPlayer(gui_players[i]);
             fields[0].setCar(gui_players[i], true);
         }
-
         return names;
     }
 
