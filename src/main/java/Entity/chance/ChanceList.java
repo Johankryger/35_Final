@@ -45,6 +45,14 @@ public class ChanceList {
             new CardType3(Message.getMessage("Chancecard", 13), 2),
             new CardType3(Message.getMessage("Chancecard", 13), 2),
 
+            new CardType4(Message.getMessage("Chancecard", 4)),
+            new CardType4(Message.getMessage("Chancecard", 4)),
+
+            new CardType5(Message.getMessage("Chancecard", 2)),
+            new CardType5(Message.getMessage("Chancecard", 2)),
+
+
+
     };
     private int[] cardDeck = new int[chanceCards.length];
 
