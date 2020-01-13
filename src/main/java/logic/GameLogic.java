@@ -41,7 +41,7 @@ public class GameLogic {
         String[] ownedStreets = squareList.getOwnedStreetNames(playerList.getPlayer().getName());
         String[] ownedProperties = squareList.getOwnedPropertyNames(playerList.getPlayer().getName());
 
-        for (int i = 0; i < ownedStreets.length; i++) {
+        for (int i = 0; i < ownedProperties.length; i++) {
             if (!squareList.searchProperty(ownedProperties[i]).getMortgaged()) {
                 liquidationMoney += squareList.searchProperty(ownedProperties[i]).getPrice() / 2;
             }
@@ -55,7 +55,7 @@ public class GameLogic {
             }
         }
 
-        if (liquidationMoney > amountToPay) {
+        if (liquidationMoney >= amountToPay) {
             canafford = true;
         }
         return  canafford;
