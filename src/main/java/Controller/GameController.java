@@ -1,6 +1,7 @@
 package Controller;
 
 import Entity.DiceCup;
+import Entity.GameLogic;
 import Entity.Player;
 import Entity.PlayerList;
 import Entity.chance.ChanceList;
@@ -16,6 +17,7 @@ public class GameController {
     private SquareList squareList = new SquareList();
     private PropertyController propertyController = new PropertyController();
     private ChanceList chanceList;
+    private GameLogic gameLogic = new GameLogic();
 
     public void turn() {
         //Returns a string array of names

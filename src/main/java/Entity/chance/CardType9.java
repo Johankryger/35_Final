@@ -3,7 +3,6 @@ package Entity.chance;
 import Controller.GUIController;
 import Entity.PlayerList;
 import Entity.square.SquareList;
-import logic.GameLogic;
 
 public class CardType9 extends ChanceCard {
     public CardType9(String msg) {
@@ -14,7 +13,30 @@ public class CardType9 extends ChanceCard {
     public void chanceAction(PlayerList playerList, SquareList squareList, GUIController guiController) {
         guiController.showChanceCard(msg);
 
-        int totalWealth = GameLogic.countTotalValue(playerList, squareList);
+        String[] ownedStreets = squareList.getOwnedStreetNames(playerList.getPlayer().getName());
+        String[] ownedProperties = squareList.getOwnedPropertyNames(playerList.getPlayer().getName());
+
+        int totalPropertyValue = 0;
+        for (int i = 0; i < ownedStreets.length; i++) {
+            if (!squareList.searchProperty(ownedProperties[i]).getMortgaged()) {
+                totalPropertyValue += squareList.searchProperty(ownedProperties[i]).getPrice();
+            } else {
+                totalPropertyValue += squareList.searchProperty(ownedProperties[i]).getPrice() / 2;
+            }
+        }
+
+        int totalBuildingValue = 0;
+        for (int i = 0; i < ownedStreets.length; i++) {
+            if (squareList.searchStreet(ownedStreets[i]).isPaired()) {
+                int numberOfHouses= squareList.searchStreet(ownedStreets[i]).getNumberOfHouses();
+                int housePrice = squareList.searchStreet(ownedStreets[i]).getHousePrice();
+                totalBuildingValue += numberOfHouses * housePrice;
+            }
+        }
+
+        int cash = playerList.getPlayer().getBalance().getAmount();
+
+        int totalWealth = cash + totalPropertyValue + totalBuildingValue;
 
         if (totalWealth <= 15000) {
             playerList.getPlayer().getBalance().add(40000);
