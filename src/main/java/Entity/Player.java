@@ -1,7 +1,5 @@
 package Entity;
 
-import Entity.square.Balance;
-
 public class Player {
     private String name;
     private int ID;

@@ -1,7 +1,6 @@
-package Entity.square;
+package Entity;
 
 import Controller.GUIController;
-import Entity.PlayerList;
 
 public class Street extends Property {
     int housePrice, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, numberOfHouses;

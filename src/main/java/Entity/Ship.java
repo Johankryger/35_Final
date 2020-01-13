@@ -1,7 +1,6 @@
-package Entity.square;
+package Entity;
 
 import Controller.GUIController;
-import Entity.PlayerList;
 
 public class Ship extends Property{
     int twoShipCoRent, threeShipCoRent, fourShipCoRent;

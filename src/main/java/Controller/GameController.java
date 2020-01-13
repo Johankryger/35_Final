@@ -4,7 +4,7 @@ import Entity.DiceCup;
 import Entity.Player;
 import Entity.PlayerList;
 import Entity.chance.ChanceList;
-import Entity.square.SquareList;
+import Entity.SquareList;
 
 public class GameController {
     private final int JAIL_BAIL_PRICE = 1000;

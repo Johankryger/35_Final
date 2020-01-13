@@ -1,8 +1,6 @@
-package Entity.square;
+package Entity;
 
 import Controller.GUIController;
-import Entity.PlayerList;
-import logic.GameLogic;
 
 public class Tax extends Square {
     private int taxAmount=0;

@@ -1,9 +1,9 @@
 package logic;
 
 import Entity.PlayerList;
-import Entity.square.Property;
-import Entity.square.SquareList;
-import Entity.square.Street;
+import Entity.Property;
+import Entity.SquareList;
+import Entity.Street;
 
 public class GameLogic {
 

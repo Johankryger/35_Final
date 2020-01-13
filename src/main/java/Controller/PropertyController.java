@@ -1,7 +1,7 @@
 package Controller;
 
 import Entity.PlayerList;
-import Entity.square.SquareList;
+import Entity.SquareList;
 import logic.GameLogic;
 
 public class PropertyController {

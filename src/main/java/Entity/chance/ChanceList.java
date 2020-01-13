@@ -2,8 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.square.SquareList;
-import gui_main.GUI;
+import Entity.SquareList;
 import message.Message;
 
 import java.util.Random;
