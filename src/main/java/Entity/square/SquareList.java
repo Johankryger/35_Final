@@ -1,4 +1,4 @@
-package Entity;
+package Entity.square;
 
 public class SquareList {
     private Street[] streets;

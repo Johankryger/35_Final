@@ -1,4 +1,4 @@
-package Entity;
+package Entity.square;
 
 public abstract class Property extends Square {
     protected int price;

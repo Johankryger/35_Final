@@ -1,8 +1,9 @@
-package Entity;
+package Entity.square;
 
 import Controller.GUIController;
+import Entity.PlayerList;
 
-public class ChanceField extends Square{
+public class ChanceField extends Square {
 
 
     public ChanceField(int fieldPosition, String fieldName) {

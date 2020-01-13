@@ -2,7 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.SquareList;
+import Entity.square.SquareList;
 
 public class CardType6 extends ChanceCard {
     private int amount;
