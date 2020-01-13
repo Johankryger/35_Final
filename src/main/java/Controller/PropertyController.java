@@ -1,10 +1,11 @@
 package Controller;
 
 import Entity.PlayerList;
+import Entity.PropertyLogic;
 import Entity.square.SquareList;
-import logic.GameLogic;
 
 public class PropertyController {
+    private PropertyLogic propertyLogic = new PropertyLogic();
 
     public String[] makeMortgageArray(String playerName, SquareList squareList){
         String[] ownedProperties = squareList.getOwnedPropertyNames(playerName);
@@ -12,7 +13,7 @@ public class PropertyController {
         mortgageMenu[0] = "Go back";
 
         for (int i = 0; i < ownedProperties.length; i++) {
-            if (GameLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList))
+            if (propertyLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList))
                 mortgageMenu = addToArray(mortgageMenu,ownedProperties[i]);
         }
         return mortgageMenu;
@@ -37,7 +38,7 @@ public class PropertyController {
         buyHouseMenu[0] = "Go back";
 
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (GameLogic.canBuildHouse(squareList.searchStreet(ownedStreets[i]), squareList)){
+            if (propertyLogic.canBuildHouse(squareList.searchStreet(ownedStreets[i]), squareList)){
                 buyHouseMenu = addToArray(buyHouseMenu,ownedStreets[i]);
             }
         }
@@ -50,7 +51,7 @@ public class PropertyController {
         sellHouseMenu[0] = "Go back";
 
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (GameLogic.canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList)) {
+            if (propertyLogic.canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList)) {
                 sellHouseMenu = addToArray(sellHouseMenu,ownedStreets[i]);
             }
         }
