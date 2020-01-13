@@ -122,19 +122,39 @@ public class GUIController {
     public String[] startMenu() {
         String language = gui.getUserButtonPressed("Choose language", "Dansk", "English");
         Message.setLanguage(language);
-        int amountOfPlayers = gui.getUserInteger("How many players?", 3 ,6);
+        int balance = 30000;
+        int amountOfPlayers = gui.getUserInteger(Message.getMessage("start menu",1), 3 ,6);
 
+        //makes it invalid to select less or more than 3 or 6 players
+        while (true){
+            if (amountOfPlayers > 2 && amountOfPlayers < 7){
+                break;
+            }
+            else{
+                gui.showMessage(Message.getMessage("Fejlbesked",1));
+                amountOfPlayers = gui.getUserInteger(Message.getMessage("start menu",1 ),3,6);
+            }
+        }
+        //requests names and stores them in an array which is returned at end of method
         String[] names = new String[amountOfPlayers];
-        gui_players = new GUI_Player[amountOfPlayers];
-
         for (int i = 0; i < amountOfPlayers; i++) {
-            names[i] = gui.getUserString("Choose name: ");
-            // generating piece for each player on gui board
-            gui_players[i] = new GUI_Player(names[i], 30000, gui_cars[i]);
+            names[i] = gui.getUserString(Message.getMessage("start menu",2) + (i+1) + Message.getMessage("start menu",3));
+        }
+
+        //checks for empty name
+        for (int i = 0; i < names.length; i++) {
+            if (names[i].equals("")){
+                names[i] = "Player " + (i+1);
+            }
+        }
+
+        gui_players = new GUI_Player[amountOfPlayers];
+        // generating piece for each player on gui board
+        for (int i = 0; i < amountOfPlayers; i++) {
+            gui_players[i] = new GUI_Player(names[i], balance, gui_cars[i]);
             gui.addPlayer(gui_players[i]);
             fields[0].setCar(gui_players[i], true);
         }
-
         return names;
     }
 
