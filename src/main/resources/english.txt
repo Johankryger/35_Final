@@ -36,3 +36,11 @@ It's you birthday. Receive from each other player Kr. 200.
 You are having a family party and you receive a contribution from each other play of Kr. 500.
 You put up the money for a potluck. Vuriously everybody paid immediately. Receive Kr. 500 from each other player.
 You receive the "Monopoly-Scholarship for the needy" worth Kr. 40.000. Worthy of need means that your fotune Eg. Held cash + Deeds + Building, do not exeed Kr. 15.000.
+
+start menu
+How many players? (Between 3 and 6)
+Player
+, choose name please:
+
+Fejlbesked
+Invalid amount of players
