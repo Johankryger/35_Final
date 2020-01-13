@@ -8,6 +8,7 @@ import Entity.SquareList;
 
 public class GameController {
     private final int JAIL_BAIL_PRICE = 1000;
+    private int scoreBoard=1;
 
     private GUIController guiController = new GUIController();
     private DiceCup diceCup = new DiceCup();
@@ -153,14 +154,23 @@ public class GameController {
                 player.addTurnInJail();
             }
         }
-
-
     }
 
     public void nextPlayer(){
         playerList.nextPlayer();
     }
 
-
-
+    public void checkForLoser() {
+        Player[] playerArray = playerList.getAllPlayers();
+        for (int i = 0; i < playerArray.length; i++) {
+            Player playerName = playerArray[i];
+            if (playerName.getBalance().getAmount() < 0 && !playerName.isHasLost()) {
+                guiController.removeLoser(playerName.getName(), playerName.getFieldPos());
+                playerList.getPlayer().setFinalScore(scoreBoard--);
+                playerList.getPlayer().setHasLost(true);
+                playerList.getPlayer().setInJail(false);
+                squareList.setBankOwner(playerName.getName());
+            }
+        }
+    }
 }
