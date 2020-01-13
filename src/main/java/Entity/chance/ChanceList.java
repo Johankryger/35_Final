@@ -10,8 +10,24 @@ import java.util.Random;
 public class ChanceList {
     private int cardIndex = 0;
     private ChanceCard[] chanceCards = {
+            new CardType1(Message.getMessage("Chancecard", 15), -200),
+            new CardType1(Message.getMessage("Chancecard", 16), -300),
+            new CardType1(Message.getMessage("Chancecard", 17), -3000),
+            new CardType1(Message.getMessage("Chancecard", 18), -1000),
+            new CardType1(Message.getMessage("Chancecard", 19), -200),
+            new CardType1(Message.getMessage("Chancecard", 20), -1000),
+            new CardType1(Message.getMessage("Chancecard", 21), -1000),
+            new CardType1(Message.getMessage("Chancecard", 22), -2000),
+            new CardType1(Message.getMessage("Chancecard", 25), 1000),
+            new CardType1(Message.getMessage("Chancecard", 26), 1000),
+            new CardType1(Message.getMessage("Chancecard", 27), 200),
+            new CardType1(Message.getMessage("Chancecard", 28), 1000),
+            new CardType1(Message.getMessage("Chancecard", 29), 1000),
+            new CardType1(Message.getMessage("Chancecard", 30), 1000),
+            new CardType1(Message.getMessage("Chancecard", 31), 3000),
             new CardType1(Message.getMessage("Chancecard", 32), 500),
-            new CardType1("De har modtaget Deres tandlægeregning. Betal 2000 kr.", -2000),
+            new CardType1(Message.getMessage("Chancecard", 33), 1000),
+
         //    new CardType7("gå i fængsel makker")
     };
     private int[] cardDeck = new int[chanceCards.length];
