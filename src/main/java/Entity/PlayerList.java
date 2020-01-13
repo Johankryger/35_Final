@@ -52,4 +52,8 @@ public class PlayerList {
         searchPlayer(from).getBalance().pay(amount);
         searchPlayer(to).getBalance().add(amount);
     }
+
+    public void setIndex(int index) {this.index = index;}
+
+    public int getIndex() {return index;}
 }
