@@ -2,7 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.SquareList;
+import Entity.square.SquareList;
 // metode for at rykke til et bestemt felt og modtage penge hvis start er krydset
 public class CardType2 extends ChanceCard {
     private int position;
