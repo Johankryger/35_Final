@@ -19,13 +19,14 @@ public class Brewery extends Property {
                 gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
                 owner = playerList.getPlayer().getName();
             }
-        } else if (!owner.equals(playerList.getPlayer().getName())){
-            gui.button("You pay " + rent * diceSum + " to " + owner, "Okay");
-            playerList.transfer(rent * diceSum,playerList.getPlayer().getName(),owner);
-            gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-            gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
+        } else if (!owner.equals(playerList.getPlayer().getName())) {
+            if (!playerList.searchPlayer(owner).isInJail()) {
+                gui.button("You pay " + rent * diceSum + " to " + owner, "Okay");
+                playerList.transfer(rent * diceSum,playerList.getPlayer().getName(),owner);
+                gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+                gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
+            }
         }
-
     }
 
     public void setPaired(boolean isPaired) {

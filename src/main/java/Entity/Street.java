@@ -7,6 +7,7 @@ public class Street extends Property {
     private boolean canBuildHouse = false;
 
     String color;
+
     public Street(int fieldPosition, String fieldName, int price, int rent, int housePrice,
                   int oneHouseRent, int twoHouseRent, int threeHouseRent, int fourHouseRent, int hotelRent, String color) {
         super(fieldPosition, fieldName, price, rent);
@@ -28,17 +29,17 @@ public class Street extends Property {
                 gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
                 owner = playerList.getPlayer().getName();
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-            }
-            else {
+            } else {
                 //setAuction(True, fieldPosition);
                 //gui.auction(fieldPosition);
             }
-        }
-        else if (!owner.equals(playerList.getPlayer().getName())){
-            gui.button("You pay " + rent + " to " + owner, "Okay");
-            playerList.transfer(rent,playerList.getPlayer().getName(),owner);
-            gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-            gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
+        } else if (!owner.equals(playerList.getPlayer().getName())) {
+            if (!playerList.searchPlayer(owner).isInJail()) {
+                gui.button("You pay " + rent + " to " + owner, "Okay");
+                playerList.transfer(rent, playerList.getPlayer().getName(), owner);
+                gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+                gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
+            }
         }
     }
 
