@@ -5,9 +5,10 @@ import Entity.PlayerList;
 import Entity.SquareList;
 
 public class CardType3 extends ChanceCard {
-
-    public CardType3(String msg) {
+    private int multiplier;
+    public CardType3(String msg, int multiplier) {
         super(msg);
+        this.multiplier = multiplier;
     }
 
     @Override
@@ -38,8 +39,8 @@ public class CardType3 extends ChanceCard {
         String ownedBy = squareList.getShip(afterPos).getOwner();
 
         if (ownedBy != "bank" && ownedBy != playerList.getPlayer().getName()) {
-            playerList.transfer(squareList.getShip(afterPos).getRent() * 2, playerList.getPlayer().getName(), ownedBy);
-            guiController.button("You pay " + ownedBy + " " + squareList.getShip(afterPos).getRent() * 2 + " kr.", "Ok :(");
+            playerList.transfer(squareList.getShip(afterPos).getRent() * multiplier, playerList.getPlayer().getName(), ownedBy);
+            guiController.button("You pay " + ownedBy + " " + squareList.getShip(afterPos).getRent() * multiplier + " kr.", "Ok :(");
         } else {
             squareList.getSquare(afterPos).squareAction(playerList, guiController, 1337);
         }
