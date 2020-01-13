@@ -1,5 +1,7 @@
 package Entity.square;
 
+import staticclasses.ArrayMethods;
+
 public class SquareList {
     private Street[] streets;
     private Ship[] ships;
@@ -106,54 +108,45 @@ public class SquareList {
 
 
     public void checkPairs() {
-        for (int i = 0; i < properties.length; i++) {
-            for (int j = 0; j < properties[i].length; j++) {
-                String owner = properties[i][j].getOwner();
-                if (!owner.equals("bank") && !properties[i][j].isMortgaged) {
-                    if (properties[i][j] instanceof Street) {
-                        String color = ((Street) properties[i][j]).getColor();
-
-                        boolean isPaired = true;
-                        for (Street s : streets) {
-                            if (s.getColor().equals(color) && !s.getOwner().equals(owner) && !s.isMortgaged) {
-                                isPaired = false;
-                            }
-                        }
-                        for (Street s : streets) {
-                            if (s.getColor().equals(color)) {
-                                s.setPaired(isPaired);
-                            }
-                        }
-                    } else if (properties[i][j] instanceof Brewery) {
-                        if (breweries[0].getOwner().equals(owner) && breweries[1].getOwner().equals(owner) && !breweries[0].isMortgaged && !breweries[1].isMortgaged) {
-                            breweries[0].setPaired(true);
-                            breweries[1].setPaired(true);
-                        } else {
-                            breweries[0].setPaired(false);
-                            breweries[1].setPaired(false);
-                        }
-                    } else {
-                        int counter = 0;
-                        for (Ship s : ships) {
-                            if (owner.equals(s.getOwner()) && !s.isMortgaged) {
-                                counter++;
-                            }
-                        }
-                        for (Ship s : ships) {
-                            if (owner.equals(s.getOwner())) {
-                                s.setShipCount(counter);
-                            }
-                        }
-
+        for (Street street : streets) {
+            String owner = street.getOwner();
+            String color = street.getColor();
+            if (!owner.equals("bank") && !street.isMortgaged) {
+                boolean isPaired = true;
+                for (Street otherStreet : streets) {
+                    if (color.equals(otherStreet.getColor()) && !owner.equals(otherStreet.getOwner())) {
+                        isPaired = false;
                     }
                 }
-
-
-
+                for (Street otherStreet : streets) {
+                    if (color.equals(otherStreet.getColor()) && owner.equals(otherStreet.getOwner())) {
+                        street.setPaired(isPaired);
+                    }
+                }
             }
         }
 
+        if (!breweries[0].getOwner().equals("bank") && breweries[0].getOwner().equals(breweries[1].getOwner()) && !breweries[0].isMortgaged && !breweries[1].isMortgaged) {
+            breweries[0].setPaired(true);
+            breweries[1].setPaired(true);
+        } else {
+            breweries[0].setPaired(false);
+            breweries[1].setPaired(false);
+        }
 
+        for (Ship ship1 : ships) {
+            int counter = 0;
+            for (Ship ship2 : ships) {
+                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.isMortgaged && !ship2.isMortgaged) {
+                    counter++;
+                }
+            }
+            for (Ship ship2 : ships) {
+                if (ship2.getOwner().equals(ship2.getOwner()) && !ship1.isMortgaged && !ship2.isMortgaged) {
+                    ship1.setShipCount(counter);
+                }
+            }
+        }
     }
 
     public Square getSquare(int fieldNr) {
@@ -181,40 +174,14 @@ public class SquareList {
     }
 
 
-    public Street[] getPairedStreets(String playerName) {
-        int counter = 0;
-        for (Street s : streets){
-            if (s.getOwner().equals(playerName) && s.isPaired){
-                counter++;
-            }
-        }
-        Street[] pairedStreets = new Street[counter];
-        counter = 0;
-        for (Street s : streets){
-            if (s.getOwner().equals(playerName) && s.isPaired){
-                pairedStreets[counter] = s;
-                counter++;
-            }
-        }
-        return pairedStreets;
-    }
-
     public String[] getOwnedStreetNames(String playerName) {
-        Property[] properties = ownedProperty(playerName);
-        int counter = 0;
-        for (Property p : properties) {
-            if (p instanceof Street)
-                counter++;
-        }
-        String[] pairedStreets = new String[counter];
-        counter = 0;
-        for (Property p : properties) {
-            if (p instanceof Street) {
-                pairedStreets[counter] = p.getFieldName();
-                counter++;
+        String[] ownedStreets = new String[0];
+        for (Street s : streets) {
+            if (s.getOwner().equals(playerName)) {
+                ownedStreets = ArrayMethods.addToArray(ownedStreets, s.getFieldName());
             }
         }
-        return pairedStreets;
+        return ownedStreets;
     }
 
     public String[] getOwnedPropertyNames(String playerName) {
@@ -248,45 +215,8 @@ public class SquareList {
     }
 
 
-    public String[] getbuildableStreets(String playerName){
-        Street[] pairedStreets = getPairedStreets(playerName);
 
-        for (int i = 0; i < pairedStreets.length; i++) {
-            int numberofHouses = pairedStreets[i].getNumberOfHouses();
-            boolean canBuild = true;
-
-            if (numberofHouses != 5) {
-                for (int j = 0; j < pairedStreets.length; j++) {
-                    if (pairedStreets[i].getColor().equals(pairedStreets[j].getColor()) && numberofHouses > pairedStreets[j].getNumberOfHouses()){
-                        canBuild = false;
-                    }
-
-                }
-                if (canBuild) {
-                    pairedStreets[i].setCanBuildHouse(true);
-                } else {
-                    pairedStreets[i].setCanBuildHouse(false);
-                }
-            }
-        }
-        int counter = 0;
-        for (Street s : streets) {
-            if (s.getOwner().equals(playerName) && s.isCanBuildHouse()) {
-                counter++;
-            }
-        }
-        String[] buildableStreets = new String[counter];
-        counter = 0;
-        for (Street s : streets) {
-            if (s.getOwner().equals(playerName) && s.isCanBuildHouse()) {
-                buildableStreets[counter] = s.getFieldName();
-                counter++;
-            }
-        }
-        return buildableStreets;
-    }
-
-    //Tjek om nødvendig.
+    //Tjek om nødvendig.  <-- ikke nødvendig dude
     public void giveLoserProperty(String loserName, String newOwner){
         for (Street street : streets) {
             if (street.getOwner().equals(loserName)) {

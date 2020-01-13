@@ -1,3 +1,5 @@
+package staticclasses;
+
 public class ArrayMethods {
     public static String[] addToArray(String[] array, String item){
         String[] arrayHolder = new String[array.length+1];

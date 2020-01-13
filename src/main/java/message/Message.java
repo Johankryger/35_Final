@@ -9,7 +9,6 @@ public class Message {
 
     public Message(String language) {
         Message.language = language;
-        System.out.println(language);
     }
 
     public static void setLanguage(String language) {

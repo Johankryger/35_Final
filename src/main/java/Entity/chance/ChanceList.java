@@ -91,7 +91,6 @@ public class ChanceList {
                 }
             }
         }
-        System.out.println(chanceCards.length);
     }
 
     public void pickCard(PlayerList playerList, SquareList squareList, GUIController guiController) {

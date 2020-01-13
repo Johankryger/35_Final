@@ -3,6 +3,7 @@ package Controller;
 import Entity.PlayerList;
 import Entity.PropertyLogic;
 import Entity.square.SquareList;
+import staticclasses.ArrayMethods;
 
 public class PropertyController {
     private PropertyLogic propertyLogic = new PropertyLogic();
@@ -14,7 +15,7 @@ public class PropertyController {
 
         for (int i = 0; i < ownedProperties.length; i++) {
             if (propertyLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList))
-                mortgageMenu = addToArray(mortgageMenu,ownedProperties[i]);
+                mortgageMenu = ArrayMethods.addToArray(mortgageMenu,ownedProperties[i]);
         }
         return mortgageMenu;
     }
@@ -26,7 +27,7 @@ public class PropertyController {
 
         for (int i = 0; i < ownedProperties.length; i++) {
             if (squareList.searchProperty(ownedProperties[i]).getMortgaged())
-                unMortgageMenu = addToArray(unMortgageMenu,ownedProperties[i]);
+                unMortgageMenu = ArrayMethods.addToArray(unMortgageMenu,ownedProperties[i]);
         }
         return unMortgageMenu;
 
@@ -39,7 +40,7 @@ public class PropertyController {
 
         for (int i = 0; i < ownedStreets.length; i++) {
             if (propertyLogic.canBuildHouse(squareList.searchStreet(ownedStreets[i]), squareList)){
-                buyHouseMenu = addToArray(buyHouseMenu,ownedStreets[i]);
+                buyHouseMenu = ArrayMethods.addToArray(buyHouseMenu,ownedStreets[i]);
             }
         }
         return buyHouseMenu;
@@ -52,7 +53,7 @@ public class PropertyController {
 
         for (int i = 0; i < ownedStreets.length; i++) {
             if (propertyLogic.canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList)) {
-                sellHouseMenu = addToArray(sellHouseMenu,ownedStreets[i]);
+                sellHouseMenu = ArrayMethods.addToArray(sellHouseMenu,ownedStreets[i]);
             }
         }
         return sellHouseMenu;
@@ -168,14 +169,6 @@ public class PropertyController {
         }
     }
 
-    public String[] addToArray(String[] array, String item){
-        String[] arrayHolder = new String[array.length+1];
-        for (int i = 0; i <array.length ; i++) {
-            arrayHolder[i] = array[i];
-        }
-        arrayHolder[arrayHolder.length-1] = item;
-        return arrayHolder;
-    }
 
 
 
