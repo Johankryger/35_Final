@@ -74,7 +74,6 @@ public class SquareList {
         };
         this.squares = new Square[][]{ships, streets, taxes, breweries, chanceFields, parkings, jail};
         this.properties = new Property[][] {ships, streets, breweries};
-
     }
 
 
@@ -285,5 +284,24 @@ public class SquareList {
             }
         }
         return buildableStreets;
+    }
+
+    //Tjek om nødvendig.
+    public void setBankOwner(String loserName){
+        for (Street street : streets) {
+            if (street.getOwner().equals(loserName)) {
+                street.setOwner("bank");
+            }
+        }
+        for (Brewery brewery : breweries) {
+            if (brewery.getOwner().equals(loserName)) {
+                brewery.setOwner("bank");
+            }
+        }
+        for (Ship ships : ships) {
+            if (ships.getOwner().equals(loserName)) {
+                ships.setOwner("bank");
+            }
+        }
     }
 }

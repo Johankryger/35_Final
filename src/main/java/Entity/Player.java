@@ -3,6 +3,7 @@ package Entity;
 public class Player {
     private String name;
     private int ID;
+    private int finalScore;
     private Balance balance = new Balance();
     private boolean hasLost = false;
     private int fieldPos = 0;
@@ -128,4 +129,11 @@ public class Player {
         resetTurnsInJail();
     }
 
+    public int getFinalScore() {
+        return finalScore;
+    }
+
+    public void setFinalScore(int finalScore) {
+        this.finalScore = finalScore;
+    }
 }

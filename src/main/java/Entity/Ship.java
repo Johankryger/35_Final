@@ -21,8 +21,7 @@ public class Ship extends Property{
                 gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
                 owner = playerList.getPlayer().getName();
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-            }
-            else {
+            } else {
                 //setAuction(True, fieldPosition);
                 //gui.auction(fieldPosition);
             }
@@ -53,7 +52,4 @@ public class Ship extends Property{
                 break;
         }
     }
-
-
-
 }

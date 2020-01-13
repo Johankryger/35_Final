@@ -9,19 +9,22 @@ public class Controller {
     public void start() {
         gameLogic.turn();
         while(true) {
+            gameLogic.checkForLoser();
+            gameLogic.startTurn();
             String option = "manage bygninger";
             while (option.equals("manage bygninger")) {
                 gameLogic.updateProperties();
                 option = gameLogic.menu();
             }
-            gameLogic.jailLogic(option);
-            gameLogic.rollDiceLogic();
+            gameLogic.logicRollDice();
+            gameLogic.getPair();
+            gameLogic.searchForJail();
             if (gameLogic.getPlayer().isInJail()){
                 gameLogic.nextPlayer();
             }
             else{
                 gameLogic.movePlayer();
-                System.out.println(gameLogic.getPlayer().hasExtraTurn());
+                gameLogic.landOn();
                 if (!gameLogic.getPlayer().hasExtraTurn()){
                     gameLogic.nextPlayer();
                 }
