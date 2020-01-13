@@ -54,50 +54,50 @@ public class GameLogic {
         }
 
 
-
         //Sets extraTurn to true/false depending on getPair method
     }
-        public void searchForJail() {
-            Player player = playerList.getPlayer();
-            //sets player in jail if rolled pair 3 times in a row.
-            if (player.getPairCounter() == 3) {
-                player.setInJail(true);
-                int startPos = player.getFieldPos();
-                guiController.movePlayerInJail(player.getName(),startPos);
-                player.setFieldPos(10);
-                player.resetPairCounter();
-            } else {
-                if (player.isInJail() && !getPair()) {
-                    if (player.getTurnsInJail() == 2) {
-                        if (player.getBalance().getAmount() < JAIL_BAIL_PRICE) {
-                            player.setHasLost(true);
-                        }
-                        player.payJailBail(JAIL_BAIL_PRICE);
-                        guiController.updateBalance(player.getName(), player.getBalance().getAmount());
+
+    public void searchForJail() {
+        Player player = playerList.getPlayer();
+        //sets player in jail if rolled pair 3 times in a row.
+        if (player.getPairCounter() == 3) {
+            player.setInJail(true);
+            int startPos = player.getFieldPos();
+            guiController.movePlayerInJail(player.getName(), startPos);
+            player.setFieldPos(10);
+            player.resetPairCounter();
+        } else {
+            if (player.isInJail() && !getPair()) {
+                if (player.getTurnsInJail() == 2) {
+                    if (player.getBalance().getAmount() < JAIL_BAIL_PRICE) {
+                        player.setHasLost(true);
                     }
-                    player.addTurnInJail();
+                    player.payJailBail(JAIL_BAIL_PRICE);
+                    guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                 }
+                player.addTurnInJail();
             }
         }
+    }
 
-         public void landOn(){
-             Player player = playerList.getPlayer();
-             // Land on and squarelist
-                squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
-            }
+    public void landOn() {
+        Player player = playerList.getPlayer();
+        // Land on and squarelist
+        squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
+    }
 
     //            if(player.hasGotChanceCard()){
     //                chancelist.drawCard();
     //}
     //gives turn to next player if extraTurn is false
 
-        public void movePlayer() {
-            // Movement process
-            Player player = playerList.getPlayer();
-            int startPos = player.getFieldPos();
-            player.move(diceCup.getFaceValueSum(), true);
-            guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
-        }
+    public void movePlayer() {
+        // Movement process
+        Player player = playerList.getPlayer();
+        int startPos = player.getFieldPos();
+        player.move(diceCup.getFaceValueSum(), true);
+        guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
+    }
 
 
     //method for checking pair in dices
@@ -118,31 +118,30 @@ public class GameLogic {
 
     // Throwing dice process
     public void logicRollDice() {
-        if (!playerList.getPlayer().isHasLost()) {
             Player player = playerList.getPlayer();
             guiController.button(player.getName() + "'s tur.", "Kast terning");
             diceCup.rollDice();
             guiController.showDice(diceCup.getFaceValueArray());
-        }
-        else{
-            playerList.nextPlayer();
-        }
     }
 
-    public void nextPlayer(){
+    public void nextPlayer() {
         playerList.nextPlayer();
     }
 
     public void checkForLoser() {
+        //checks the playerarray for losers
         Player[] playerArray = playerList.getAllPlayers();
-        for (int i = 0; i < playerArray.length; i++) {
-            Player playerName = playerArray[i];
-            if (playerName.getBalance().getAmount() < 0 && !playerName.isHasLost()) {
+        for (Player playerName : playerArray) {
+            //if the player just lost he will be removed from the board and all owned properties will be set to bank
+            if (playerName.getBalance().getAmount() < 0 && playerList.getPlayer().getFinalScore() == 0) {
                 guiController.removeLoser(playerName.getName(), playerName.getFieldPos());
                 playerList.getPlayer().setFinalScore(scoreBoard--);
                 playerList.getPlayer().setHasLost(true);
                 playerList.getPlayer().setInJail(false);
                 squareList.setBankOwner(playerName.getName());
+                for (Player player : playerArray) {
+                    player.extraTurn(false);
+                }
             }
         }
     }

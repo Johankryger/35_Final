@@ -21,7 +21,7 @@ public class Controller {
             else{
                 gameLogic.movePlayer();
                 gameLogic.landOn();
-                if (!gameLogic.getPlayer().hasExtraTurn()){
+                if (!gameLogic.getPlayer().hasExtraTurn() || gameLogic.getPlayer().isHasLost()){
                     gameLogic.nextPlayer();
                 }
             }

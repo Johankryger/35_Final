@@ -37,7 +37,14 @@ public class PlayerList {
     }
 
     public void nextPlayer() {
-        this.index = ++index % players.length;
+        if (!players[(index + 1) % players.length].isHasLost()) {
+            this.index = ++index % players.length;
+        }
+        else {
+            while (players[(index + 1) % players.length].isHasLost()) {
+                this.index = ++index % players.length;
+            }
+        }
     }
 
     public void transfer(int amount, String from, String to){
