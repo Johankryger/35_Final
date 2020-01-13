@@ -4,8 +4,7 @@ import Entity.square.SquareList;
 
 public class GameLogic {
 
-    public boolean isAbleToPayDebt(PlayerList playerList, SquareList squareList, int amountToPay) {
-        boolean canafford = false;
+    public void calculateLiquidation(PlayerList playerList, SquareList squareList) {
         int liquidationMoney = playerList.getPlayer().getBalance().getAmount();
 
         String[] ownedStreets = squareList.getOwnedStreetNames(playerList.getPlayer().getName());
@@ -24,10 +23,6 @@ public class GameLogic {
                 liquidationMoney += numberOfHouses * housePrice;
             }
         }
-
-        if (liquidationMoney >= amountToPay) {
-            canafford = true;
-        }
-        return  canafford;
+        playerList.getPlayer().setLiqudationValue(liquidationMoney);
     }
 }

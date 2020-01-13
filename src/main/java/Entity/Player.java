@@ -7,6 +7,7 @@ public class Player {
     private Balance balance = new Balance();
     private boolean hasLost = false;
     private int fieldPos = 0;
+    private int liqudationValue;
 
     private boolean inJail;
     private int turnsInJail;
@@ -36,6 +37,10 @@ public class Player {
             aboutToStartCash = false;
         }
 
+    }
+
+    public void setLiqudationValue(int liqudationValue) {
+        this.liqudationValue = liqudationValue;
     }
 
     public boolean isHasLost() {

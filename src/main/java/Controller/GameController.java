@@ -48,6 +48,7 @@ public class GameController {
 
 
     public void jailLogic(String option) {
+        gameLogic.calculateLiquidation(playerList, squareList);
         Player player = playerList.getPlayer();
         String jailMsg = option;
         if (player.isInJail() && player.hasGotFreeJailCard()) {
@@ -88,6 +89,7 @@ public class GameController {
             player.move(diceCup.getFaceValueSum(), true);
             guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
 
+            gameLogic.calculateLiquidation(playerList, squareList);
             // Land on
             squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
             if (player.hasGotChanceCard()) {
