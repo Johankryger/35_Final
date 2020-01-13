@@ -8,97 +8,52 @@ public class PropertyController {
 
     public String[] makeMortgageArray(String playerName, SquareList squareList){
         String[] ownedProperties = squareList.getOwnedPropertyNames(playerName);
-        int counter = 0;
+        String[] mortgageMenu = new String[1];
+        mortgageMenu[0] = "Go back";
 
         for (int i = 0; i < ownedProperties.length; i++) {
             if (GameLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList))
-                counter++;
+                mortgageMenu = addToArray(mortgageMenu,ownedProperties[i]);
         }
-
-        String[] mortgageMenu = new String[counter + 1];
-        mortgageMenu[0] = "Go back";
-        counter = 1;
-
-        for (int i = 0; i < ownedProperties.length; i++) {
-            if (GameLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList)) {
-                mortgageMenu[counter] = ownedProperties[i];
-                counter++;
-            }
-
-        }
-
         return mortgageMenu;
     }
 
     public String[] unMortgageArray(String playerName,SquareList squareList){
         String[] ownedProperties = squareList.getOwnedPropertyNames(playerName);
-        int counter = 0;
+        String[] unMortgageMenu = new String[1];
+        unMortgageMenu[0] = "Go back";
 
         for (int i = 0; i < ownedProperties.length; i++) {
             if (squareList.searchProperty(ownedProperties[i]).getMortgaged())
-                counter++;
+                unMortgageMenu = addToArray(unMortgageMenu,ownedProperties[i]);
         }
+        return unMortgageMenu;
 
-        String[] unmortgageMenu = new String[counter + 1];
-        unmortgageMenu[0] = "Go back";
-        counter = 1;
-
-        for (int i = 0; i < ownedProperties.length; i++) {
-            if (squareList.searchProperty(ownedProperties[i]).getMortgaged()) {
-                unmortgageMenu[counter] = ownedProperties[i];
-                counter++;
-            }
-
-        }
-
-        return unmortgageMenu;
     }
 
     public String[] buyHouseArray(String playerName, SquareList squareList){
         String[] ownedStreets = squareList.getOwnedStreetNames(playerName);
-        int counter = 0;
-
-        for (int i = 0; i < ownedStreets.length; i++) {
-            if (GameLogic.canBuildHouse(squareList.searchStreet(ownedStreets[i]), squareList))
-                counter++;
-        }
-
-        String[] buyHouseMenu = new String[counter + 1];
+        String[] buyHouseMenu = new String[1];
         buyHouseMenu[0] = "Go back";
-        counter = 1;
 
         for (int i = 0; i < ownedStreets.length; i++) {
             if (GameLogic.canBuildHouse(squareList.searchStreet(ownedStreets[i]), squareList)){
-                buyHouseMenu[counter] = ownedStreets[i];
-                counter++;
+                buyHouseMenu = addToArray(buyHouseMenu,ownedStreets[i]);
             }
         }
-
         return buyHouseMenu;
     }
 
     public String[] sellHouseArray(String playerName, SquareList squareList) {
         String[] ownedStreets = squareList.getOwnedStreetNames(playerName);
-        int counter = 0;
-
-
-        for (int i = 0; i < ownedStreets.length; i++) {
-            if (GameLogic.canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList))
-                counter++;
-        }
-
-        String[] sellHouseMenu = new String[counter + 1];
+        String[] sellHouseMenu = new String[1];
         sellHouseMenu[0] = "Go back";
-        counter = 1;
 
         for (int i = 0; i < ownedStreets.length; i++) {
             if (GameLogic.canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList)) {
-                sellHouseMenu[counter] = ownedStreets[i];
-                counter++;
+                sellHouseMenu = addToArray(sellHouseMenu,ownedStreets[i]);
             }
-
         }
-
         return sellHouseMenu;
     }
 

@@ -207,7 +207,7 @@ public class SquareList {
             if (p instanceof Street)
                 counter++;
         }
-        String[] pairedStreets = new String[properties.length];
+        String[] pairedStreets = new String[counter];
         counter = 0;
         for (Property p : properties) {
             if (p instanceof Street) {
