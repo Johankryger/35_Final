@@ -11,6 +11,8 @@ public class ChanceList {
     private int cardIndex = 0;
     private ChanceCard[] chanceCards = {
                 new CardType1(Message.getMessage("Chancecard", 15), -200),
+            new CardType1(Message.getMessage("Chancecard", 14), -200),
+            new CardType1(Message.getMessage("Chancecard", 15), -200),
             new CardType1(Message.getMessage("Chancecard", 16), -300),
             new CardType1(Message.getMessage("Chancecard", 17), -3000),
             new CardType1(Message.getMessage("Chancecard", 17), -3000),
