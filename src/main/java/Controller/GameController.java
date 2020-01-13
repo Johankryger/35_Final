@@ -163,15 +163,49 @@ public class GameController {
     }
 
     public void checkForLoser() {
+        //counters for with losername and without losername used in remainingPlayer array
+        int remainingPlayercounter = 0;
+        int allPlayerCounter = 0;
         Player[] playerArray = playerList.getAllPlayers();
+        //checks for all players if they have lost this turn
         for (int i = 0; i < playerArray.length; i++) {
             Player playerName = playerArray[i];
-            if (playerName.getBalance().getAmount() < 0 && !playerName.isHasLost()) {
+            if (playerName.getBalance().getAmount() < 0) {
                 guiController.removeLoser(playerName.getName(), playerName.getFieldPos());
                 playerList.getPlayer().setFinalScore(scoreBoard--);
                 playerList.getPlayer().setHasLost(true);
                 playerList.getPlayer().setInJail(false);
-                squareList.setBankOwner(playerName.getName());
+                playerList.getPlayer().extraTurn(false);
+
+                //sets new owner on loser's properties
+//                try {
+//                    int pos = getPlayer().getFieldPos();
+//                    String owner = squareList.searchProperty(squareList.getSquare(pos).getFieldName()).getOwner();
+//                    if (owner == null || owner.equals(getPlayer().getName())|| owner.equals("bank")) {
+                        squareList.giveLoserProperty(playerName.getName(), "bank");
+//                    }
+//                    squareList.giveLoserProperty(playerName.getName(), owner);
+//                } catch (NullPointerException n) {
+//                }
+
+                int[] playerPosition = new int[playerArray.length-1];
+
+                //makes new array of remaining players
+                String[] remainingPlayers = new String[playerList.getAllPlayers().length - 1];
+                for (Player player : playerArray) {
+                    if (!playerArray[i].getName().equals(player.getName())) {
+                        playerPosition[remainingPlayercounter]=player.getFieldPos();
+                        remainingPlayers[remainingPlayercounter] = playerArray[allPlayerCounter].getName();
+                        remainingPlayercounter++;
+                    }
+                    allPlayerCounter++;
+                }
+                //returns array of remaining players to playerlist and sets index to 1 less
+                playerList.addPlayers(remainingPlayers, remainingPlayers.length);
+                for (int j = 0; j < remainingPlayers.length; j++) {
+                    playerList.searchPlayer(remainingPlayers[j]).setFieldPos(playerPosition[j]);
+                }
+                playerList.setIndex((playerList.getIndex()-1)%remainingPlayers.length);
             }
         }
     }

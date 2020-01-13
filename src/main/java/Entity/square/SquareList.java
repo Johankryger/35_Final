@@ -287,20 +287,20 @@ public class SquareList {
     }
 
     //Tjek om nødvendig.
-    public void setBankOwner(String loserName){
+    public void giveLoserProperty(String loserName, String newOwner){
         for (Street street : streets) {
             if (street.getOwner().equals(loserName)) {
-                street.setOwner("bank");
+                street.setOwner(newOwner);
             }
         }
         for (Brewery brewery : breweries) {
             if (brewery.getOwner().equals(loserName)) {
-                brewery.setOwner("bank");
+                brewery.setOwner(newOwner);
             }
         }
         for (Ship ships : ships) {
             if (ships.getOwner().equals(loserName)) {
-                ships.setOwner("bank");
+                ships.setOwner(newOwner);
             }
         }
     }
