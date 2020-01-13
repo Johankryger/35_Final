@@ -41,7 +41,10 @@ public class ChanceList {
             new CardType2(Message.getMessage("Chancecard", 12), 0),
             new CardType2(Message.getMessage("Chancecard", 12), 0),
 
-        //    new CardType7("gå i fængsel makker")
+            new CardType3(Message.getMessage("Chancecard", 6), 1),
+            new CardType3(Message.getMessage("Chancecard", 13), 2),
+            new CardType3(Message.getMessage("Chancecard", 13), 2),
+
     };
     private int[] cardDeck = new int[chanceCards.length];
 
