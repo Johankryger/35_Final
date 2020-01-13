@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Entity.PlayerList;
 import Entity.SquareList;
-
+// metode for at smide spilleren i fængsel
 public class CardType7 extends ChanceCard {
     public CardType7(String msg) {
         super(msg);

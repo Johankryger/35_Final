@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Entity.PlayerList;
 import Entity.SquareList;
-
+// metode til at vælge et amount that alle andre spillere betaler den current spille
 public class CardType6 extends ChanceCard {
     private int amount;
     public CardType6(String msg, int amount) {
@@ -18,7 +18,9 @@ public class CardType6 extends ChanceCard {
         for (int i = 0; i < names.length; i++) {
             if (names[i] != playerList.getPlayer().getName()) {
                 playerList.transfer(amount, names[i], playerList.getPlayer().getName());
+                guiController.updateBalance(names[i], playerList.searchPlayer(names[i]).getBalance().getAmount());
             }
         }
+        guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
     }
 }
