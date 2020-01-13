@@ -1,9 +1,6 @@
 package Controller;
 
-import Entity.DiceCup;
-import Entity.GameLogic;
-import Entity.Player;
-import Entity.PlayerList;
+import Entity.*;
 import Entity.chance.ChanceList;
 import Entity.square.SquareList;
 
@@ -18,6 +15,7 @@ public class GameController {
     private PropertyController propertyController = new PropertyController();
     private ChanceList chanceList;
     private GameLogic gameLogic = new GameLogic();
+    private LiquidateLogic liquidateLogic = new LiquidateLogic();
 
     public void turn() {
         //Returns a string array of names
@@ -48,7 +46,6 @@ public class GameController {
 
 
     public void jailLogic(String option) {
-        gameLogic.calculateLiquidation(playerList, squareList);
         Player player = playerList.getPlayer();
         String jailMsg = option;
         if (player.isInJail() && player.hasGotFreeJailCard()) {
@@ -73,7 +70,7 @@ public class GameController {
         }
 
 
-
+        gameLogic.calculateLiquidation(playerList, squareList);
         //Sets extraTurn to true/false depending on getPair method
     }
 
@@ -123,6 +120,7 @@ public class GameController {
     // Throwing dice process
     public void rollDiceLogic(){
         Player player = playerList.getPlayer();
+        gameLogic.calculateLiquidation(playerList, squareList);
 
         // roll dice
         diceCup.rollDice();

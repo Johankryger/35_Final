@@ -61,7 +61,6 @@ public class PropertyController {
 
 
     public void manageMenu(GUIController guiController, PlayerList playerList, SquareList squareList) {
-
             String option2 = guiController.scrollList("Choose option", "Go back", "Mortgage", "Unmortgage", "Buy house", "Sell house");
             String name = playerList.getPlayer().getName();
 
@@ -131,6 +130,42 @@ public class PropertyController {
                     manageMenu(guiController,playerList,squareList);
                     break;
             }
+    }
+
+    public void liquidateMenu(PlayerList playerList, String playerName, SquareList squareList, GUIController guiController, int amountToPay) {
+        String option = guiController.button("Choose option", "Mortgage", "Sell house", "Trade");
+
+        if (option.equals("Mortgage")) {
+            String mortgageOption;
+            do {
+                mortgageOption = guiController.scrollList("Choose property", makeMortgageArray(playerName,squareList));
+                if (!mortgageOption.equals("Go back")) {
+                    squareList.searchProperty(mortgageOption).setMortgaged(true);
+                    int moneyBack = squareList.searchProperty(mortgageOption).getPrice() / 2;
+                    playerList.searchPlayer(playerName).getBalance().add(moneyBack);
+                    guiController.updateBalance(playerName, playerList.getPlayer().getBalance().getAmount());
+                    guiController.mortgageProperty(playerName, squareList.searchProperty(mortgageOption).getFieldPosition());
+                }
+            } while (!mortgageOption.equals("Go back"));
+            if (playerList.searchPlayer(playerName).getBalance().getAmount() < amountToPay) {
+                liquidateMenu(playerList, playerName, squareList, guiController, amountToPay);
+            }
+        } else if (option.equals("Sell house")) {
+            String sellHouseOption;
+            do {
+                sellHouseOption = guiController.scrollList("Choose property", sellHouseArray(playerName, squareList));
+                if (!sellHouseOption.equals("Go back")) {
+                    int housePrice = squareList.searchStreet(sellHouseOption).getHousePrice() / 2;
+                    playerList.searchPlayer(playerName).getBalance().add(housePrice);
+                    squareList.searchStreet(sellHouseOption).removeHouse();
+                    guiController.updateBalance(playerName, playerList.getPlayer().getBalance().getAmount());
+                    guiController.setHouses(squareList.searchStreet(sellHouseOption).getNumberOfHouses(), squareList.searchStreet(sellHouseOption).getFieldPosition());
+                }
+            } while (!sellHouseOption.equals("Go back"));
+            if (playerList.searchPlayer(playerName).getBalance().getAmount() < amountToPay) {
+                liquidateMenu(playerList, playerName, squareList, guiController, amountToPay);
+            }
+        }
     }
 
     public String[] addToArray(String[] array, String item){
