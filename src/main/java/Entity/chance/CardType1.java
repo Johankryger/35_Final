@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Entity.PlayerList;
 import Entity.SquareList;
-
+// metode for at modtage eller betale et fast antal penge
 public class CardType1 extends ChanceCard {
     private int amountAdded;
 
