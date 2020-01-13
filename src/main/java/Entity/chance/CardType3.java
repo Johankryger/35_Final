@@ -2,8 +2,9 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.square.SquareList;
-
+import Entity.SquareList;
+// metode til at rykke brikken til det nærmeste rederi.
+// Multiplier bestemmer om der skal betales dobbelt leje hvis der er ejet.
 public class CardType3 extends ChanceCard {
     private int multiplier;
     public CardType3(String msg, int multiplier) {
@@ -13,6 +14,7 @@ public class CardType3 extends ChanceCard {
 
     @Override
     public void chanceAction(PlayerList playerList, SquareList squareList, GUIController guiController) {
+        guiController.showChanceCard(msg);
         int beforePos = playerList.getPlayer().getFieldPos();
         switch (beforePos) {
             case 2:
