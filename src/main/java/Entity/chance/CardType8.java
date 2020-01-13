@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Entity.PlayerList;
 import Entity.SquareList;
-
+// metode brugt til a opkræve et antal penge for hert hus eller hotel spilleren ejer
 public class CardType8 extends ChanceCard {
     private int houseTax;
     private int hotelTax;
