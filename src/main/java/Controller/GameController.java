@@ -1,9 +1,6 @@
 package Controller;
 
-import Entity.DiceCup;
-import Entity.GameLogic;
-import Entity.Player;
-import Entity.PlayerList;
+import Entity.*;
 import Entity.chance.ChanceList;
 import Entity.square.SquareList;
 
@@ -18,6 +15,7 @@ public class GameController {
     private PropertyController propertyController = new PropertyController();
     private ChanceList chanceList;
     private GameLogic gameLogic = new GameLogic();
+    private LiquidateLogic liquidateLogic = new LiquidateLogic();
 
     public void turn() {
         //Returns a string array of names
@@ -72,7 +70,7 @@ public class GameController {
         }
 
 
-
+        gameLogic.calculateLiquidation(playerList, squareList);
         //Sets extraTurn to true/false depending on getPair method
     }
 
@@ -88,6 +86,7 @@ public class GameController {
             player.move(diceCup.getFaceValueSum(), true);
             guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
 
+            gameLogic.calculateLiquidation(playerList, squareList);
             // Land on
             squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
             if (player.hasGotChanceCard()) {
@@ -121,6 +120,7 @@ public class GameController {
     // Throwing dice process
     public void rollDiceLogic(){
         Player player = playerList.getPlayer();
+        gameLogic.calculateLiquidation(playerList, squareList);
 
         // roll dice
         diceCup.rollDice();
