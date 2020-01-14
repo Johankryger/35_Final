@@ -146,3 +146,12 @@ Try your luck and roll!
 It's
 's turn
 Throw dice!
+
+General
+Want to buy
+?
+Buy
+Auction
+You pay
+ to
+Okay
