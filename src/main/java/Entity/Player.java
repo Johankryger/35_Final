@@ -150,4 +150,6 @@ public class Player {
     public void setFinalScore(int finalScore) {
         this.finalScore = finalScore;
     }
+
+    public int getLiqudationValue() {return liqudationValue;}
 }

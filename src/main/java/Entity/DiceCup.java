@@ -31,7 +31,7 @@ public class DiceCup {
 
     //get methods
     public int getFaceValueSum() {
-        return faceValueSum;
+        return 5;
     }
 
     public int[] getFaceValueArray() {

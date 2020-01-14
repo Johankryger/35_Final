@@ -152,7 +152,7 @@ public class GameController {
     }
 
     public void checkForLoser() {
-        //counters for with losername and without losername used in remainingPlayer array
+        //counters with losername and without losername used in remainingPlayer array
         int remainingPlayercounter = 0;
         int allPlayerCounter = 0;
         Player[] playerArray = playerList.getAllPlayers();
@@ -160,7 +160,7 @@ public class GameController {
         //checks for all players if they have lost this turn
         for (Player playerName : playerArray) {
             //if (playerName.isNeedsToLiquidate()){
-            if (playerName.getBalance().getAmount() < 0) {
+            if (playerName.isHasLost() || playerName.getBalance().getAmount()<0) {
                 guiController.removeLoser(playerName.getName(), playerName.getFieldPos(), squareList);
                 playerList.getPlayer().setFinalScore(scoreBoard--);
                 playerList.getPlayer().setHasLost(true);
