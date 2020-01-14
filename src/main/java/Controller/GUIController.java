@@ -42,7 +42,7 @@ public class GUIController {
             new GUI_Street("Kgs. Nytorv", (Message.getMessage("SubText", 28)), (Message.getMessage("Desc", 28)), (Message.getMessage("SubText", 28)), Color.WHITE, Color.black),
             new GUI_Brewery("src/main/resources/pictures/cola.png", "Cola", (Message.getMessage("SubText", 29)), (Message.getMessage("Desc", 29)), (Message.getMessage("SubText",29)), Color.cyan, Color.BLACK),
             new GUI_Street("Østergade", (Message.getMessage("SubText", 30)), (Message.getMessage("Desc", 30)), (Message.getMessage("SubText", 30)), Color.WHITE, Color.black),
-            new GUI_Jail("src/main/resources/pictures/prisoner.png", (Message.getMessage("SubText", 31)), (Message.getMessage("Desc", 31)), (Message.getMessage("SubText", 31)), Color.black, Color.WHITE),
+            new GUI_Jail("src/main/resources/pictures/prisoner.png", (Message.getMessage("Title",3)), (Message.getMessage("Desc", 31)), (Message.getMessage("SubText", 31)), new Color(125, 125, 125), Color.BLACK),
             new GUI_Street("Amagertorv", (Message.getMessage("SubText", 32)), (Message.getMessage("Desc", 32)), (Message.getMessage("SubText", 32)), new Color(255, 251, 13), Color.black),
             new GUI_Street("Vimmelskaftet", (Message.getMessage("SubText", 33)), (Message.getMessage("Desc", 33)), (Message.getMessage("SubText", 33)), new Color(255, 251, 13), Color.black),
             new GUI_Chance("?",(Message.getMessage("SubText",34)),(Message.getMessage("Desc",34)),Color.black,Color.white),
@@ -97,6 +97,11 @@ public class GUIController {
         for (int i = 0; i < fields.length ; i++) {
                 fields[i].setSubText(Message.getMessage("SubText", i+1));
                 fields[i].setDescription(Message.getMessage("Desc",i+1));
+                fields[4].setTitle((Message.getMessage("Title",4)));
+                fields[10].setTitle((Message.getMessage("Title",1)));
+                fields[20].setTitle((Message.getMessage("Title",2)));
+                fields[30].setTitle((Message.getMessage("Title",3)));
+                fields[38].setTitle((Message.getMessage("Title",5)));
         }
 
 

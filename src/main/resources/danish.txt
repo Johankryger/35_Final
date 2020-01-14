@@ -156,3 +156,4 @@ Auktion
 Du betaler
  til
 Okay
+Du har ikke råd til denne ejendom

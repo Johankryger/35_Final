@@ -31,7 +31,7 @@ public class Ship extends Property{
             if (playerList.getPlayer().getLiqudationValue() >= price)
                 option = gui.button((Message.getMessage("General",1)) + fieldName + (Message.getMessage("General",2)), (Message.getMessage("General",3)), (Message.getMessage("General",4)));
             else
-                option = gui.button("You can't afford this property",  (Message.getMessage("General",4)));
+                option = gui.button((Message.getMessage("General",9)),  (Message.getMessage("General",4)));
             if (option.equals((Message.getMessage("General",3)))) {
                 if (price > playerList.getPlayer().getBalance().getAmount()) {
                     playerList.getPlayer().setMoneyToPay(playerList.getPlayer().getBalance().getAmount()-price);

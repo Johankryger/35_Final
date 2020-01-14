@@ -37,7 +37,7 @@ public class GameController {
         } else if (playerList.getPlayer().isInJail()) {
             msg = guiController.button(Message.getMessage("In Jail",1), Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail",5));
         } else {
-            msg = guiController.button(Message.getMessage("In Jail",6) + playerList.getPlayer().getName() + Message.getMessage("In Jail",7), Message.getMessage("In Jail",2), Message.getMessage("In Jail",8));
+            msg = guiController.button(Message.getMessage("In Jail",6) + " " +  playerList.getPlayer().getName() + Message.getMessage("In Jail",7), Message.getMessage("In Jail",2), Message.getMessage("In Jail",8));
         }
         if (msg.equals(Message.getMessage("In Jail",2))) {
             propertyController.manageMenu(guiController, playerList, squareList);
