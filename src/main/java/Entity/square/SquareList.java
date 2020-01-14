@@ -304,4 +304,18 @@ public class SquareList {
             }
         }
     }
+
+    //checks if a players position is on a property
+    public boolean inPropertyPosition(int position) {
+        for (Street street : streets) {
+            if (street.getFieldPosition() == position) return true;
+        }
+        for (Ship ship : ships) {
+            if (ship.getFieldPosition() == position) return true;
+        }
+        for (Brewery brewery : breweries) {
+            if (brewery.getFieldPosition() == position) return true;
+        }
+        return false;
+    }
 }

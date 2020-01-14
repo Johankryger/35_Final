@@ -1,5 +1,6 @@
 package Controller;
 
+import Entity.square.SquareList;
 import gui_fields.*;
 import gui_main.GUI;
 import message.Message;
@@ -9,18 +10,18 @@ import java.awt.*;
 public class GUIController {
 
     private GUI_Field[] fields = {
-            new GUI_Start("START", "Få 4000kr", "De modtager 4000 kr. hver gang de passere START.",  Color.RED, Color.WHITE),
-            new GUI_Street("Rødovrevej",  "Pris: 1.200 kr","Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.","Pris: 1.200 kr",
+            new GUI_Start("START", "Få 4000kr", "De modtager 4000 kr. hver gang de passere START.", Color.RED, Color.WHITE),
+            new GUI_Street("Rødovrevej", "Pris: 1.200 kr", "Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.", "Pris: 1.200 kr",
                     new Color(72, 139, 247), Color.white),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Hvidovrevej",  "Pris: 1.200 kr","Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.","Pris: 1.200 kr",
+            new GUI_Chance("?", "Chance", "", Color.black, Color.white),
+            new GUI_Street("Hvidovrevej", "Pris: 1.200 kr", "Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.", "Pris: 1.200 kr",
                     new Color(72, 139, 247), Color.white),
             new GUI_Tax("Betal indkomstskat: 10% eller 4000 kr.", "", "Betal indkomstskat: 10% eller 4000 kr.", Color.orange, Color.black),
             new GUI_Shipping("src/main/resources/Pictures/ship.png", "Scandlines", "Pris: 4.000 kr", "Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.", "Pris: 4.000kr", Color.white, Color.black),
             new GUI_Street("Roskildevej", "Pris: 2.000 kr", "Leje af grund: ______ 100 kr." +
                     " m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr." +
                     " Hvert hus koster 1000 kr.", "Pris: 2.000 kr", new Color(242, 125, 41), Color.white),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
+            new GUI_Chance("?", "Chance", "", Color.black, Color.white),
             new GUI_Street("Valby Langgade", "Pris: 2.000 kr", "Leje af grund: ______ 100 kr." +
                     " m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr." +
                     " Hvert hus koster 1000 kr.", "Pris: 2.000 kr", new Color(242, 125, 41), Color.white),
@@ -43,7 +44,7 @@ public class GUIController {
             new GUI_Street("Bernstorffsvej", "Pris: 3.600 kr", "Leje af grund: ______ 300 kr." +
                     " m/ 1 hus: _________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: ________ 11.000 kr. > 4 huse: ________ 15.000 kr. > hotel: _________ 19.000 kr." +
                     " Hvert hus koster 2.000 kr.", "Pris: 3.600 kr", new Color(162, 163, 162), Color.white),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
+            new GUI_Chance("?", "Chance", "", Color.black, Color.white),
             new GUI_Street("Hellerupvej", "Pris: 3.600 kr", "Leje af grund: ______ 300 kr." +
                     " m/ 1 hus: _________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: ________ 11.000 kr. > 4 huse: ________ 15.000 kr. > hotel: _________ 19.000 kr." +
                     " Hvert hus koster 2.000 kr.", "Pris: 3.600 kr", new Color(162, 163, 162), Color.white),
@@ -54,7 +55,7 @@ public class GUIController {
             new GUI_Street("Trianglen", "Pris: 4.400 kr", "Leje af grund: ______ 350 kr." +
                     " m/ 1 hus: _________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: ________ 14.000 kr. > 4 huse: ________ 17.500 kr. > hotel: _________ 21.000 kr." +
                     " Hvert hus koster 3.000 kr.", "Pris: 4.400 kr", Color.RED, Color.white),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
+            new GUI_Chance("?", "Chance", "", Color.black, Color.white),
             new GUI_Street("Østerbrogade", "Pris: 4.400 kr", "Leje af grund: ______ 350 kr." +
                     " m/ 1 hus: _________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: ________ 14.000 kr. > 4 huse: ________ 17.500 kr. > hotel: _________ 21.000 kr." +
                     " Hvert hus koster 3.000 kr.", "Pris: 4.400 kr", Color.RED, Color.white),
@@ -80,13 +81,13 @@ public class GUIController {
             new GUI_Street("Vimmelskaftet", "Pris: 6.000 kr", "Leje af grund: ______ 550 kr." +
                     " m/ 1 hus: _________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: ________ 18.000 kr. > 4 huse: ________ 22.000 kr. > hotel: _________ 25.000 kr." +
                     " Hvert hus koster 4.000 kr.", "Pris: 6.000 kr", new Color(255, 251, 13), Color.black),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
+            new GUI_Chance("?", "Chance", "", Color.black, Color.white),
             new GUI_Street("Nygade", "Pris: 6.400 kr", "Leje af grund: ______ 600 kr." +
                     " m/ 1 hus: _________ 3.000 kr. > 2 huse: _________ 9.000 kr. > 3 huse: ________ 20.000 kr. > 4 huse: ________ 24.000 kr. > hotel: _________ 28.000 kr." +
                     " Hvert hus koster 4.000 kr.", "Pris: 6.400 kr", new Color(255, 251, 13), Color.black),
             new GUI_Shipping("src/main/resources/Pictures/ship.png", "DFDS", "Pris: 4.000 kr", "Leje: _____________ 500 kr. " +
                     "Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.", "Pris: 4.000kr", Color.white, Color.black),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
+            new GUI_Chance("?", "Chance", "", Color.black, Color.white),
             new GUI_Street("Frederiksberggade", "Pris: 7.000 kr", "Leje af grund: ______ 700 kr." +
                     " m/ 1 hus: _________ 3.500 kr. > 2 huse: ________ 10.000 kr. > 3 huse: ________ 22.000 kr. > 4 huse: ________ 26.000 kr. > hotel: _________ 30.000 kr." +
                     " Hvert hus koster 4.000 kr.", "Pris: 7.000 kr", new Color(165, 6, 209), Color.white),
@@ -99,19 +100,19 @@ public class GUIController {
     private GUI_Player[] gui_players;
     private GUI_Car[] gui_cars = {
             new GUI_Car(Color.magenta, Color.magenta, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
-            new GUI_Car(Color.CYAN, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
-            new GUI_Car(Color.red, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
-            new GUI_Car(Color.yellow, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
-            new GUI_Car(Color.green, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
-            new GUI_Car(Color.white, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)
+            new GUI_Car(Color.CYAN, Color.cyan, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
+            new GUI_Car(Color.red, Color.red, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
+            new GUI_Car(Color.yellow, Color.yellow, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
+            new GUI_Car(Color.green, Color.green, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
+            new GUI_Car(Color.white, Color.white, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)
     };
 
 
     public GUI_Player searchGUIPlayer(String name) {
         //finds the player with that name
         GUI_Player choosenPlayer = null;
-        for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
+        for (GUI_Player p : gui_players) {
+            if (p.getName().equals(name)) {
                 choosenPlayer = p;
             }
         }
@@ -120,31 +121,40 @@ public class GUIController {
 
 
     public String[] startMenu() {
+        //sets all fields' property borders to black
+        for (GUI_Field field : fields) {
+            if (field instanceof GUI_Street)
+                ((GUI_Street) field).setBorder(Color.black, Color.black);
+            if (field instanceof GUI_Shipping)
+                ((GUI_Shipping) field).setBorder(Color.black, Color.black);
+            if (field instanceof GUI_Brewery)
+                ((GUI_Brewery) field).setBorder(Color.black, Color.black);
+        }
+
         String language = gui.getUserButtonPressed("Choose language", "Dansk", "English");
         Message.setLanguage(language);
         int balance = 30000;
-        int amountOfPlayers = gui.getUserInteger(Message.getMessage("start menu",1), 3 ,6);
+        int amountOfPlayers = gui.getUserInteger(Message.getMessage("start menu", 1), 3, 6);
 
         //makes it invalid to select less or more than 3 or 6 players
-        while (true){
-            if (amountOfPlayers > 2 && amountOfPlayers < 7){
+        while (true) {
+            if (amountOfPlayers > 2 && amountOfPlayers < 7) {
                 break;
-            }
-            else{
-                gui.showMessage(Message.getMessage("Fejlbesked",1));
-                amountOfPlayers = gui.getUserInteger(Message.getMessage("start menu",1 ),3,6);
+            } else {
+                gui.showMessage(Message.getMessage("Fejlbesked", 1));
+                amountOfPlayers = gui.getUserInteger(Message.getMessage("start menu", 1), 3, 6);
             }
         }
         //requests names and stores them in an array which is returned at end of method
         String[] names = new String[amountOfPlayers];
         for (int i = 0; i < amountOfPlayers; i++) {
-            names[i] = gui.getUserString(Message.getMessage("start menu",2) + (i+1) + Message.getMessage("start menu",3));
+            names[i] = gui.getUserString(Message.getMessage("start menu", 2) + (i + 1) + Message.getMessage("start menu", 3));
         }
 
         //checks for empty name
         for (int i = 0; i < names.length; i++) {
-            if (names[i].equals("")){
-                names[i] = "Player " + (i+1);
+            if (names[i].equals("")) {
+                names[i] = "Player " + (i + 1);
             }
         }
 
@@ -159,14 +169,14 @@ public class GUIController {
     }
 
     public void showDice(int[] values) {
-        gui.setDice(values[0],values[1]);
+        gui.setDice(values[0], values[1]);
     }
 
     //makes an animation of player's piece moving
     public void movePlayer(String name, int balance, int from, int to) {
         GUI_Player choosenPlayer = searchGUIPlayer(name);
         //move player one square forward at a time
-        for (int i = from; i != to; i = (i + 1) %40) {
+        for (int i = from; i != to; i = (i + 1) % 40) {
             sleep(300);
             fields[i].setCar(choosenPlayer, false);
             if (i == 39) {
@@ -177,7 +187,7 @@ public class GUIController {
                 updateBalance(name, balance);
             } else {
                 fields[i + 1].setCar(choosenPlayer, true);
-             }
+            }
         }
     }
 
@@ -216,7 +226,7 @@ public class GUIController {
     }
 
 
-    public String scrollList(String messsage, String ... arrayOptions){
+    public String scrollList(String messsage, String... arrayOptions) {
         return gui.getUserSelection(messsage, arrayOptions);
     }
 
@@ -224,12 +234,12 @@ public class GUIController {
         gui.displayChanceCard(msg);
     }
 
-    public void buyProperty(String name, int pos){
+    public void buyProperty(String name, int pos) {
         // finds player with the name and the players piece color
         Color carColor = null;
 
-        for(GUI_Player p: gui_players){
-            if(p.getName().equals(name)){
+        for (GUI_Player p : gui_players) {
+            if (p.getName().equals(name)) {
                 carColor = p.getCar().getPrimaryColor();
             }
         }
@@ -246,8 +256,8 @@ public class GUIController {
         // finds player with the name and the players piece color
         Color carColor = null;
 
-        for(GUI_Player p: gui_players){
-            if(p.getName().equals(name)){
+        for (GUI_Player p : gui_players) {
+            if (p.getName().equals(name)) {
                 carColor = p.getCar().getPrimaryColor();
             }
         }
@@ -270,18 +280,33 @@ public class GUIController {
     }
 
 
-    public String button(String msg, String ... buttons) {
+    public String button(String msg, String... buttons) {
         String buttonPressed = gui.getUserButtonPressed(msg, buttons);
         return buttonPressed;
     }
 
-    public void removeLoser(String name, int position){
+    public void removeLoser(String name, int position, SquareList squareList) {
         GUI_Player choosenPlayer = null;
-        for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
+        for (GUI_Player p : gui_players) {
+            if (p.getName().equals(name)) {
                 choosenPlayer = p;
             }
         }
+
+        //sets all owned property by losing player to have black border
         fields[position].setCar(choosenPlayer, false);
+        String[] ownedPropertyNames = squareList.getOwnedPropertyNames(choosenPlayer.getName());
+        for (String ownedPropertyName : ownedPropertyNames) {
+            for (int j = 0; j < fields.length; j++) {
+                if (ownedPropertyName.equals(squareList.getSquare(j).getFieldName())){
+                    if (fields[j] instanceof GUI_Street)
+                    ((GUI_Street) fields[j]).setBorder(Color.black, Color.black);
+                    if (fields[j] instanceof GUI_Shipping)
+                        ((GUI_Shipping) fields[j]).setBorder(Color.black, Color.black);
+                    if (fields[j] instanceof GUI_Brewery)
+                        ((GUI_Brewery) fields[j]).setBorder(Color.black, Color.black);
+                }
+            }
+        }
     }
 }
