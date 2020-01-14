@@ -17,7 +17,7 @@ public class GUIController {
                     new Color(72, 139, 247), Color.white),
             new GUI_Tax((Message.getMessage("Squares", 7)), "", (Message.getMessage("Squares", 7)), Color.orange, Color.black),
             new GUI_Shipping("src/main/resources/Pictures/ship.png", "Scandlines", (Message.getMessage("Squares", 8)), (Message.getMessage("Squares", 9)), (Message.getMessage("Squares", 8)), Color.white, Color.black),
-            new GUI_Street("Roskildevej", (Message.getMessage("Squares", 10)), (Message.getMessage("Squares", 10)), (Message.getMessage("Squares", 10)), new Color(242, 125, 41), Color.white),
+            new GUI_Street("Roskildevej", (Message.getMessage("Squares", 10)), (Message.getMessage("Squares", 11)), (Message.getMessage("Squares", 10)), new Color(242, 125, 41), Color.white),
             new GUI_Chance("?","Chance","",Color.black,Color.white),
             new GUI_Street("Valby Langgade", (Message.getMessage("Squares", 12)), (Message.getMessage("Squares", 11)), (Message.getMessage("Squares", 12)), new Color(242, 125, 41), Color.white),
             new GUI_Street("Allégade", (Message.getMessage("Squares", 14)), (Message.getMessage("Squares", 15)), (Message.getMessage("Squares", 14)), new Color(242, 125, 41), Color.white),
