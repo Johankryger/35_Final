@@ -47,11 +47,11 @@ public class GameController {
 
     public void checkForLost(int amountToPay) {
         String[] playerNames = playerList.getPlayerNames();
-        for (int i = 0; i < playerNames.length; i++) {
-            if (playerList.searchPlayer(playerNames[i]).isNeedsToLiquidate()) {
-                propertyController.liquidateMenu(playerList, playerNames[i], squareList, guiController, amountToPay);
-            } else if (playerList.searchPlayer(playerNames[i]).isHasLost()) {
-                //
+        for (String playerName : playerNames) {
+            if (playerList.searchPlayer(playerName).isNeedsToLiquidate()) {
+                propertyController.liquidateMenu(playerList, playerName, squareList, guiController, amountToPay);
+            } else {
+                playerList.searchPlayer(playerName);//
             }
         }
     }
@@ -59,22 +59,21 @@ public class GameController {
 
     public void jailLogic(String option) {
         Player player = playerList.getPlayer();
-        String jailMsg = option;
         if (player.isInJail() && player.hasGotFreeJailCard()) {
 
-            if (jailMsg.equals(Message.getMessage("In Jail",3))) {
+            if (option.equals(Message.getMessage("In Jail",3))) {
                 player.payJailBail(JAIL_BAIL_PRICE);
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                 player.setInJail(false);
             }
 
-            if (jailMsg.equals(Message.getMessage("In Jail",4))) {
+            if (option.equals(Message.getMessage("In Jail",4))) {
                 player.useBailCard();
                 player.setInJail(false);
             }
 
         } else if (player.isInJail()) {
-            if (jailMsg.equals(Message.getMessage("In Jail",3))) {
+            if (option.equals(Message.getMessage("In Jail",3))) {
                 player.payJailBail(JAIL_BAIL_PRICE);
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                 player.setInJail(false);
@@ -180,8 +179,7 @@ public class GameController {
         int allPlayerCounter = 0;
         Player[] playerArray = playerList.getAllPlayers();
         //checks for all players if they have lost this turn
-        for (int i = 0; i < playerArray.length; i++) {
-            Player playerName = playerArray[i];
+        for (Player playerName : playerArray) {
             if (playerName.getBalance().getAmount() < 0) {
                 guiController.removeLoser(playerName.getName(), playerName.getFieldPos());
                 playerList.getPlayer().setFinalScore(scoreBoard--);
@@ -194,19 +192,19 @@ public class GameController {
 //                    int pos = getPlayer().getFieldPos();
 //                    String owner = squareList.searchProperty(squareList.getSquare(pos).getFieldName()).getOwner();
 //                    if (owner == null || owner.equals(getPlayer().getName())|| owner.equals("bank")) {
-                        squareList.giveLoserProperty(playerName.getName(), "bank");
+                squareList.giveLoserProperty(playerName.getName(), "bank");
 //                    }
 //                    squareList.giveLoserProperty(playerName.getName(), owner);
 //                } catch (NullPointerException n) {
 //                }
 
-                int[] playerPosition = new int[playerArray.length-1];
+                int[] playerPosition = new int[playerArray.length - 1];
 
                 //makes new array of remaining players
                 String[] remainingPlayers = new String[playerList.getAllPlayers().length - 1];
                 for (Player player : playerArray) {
-                    if (!playerArray[i].getName().equals(player.getName())) {
-                        playerPosition[remainingPlayercounter]=player.getFieldPos();
+                    if (!playerName.getName().equals(player.getName())) {
+                        playerPosition[remainingPlayercounter] = player.getFieldPos();
                         remainingPlayers[remainingPlayercounter] = playerArray[allPlayerCounter].getName();
                         remainingPlayercounter++;
                     }
@@ -217,7 +215,7 @@ public class GameController {
                 for (int j = 0; j < remainingPlayers.length; j++) {
                     playerList.searchPlayer(remainingPlayers[j]).setFieldPos(playerPosition[j]);
                 }
-                playerList.setIndex((playerList.getIndex()-1)%remainingPlayers.length);
+                playerList.setIndex((playerList.getIndex() - 1) % remainingPlayers.length);
             }
         }
     }
