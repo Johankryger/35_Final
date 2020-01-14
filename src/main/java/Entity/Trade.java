@@ -50,19 +50,58 @@ public class Trade {
             }
 
 
-
-            } while (!playerChoice.equals("Go back") && !playerChoice.equals("Next"));
+        } while (!playerChoice.equals("Go back") && !playerChoice.equals("Next"));
 
         String[] playerNames = {"Go back"};
         String chosenTrader;
         for (int i = 0; i < playerList.getPlayerNames().length; i++) {
-            playerNames = ArrayMethods.addToArray(playerNames,playerList.getPlayerNames()[i]);
+            playerNames = ArrayMethods.addToArray(playerNames, playerList.getPlayerNames()[i]);
         }
-        playerNames = ArrayMethods.removeFromArray(playerNames,playerList.getPlayer().getName());
+        playerNames = ArrayMethods.removeFromArray(playerNames, playerList.getPlayer().getName());
 
+        int receivingAmount = 0;
         if (playerChoice.equals("Next")) {
             chosenTrader = guiController.scrollList("Who do you want to trade with? ", playerNames);
-        }
 
+            if (!chosenTrader.equals("Go back")) {
+                String theirOffer;
+                String[] theirOfferArray = new String[3];
+                theirOfferArray[0] = "Go back";
+                theirOfferArray[1] = "End trade";
+                theirOfferArray[2] = "Money offer";
+
+                String[] tradersStreets = squareList.getOwnedStreetNames(chosenTrader);
+                String[] tradersShips = squareList.getOwnedShipNames(chosenTrader);
+                String[] tradersBreweries = squareList.getOwnedBreweryNames(chosenTrader);
+
+                for (int i = 0; i < tradersStreets.length; i++) {
+                    if (!squareList.checkAnyHouse(squareList.searchStreet(tradersStreets[i]), chosenTrader)) {
+                        theirOfferArray = ArrayMethods.addToArray(theirOfferArray, tradersStreets[i]);
+                    }
+                }
+                for (int i = 0; i < tradersShips.length; i++) {
+                    theirOfferArray = ArrayMethods.addToArray(theirOfferArray, tradersShips[i]);
+                }
+                for (int i = 0; i < tradersBreweries.length; i++) {
+                    theirOfferArray = ArrayMethods.addToArray(theirOfferArray, tradersBreweries[i]);
+                }
+                theirOffer = guiController.scrollList("What do want in exchange for your offer?", theirOfferArray);
+
+                if (theirOffer.equals("Money offer")) {
+                    receivingAmount = guiController.getUserInteger("What amount of money do you want to offer", 0, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
+                }
+
+                if (theirOffer.equals("Go back")) {
+                    return;
+                }
+
+                if (theirOffer.equals("End trade")) {
+
+                }
+
+            }
+
+
+        }
     }
 }
