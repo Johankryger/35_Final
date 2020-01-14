@@ -254,7 +254,7 @@ public class GUIController {
         return userNumber;
     }
 
-    public void removeLoser(String name, int position){
+    public void removeLoser(String name, int position, SquareList squareList){
         GUI_Player choosenPlayer = null;
         for (GUI_Player p: gui_players) {
             if (p.getName().equals(name)){

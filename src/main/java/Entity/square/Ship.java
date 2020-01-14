@@ -37,13 +37,13 @@ public class Ship extends Property{
                     playerList.getPlayer().setMoneyToPay(playerList.getPlayer().getBalance().getAmount()-price);
                     return true;
                 }
-            String option = gui.button((Message.getMessage("General",1)) + fieldName + (Message.getMessage("General",2)), (Message.getMessage("General",3)), (Message.getMessage("General",4)));
-            if (option.equals((Message.getMessage("General",3)))) {
-                playerList.getPlayer().getBalance().pay(price);
-                gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
-                owner = playerList.getPlayer().getName();
-                gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-            } else {
+//            String option = gui.button((Message.getMessage("General",1)) + fieldName + (Message.getMessage("General",2)), (Message.getMessage("General",3)), (Message.getMessage("General",4)));
+//            if (option.equals((Message.getMessage("General",3)))) {
+//                playerList.getPlayer().getBalance().pay(price);
+//                gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
+//                owner = playerList.getPlayer().getName();
+//                gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
+//            } else {
                 //setAuction(True, fieldPosition);
                 //gui.auction(fieldPosition);
             }
