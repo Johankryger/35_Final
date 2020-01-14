@@ -10,8 +10,8 @@ public class Controller {
         gameController.turn();
         while(true) {
             gameController.checkForLoser();
-            String option = "manage bygninger";
-            while (option.equals("manage bygninger")) {
+            String option = Message.getMessage("In Jail",2);
+            while (option.equals(Message.getMessage("In Jail",2))) {
                 gameController.updateProperties();
                 option = gameController.menu();
             }
