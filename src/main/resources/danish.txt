@@ -158,6 +158,17 @@ Du betaler
 Okay
 Du har ikke råd til denne ejendom
 
+
+Manage
+Gå tilbage
+Vælg mulighed
+Vælg ejendom
+Pantsæt
+Hæv pantsætning
+Byg hus
+Sælg hus
+Byttehandel
+
 Trading
 Gå tilbage
 Vælg spiller at bytte med

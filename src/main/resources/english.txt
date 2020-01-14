@@ -158,6 +158,16 @@ Okay
 You can't afford this property
 
 
+Manage
+Go back
+Choose option
+Choose property
+Mortgage
+Redeem mortgage
+Build house
+Sell house
+Tradeoffer
+
 Trading
 Go back
 Choose player to trade with
