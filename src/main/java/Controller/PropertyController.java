@@ -71,11 +71,10 @@ public class PropertyController {
 
             switch (option2) {
                 case "Go back":
-                    break;
                 case "Gå tilbage":
                     break;
-                // Find en måde så getMessage kan bruges til casene
                 case "Mortgage":
+                case "Pantsæt":
                     String mortgageOption;
                     do {
                         mortgageOption = guiController.scrollList(Message.getMessage("Manage", 3), makeMortgageArray(name, squareList));
@@ -90,6 +89,7 @@ public class PropertyController {
                     manageMenu(guiController, playerList, squareList);
                     break;
                 case "Unmortgage":
+                case "Hæv pantsætning":
                     String unMortgageOption;
                     do {
                         unMortgageOption = guiController.scrollList(Message.getMessage("Manage", 3), unMortgageArray(name, squareList));
@@ -110,6 +110,7 @@ public class PropertyController {
                     manageMenu(guiController, playerList, squareList);
                     break;
                 case "Buy house":
+                case "Byg hus":
                     String buildHouseOption;
                     do {
                         buildHouseOption = guiController.scrollList(Message.getMessage("Manage", 3), buyHouseArray(name, squareList));
@@ -124,6 +125,7 @@ public class PropertyController {
                     manageMenu(guiController, playerList, squareList);
                     break;
                 case "Sell house":
+                case "Sælg hus":
                     String sellHouseOption;
                     do {
                         sellHouseOption = guiController.scrollList(Message.getMessage("Manage", 3), sellHouseArray(name, squareList));
@@ -138,6 +140,7 @@ public class PropertyController {
                     manageMenu(guiController, playerList, squareList);
                     break;
                 case "Trade":
+                case "Byttehandel":
                    trade.trade(playerList,squareList,guiController);
                         break;
 

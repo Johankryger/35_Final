@@ -1,5 +1,5 @@
 Chancecard
-Gå to prison. Move directly to prison. Even if you pass "START", you don't receive Kr. 4000.
+Go to prison. Move directly to prison. Even if you pass "START", you don't receive Kr. 4000.
 In the occasion of the king's birthday you are pardonned from prison. This card can be kept until you need it, or you can sell it.
 Move 3 squares forwards
 Move 3 squares backwards
@@ -137,6 +137,7 @@ Rent of land: ______ 500 kr. If 2 shipping companies are owned: 1.000 kr. If 3 s
 Rent of land: ______ 700 kr. w/ 1 house: __________ 3.500 kr. > 2 houses: _________ 10.000 kr. > 3 houses: _________ 22.000 kr. > 4 houses: _________ 26.000 kr. > hotel: _________ 30.000 kr. Each house costs 4.000 kr.
 
 Rent of land: ______ 1.000 kr. w/ 1 house: __________ 4.000 kr. > 2 houses: _________ 12.000 kr. > 3 houses: _________ 28.000 kr. > 4 houses: _________ 34.000 kr. > hotel: _________ 40.000 kr. Each house costs 4.000 kr.
+
 In Jail
 You have been jailed! What will you do?
 Manage properties
@@ -163,10 +164,10 @@ Go back
 Choose option
 Choose property
 Mortgage
-Redeem mortgage
+Unmortgage
 Build house
 Sell house
-Tradeoffer
+Trade
 
 Trading
 Go back
