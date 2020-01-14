@@ -1,5 +1,6 @@
 package Controller;
 
+import Entity.square.SquareList;
 import gui_fields.*;
 import gui_main.GUI;
 import message.Message;
@@ -79,6 +80,16 @@ public class GUIController {
 
 
     public String[] startMenu() {
+        //sets all fields' property borders to black
+        for (GUI_Field field : fields) {
+            if (field instanceof GUI_Street)
+                ((GUI_Street) field).setBorder(Color.black, Color.black);
+            if (field instanceof GUI_Shipping)
+                ((GUI_Shipping) field).setBorder(Color.black, Color.black);
+            if (field instanceof GUI_Brewery)
+                ((GUI_Brewery) field).setBorder(Color.black, Color.black);
+        }
+
         String language = gui.getUserButtonPressed("Choose language", "Dansk", "English");
         Message.setLanguage(language);
         int balance = 30000;
@@ -141,7 +152,7 @@ public class GUIController {
                 updateBalance(name, balance);
             } else {
                 fields[i + 1].setCar(choosenPlayer, true);
-             }
+            }
         }
     }
 
@@ -250,6 +261,21 @@ public class GUIController {
                 choosenPlayer = p;
             }
         }
+
+        //sets all owned property by losing player to have black border
         fields[position].setCar(choosenPlayer, false);
+        String[] ownedPropertyNames = squareList.getOwnedPropertyNames(choosenPlayer.getName());
+        for (String ownedPropertyName : ownedPropertyNames) {
+            for (int j = 0; j < fields.length; j++) {
+                if (ownedPropertyName.equals(squareList.getSquare(j).getFieldName())){
+                    if (fields[j] instanceof GUI_Street)
+                    ((GUI_Street) fields[j]).setBorder(Color.black, Color.black);
+                    if (fields[j] instanceof GUI_Shipping)
+                        ((GUI_Shipping) fields[j]).setBorder(Color.black, Color.black);
+                    if (fields[j] instanceof GUI_Brewery)
+                        ((GUI_Brewery) fields[j]).setBorder(Color.black, Color.black);
+                }
+            }
+        }
     }
 }

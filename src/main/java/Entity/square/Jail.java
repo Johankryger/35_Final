@@ -10,7 +10,7 @@ public class Jail extends Square {
     }
 
     @Override
-    public void squareAction(PlayerList playerList, GUIController gui, int diceSum) {
+    public boolean squareAction(PlayerList playerList, GUIController gui, int diceSum) {
         gui.button("You've been jailed!", "OK");
         int startPos = playerList.getPlayer().getFieldPos();
         playerList.getPlayer().setFieldPos(10);
@@ -18,5 +18,6 @@ public class Jail extends Square {
         playerList.getPlayer().setInJail(true);
         //Tjek om nedenstående er nødvendig.
         playerList.getPlayer().extraTurn(false);
+        return false;
     }
 }
