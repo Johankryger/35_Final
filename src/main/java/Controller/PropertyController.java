@@ -30,7 +30,6 @@ public class PropertyController {
                 unMortgageMenu = ArrayMethods.addToArray(unMortgageMenu,ownedProperties[i]);
         }
         return unMortgageMenu;
-
     }
 
     public String[] buyHouseArray(String playerName, SquareList squareList){
@@ -44,6 +43,29 @@ public class PropertyController {
             }
         }
         return buyHouseMenu;
+    }
+
+    public String[] tradeOptionArray(String playerName, SquareList squareList){
+        String[] owendStreets = squareList.getOwnedStreetNames(playerName);
+        String[] ownedShips = squareList.getOwnedShipNames(playerName);
+        String[] ownedBreweries = squareList.getOwnedBreweryNames(playerName);
+        String[] tradeMenu  = new String[3];
+        tradeMenu[0] = "Go back";
+        tradeMenu[1] = "Choose trader";
+        tradeMenu[2] = "Money offer";
+
+        for (int i = 0; i < owendStreets.length; i++) {
+            if (!squareList.checkAnyHouse(squareList.searchStreet(owendStreets[i]),playerName)){
+                tradeMenu = ArrayMethods.addToArray(tradeMenu,owendStreets[i]);
+            }
+        }
+        for (int i = 0; i < ownedShips.length; i++) {
+            tradeMenu = ArrayMethods.addToArray(tradeMenu,ownedShips[i]);
+        }
+        for (int i = 0; i < ownedBreweries.length; i++) {
+            tradeMenu = ArrayMethods.addToArray(tradeMenu,ownedBreweries[i]);
+        }
+        return tradeMenu;
     }
 
     public String[] sellHouseArray(String playerName, SquareList squareList) {
@@ -62,7 +84,7 @@ public class PropertyController {
 
 
     public void manageMenu(GUIController guiController, PlayerList playerList, SquareList squareList) {
-            String option2 = guiController.scrollList("Choose option", "Go back", "Mortgage", "Unmortgage", "Buy house", "Sell house");
+            String option2 = guiController.scrollList("Choose option", "Go back", "Mortgage", "Unmortgage", "Buy house", "Sell house", "Trade");
             String name = playerList.getPlayer().getName();
 
             switch (option2){
@@ -130,7 +152,31 @@ public class PropertyController {
                     } while (!sellHouseOption.equals("Go back"));
                     manageMenu(guiController,playerList,squareList);
                     break;
+                case "Trade":
+                    String tradeOption;
+                    do {
+                        tradeOption = guiController.scrollList("Choose what to trade", tradeOptionArray(name, squareList));
+                        if (!tradeOption.equals("Go back")) {
+                            int index = 0;
+                            if (!tradeOption.equals("Choose trader") && !tradeOption.equals("Money offer")){
+                                String[] chosenProerties = new String[0];
+                                chosenProerties = ArrayMethods.addToArray(chosenProerties,tradeOption);
+                                ArrayMethods.removeFromArray(tradeOptionArray(name,squareList),tradeOption);
+                            }
+
+
+//                            int housePrice = squareList.searchStreet(sellHouseOption).getHousePrice() / 2;
+//                            playerList.getPlayer().getBalance().add(housePrice);
+//                            squareList.searchStreet(sellHouseOption).removeHouse();
+//                            guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
+//                            guiController.setHouses(squareList.searchStreet(sellHouseOption).getNumberOfHouses(), squareList.searchStreet(sellHouseOption).getFieldPosition());
+                        }
+                    } while (!tradeOption.equals("Go back"));
+                    manageMenu(guiController,playerList,squareList);
+                    break;
             }
+
+
     }
 
     public void liquidateMenu(PlayerList playerList, String playerName, SquareList squareList, GUIController guiController, int amountToPay) {

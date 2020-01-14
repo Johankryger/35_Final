@@ -114,4 +114,6 @@ public class Street extends Property {
     }
     public String getColor(){return color;}
 
+
+
 }
