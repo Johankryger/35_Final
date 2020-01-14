@@ -159,3 +159,13 @@ You can't afford this property
 
 
 Trading
+Go back
+Choose player to trade with
+Money offer
+End trade
+What do you want in exchange for your offer?
+How many DKK do you want to offer?
+What amount of DKK do you want?
+Yes
+No
+Who do you want to trade with?

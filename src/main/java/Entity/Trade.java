@@ -2,6 +2,7 @@ package Entity;
 
 import Controller.GUIController;
 import Entity.square.SquareList;
+import message.Message;
 import staticclasses.ArrayMethods;
 
 import java.lang.reflect.Array;
@@ -16,9 +17,9 @@ public class Trade {
         String[] tradeMenuArray = new String[3];
         String[] tradeOfferArray = new String[0];
 
-        tradeMenuArray[0] = "Go back";
-        tradeMenuArray[1] = "Next";
-        tradeMenuArray[2] = "Money offer";
+        tradeMenuArray[0] = Message.getMessage("Trading", 1);
+        tradeMenuArray[1] = Message.getMessage("Trading", 2);
+        tradeMenuArray[2] = Message.getMessage("Trading", 3);
 
 
         for (int i = 0; i < owendStreets.length; i++) {
@@ -40,19 +41,19 @@ public class Trade {
         do {
 
             playerChoice = guiController.scrollList("Your offer: ", tradeMenuArray);
-            if (!playerChoice.equals("Money offer") && !playerChoice.equals("Next") && !playerChoice.equals("Go back")) {
+            if (!playerChoice.equals(Message.getMessage("Trading", 3)) && !playerChoice.equals(Message.getMessage("Trading", 2)) && !playerChoice.equals(Message.getMessage("Trading", 1))) {
                 tradeOfferArray = ArrayMethods.addToArray(tradeOfferArray, playerChoice);
                 tradeMenuArray = ArrayMethods.removeFromArray(tradeMenuArray, playerChoice);
             }
-            if (playerChoice.equals("Money offer")) {
-                offerAmount = guiController.getUserInteger("What amount of money do you want to offer", 0, playerList.getPlayer().getBalance().getAmount());
+            if (playerChoice.equals(Message.getMessage("Trading", 3))) {
+                offerAmount = guiController.getUserInteger(Message.getMessage("Trading", 6), 0, playerList.getPlayer().getBalance().getAmount());
 
             }
 
 
-        } while (!playerChoice.equals("Go back") && !playerChoice.equals("Next"));
+        } while (!playerChoice.equals(Message.getMessage("Trading", 1)) && !playerChoice.equals(Message.getMessage("Trading" , 2)));
 
-        String[] playerNames = {"Go back"};
+        String[] playerNames = {Message.getMessage("Trading", 1)};
         String chosenTrader;
         for (int i = 0; i < playerList.getPlayerNames().length; i++) {
             playerNames = ArrayMethods.addToArray(playerNames, playerList.getPlayerNames()[i]);
@@ -62,15 +63,15 @@ public class Trade {
         int receivingAmount = 0;
         String[] receivingOfferArray = new String[0];
 
-        if (playerChoice.equals("Next")) {
-            chosenTrader = guiController.scrollList("Who do you want to trade with? ", playerNames);
+        if (playerChoice.equals(Message.getMessage("Trading", 2))) {
+            chosenTrader = guiController.scrollList(Message.getMessage("Trading", 10), playerNames);
 
-            if (!chosenTrader.equals("Go back")) {
+            if (!chosenTrader.equals(Message.getMessage("Trading", 1))) {
                 String theirOffer;
                 String[] theirOfferArray = new String[3];
-                theirOfferArray[0] = "Go back";
-                theirOfferArray[1] = "End trade";
-                theirOfferArray[2] = "Money offer";
+                theirOfferArray[0] = Message.getMessage("Trading", 1);
+                theirOfferArray[1] = Message.getMessage("Trading", 4);
+                theirOfferArray[2] = Message.getMessage("Trading", 3);
 
                 String[] tradersStreets = squareList.getOwnedStreetNames(chosenTrader);
                 String[] tradersShips = squareList.getOwnedShipNames(chosenTrader);
@@ -88,21 +89,21 @@ public class Trade {
                     theirOfferArray = ArrayMethods.addToArray(theirOfferArray, tradersBreweries[i]);
                 }
             do {
-                theirOffer = guiController.scrollList("What do want in exchange for your offer?", theirOfferArray);
+                theirOffer = guiController.scrollList(Message.getMessage("Trading", 5), theirOfferArray);
 
-                if (!theirOffer.equals("Money offer") && !theirOffer.equals("End trade") && !theirOffer.equals("Go back")) {
+                if (!theirOffer.equals(Message.getMessage("Trading", 3)) && !theirOffer.equals(Message.getMessage("Trading", 4)) && !theirOffer.equals(Message.getMessage("Trading", 1))) {
                     receivingOfferArray = ArrayMethods.addToArray(receivingOfferArray, theirOffer);
                     theirOfferArray = ArrayMethods.removeFromArray(theirOfferArray, theirOffer);
                 }
-                if (theirOffer.equals("Money offer")) {
-                    receivingAmount = guiController.getUserInteger("What amount of money do you want to offer", 0, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
+                if (theirOffer.equals(Message.getMessage("Trading", 3))) {
+                    receivingAmount = guiController.getUserInteger(Message.getMessage("Trading", 7), 0, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
                 }
-            } while (!theirOffer.equals("Go back") && !theirOffer.equals("End trade"));
+            } while (!theirOffer.equals(Message.getMessage("Trading", 1)) && !theirOffer.equals(Message.getMessage("Trading", 4)));
 
-                if (theirOffer.equals("Go back")) {
+                if (theirOffer.equals(Message.getMessage("Trading", 1))) {
                     return;
                 }
-                if (theirOffer.equals("End trade")) {
+                if (theirOffer.equals(Message.getMessage("Trading", 4))) {
                     String offerString = "";
                     for (int i = 0; i < tradeOfferArray.length; i++) {
                         offerString += tradeOfferArray[i] + ", ";
@@ -114,9 +115,9 @@ public class Trade {
                         receivingString += receivingOfferArray[i] + ", ";
                     }
 
-                    String tradingAnswser = guiController.button(playerName + "'s offer:" + " Amount:  " + offerAmount + ""  + "  Properties: " + offerString + ". " + chosenTrader + "'s offer: " + " Amount: " + receivingAmount + "" + "  Properties: " + receivingString + chosenTrader + "                                     Do you accept the offer?", "Yes", "No");
+                    String tradingAnswser = guiController.button(playerName + "'s offer:" + " Amount:  " + offerAmount + ""  + "  Properties: " + offerString + ". " + chosenTrader + "'s offer: " + " Amount: " + receivingAmount + "" + "  Properties: " + receivingString + "            " +chosenTrader + "  Do you accept the offer?", Message.getMessage("Trading", 8), Message.getMessage("Trading", 9));
 
-                    if (tradingAnswser.equals("Yes")) {
+                    if (tradingAnswser.equals(Message.getMessage("Trading", 8))) {
 
                         for (int i = 0; i < tradeOfferArray.length; i++) {
                             squareList.searchStreet(tradeOfferArray[i]).setOwner(chosenTrader);

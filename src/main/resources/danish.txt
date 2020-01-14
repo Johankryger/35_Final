@@ -158,4 +158,14 @@ Du betaler
 Okay
 Du har ikke råd til denne ejendom
 
-Chance
+Trading
+Gå tilbage
+Vælg spiller at bytte med
+Penge bud
+Afslut byttehandel
+Hvad vil du have i bytte for dit tilbud?
+Hvor mange kroner vil du tilbyde?
+Hvor mange kroner vil du have?
+Ja
+Nej
+Hvem vil du bytte med?
