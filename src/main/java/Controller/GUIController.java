@@ -9,49 +9,51 @@ import java.awt.*;
 public class GUIController {
 
     private GUI_Field[] fields = {
-            new GUI_Start("START", (Message.getMessage("Squares", 1)), (Message.getMessage("Squares", 2)),  Color.RED, Color.WHITE),
-            new GUI_Street("Rødovrevej",  (Message.getMessage("Squares", 3)),(Message.getMessage("Squares", 4)),(Message.getMessage("Squares", 3)),
+            new GUI_Start("START", (Message.getMessage("SubText", 1)), (Message.getMessage("Desc", 1)),  Color.RED, Color.WHITE),
+            new GUI_Street("Rødovrevej",  (Message.getMessage("SubText", 2)),(Message.getMessage("Desc", 2)),(Message.getMessage("SubText", 3)),
                     new Color(72, 139, 247), Color.white),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Hvidovrevej",  (Message.getMessage("Squares", 5)),(Message.getMessage("Squares", 6)),(Message.getMessage("Squares", 5)),
+            new GUI_Chance("?",(Message.getMessage("SubText",3)),(Message.getMessage("Desc",3)),Color.black,Color.white),
+            new GUI_Street("Hvidovrevej",  (Message.getMessage("SubText", 4)),(Message.getMessage("Desc", 4)),(Message.getMessage("SubText", 5)),
                     new Color(72, 139, 247), Color.white),
-            new GUI_Tax((Message.getMessage("Squares", 7)), "", (Message.getMessage("Squares", 7)), Color.orange, Color.black),
-            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Scandlines", (Message.getMessage("Squares", 8)), (Message.getMessage("Squares", 9)), (Message.getMessage("Squares", 8)), Color.white, Color.black),
-            new GUI_Street("Roskildevej", (Message.getMessage("Squares", 10)), (Message.getMessage("Squares", 11)), (Message.getMessage("Squares", 10)), new Color(242, 125, 41), Color.white),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Valby Langgade", (Message.getMessage("Squares", 12)), (Message.getMessage("Squares", 11)), (Message.getMessage("Squares", 12)), new Color(242, 125, 41), Color.white),
-            new GUI_Street("Allégade", (Message.getMessage("Squares", 14)), (Message.getMessage("Squares", 15)), (Message.getMessage("Squares", 14)), new Color(242, 125, 41), Color.white),
-            new GUI_Refuge("src/main/resources/pictures/ironbars.png", (Message.getMessage("Squares", 16)), (Message.getMessage("Squares", 16)), (Message.getMessage("Squares", 16)), Color.white, Color.black),
-            new GUI_Street("Frederiksberg Allé", (Message.getMessage("Squares", 17)), (Message.getMessage("Squares", 18)), (Message.getMessage("Squares", 17)), new Color(0, 189, 4), Color.white),
-            new GUI_Brewery("src/main/resources/Pictures/squash.png", "Squash", (Message.getMessage("Squares", 19)), (Message.getMessage("Squares", 20)), "", Color.cyan, Color.BLACK),
-            new GUI_Street("Bülowsvej", (Message.getMessage("Squares", 21)), (Message.getMessage("Squares", 22)), (Message.getMessage("Squares", 21)), new Color(0, 189, 4), Color.white),
-            new GUI_Street("Gammel Kongevej", (Message.getMessage("Squares", 23)), (Message.getMessage("Squares", 24)), (Message.getMessage("Squares", 23)), new Color(0, 189, 4), Color.white),
-            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Molslinjen", (Message.getMessage("Squares", 25)), (Message.getMessage("Squares", 26)), (Message.getMessage("Squares", 25)), Color.white, Color.black),
-            new GUI_Street("Bernstorffsvej", (Message.getMessage("Squares", 28)), (Message.getMessage("Squares", 27)), (Message.getMessage("Squares", 28)), new Color(162, 163, 162), Color.white),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Hellerupvej", (Message.getMessage("Squares", 28)), (Message.getMessage("Squares", 29)), (Message.getMessage("Squares", 28)), new Color(162, 163, 162), Color.white),
-            new GUI_Street("Strandvejen", (Message.getMessage("Squares", 30)), (Message.getMessage("Squares", 31)), (Message.getMessage("Squares", 30)), new Color(162, 163, 162), Color.white),
-            new GUI_Refuge("src/main/resources/Pictures/parking.png", "", (Message.getMessage("Squares", 32)), "", Color.black, Color.white),
-            new GUI_Street("Trianglen", (Message.getMessage("Squares", 33)), (Message.getMessage("Squares", 34)), (Message.getMessage("Squares", 33)), Color.RED, Color.white),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Østerbrogade", (Message.getMessage("Squares", 35)), (Message.getMessage("Squares", 36)), (Message.getMessage("Squares", 35)), Color.RED, Color.white),
-            new GUI_Street("Grønningen", (Message.getMessage("Squares", 37)), (Message.getMessage("Squares", 38)), (Message.getMessage("Squares", 37)), Color.RED, Color.white),
-            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Mærsk", (Message.getMessage("Squares", 39)), (Message.getMessage("Squares", 40)), (Message.getMessage("Squares", 39)), Color.white, Color.black),
-            new GUI_Street("Bredgade", (Message.getMessage("Squares", 41)), (Message.getMessage("Squares", 42)), (Message.getMessage("Squares", 41)), Color.WHITE, Color.black),
-            new GUI_Street("Kgs. Nytorv", (Message.getMessage("Squares", 43)), (Message.getMessage("Squares", 44)), (Message.getMessage("Squares", 43)), Color.WHITE, Color.black),
-            new GUI_Brewery("src/main/resources/pictures/cola.png", "Cola", (Message.getMessage("Squares", 45)), (Message.getMessage("Squares", 46)), "", Color.cyan, Color.BLACK),
-            new GUI_Street("Østergade", (Message.getMessage("Squares", 47)), (Message.getMessage("Squares", 48)), (Message.getMessage("Squares", 47)), Color.WHITE, Color.black),
-            new GUI_Jail("src/main/resources/pictures/prisoner.png", (Message.getMessage("Squares", 49)), (Message.getMessage("Squares", 50)), (Message.getMessage("Squares", 49)), Color.black, Color.WHITE),
-            new GUI_Street("Amagertorv", (Message.getMessage("Squares", 51)), (Message.getMessage("Squares", 52)), (Message.getMessage("Squares", 51)), new Color(255, 251, 13), Color.black),
-            new GUI_Street("Vimmelskaftet", (Message.getMessage("Squares", 53)), (Message.getMessage("Squares", 54)), (Message.getMessage("Squares", 53)), new Color(255, 251, 13), Color.black),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Nygade", (Message.getMessage("Squares", 55)), (Message.getMessage("Squares", 56)), (Message.getMessage("Squares", 55)), new Color(255, 251, 13), Color.black),
-            new GUI_Shipping("src/main/resources/Pictures/ship.png", "DFDS", (Message.getMessage("Squares", 57)), (Message.getMessage("Squares", 58)), (Message.getMessage("Squares", 57)), Color.white, Color.black),
-            new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Frederiksberggade", (Message.getMessage("Squares", 59)), (Message.getMessage("Squares", 60)), "Pris: 7.000 kr", new Color(165, 6, 209), Color.white),
-            new GUI_Tax((Message.getMessage("Squares", 61)), "", (Message.getMessage("Squares", 61)), Color.orange, Color.black),
-            new GUI_Street("Rådhuspladsen", (Message.getMessage("Squares", 62)), (Message.getMessage("Squares", 63)), (Message.getMessage("Squares", 62)), new Color(165, 6, 209), Color.white)
+            new GUI_Tax((Message.getMessage("Title", 4)), (Message.getMessage("SubText",5)), (Message.getMessage("Desc", 5)), Color.orange, Color.black),
+            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Scandlines", (Message.getMessage("SubText", 6)), (Message.getMessage("Desc", 6)), (Message.getMessage("SubText", 6)), Color.white, Color.black),
+            new GUI_Street("Roskildevej", (Message.getMessage("SubText", 7)), (Message.getMessage("Desc", 7)),(Message.getMessage("SubText", 7)), new Color(242, 125, 41), Color.white),
+            new GUI_Chance("?",(Message.getMessage("SubText",8)),(Message.getMessage("Desc",8)),Color.black,Color.white),
+            new GUI_Street("Valby Langgade", (Message.getMessage("SubText", 9)), (Message.getMessage("Desc", 9)), (Message.getMessage("SubText", 9)), new Color(242, 125, 41), Color.white),
+            new GUI_Street("Allégade", (Message.getMessage("SubText", 10)), (Message.getMessage("Desc", 10)), (Message.getMessage("SubText", 10)), new Color(242, 125, 41), Color.white),
+            new GUI_Refuge("src/main/resources/pictures/ironbars.png", (Message.getMessage("Title", 1)), (Message.getMessage("SubText", 11)), (Message.getMessage("Desc", 11)), Color.white, Color.black),
+            new GUI_Street("Frederiksberg Allé", (Message.getMessage("SubText", 12)), (Message.getMessage("Desc", 12)), (Message.getMessage("SubText", 12)), new Color(0, 189, 4), Color.white),
+            new GUI_Brewery("src/main/resources/Pictures/squash.png", "Squash", (Message.getMessage("SubText", 13)), (Message.getMessage("Desc", 13)), "", Color.cyan, Color.BLACK),
+            new GUI_Street("Bülowsvej", (Message.getMessage("SubText", 14)), (Message.getMessage("Desc", 14)), (Message.getMessage("SubText", 14)), new Color(0, 189, 4), Color.white),
+            new GUI_Street("Gammel Kongevej", (Message.getMessage("SubText", 15)), (Message.getMessage("Desc", 15)), (Message.getMessage("SubText", 15)), new Color(0, 189, 4), Color.white),
+            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Molslinjen", (Message.getMessage("SubText", 16)), (Message.getMessage("Desc", 16)), (Message.getMessage("SubText", 16)), Color.white, Color.black),
+            new GUI_Street("Bernstorffsvej", (Message.getMessage("SubText", 17)), (Message.getMessage("Desc", 17)), (Message.getMessage("SubText", 17)), new Color(162, 163, 162), Color.white),
+            new GUI_Chance("?",(Message.getMessage("SubText",18)),(Message.getMessage("Desc",18)),Color.black,Color.white),
+            new GUI_Street("Hellerupvej", (Message.getMessage("SubText", 19)), (Message.getMessage("Desc", 19)), (Message.getMessage("SubText", 19)), new Color(162, 163, 162), Color.white),
+            new GUI_Street("Strandvejen", (Message.getMessage("SubText", 20)), (Message.getMessage("Desc", 20)), (Message.getMessage("SubText", 20)), new Color(162, 163, 162), Color.white),
+            new GUI_Refuge("src/main/resources/Pictures/parking.png", (Message.getMessage("Title",2)), (Message.getMessage("SubText", 21)), (Message.getMessage("Desc", 21)), Color.black, Color.white),
+            new GUI_Street("Trianglen", (Message.getMessage("SubText", 22)), (Message.getMessage("SubText", 22)), (Message.getMessage("Desc", 22)), Color.RED, Color.white),
+            new GUI_Chance("?",(Message.getMessage("SubText",23)),(Message.getMessage("Desc",23)),Color.black,Color.white),
+            new GUI_Street("Østerbrogade", (Message.getMessage("SubText", 24)), (Message.getMessage("Desc", 24)), (Message.getMessage("SubText", 24)), Color.RED, Color.white),
+            new GUI_Street("Grønningen", (Message.getMessage("SubText", 25)), (Message.getMessage("Desc", 25)), (Message.getMessage("SubText", 25)), Color.RED, Color.white),
+            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Mærsk", (Message.getMessage("SubText", 26)), (Message.getMessage("Desc", 26)), (Message.getMessage("SubText", 26)), Color.white, Color.black),
+            new GUI_Street("Bredgade", (Message.getMessage("SubText", 27)), (Message.getMessage("Desc", 27)), (Message.getMessage("SubText", 27)), Color.WHITE, Color.black),
+            new GUI_Street("Kgs. Nytorv", (Message.getMessage("SubText", 28)), (Message.getMessage("Desc", 28)), (Message.getMessage("SubText", 28)), Color.WHITE, Color.black),
+            new GUI_Brewery("src/main/resources/pictures/cola.png", "Cola", (Message.getMessage("SubText", 29)), (Message.getMessage("Desc", 29)), (Message.getMessage("SubText",29)), Color.cyan, Color.BLACK),
+            new GUI_Street("Østergade", (Message.getMessage("SubText", 30)), (Message.getMessage("Desc", 30)), (Message.getMessage("SubText", 30)), Color.WHITE, Color.black),
+            new GUI_Jail("src/main/resources/pictures/prisoner.png", (Message.getMessage("SubText", 31)), (Message.getMessage("Desc", 31)), (Message.getMessage("SubText", 31)), Color.black, Color.WHITE),
+            new GUI_Street("Amagertorv", (Message.getMessage("SubText", 32)), (Message.getMessage("Desc", 32)), (Message.getMessage("SubText", 32)), new Color(255, 251, 13), Color.black),
+            new GUI_Street("Vimmelskaftet", (Message.getMessage("SubText", 33)), (Message.getMessage("Desc", 33)), (Message.getMessage("SubText", 33)), new Color(255, 251, 13), Color.black),
+            new GUI_Chance("?",(Message.getMessage("SubText",34)),(Message.getMessage("Desc",34)),Color.black,Color.white),
+            new GUI_Street("Nygade", (Message.getMessage("SubText", 35)), (Message.getMessage("Desc", 35)), (Message.getMessage("SubText", 35)), new Color(255, 251, 13), Color.black),
+            new GUI_Shipping("src/main/resources/Pictures/ship.png", "DFDS", (Message.getMessage("SubText", 36)), (Message.getMessage("Desc", 36)), (Message.getMessage("SubText", 36)), Color.white, Color.black),
+            new GUI_Chance("?",(Message.getMessage("SubText",37)),(Message.getMessage("Desc",37)),Color.black,Color.white),
+            new GUI_Street("Frederiksberggade", (Message.getMessage("SubText", 38)), (Message.getMessage("Desc", 38)), "Pris: 7.000 kr", new Color(165, 6, 209), Color.white),
+            new GUI_Tax((Message.getMessage("Title", 5)), (Message.getMessage("SubText",39)), (Message.getMessage("Desc", 39)), Color.orange, Color.black),
+            new GUI_Street("Rådhuspladsen", (Message.getMessage("SubText", 40)), (Message.getMessage("Desc", 40)), (Message.getMessage("SubText", 40)), new Color(165, 6, 209), Color.white)
     };
+
+
     private GUI gui = new GUI(fields);
     private GUI_Player[] gui_players;
     private GUI_Car[] gui_cars = {
@@ -81,6 +83,11 @@ public class GUIController {
         Message.setLanguage(language);
         int balance = 30000;
         int amountOfPlayers = gui.getUserInteger(Message.getMessage("start menu",1), 3 ,6);
+        for (int i = 0; i < fields.length ; i++) {
+                fields[i].setSubText(Message.getMessage("SubText", i+1));
+                fields[i].setDescription(Message.getMessage("Desc",i+1));
+        }
+
 
         //makes it invalid to select less or more than 3 or 6 players
         while (true){

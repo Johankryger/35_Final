@@ -45,70 +45,98 @@ Spiller
 Fejlbesked
 Ugyldigt antal af spillere
 
-Squares
-Få 4000kr
-De modtager 4000 kr. hver gang de passere START.
-Pris: 1.200 kr
-Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.
-Pris: 1.200 kr
-Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.
-Betal indkomstskat: 10% eller 4000 kr.
-Pris: 4.000 kr
-Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
-Pris: 2.000 kr
-Leje af grund: ______ 100 kr. m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr. Hvert hus koster 1000 kr.
-Pris: 2.000 kr
-Leje af grund: ______ 100 kr. m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr. Hvert hus koster 1000 kr.
-Pris: 2.400 kr
-Leje af grund: ______ 150 kr. m/ 1 hus: __________ 800 kr. > 2 huse: _________ 2.000 kr. > 3 huse: _________ 6.000 kr. > 4 huse: _________ 9.000 kr. > hotel: _________ 12.000 kr. Hvert hus koster 1000 kr.
+
+
+Title
 På besøg
-Pris: 2.800kr
-Leje af grund: ______ 200 kr. m/ 1 hus: _________ 1.000 kr. > 2 huse: _________ 3.000 kr. > 3 huse: _________ 9.000 kr. > 4 huse: ________ 12.500 kr. > hotel: _________ 15.000 kr. Hvert hus koster 2.000 kr.
-Pris: 3.000 kr
-Hvis 1 virksomhed ejes. betales 100 gange så meget, som øjene viser. Hvis både Red Bull og Monster ejes, betales der dobbelt så meget.
-Pris: 2.800kr
-Leje af grund: ______ 200 kr. m/ 1 hus: _________ 1.000 kr. > 2 huse: _________ 3.000 kr. > 3 huse: _________ 9.000 kr. > 4 huse: ________ 12.500 kr. > hotel: _________ 15.000 kr. Hvert hus koster 2.000 kr.
-Pris: 3.200 kr
-Leje af grund: ______ 250 kr. m/ 1 hus: _________ 1.250 kr. > 2 huse: _________ 3.750 kr. > 3 huse: ________ 10.000 kr. > 4 huse: ________ 14.000 kr. > hotel: _________ 18.000 kr. Hvert hus koster 2.000 kr.
-Pris: 4.000 kr
-Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
-Leje af grund: ______ 300 kr. m/ 1 hus: _________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: ________ 11.000 kr. > 4 huse: ________ 15.000 kr. > hotel: _________ 19.000 kr. Hvert hus koster 2.000 kr.
-Pris: 3.600 kr
-Leje af grund: ______ 300 kr. m/ 1 hus: _________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: ________ 11.000 kr. > 4 huse: ________ 15.000 kr. > hotel: _________ 19.000 kr. Hvert hus koster 2.000 kr.
-Pris: 4.000 kr
-Leje af grund: ______ 350 kr. m/ 1 hus: _________ 1.600 kr. > 2 huse: _________ 4.400 kr. > 3 huse: ________ 12.000 kr. > 4 huse: ________ 16.000 kr. > hotel: _________ 20.000 kr. Hvert hus koster 2.000 kr.
 Parkering
-Pris: 4.400 kr
-Leje af grund: ______ 350 kr. m/ 1 hus: _________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: ________ 14.000 kr. > 4 huse: ________ 17.500 kr. > hotel: _________ 21.000 kr. Hvert hus koster 3.000 kr.
-Pris: 4.400 kr
-Leje af grund: ______ 350 kr. m/ 1 hus: _________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: ________ 14.000 kr. > 4 huse: ________ 17.500 kr. > hotel: _________ 21.000 kr. Hvert hus koster 3.000 kr.
-Pris: 4.800 kr
-Leje af grund: ______ 400 kr. m/ 1 hus: _________ 2.000 kr. > 2 huse: _________ 6.000 kr. > 3 huse: ________ 15.000 kr. > 4 huse: ________ 18.500 kr. > hotel: _________ 22.000 kr. Hvert hus koster 3.000 kr.
-Pris: 4.000 kr
-Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
-Pris: 5.200 kr
-Leje af grund: ______ 450 kr. m/ 1 hus: _________ 2.200 kr. > 2 huse: _________ 6.600 kr. > 3 huse: ________ 16.000 kr. > 4 huse: ________ 19.500 kr. > hotel: _________ 23.000 kr. Hvert hus koster 3.000 kr.
-Pris: 5.200 kr
-Leje af grund: ______ 450 kr. m/ 1 hus: _________ 2.200 kr. > 2 huse: _________ 6.600 kr. > 3 huse: ________ 16.000 kr. > 4 huse: ________ 19.500 kr. > hotel: _________ 23.000 kr. Hvert hus koster 3.000 kr.
-Pris: 3.000 kr
-Hvis 1 virksomhed ejes. betales 100 gange så meget, som øjene viser. Hvis både Red Bull og Monster ejes, betales der dobbelt så meget.
-Pris: 5.600 kr
-Leje af grund: ______ 500 kr. m/ 1 hus: _________ 2.400 kr. > 2 huse: _________ 7.200 kr. > 3 huse: ________ 17.000 kr. > 4 huse: ________ 20.500 kr. > hotel: _________ 24.000 kr. Hvert hus koster 3.000 kr.
 Gå i fængsel
-De fængsles
-Pris: 6.000 kr
-Leje af grund: ______ 550 kr. m/ 1 hus: _________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: ________ 18.000 kr. > 4 huse: ________ 22.000 kr. > hotel: _________ 25.000 kr. Hvert hus koster 4.000 kr.
-Pris: 6.000 kr
-Leje af grund: ______ 550 kr. m/ 1 hus: _________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: ________ 18.000 kr. > 4 huse: ________ 22.000 kr. > hotel: _________ 25.000 kr. Hvert hus koster 4.000 kr.
-Pris: 6.400 kr
-Leje af grund: ______ 600 kr. m/ 1 hus: _________ 3.000 kr. > 2 huse: _________ 9.000 kr. > 3 huse: ________ 20.000 kr. > 4 huse: ________ 24.000 kr. > hotel: _________ 28.000 kr. Hvert hus koster 4.000 kr.
-Pris: 4.000 kr
-Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
-Pris: 7.000 kr
-Leje af grund: ______ 700 kr. m/ 1 hus: _________ 3.500 kr. > 2 huse: ________ 10.000 kr. > 3 huse: ________ 22.000 kr. > 4 huse: ________ 26.000 kr. > hotel: _________ 30.000 kr. Hvert hus koster 4.000 kr.
+Betal indkomstskat: 10% eller 4000 kr.
 Betal ekstraordinær statskat: 2000 kr.
+
+SubText
+Få 4000kr
+Pris: 1.200 kr
+
+Pris: 1.200 kr
+
+Pris: 4.000 kr
+Pris: 2.000 kr
+
+Pris: 2.000 kr
+Pris: 2.400 kr
+I fængsel
+Pris: 2.800 kr
+Pris: 3.000 kr
+Pris: 2.800 kr
+Pris: 3.200 kr
+Pris: 4.000 kr
+Pris: 3.600 kr
+
+Pris: 3.600 kr
+Pris: 4.000 kr
+
+Pris: 4.400 kr
+
+Pris: 4.400 kr
+Pris: 4.800 kr
+Pris: 4.000 kr
+Pris: 5.200 kr
+Pris: 5.200 kr
+Pris: 3.000 kr
+Pris: 5.600 kr
+
+Pris: 6.000 kr
+Pris: 6.000 kr
+
+Pris: 6.400 kr
+Pris: 4.000 kr
+
+Pris: 7.000 kr
+
 Pris: 8.000 kr
-Leje af grund: ______ 1.000 kr. m/ 1 hus: _________ 4.000 kr. > 2 huse: ________ 12.000 kr. > 3 huse: ________ 28.000 kr. > 4 huse: ________ 34.000 kr. > hotel: _________ 40.000 kr. Hvert hus koster 4.000 kr.
+
+Desc
+De modtager 4000 kr. hver gang de passere START.
+Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.
+
+Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.
+
+Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
+Leje af grund: ______ 100 kr. m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr. Hvert hus koster 1000 kr.
+
+Leje af grund: ______ 100 kr. m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr. Hvert hus koster 1000 kr.
+Leje af grund: ______ 150 kr. m/ 1 hus: __________ 800 kr. > 2 huse: _________ 2.000 kr. > 3 huse: _________ 6.000 kr. > 4 huse: _________ 9.000 kr. > hotel: _________ 12.000 kr. Hvert hus koster 1000 kr.
+
+Leje af grund: ______ 200 kr. m/ 1 hus: __________ 1.000 kr. > 2 huse: _________ 3.000 kr. > 3 huse: _________ 9.000 kr. > 4 huse: _________ 12.500 kr. > hotel: _________ 15.000 kr. Hvert hus koster 2.000 kr.
+Hvis 1 virksomhed ejes. betales 100 gange så meget, som øjene viser. Hvis både SQUASH og Cola ejes, betales der dobbelt så meget.
+Leje af grund: ______ 200 kr. m/ 1 hus: __________ 1.000 kr. > 2 huse: _________ 3.000 kr. > 3 huse: _________ 9.000 kr. > 4 huse: _________ 12.500 kr. > hotel: _________ 15.000 kr. Hvert hus koster 2.000 kr.
+Leje af grund: ______ 250 kr. m/ 1 hus: __________ 1.250 kr. > 2 huse: _________ 3.750 kr. > 3 huse: _________ 10.000 kr. > 4 huse: _________ 14.000 kr. > hotel: _________ 18.000 kr. Hvert hus koster 2.000 kr.
+Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
+Leje af grund: ______ 300 kr. m/ 1 hus: __________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: _________ 11.000 kr. > 4 huse: _________ 15.000 kr. > hotel: _________ 19.000 kr. Hvert hus koster 2.000 kr.
+
+Leje af grund: ______ 300 kr. m/ 1 hus: __________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: _________ 11.000 kr. > 4 huse: _________ 15.000 kr. > hotel: _________ 19.000 kr. Hvert hus koster 2.000 kr.
+Leje af grund: ______ 350 kr. m/ 1 hus: __________ 1.600 kr. > 2 huse: _________ 4.400 kr. > 3 huse: _________ 12.000 kr. > 4 huse: _________ 16.000 kr. > hotel: _________ 20.000 kr. Hvert hus koster 2.000 kr.
+
+Leje af grund: ______ 350 kr. m/ 1 hus: __________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: _________ 14.000 kr. > 4 huse: _________ 17.500 kr. > hotel: _________ 21.000 kr. Hvert hus koster 3.000 kr.
+
+Leje af grund: ______ 350 kr. m/ 1 hus: __________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: _________ 14.000 kr. > 4 huse: _________ 17.500 kr. > hotel: _________ 21.000 kr. Hvert hus koster 3.000 kr.
+Leje af grund: ______ 400 kr. m/ 1 hus: __________ 2.000 kr. > 2 huse: _________ 6.000 kr. > 3 huse: _________ 15.000 kr. > 4 huse: _________ 18.500 kr. > hotel: _________ 22.000 kr. Hvert hus koster 3.000 kr.
+Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
+Leje af grund: ______ 450 kr. m/ 1 hus: __________ 2.200 kr. > 2 huse: _________ 6.600 kr. > 3 huse: _________ 16.000 kr. > 4 huse: _________ 19.500 kr. > hotel: _________ 23.000 kr. Hvert hus koster 3.000 kr.
+Leje af grund: ______ 450 kr. m/ 1 hus: __________ 2.200 kr. > 2 huse: _________ 6.600 kr. > 3 huse: _________ 16.000 kr. > 4 huse: _________ 19.500 kr. > hotel: _________ 23.000 kr. Hvert hus koster 3.000 kr.
+Hvis 1 virksomhed ejes. betales 100 gange så meget, som øjene viser. Hvis både SQUASH og Cola ejes, betales der dobbelt så meget.
+Leje af grund: ______ 500 kr. m/ 1 hus: __________ 2.400 kr. > 2 huse: _________ 7.200 kr. > 3 huse: _________ 17.000 kr. > 4 huse: _________ 20.500 kr. > hotel: _________ 24.000 kr. Hvert hus koster 3.000 kr.
+De fængsles
+Leje af grund: ______ 550 kr. m/ 1 hus: __________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: _________ 18.000 kr. > 4 huse: _________ 22.000 kr. > hotel: _________ 25.000 kr. Hvert hus koster 4.000 kr.
+Leje af grund: ______ 550 kr. m/ 1 hus: __________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: _________ 18.000 kr. > 4 huse: _________ 22.000 kr. > hotel: _________ 25.000 kr. Hvert hus koster 4.000 kr.
+
+Leje af grund: ______ 600 kr. m/ 1 hus: __________ 3.000 kr. > 2 huse: _________ 9.000 kr. > 3 huse: _________ 20.000 kr. > 4 huse: _________ 24.000 kr. > hotel: _________ 28.000 kr. Hvert hus koster 4.000 kr.
+Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
+
+Leje af grund: ______ 700 kr. m/ 1 hus: __________ 3.500 kr. > 2 huse: _________ 10.000 kr. > 3 huse: _________ 22.000 kr. > 4 huse: _________ 26.000 kr. > hotel: _________ 30.000 kr. Hvert hus koster 4.000 kr.
+
+Leje af grund: ______ 1.000 kr. m/ 1 hus: __________ 4.000 kr. > 2 huse: _________ 12.000 kr. > 3 huse: _________ 28.000 kr. > 4 huse: _________ 34.000 kr. > hotel: _________ 40.000 kr. Hvert hus koster 4.000 kr.
 
 In Jail
 Du er blevet fængslet! Hvad vil du foretage dig?
