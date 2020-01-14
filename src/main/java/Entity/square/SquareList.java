@@ -2,6 +2,8 @@ package Entity.square;
 
 import staticclasses.ArrayMethods;
 
+import java.lang.reflect.Array;
+
 public class SquareList {
     private Street[] streets;
     private Ship[] ships;
@@ -173,7 +175,24 @@ public class SquareList {
         return theRightShip;
     }
 
-
+    public String[] getOwnedShipNames(String playerName){
+        String[] ownedShips = new String[0];
+        for (Ship s: ships){
+            if (s.getOwner().equals(playerName)){
+                ownedShips = ArrayMethods.addToArray(ownedShips,s.getFieldName());
+            }
+        }
+        return ownedShips;
+    }
+    public String[] getOwnedBreweryNames(String playerName){
+        String[] ownedBrewies = new String[0];
+        for (Brewery s: breweries){
+            if (s.getOwner().equals(playerName)){
+                ownedBrewies = ArrayMethods.addToArray(ownedBrewies,s.getFieldName());
+            }
+        }
+        return ownedBrewies;
+    }
     public String[] getOwnedStreetNames(String playerName) {
         String[] ownedStreets = new String[0];
         for (Street s : streets) {
@@ -212,6 +231,18 @@ public class SquareList {
             }
         }
         return choosen;
+    }
+    public boolean checkAnyHouse(Street street, String name){
+        boolean hasHouse = false;
+        String color = street.getColor();
+        String[] ownedStreets = getOwnedStreetNames(name);
+
+        for (int i = 0; i < ownedStreets.length; i++) {
+            if (searchStreet(ownedStreets[i]).getColor() == color && searchStreet(ownedStreets[i]).getNumberOfHouses() > 0){
+                hasHouse = true;
+            }
+        }
+        return hasHouse;
     }
 
 

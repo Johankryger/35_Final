@@ -2,6 +2,7 @@ package Entity.square;
 
 import Controller.GUIController;
 import Entity.PlayerList;
+import staticclasses.ArrayMethods;
 
 public class Ship extends Property{
     int twoShipCoRent, threeShipCoRent, fourShipCoRent;
@@ -34,6 +35,7 @@ public class Ship extends Property{
             gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
         }
     }
+
 
 
 
