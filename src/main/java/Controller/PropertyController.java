@@ -2,11 +2,13 @@ package Controller;
 
 import Entity.PlayerList;
 import Entity.PropertyLogic;
+import Entity.Trade;
 import Entity.square.SquareList;
 import staticclasses.ArrayMethods;
 
 public class PropertyController {
     private PropertyLogic propertyLogic = new PropertyLogic();
+    private Trade trade = new Trade();
 
     public String[] makeMortgageArray(String playerName, SquareList squareList){
         String[] ownedProperties = squareList.getOwnedPropertyNames(playerName);
@@ -131,12 +133,7 @@ public class PropertyController {
                     manageMenu(guiController, playerList, squareList);
                     break;
                 case "Trade":
-                    String tradeOption;
-                    //trade
-
-
-
-                        manageMenu(guiController, playerList, squareList);
+                   trade.trade(playerList,squareList,guiController);
                         break;
 
             }
