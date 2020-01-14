@@ -151,3 +151,12 @@ Pris: 8.000 kr
 Leje af grund: ______ 1.000 kr.
 m/ 1 hus: _________ 4.000 kr. > 2 huse: ________ 12.000 kr. > 3 huse: ________ 28.000 kr. > 4 huse: ________ 34.000 kr. > hotel: _________ 40.000 kr.
 Hvert hus koster 4.000 kr.
+
+In Jail
+Du er blevet fængslet! Hvad vil du foretage dig?
+Administrer ejendomme
+Betal 1000,- kr. kaution
+Brug dit løsladelseskort!
+Prøv lykken og rul!
+Det er spiller
+'s tur,
