@@ -60,6 +60,8 @@ public class Trade {
         playerNames = ArrayMethods.removeFromArray(playerNames, playerList.getPlayer().getName());
 
         int receivingAmount = 0;
+        String[] receivingOfferArray = new String[0];
+
         if (playerChoice.equals("Next")) {
             chosenTrader = guiController.scrollList("Who do you want to trade with? ", playerNames);
 
@@ -85,18 +87,34 @@ public class Trade {
                 for (int i = 0; i < tradersBreweries.length; i++) {
                     theirOfferArray = ArrayMethods.addToArray(theirOfferArray, tradersBreweries[i]);
                 }
+            do {
                 theirOffer = guiController.scrollList("What do want in exchange for your offer?", theirOfferArray);
 
+                if (!theirOffer.equals("Money offer") && !theirOffer.equals("End trade") && !theirOffer.equals("Go back")) {
+                    receivingOfferArray = ArrayMethods.addToArray(receivingOfferArray, theirOffer);
+                    theirOfferArray = ArrayMethods.removeFromArray(theirOfferArray, theirOffer);
+                }
                 if (theirOffer.equals("Money offer")) {
                     receivingAmount = guiController.getUserInteger("What amount of money do you want to offer", 0, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
                 }
+            } while (!theirOffer.equals("Go back") && !theirOffer.equals("End trade"));
 
                 if (theirOffer.equals("Go back")) {
                     return;
                 }
-
                 if (theirOffer.equals("End trade")) {
+                    String offerString = "";
+                    for (int i = 0; i < tradeOfferArray.length; i++) {
+                        offerString += tradeOfferArray[i] + ", ";
+                    }
 
+                    String receivingString = "" ;
+
+                    for (int i = 0; i < receivingOfferArray.length; i++) {
+                        receivingString += receivingOfferArray[i] + ", ";
+                    }
+
+                    guiController.button(playerName + "'s offer:" + " Amount:  " + offerAmount + ""  + "  Properties: " + offerString + ". " + chosenTrader + "'s offer: " + " Amount: " + receivingAmount + "" + "  Properties: " + receivingString + chosenTrader + "                                     Do you accept the offer?", "Yes", "No");
                 }
 
             }
