@@ -147,3 +147,12 @@ Prøv lykken og rul!
 Det er
 's tur,
 Kast terninger!
+
+General
+Vil du købe
+?
+Køb
+Auktion
+Du betaler
+ til
+Okay
