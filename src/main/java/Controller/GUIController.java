@@ -231,6 +231,10 @@ public class GUIController {
         String buttonPressed = gui.getUserButtonPressed(msg, buttons);
         return buttonPressed;
     }
+    public int getUserInteger(String msg, int min, int max){
+        int userNumber = gui.getUserInteger(msg,min,max);
+        return userNumber;
+    }
 
     public void removeLoser(String name, int position){
         GUI_Player choosenPlayer = null;
