@@ -9,91 +9,48 @@ import java.awt.*;
 public class GUIController {
 
     private GUI_Field[] fields = {
-            new GUI_Start("START", "Få 4000kr", "De modtager 4000 kr. hver gang de passere START.",  Color.RED, Color.WHITE),
-            new GUI_Street("Rødovrevej",  "Pris: 1.200 kr","Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.","Pris: 1.200 kr",
+            new GUI_Start("START", (Message.getMessage("Squares", 1)), (Message.getMessage("Squares", 2)),  Color.RED, Color.WHITE),
+            new GUI_Street("Rødovrevej",  (Message.getMessage("Squares", 3)),(Message.getMessage("Squares", 4)),(Message.getMessage("Squares", 3)),
                     new Color(72, 139, 247), Color.white),
             new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Hvidovrevej",  "Pris: 1.200 kr","Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.","Pris: 1.200 kr",
+            new GUI_Street("Hvidovrevej",  (Message.getMessage("Squares", 5)),(Message.getMessage("Squares", 6)),(Message.getMessage("Squares", 5)),
                     new Color(72, 139, 247), Color.white),
-            new GUI_Tax("Betal indkomstskat: 10% eller 4000 kr.", "", "Betal indkomstskat: 10% eller 4000 kr.", Color.orange, Color.black),
-            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Scandlines", "Pris: 4.000 kr", "Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.", "Pris: 4.000kr", Color.white, Color.black),
-            new GUI_Street("Roskildevej", "Pris: 2.000 kr", "Leje af grund: ______ 100 kr." +
-                    " m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr." +
-                    " Hvert hus koster 1000 kr.", "Pris: 2.000 kr", new Color(242, 125, 41), Color.white),
+            new GUI_Tax((Message.getMessage("Squares", 7)), "", (Message.getMessage("Squares", 7)), Color.orange, Color.black),
+            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Scandlines", (Message.getMessage("Squares", 8)), (Message.getMessage("Squares", 9)), (Message.getMessage("Squares", 8)), Color.white, Color.black),
+            new GUI_Street("Roskildevej", (Message.getMessage("Squares", 10)), (Message.getMessage("Squares", 10)), (Message.getMessage("Squares", 10)), new Color(242, 125, 41), Color.white),
             new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Valby Langgade", "Pris: 2.000 kr", "Leje af grund: ______ 100 kr." +
-                    " m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr." +
-                    " Hvert hus koster 1000 kr.", "Pris: 2.000 kr", new Color(242, 125, 41), Color.white),
-            new GUI_Street("Allégade", "Pris: 2.400 kr", "Leje af grund: ______ 150 kr." +
-                    " m/ 1 hus: __________ 800 kr. > 2 huse: _________ 2.000 kr. > 3 huse: _________ 6.000 kr. > 4 huse: _________ 9.000 kr. > hotel: _________ 12.000 kr." +
-                    " Hvert hus koster 1000 kr.", "Pris: 2.400 kr", new Color(242, 125, 41), Color.white),
-            new GUI_Refuge("src/main/resources/pictures/ironbars.png", "På besøg", "På besøg", "På besøg", Color.white, Color.black),
-            new GUI_Street("Frederiksberg Allé", "Pris: 2.800kr", "Leje af grund: ______ 200 kr." +
-                    " m/ 1 hus: _________ 1.000 kr. > 2 huse: _________ 3.000 kr. > 3 huse: _________ 9.000 kr. > 4 huse: ________ 12.500 kr. > hotel: _________ 15.000 kr." +
-                    " Hvert hus koster 2.000 kr.", "Pris: 2.800kr", new Color(0, 189, 4), Color.white),
-            new GUI_Brewery("src/main/resources/Pictures/squash.png", "Squash", "Pris: 3.000 kr", "Hvis 1 virksomhed ejes. betales 100 gange så meget, som øjene viser. Hvis både Red Bull og Monster ejes, betales der dobbelt så meget.", "", Color.cyan, Color.BLACK),
-            new GUI_Street("Bülowsvej", "Pris: 2.800kr", "Leje af grund: ______ 200 kr." +
-                    " m/ 1 hus: _________ 1.000 kr. > 2 huse: _________ 3.000 kr. > 3 huse: _________ 9.000 kr. > 4 huse: ________ 12.500 kr. > hotel: _________ 15.000 kr." +
-                    " Hvert hus koster 2.000 kr.", "Pris: 2.800 kr", new Color(0, 189, 4), Color.white),
-            new GUI_Street("Gammel Kongevej", "Pris: 3.200 kr", "Leje af grund: ______ 250 kr." +
-                    " m/ 1 hus: _________ 1.250 kr. > 2 huse: _________ 3.750 kr. > 3 huse: ________ 10.000 kr. > 4 huse: ________ 14.000 kr. > hotel: _________ 18.000 kr." +
-                    " Hvert hus koster 2.000 kr.", "Pris: 3.200 kr", new Color(0, 189, 4), Color.white),
-            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Molslinjen", "Pris: 4.000 kr", "Leje: _____________ 500 kr. " +
-                    "Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.", "Pris: 4.000kr", Color.white, Color.black),
-            new GUI_Street("Bernstorffsvej", "Pris: 3.600 kr", "Leje af grund: ______ 300 kr." +
-                    " m/ 1 hus: _________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: ________ 11.000 kr. > 4 huse: ________ 15.000 kr. > hotel: _________ 19.000 kr." +
-                    " Hvert hus koster 2.000 kr.", "Pris: 3.600 kr", new Color(162, 163, 162), Color.white),
+            new GUI_Street("Valby Langgade", (Message.getMessage("Squares", 12)), (Message.getMessage("Squares", 11)), (Message.getMessage("Squares", 12)), new Color(242, 125, 41), Color.white),
+            new GUI_Street("Allégade", (Message.getMessage("Squares", 14)), (Message.getMessage("Squares", 15)), (Message.getMessage("Squares", 14)), new Color(242, 125, 41), Color.white),
+            new GUI_Refuge("src/main/resources/pictures/ironbars.png", (Message.getMessage("Squares", 16)), (Message.getMessage("Squares", 16)), (Message.getMessage("Squares", 16)), Color.white, Color.black),
+            new GUI_Street("Frederiksberg Allé", (Message.getMessage("Squares", 17)), (Message.getMessage("Squares", 18)), (Message.getMessage("Squares", 17)), new Color(0, 189, 4), Color.white),
+            new GUI_Brewery("src/main/resources/Pictures/squash.png", "Squash", (Message.getMessage("Squares", 19)), (Message.getMessage("Squares", 20)), "", Color.cyan, Color.BLACK),
+            new GUI_Street("Bülowsvej", (Message.getMessage("Squares", 21)), (Message.getMessage("Squares", 22)), (Message.getMessage("Squares", 21)), new Color(0, 189, 4), Color.white),
+            new GUI_Street("Gammel Kongevej", (Message.getMessage("Squares", 23)), (Message.getMessage("Squares", 24)), (Message.getMessage("Squares", 23)), new Color(0, 189, 4), Color.white),
+            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Molslinjen", (Message.getMessage("Squares", 25)), (Message.getMessage("Squares", 26)), (Message.getMessage("Squares", 25)), Color.white, Color.black),
+            new GUI_Street("Bernstorffsvej", (Message.getMessage("Squares", 28)), (Message.getMessage("Squares", 27)), (Message.getMessage("Squares", 28)), new Color(162, 163, 162), Color.white),
             new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Hellerupvej", "Pris: 3.600 kr", "Leje af grund: ______ 300 kr." +
-                    " m/ 1 hus: _________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: ________ 11.000 kr. > 4 huse: ________ 15.000 kr. > hotel: _________ 19.000 kr." +
-                    " Hvert hus koster 2.000 kr.", "Pris: 3.600 kr", new Color(162, 163, 162), Color.white),
-            new GUI_Street("Strandvejen", "Pris: 4.000 kr", "Leje af grund: ______ 350 kr." +
-                    " m/ 1 hus: _________ 1.600 kr. > 2 huse: _________ 4.400 kr. > 3 huse: ________ 12.000 kr. > 4 huse: ________ 16.000 kr. > hotel: _________ 20.000 kr." +
-                    " Hvert hus koster 2.000 kr.", "Pris: 4.000 kr", new Color(162, 163, 162), Color.white),
-            new GUI_Refuge("src/main/resources/Pictures/parking.png", "", "Parkering", "", Color.black, Color.white),
-            new GUI_Street("Trianglen", "Pris: 4.400 kr", "Leje af grund: ______ 350 kr." +
-                    " m/ 1 hus: _________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: ________ 14.000 kr. > 4 huse: ________ 17.500 kr. > hotel: _________ 21.000 kr." +
-                    " Hvert hus koster 3.000 kr.", "Pris: 4.400 kr", Color.RED, Color.white),
+            new GUI_Street("Hellerupvej", (Message.getMessage("Squares", 28)), (Message.getMessage("Squares", 29)), (Message.getMessage("Squares", 28)), new Color(162, 163, 162), Color.white),
+            new GUI_Street("Strandvejen", (Message.getMessage("Squares", 30)), (Message.getMessage("Squares", 31)), (Message.getMessage("Squares", 30)), new Color(162, 163, 162), Color.white),
+            new GUI_Refuge("src/main/resources/Pictures/parking.png", "", (Message.getMessage("Squares", 32)), "", Color.black, Color.white),
+            new GUI_Street("Trianglen", (Message.getMessage("Squares", 33)), (Message.getMessage("Squares", 34)), (Message.getMessage("Squares", 33)), Color.RED, Color.white),
             new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Østerbrogade", "Pris: 4.400 kr", "Leje af grund: ______ 350 kr." +
-                    " m/ 1 hus: _________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: ________ 14.000 kr. > 4 huse: ________ 17.500 kr. > hotel: _________ 21.000 kr." +
-                    " Hvert hus koster 3.000 kr.", "Pris: 4.400 kr", Color.RED, Color.white),
-            new GUI_Street("Grønningen", "Pris: 4.800 kr", "Leje af grund: ______ 400 kr." +
-                    " m/ 1 hus: _________ 2.000 kr. > 2 huse: _________ 6.000 kr. > 3 huse: ________ 15.000 kr. > 4 huse: ________ 18.500 kr. > hotel: _________ 22.000 kr." +
-                    " Hvert hus koster 3.000 kr.", "Pris: 4.800 kr", Color.RED, Color.white),
-            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Mærsk", "Pris: 4.000 kr", "Leje: _____________ 500 kr. " +
-                    "Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.", "Pris: 4.000kr", Color.white, Color.black),
-            new GUI_Street("Bredgade", "Pris: 5.200 kr", "Leje af grund: ______ 450 kr." +
-                    " m/ 1 hus: _________ 2.200 kr. > 2 huse: _________ 6.600 kr. > 3 huse: ________ 16.000 kr. > 4 huse: ________ 19.500 kr. > hotel: _________ 23.000 kr." +
-                    " Hvert hus koster 3.000 kr.", "Pris: 5.200 kr", Color.WHITE, Color.black),
-            new GUI_Street("Kgs. Nytorv", "Pris: 5.200 kr", "Leje af grund: ______ 450 kr." +
-                    " m/ 1 hus: _________ 2.200 kr. > 2 huse: _________ 6.600 kr. > 3 huse: ________ 16.000 kr. > 4 huse: ________ 19.500 kr. > hotel: _________ 23.000 kr." +
-                    " Hvert hus koster 3.000 kr.", "Pris: 5.200 kr", Color.WHITE, Color.black),
-            new GUI_Brewery("src/main/resources/pictures/cola.png", "Cola", "Pris: 3.000 kr", "Hvis 1 virksomhed ejes. betales 100 gange så meget, som øjene viser. Hvis både Red Bull og Monster ejes, betales der dobbelt så meget.", "", Color.cyan, Color.BLACK),
-            new GUI_Street("Østergade", "Pris: 5.600 kr", "Leje af grund: ______ 500 kr." +
-                    " m/ 1 hus: _________ 2.400 kr. > 2 huse: _________ 7.200 kr. > 3 huse: ________ 17.000 kr. > 4 huse: ________ 20.500 kr. > hotel: _________ 24.000 kr." +
-                    " Hvert hus koster 3.000 kr.", "Pris: 5.600 kr", Color.WHITE, Color.black),
-            new GUI_Jail("src/main/resources/pictures/prisoner.png", "Gå i fængsel", "De fængsles", "Gå i fængsel", Color.black, Color.WHITE),
-            new GUI_Street("Amagertorv", "Pris: 6.000 kr", "Leje af grund: ______ 550 kr." +
-                    " m/ 1 hus: _________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: ________ 18.000 kr. > 4 huse: ________ 22.000 kr. > hotel: _________ 25.000 kr." +
-                    " Hvert hus koster 4.000 kr.", "Pris: 6.000 kr", new Color(255, 251, 13), Color.black),
-            new GUI_Street("Vimmelskaftet", "Pris: 6.000 kr", "Leje af grund: ______ 550 kr." +
-                    " m/ 1 hus: _________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: ________ 18.000 kr. > 4 huse: ________ 22.000 kr. > hotel: _________ 25.000 kr." +
-                    " Hvert hus koster 4.000 kr.", "Pris: 6.000 kr", new Color(255, 251, 13), Color.black),
+            new GUI_Street("Østerbrogade", (Message.getMessage("Squares", 35)), (Message.getMessage("Squares", 36)), (Message.getMessage("Squares", 35)), Color.RED, Color.white),
+            new GUI_Street("Grønningen", (Message.getMessage("Squares", 37)), (Message.getMessage("Squares", 38)), (Message.getMessage("Squares", 37)), Color.RED, Color.white),
+            new GUI_Shipping("src/main/resources/Pictures/ship.png", "Mærsk", (Message.getMessage("Squares", 39)), (Message.getMessage("Squares", 40)), (Message.getMessage("Squares", 39)), Color.white, Color.black),
+            new GUI_Street("Bredgade", (Message.getMessage("Squares", 41)), (Message.getMessage("Squares", 42)), (Message.getMessage("Squares", 41)), Color.WHITE, Color.black),
+            new GUI_Street("Kgs. Nytorv", (Message.getMessage("Squares", 43)), (Message.getMessage("Squares", 44)), (Message.getMessage("Squares", 43)), Color.WHITE, Color.black),
+            new GUI_Brewery("src/main/resources/pictures/cola.png", "Cola", (Message.getMessage("Squares", 45)), (Message.getMessage("Squares", 46)), "", Color.cyan, Color.BLACK),
+            new GUI_Street("Østergade", (Message.getMessage("Squares", 47)), (Message.getMessage("Squares", 48)), (Message.getMessage("Squares", 47)), Color.WHITE, Color.black),
+            new GUI_Jail("src/main/resources/pictures/prisoner.png", (Message.getMessage("Squares", 49)), (Message.getMessage("Squares", 50)), (Message.getMessage("Squares", 49)), Color.black, Color.WHITE),
+            new GUI_Street("Amagertorv", (Message.getMessage("Squares", 51)), (Message.getMessage("Squares", 52)), (Message.getMessage("Squares", 51)), new Color(255, 251, 13), Color.black),
+            new GUI_Street("Vimmelskaftet", (Message.getMessage("Squares", 53)), (Message.getMessage("Squares", 54)), (Message.getMessage("Squares", 53)), new Color(255, 251, 13), Color.black),
             new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Nygade", "Pris: 6.400 kr", "Leje af grund: ______ 600 kr." +
-                    " m/ 1 hus: _________ 3.000 kr. > 2 huse: _________ 9.000 kr. > 3 huse: ________ 20.000 kr. > 4 huse: ________ 24.000 kr. > hotel: _________ 28.000 kr." +
-                    " Hvert hus koster 4.000 kr.", "Pris: 6.400 kr", new Color(255, 251, 13), Color.black),
-            new GUI_Shipping("src/main/resources/Pictures/ship.png", "DFDS", "Pris: 4.000 kr", "Leje: _____________ 500 kr. " +
-                    "Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.", "Pris: 4.000kr", Color.white, Color.black),
+            new GUI_Street("Nygade", (Message.getMessage("Squares", 55)), (Message.getMessage("Squares", 56)), (Message.getMessage("Squares", 55)), new Color(255, 251, 13), Color.black),
+            new GUI_Shipping("src/main/resources/Pictures/ship.png", "DFDS", (Message.getMessage("Squares", 57)), (Message.getMessage("Squares", 58)), (Message.getMessage("Squares", 57)), Color.white, Color.black),
             new GUI_Chance("?","Chance","",Color.black,Color.white),
-            new GUI_Street("Frederiksberggade", "Pris: 7.000 kr", "Leje af grund: ______ 700 kr." +
-                    " m/ 1 hus: _________ 3.500 kr. > 2 huse: ________ 10.000 kr. > 3 huse: ________ 22.000 kr. > 4 huse: ________ 26.000 kr. > hotel: _________ 30.000 kr." +
-                    " Hvert hus koster 4.000 kr.", "Pris: 7.000 kr", new Color(165, 6, 209), Color.white),
-            new GUI_Tax("Betal ekstraordinær statskat: 2000 kr.", "", "Betal ekstraordinær statskat: 2000 kr.", Color.orange, Color.black),
-            new GUI_Street("Rådhuspladsen", "Pris: 8.000 kr", "Leje af grund: ______ 1.000 kr." +
-                    " m/ 1 hus: _________ 4.000 kr. > 2 huse: ________ 12.000 kr. > 3 huse: ________ 28.000 kr. > 4 huse: ________ 34.000 kr. > hotel: _________ 40.000 kr." +
-                    " Hvert hus koster 4.000 kr.", "Pris: 8.000 kr", new Color(165, 6, 209), Color.white)
+            new GUI_Street("Frederiksberggade", (Message.getMessage("Squares", 59)), (Message.getMessage("Squares", 60)), "Pris: 7.000 kr", new Color(165, 6, 209), Color.white),
+            new GUI_Tax((Message.getMessage("Squares", 61)), "", (Message.getMessage("Squares", 61)), Color.orange, Color.black),
+            new GUI_Street("Rådhuspladsen", (Message.getMessage("Squares", 62)), (Message.getMessage("Squares", 63)), (Message.getMessage("Squares", 62)), new Color(165, 6, 209), Color.white)
     };
     private GUI gui = new GUI(fields);
     private GUI_Player[] gui_players;
