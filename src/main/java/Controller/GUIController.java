@@ -50,7 +50,7 @@ public class GUIController {
             new GUI_Street("Strandvejen", "Pris: 4.000 kr", "Leje af grund: ______ 350 kr." +
                     " m/ 1 hus: _________ 1.600 kr. > 2 huse: _________ 4.400 kr. > 3 huse: ________ 12.000 kr. > 4 huse: ________ 16.000 kr. > hotel: _________ 20.000 kr." +
                     " Hvert hus koster 2.000 kr.", "Pris: 4.000 kr", new Color(162, 163, 162), Color.white),
-            new GUI_Refuge("src/main/resources/Pictures/parking.png", "", "Parkering", "NamNam", Color.black, Color.white),
+            new GUI_Refuge("src/main/resources/Pictures/parking.png", "", "Parkering", "", Color.black, Color.white),
             new GUI_Street("Trianglen", "Pris: 4.400 kr", "Leje af grund: ______ 350 kr." +
                     " m/ 1 hus: _________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: ________ 14.000 kr. > 4 huse: ________ 17.500 kr. > hotel: _________ 21.000 kr." +
                     " Hvert hus koster 3.000 kr.", "Pris: 4.400 kr", Color.RED, Color.white),
