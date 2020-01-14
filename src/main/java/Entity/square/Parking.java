@@ -11,8 +11,8 @@ public class Parking extends Square {
     }
 
     @Override
-    public void squareAction(PlayerList playerList, GUIController gui, int diceSum) {
-
+    public boolean squareAction(PlayerList playerList, GUIController gui, int diceSum) {
+        return false;
     }
 
 

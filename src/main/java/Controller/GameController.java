@@ -7,7 +7,7 @@ import message.Message;
 
 public class GameController {
     private final int JAIL_BAIL_PRICE = 1000;
-    private int scoreBoard=1;
+    private int scoreBoard = 1;
 
     private GUIController guiController = new GUIController();
     private DiceCup diceCup = new DiceCup();
@@ -25,7 +25,7 @@ public class GameController {
         chanceList = new ChanceList(); // chanceList object is made after startMenu() because startMenu() sets the language
     }
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         Player player = playerList.getPlayer();
         return player;
     }
@@ -59,6 +59,7 @@ public class GameController {
 
     public void jailLogic(String option) {
         Player player = playerList.getPlayer();
+        String jailMsg = option;
         if (player.isInJail() && player.hasGotFreeJailCard()) {
 
             if (option.equals(Message.getMessage("In Jail",3))) {
@@ -85,25 +86,26 @@ public class GameController {
         //Sets extraTurn to true/false depending on getPair method
     }
 
-    //            if(player.hasGotChanceCard()){
-    //                chancelist.drawCard();
-    //}
-    //gives turn to next player if extraTurn is false
+    public void movePlayer() {
+        // Movement process
+        Player player = playerList.getPlayer();
+        int startPos = player.getFieldPos();
+        player.move(diceCup.getFaceValueSum(), true);
+        guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
 
-    public void movePlayer(){
-            // Movement process
-            Player player = playerList.getPlayer();
-            int startPos = player.getFieldPos();
-            player.move(diceCup.getFaceValueSum(), true);
-            guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
+        gameLogic.calculateLiquidation(playerList, squareList);
+        // Land on
+        boolean needsToLiquidate;
+        do {
+            needsToLiquidate = squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
+            if (needsToLiquidate)
+                propertyController.liquidateMenu(playerList,getPlayer().getName(),squareList,guiController,getPlayer().getMoneyToPay());
+        } while (needsToLiquidate);
 
-            gameLogic.calculateLiquidation(playerList, squareList);
-            // Land on
-            squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
-            if (player.hasGotChanceCard()) {
-                chanceList.pickCard(playerList, squareList, guiController);
-                player.setGotChanceCard(false);
-            }
+        if (player.hasGotChanceCard()) {
+            chanceList.pickCard(playerList, squareList, guiController);
+            player.setGotChanceCard(false);
+        }
 
     }
 
@@ -111,25 +113,8 @@ public class GameController {
         squareList.checkPairs();
     }
 
-
-//    //method for checking pair in dices
-//    public boolean getPair() {
-//        Player player = playerList.getPlayer();
-//        int[] dicearr = diceCup.getFaceValueArray();
-////        int[] dicearr = {1,1};
-//        if (!(dicearr[0] == dicearr[1])) {
-//            player.extraTurn(false);
-//            player.resetPairCounter();
-//            return false;
-//        }
-//        player.setInJail(false);
-//        player.incrementPairCounter();
-//        player.extraTurn(true);
-//        return true;
-//    }
-
     // Throwing dice process
-    public void rollDiceLogic(){
+    public void rollDiceLogic() {
         Player player = playerList.getPlayer();
         gameLogic.calculateLiquidation(playerList, squareList);
 
@@ -169,38 +154,40 @@ public class GameController {
         }
     }
 
-    public void nextPlayer(){
+    public void nextPlayer() {
         playerList.nextPlayer();
     }
 
     public void checkForLoser() {
-        //counters for with losername and without losername used in remainingPlayer array
+        //counters with losername and without losername used in remainingPlayer array
         int remainingPlayercounter = 0;
         int allPlayerCounter = 0;
         Player[] playerArray = playerList.getAllPlayers();
+        gameLogic.calculateLiquidation(playerList, squareList);
         //checks for all players if they have lost this turn
         for (Player playerName : playerArray) {
-            if (playerName.getBalance().getAmount() < 0) {
-                guiController.removeLoser(playerName.getName(), playerName.getFieldPos());
+            if (!playerName.isHasLost() && (playerName.getBalance().getAmount()<0 || playerName.isAboutToLose())) {
+                guiController.removeLoser(playerName.getName(), playerName.getFieldPos(), squareList);
                 playerList.getPlayer().setFinalScore(scoreBoard--);
                 playerList.getPlayer().setHasLost(true);
                 playerList.getPlayer().setInJail(false);
                 playerList.getPlayer().extraTurn(false);
 
                 //sets new owner on loser's properties
-//                try {
-//                    int pos = getPlayer().getFieldPos();
-//                    String owner = squareList.searchProperty(squareList.getSquare(pos).getFieldName()).getOwner();
-//                    if (owner == null || owner.equals(getPlayer().getName())|| owner.equals("bank")) {
-                squareList.giveLoserProperty(playerName.getName(), "bank");
-//                    }
-//                    squareList.giveLoserProperty(playerName.getName(), owner);
-//                } catch (NullPointerException n) {
-//                }
+                String owner;
+                int pos = playerName.getFieldPos();
+                if (squareList.inPropertyPosition(pos)) {
+                    owner = squareList.searchProperty(squareList.getSquare(pos).getFieldName()).getOwner();
+                } else owner = "bank";
 
-                int[] playerPosition = new int[playerArray.length - 1];
+                if (owner.equals(playerName.getName()) || owner.equals("bank")) {
+                    squareList.giveLoserProperty(playerName.getName(), "bank");
+                } else {
+                    squareList.giveLoserProperty(playerName.getName(), owner);
+                }
 
                 //makes new array of remaining players
+                int[] playerPosition = new int[playerArray.length - 1];
                 String[] remainingPlayers = new String[playerList.getAllPlayers().length - 1];
                 for (Player player : playerArray) {
                     if (!playerName.getName().equals(player.getName())) {
@@ -215,7 +202,9 @@ public class GameController {
                 for (int j = 0; j < remainingPlayers.length; j++) {
                     playerList.searchPlayer(remainingPlayers[j]).setFieldPos(playerPosition[j]);
                 }
-                playerList.setIndex((playerList.getIndex() - 1) % remainingPlayers.length);
+                if (!(playerList.getIndex() == 0))
+                    playerList.setIndex((playerList.getIndex() - 1) % remainingPlayers.length);
+                else playerList.setIndex(playerList.getIndex());
             }
         }
     }
