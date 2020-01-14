@@ -57,12 +57,12 @@ Betal ekstraordinær statskat: 2000 kr.
 SubText
 Få 4000kr
 Pris: 1.200 kr
-
+Prøv lykken
 Pris: 1.200 kr
 
 Pris: 4.000 kr
 Pris: 2.000 kr
-
+Prøv lykken
 Pris: 2.000 kr
 Pris: 2.400 kr
 I fængsel
@@ -72,12 +72,12 @@ Pris: 2.800 kr
 Pris: 3.200 kr
 Pris: 4.000 kr
 Pris: 3.600 kr
-
+Prøv lykken
 Pris: 3.600 kr
 Pris: 4.000 kr
 
 Pris: 4.400 kr
-
+Prøv lykken
 Pris: 4.400 kr
 Pris: 4.800 kr
 Pris: 4.000 kr
@@ -88,10 +88,10 @@ Pris: 5.600 kr
 
 Pris: 6.000 kr
 Pris: 6.000 kr
-
+Prøv lykken
 Pris: 6.400 kr
 Pris: 4.000 kr
-
+Prøv lykken
 Pris: 7.000 kr
 
 Pris: 8.000 kr

@@ -57,12 +57,12 @@ Pay extraodinary state tax: 2000 kr.
 SubText
 Get 4000kr
 Price: 1.200 kr
-
+Chance
 Price: 1.200 kr
 
 Price: 4.000 kr
 Price: 2.000 kr
-
+Chance
 Price: 2.000 kr
 Price: 2.400 kr
 In jail
@@ -72,12 +72,12 @@ Price: 2.800 kr
 Price: 3.200 kr
 Price: 4.000 kr
 Price: 3.600 kr
-
+Chance
 Price: 3.600 kr
 Price: 4.000 kr
 Free Parking
 Price: 4.400 kr
-
+Chance
 Price: 4.400 kr
 Price: 4.800 kr
 Price: 4.000 kr
@@ -85,13 +85,13 @@ Price: 5.200 kr
 Price: 5.200 kr
 Price: 3.000 kr
 Price: 5.600 kr
-
+Go to prison
 Price: 6.000 kr
 Price: 6.000 kr
-
+Chance
 Price: 6.400 kr
 Price: 4.000 kr
-
+Chance
 Price: 7.000 kr
 
 Price: 8.000 kr
