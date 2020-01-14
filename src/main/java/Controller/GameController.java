@@ -3,6 +3,7 @@ package Controller;
 import Entity.*;
 import Entity.chance.ChanceList;
 import Entity.square.SquareList;
+import message.Message;
 
 public class GameController {
     private final int JAIL_BAIL_PRICE = 1000;
@@ -32,13 +33,13 @@ public class GameController {
     public String menu() {
         String msg = "";
         if (playerList.getPlayer().isInJail() && playerList.getPlayer().hasGotFreeJailCard()) {
-            msg = guiController.button("Hvad vil du foretage dig?","manage bygninger", "Betal 1000kr", "Brug et løsladelseskort", "Prøv lykken og rul!");
+            msg = guiController.button(Message.getMessage("In Jail", 1),Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail", 4), Message.getMessage("In Jail",5));
         } else if (playerList.getPlayer().isInJail()) {
-            msg = guiController.button("Du er blevet fængslet! Hvad vil du foretage dig?", "manage bygninger", "Betal 1000kr", "Prøv lykken og rul!");
+            msg = guiController.button(Message.getMessage("In Jail",1), Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail",5));
         } else {
-            msg = guiController.button("det er " + playerList.getPlayer().getName() + "s tur", "manage bygninger", "kast terninger");
+            msg = guiController.button(Message.getMessage("In Jail",6) + playerList.getPlayer().getName() + Message.getMessage("In Jail",7), Message.getMessage("In Jail",2), Message.getMessage("In Jail",5));
         }
-        if (msg.equals("manage bygninger")) {
+        if (msg.equals(Message.getMessage("In Jail",2))) {
             propertyController.manageMenu(guiController, playerList, squareList);
         }
         return msg;
@@ -61,19 +62,19 @@ public class GameController {
         String jailMsg = option;
         if (player.isInJail() && player.hasGotFreeJailCard()) {
 
-            if (jailMsg.equals("Betal 1000kr")) {
+            if (jailMsg.equals(Message.getMessage("In Jail",3))) {
                 player.payJailBail(JAIL_BAIL_PRICE);
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                 player.setInJail(false);
             }
 
-            if (jailMsg.equals("Brug et løsladelseskort")) {
+            if (jailMsg.equals(Message.getMessage("In Jail",4))) {
                 player.useBailCard();
                 player.setInJail(false);
             }
 
         } else if (player.isInJail()) {
-            if (jailMsg.equals("Betal 1000kr")) {
+            if (jailMsg.equals(Message.getMessage("In Jail",3))) {
                 player.payJailBail(JAIL_BAIL_PRICE);
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                 player.setInJail(false);
