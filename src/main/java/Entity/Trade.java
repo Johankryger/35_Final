@@ -114,7 +114,26 @@ public class Trade {
                         receivingString += receivingOfferArray[i] + ", ";
                     }
 
-                    guiController.button(playerName + "'s offer:" + " Amount:  " + offerAmount + ""  + "  Properties: " + offerString + ". " + chosenTrader + "'s offer: " + " Amount: " + receivingAmount + "" + "  Properties: " + receivingString + chosenTrader + "                                     Do you accept the offer?", "Yes", "No");
+                    String tradingAnswser = guiController.button(playerName + "'s offer:" + " Amount:  " + offerAmount + ""  + "  Properties: " + offerString + ". " + chosenTrader + "'s offer: " + " Amount: " + receivingAmount + "" + "  Properties: " + receivingString + chosenTrader + "                                     Do you accept the offer?", "Yes", "No");
+
+                    if (tradingAnswser.equals("Yes")) {
+
+                        for (int i = 0; i < tradeOfferArray.length; i++) {
+                            squareList.searchStreet(tradeOfferArray[i]).setOwner(chosenTrader);
+                            guiController.buyProperty(chosenTrader,squareList.searchProperty(tradeOfferArray[i]).getFieldPosition());
+                        }
+
+                        for (int i = 0; i < receivingOfferArray.length; i++) {
+                            squareList.searchStreet(receivingOfferArray[i]).setOwner(playerName);
+                            guiController.buyProperty(playerName,squareList.searchProperty(receivingOfferArray[i]).getFieldPosition());
+                        }
+
+                        playerList.searchPlayer(playerName).getBalance().add(receivingAmount - offerAmount);
+                        playerList.searchPlayer(chosenTrader).getBalance().add(offerAmount - receivingAmount);
+
+                        guiController.updateBalance(playerName, playerList.searchPlayer(playerName).getBalance().getAmount());
+                        guiController.updateBalance(chosenTrader, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
+                    }
                 }
 
             }
