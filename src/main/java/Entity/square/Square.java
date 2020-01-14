@@ -20,7 +20,7 @@ public abstract class Square {
         return fieldName;
     }
 
-    public abstract void squareAction(PlayerList playerList, GUIController gui, int diceSum);
+    public abstract boolean squareAction(PlayerList playerList, GUIController gui, int diceSum);
 
 }
 

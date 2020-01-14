@@ -9,6 +9,9 @@ public class Player {
     private int fieldPos = 0;
     private int liqudationValue;
     private boolean needsToLiquidate;
+    private boolean hasLiquidated;
+    private int moneyToPay;
+    private boolean aboutToLose=false;
 
     private boolean inJail;
     private int turnsInJail;
@@ -38,6 +41,30 @@ public class Player {
             aboutToStartCash = false;
         }
 
+    }
+
+    public void setHasLiquidated(boolean hasLiquidated) {
+        this.hasLiquidated = hasLiquidated;
+    }
+
+    public boolean isHasLiquidated() {
+        return hasLiquidated;
+    }
+
+    public int getMoneyToPay() {
+        return moneyToPay;
+    }
+
+    public void setMoneyToPay(int moneyToPay) {
+        this.moneyToPay = moneyToPay;
+    }
+
+    public boolean isAboutToLose() {
+        return aboutToLose;
+    }
+
+    public void setAboutToLose(boolean aboutToLose) {
+        this.aboutToLose = aboutToLose;
     }
 
     public void setLiqudationValue(int liqudationValue) {

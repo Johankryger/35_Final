@@ -94,7 +94,13 @@ public class GameController {
 
         gameLogic.calculateLiquidation(playerList, squareList);
         // Land on
-        squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
+        boolean needsToLiquidate;
+        do {
+            needsToLiquidate = squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
+            if (needsToLiquidate)
+                propertyController.liquidateMenu(playerList,getPlayer().getName(),squareList,guiController,getPlayer().getMoneyToPay());
+        } while (needsToLiquidate);
+
         if (player.hasGotChanceCard()) {
             chanceList.pickCard(playerList, squareList, guiController);
             player.setGotChanceCard(false);
@@ -159,8 +165,7 @@ public class GameController {
         gameLogic.calculateLiquidation(playerList, squareList);
         //checks for all players if they have lost this turn
         for (Player playerName : playerArray) {
-            //if (playerName.isNeedsToLiquidate()){
-            if (playerName.isHasLost() || playerName.getBalance().getAmount()<0) {
+            if (!playerName.isHasLost() && (playerName.getBalance().getAmount()<0 || playerName.isAboutToLose())) {
                 guiController.removeLoser(playerName.getName(), playerName.getFieldPos(), squareList);
                 playerList.getPlayer().setFinalScore(scoreBoard--);
                 playerList.getPlayer().setHasLost(true);
