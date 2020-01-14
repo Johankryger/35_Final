@@ -169,3 +169,7 @@ Hvor mange kroner vil du have?
 Ja
 Nej
 Hvem vil du bytte med?
+'s tilbud
+Beløb
+Ejendomme
+Acceptere du handlen?

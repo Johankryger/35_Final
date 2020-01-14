@@ -169,3 +169,7 @@ What amount of DKK do you want?
 Yes
 No
 Who do you want to trade with?
+'s offer
+Amount
+Properties
+Do you accept the offer?

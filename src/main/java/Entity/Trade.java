@@ -115,7 +115,7 @@ public class Trade {
                         receivingString += receivingOfferArray[i] + ", ";
                     }
 
-                    String tradingAnswser = guiController.button(playerName + "'s offer:" + " Amount:  " + offerAmount + ""  + "  Properties: " + offerString + ". " + chosenTrader + "'s offer: " + " Amount: " + receivingAmount + "" + "  Properties: " + receivingString + "            " +chosenTrader + "  Do you accept the offer?", Message.getMessage("Trading", 8), Message.getMessage("Trading", 9));
+                    String tradingAnswser = guiController.button(playerName + Message.getMessage("Trading", 11) + ":  " + Message.getMessage("Trading", 12) + ": " + offerAmount + "  "  + Message.getMessage("Trading", 13) + "   " + offerString + " " + chosenTrader + Message.getMessage("Trading", 11) + ":  " + Message.getMessage("Trading", 12) + ":  " + receivingAmount + "  " + Message.getMessage("Trading", 13) + ":  " + receivingString + "            " +chosenTrader + ":  " + Message.getMessage("Trading", 14), Message.getMessage("Trading", 8), Message.getMessage("Trading", 9));
 
                     if (tradingAnswser.equals(Message.getMessage("Trading", 8))) {
 
