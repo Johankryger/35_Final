@@ -56,45 +56,45 @@ Pay extraodinary state tax: 2000 kr.
 
 SubText
 Get 4000kr
-Price: 1.200 kr
+Cost: 1.200kr
 Chance
-Price: 1.200 kr
+Cost: 1.200kr
 
-Price: 4.000 kr
-Price: 2.000 kr
+Cost: 4.000kr
+Cost: 2.000kr
 Chance
-Price: 2.000 kr
-Price: 2.400 kr
+Cost: 2.000kr
+Cost: 2.400kr
 In jail
-Price: 2.800 kr
-Price: 3.000 kr
-Price: 2.800 kr
-Price: 3.200 kr
-Price: 4.000 kr
-Price: 3.600 kr
+Cost: 2.800kr
+Cost: 3.000kr
+Cost: 2.800kr
+Cost: 3.200kr
+Cost: 4.000kr
+Cost: 3.600kr
 Chance
-Price: 3.600 kr
-Price: 4.000 kr
+Cost: 3.600kr
+Cost: 4.000kr
 Free Parking
-Price: 4.400 kr
+Cost: 4.400kr
 Chance
-Price: 4.400 kr
-Price: 4.800 kr
-Price: 4.000 kr
-Price: 5.200 kr
-Price: 5.200 kr
-Price: 3.000 kr
-Price: 5.600 kr
+Cost: 4.400kr
+Cost: 4.800kr
+Cost: 4.000kr
+Cost: 5.200kr
+Cost: 5.200kr
+Cost: 3.000kr
+Cost: 5.600kr
 Go to prison
-Price: 6.000 kr
-Price: 6.000 kr
+Cost: 6.000kr
+Cost: 6.000kr
 Chance
-Price: 6.400 kr
-Price: 4.000 kr
+Cost: 6.400kr
+Cost: 4.000kr
 Chance
-Price: 7.000 kr
+Cost: 7.000kr
 
-Price: 8.000 kr
+Cost: 8.000kr
 
 Desc
 You receive 4000 kr. each time your pass START.
