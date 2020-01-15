@@ -131,8 +131,8 @@ public class GUIController {
         //checks if any player is named "Player x"
         for (int i = 0; i < names.length ; i++) {
             for (int j = 0; j < names.length; j++) {
-                if (names[i].equals("Player " +j)){
-                    names[i] = "Minecraft";
+                if (names[i].equals("Player " +j) || names[i].equals("Player 6")){
+                    names[i] = "Player 1";
                 }
             }
         }
@@ -143,7 +143,7 @@ public class GUIController {
         for (int i = 0; i <names.length ; i++) {
             for (int j = i+1; j < names.length; j++) {
                 if (names[i].equals(names[j])){
-                    newNames[j] = "Player " + ( counter);
+                    newNames[j] = "Player " + ( counter + 1);
                     counter++;
                 }
             }
