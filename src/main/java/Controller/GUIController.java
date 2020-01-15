@@ -128,30 +128,24 @@ public class GUIController {
             }
         }
 
+        //checks if any player is named "Player x"
         for (int i = 0; i < names.length ; i++) {
             for (int j = 0; j < names.length; j++) {
-                if (names[i].equals("Player " +j))
-
+                if (names[i].equals("Player " +j)){
+                    names[i] = "Minecraft";
+                }
             }
-
-
         }
-
 
         //Checks for the same name
         String[] newNames = names;
         int counter = 1;
         for (int i = 0; i <names.length ; i++) {
             for (int j = i+1; j < names.length; j++) {
-
-
                 if (names[i].equals(names[j])){
                     newNames[j] = "Player " + ( counter);
                     counter++;
-
                 }
-
-
             }
         }
         names = newNames;
