@@ -128,6 +128,14 @@ public class GUIController {
             }
         }
 
+        //Checks for the same name
+        for (int i = 0; i <names.length ; i++) {
+            for (int j = 0; j < names.length; j++) {
+
+
+            }
+        }
+
         gui_players = new GUI_Player[amountOfPlayers];
         // generating piece for each player on gui board
         for (int i = 0; i < amountOfPlayers; i++) {
