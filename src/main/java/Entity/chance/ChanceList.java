@@ -65,6 +65,7 @@ public class ChanceList {
 
             new CardType9(Message.getMessage("Chancecard", 37)),
 
+            new CardType10(Message.getMessage("Chancecard",3)),
 
 
     };
