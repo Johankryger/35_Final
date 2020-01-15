@@ -11,6 +11,7 @@ public class Controller {
         gameController.turn();
         while(true) {
             gameController.checkForLoser();
+            if (gameController.checkForEndGame()){break;}
             String option = Message.getMessage("In Jail",2);
             while (option.equals(Message.getMessage("In Jail",2))) {
                 gameController.updateProperties();
@@ -31,5 +32,6 @@ public class Controller {
                 }
             }
         }
+        gameController.endGame();
     }
 }

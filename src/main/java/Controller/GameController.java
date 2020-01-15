@@ -158,6 +158,15 @@ public class GameController {
         playerList.nextPlayer();
     }
 
+    public boolean checkForEndGame(){
+        return (playerList.getAllPlayers().length==1);
+    }
+
+    public void endGame(){
+        guiController.button(getPlayer().getName()+" you have won!","Ok");
+        guiController.close();
+    }
+
     public void checkForLoser() {
         //counters with losername and without losername used in remainingPlayer array
         int remainingPlayercounter = 0;
@@ -168,10 +177,10 @@ public class GameController {
         for (Player playerName : playerArray) {
             if (!playerName.isHasLost() && (playerName.getBalance().getAmount()<0 || playerName.isAboutToLose())) {
                 guiController.removeLoser(playerName.getName(), playerName.getFieldPos(), squareList);
-                playerList.getPlayer().setFinalScore(scoreBoard--);
-                playerList.getPlayer().setHasLost(true);
-                playerList.getPlayer().setInJail(false);
-                playerList.getPlayer().extraTurn(false);
+                playerName.setFinalScore(scoreBoard--);
+                playerName.setHasLost(true);
+                playerName.setInJail(false);
+                playerName.extraTurn(false);
 
                 //sets new owner on loser's properties
                 String owner;

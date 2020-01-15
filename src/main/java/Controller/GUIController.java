@@ -291,6 +291,11 @@ public class GUIController {
     }
 
     public void removeLoser(String name, int position, SquareController squareList){
+    public void close(){
+        gui.close();
+    }
+
+    public void removeLoser(String name, int position, SquareList squareList){
         GUI_Player choosenPlayer = null;
         for (GUI_Player p: gui_players) {
             if (p.getName().equals(name)){
