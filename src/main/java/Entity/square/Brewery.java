@@ -28,7 +28,7 @@ public class Brewery extends Property {
                 option = gui.button(Message.getMessage("General", 1) + " "+fieldName + "?", Message.getMessage("General", 3), Message.getMessage("General", 4));
             else
                 option = gui.button(Message.getMessage("General", 8),  Message.getMessage("General", 4));
-            if (option.equals("Buy")) {
+            if (option.equals(Message.getMessage("General",3))) {
                 if (price > playerList.getPlayer().getBalance().getAmount()) {
                     playerList.getPlayer().setMoneyToPay(playerList.getPlayer().getBalance().getAmount()-price);
                     return true;
@@ -51,7 +51,7 @@ public class Brewery extends Property {
                     playerList.getPlayer().setHasLost(true);
                     return false;
                 }
-                gui.button( Message.getMessage("General", 8) + " " + rent * diceSum + " "+Message.getMessage("General", 4)+" " + owner, Message.getMessage("General", 7));
+                gui.button( Message.getMessage("General", 5) + " " + rent * diceSum + " "+Message.getMessage("General", 6)+" " + owner, Message.getMessage("General", 7));
                 playerList.transfer(rent * diceSum, playerList.getPlayer().getName(), owner);
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
                 gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
