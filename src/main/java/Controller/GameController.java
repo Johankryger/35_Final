@@ -214,20 +214,20 @@ public class GameController {
 
                 //makes new array of remaining players
                 int[] playerPosition = new int[playerArray.length - 1];
-                String[] remainingPlayers = new String[playerList.getAllPlayers().length - 1];
+                Player[] remainingPlayers = new Player[playerList.getAllPlayers().length - 1];
                 for (Player player : playerArray) {
                     if (!playerName.getName().equals(player.getName())) {
                         playerPosition[remainingPlayercounter] = player.getFieldPos();
-                        remainingPlayers[remainingPlayercounter] = playerArray[allPlayerCounter].getName();
+                        remainingPlayers[remainingPlayercounter] = playerArray[allPlayerCounter];
                         remainingPlayercounter++;
                     }
                     allPlayerCounter++;
                 }
                 //returns array of remaining players to playerlist and sets index to 1 less
-                playerList.addPlayers(remainingPlayers, remainingPlayers.length);
-                for (int j = 0; j < remainingPlayers.length; j++) {
-                    playerList.searchPlayer(remainingPlayers[j]).setFieldPos(playerPosition[j]);
-                }
+                playerList.setPlayers(remainingPlayers);
+//                for (int j = 0; j < remainingPlayers.length; j++) {
+//                    playerList.searchPlayer(remainingPlayers[j]).setFieldPos(playerPosition[j]);
+//                }
                 if (!(playerList.getIndex() == 0))
                     playerList.setIndex((playerList.getIndex() - 1) % remainingPlayers.length);
                 else playerList.setIndex(playerList.getIndex());

@@ -16,6 +16,10 @@ public class PlayerList {
         }
     }
 
+    public void setPlayers(Player[] players) {
+        this.players = players;
+    }
+
     public Player[] getAllPlayers() {
         return players;
     }
