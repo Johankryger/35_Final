@@ -41,6 +41,7 @@ public abstract class Property extends Square {
     public void setOwner(String name){
         this.owner = name;
     }
+
     public String getOwner(){return owner;}
 
 }

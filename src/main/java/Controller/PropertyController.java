@@ -95,7 +95,6 @@ public class PropertyController {
                     do {
                         unMortgageOption = guiController.scrollList(Message.getMessage("Manage", 3), unMortgageArray(name, squareList));
                         if (!unMortgageOption.equals(Message.getMessage("Manage", 1))) {
-                            squareList.searchProperty(unMortgageOption).setMortgaged(false);
                             double toPay = squareList.searchProperty(unMortgageOption).getPrice() / 2 * 1.1;
                             if (toPay % 100 >= 50) {
                                 toPay = toPay - (toPay % 100) + 100;
@@ -103,9 +102,14 @@ public class PropertyController {
                                 toPay = toPay - (toPay % 100);
                             }
                             int mortgagePrice = (int) toPay;
-                            playerList.getPlayer().getBalance().pay(mortgagePrice);
-                            guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
-                            guiController.buyProperty(name, squareList.searchProperty(unMortgageOption).getFieldPosition());
+                            if (toPay <= playerList.getPlayer().getBalance().getAmount()) {
+                                squareList.searchProperty(unMortgageOption).setMortgaged(false);
+                                playerList.getPlayer().getBalance().pay(mortgagePrice);
+                                guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
+                                guiController.buyProperty(name, squareList.searchProperty(unMortgageOption).getFieldPosition());
+                            } else {
+                                guiController.button("You can't afford that!", "ok");
+                            }
                         }
                     } while (!unMortgageOption.equals(Message.getMessage("Manage", 1)));
                     manageMenu(guiController, playerList, squareList);
@@ -117,10 +121,14 @@ public class PropertyController {
                         buildHouseOption = guiController.scrollList(Message.getMessage("Manage", 3), buyHouseArray(name, squareList));
                         if (!buildHouseOption.equals(Message.getMessage("Manage", 1))) {
                             int housePrice = squareList.searchStreet(buildHouseOption).getHousePrice();
-                            playerList.getPlayer().getBalance().pay(housePrice);
-                            squareList.searchStreet(buildHouseOption).addHouse();
-                            guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
-                            guiController.setHouses(squareList.searchStreet(buildHouseOption).getNumberOfHouses(), squareList.searchStreet(buildHouseOption).getFieldPosition());
+                            if (housePrice <= playerList.getPlayer().getBalance().getAmount()) {
+                                playerList.getPlayer().getBalance().pay(housePrice);
+                                squareList.searchStreet(buildHouseOption).addHouse();
+                                guiController.updateBalance(name, playerList.getPlayer().getBalance().getAmount());
+                                guiController.setHouses(squareList.searchStreet(buildHouseOption).getNumberOfHouses(), squareList.searchStreet(buildHouseOption).getFieldPosition());
+                            } else {
+                                guiController.button("You can't afford that!", "ok");
+                            }
                         }
                     } while (!buildHouseOption.equals(Message.getMessage("Manage", 1)));
                     manageMenu(guiController, playerList, squareList);
