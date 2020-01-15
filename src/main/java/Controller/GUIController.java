@@ -129,17 +129,21 @@ public class GUIController {
         }
 
         //Checks for the same name
-        String[] names =
+        String[] newNames = names;
+        int counter = 1;
         for (int i = 0; i <names.length ; i++) {
-            for (int j = i+1; j < names.length -1; j++) {
+            for (int j = i+1; j < names.length; j++) {
 
                 if (names[i].equals(names[j])){
-                    names[j] = "Player " + (i+1);
+                    newNames[j] = "Player " + ( counter);
+                    counter++;
+
                 }
 
 
             }
         }
+        names = newNames;
 
         gui_players = new GUI_Player[amountOfPlayers];
         // generating piece for each player on gui board
