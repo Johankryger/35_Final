@@ -29,7 +29,7 @@ public class Ship extends Property{
 
             String option;
             if (playerList.getPlayer().getLiqudationValue() >= price)
-                option = gui.button((Message.getMessage("General",1))  +fieldName + (Message.getMessage("General",2)), (Message.getMessage("General",3)), (Message.getMessage("General",4)));
+                option = gui.button((Message.getMessage("General",1))+ " " + fieldName + (Message.getMessage("General",2)), (Message.getMessage("General",3)), (Message.getMessage("General",4)));
             else
                 option = gui.button((Message.getMessage("General",8)),  (Message.getMessage("General",4)));
             if (option.equals((Message.getMessage("General",3)))) {
@@ -61,7 +61,7 @@ public class Ship extends Property{
                     playerList.getPlayer().setAboutToLose(true);
                     return false;
                 }
-                gui.button((Message.getMessage("General",5)) + " "  + rent + " " + (Message.getMessage("General",6))+ owner, (Message.getMessage("General",7)));
+                gui.button((Message.getMessage("General",5)) + " "  + rent + (Message.getMessage("General",6))+ owner, (Message.getMessage("General",7)));
                 playerList.transfer(rent, playerList.getPlayer().getName(), owner);
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
                 gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
