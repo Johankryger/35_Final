@@ -142,10 +142,7 @@ public class Trade {
                         guiController.updateBalance(chosenTrader, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
                     }
                 }
-
             }
-
-
         }
     }
 }
