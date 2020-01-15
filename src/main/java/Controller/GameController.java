@@ -16,7 +16,6 @@ public class GameController {
     private PropertyController propertyController = new PropertyController();
     private ChanceCardController chanceList;
     private GameLogic gameLogic = new GameLogic();
-    private LiquidateLogic liquidateLogic = new LiquidateLogic();
 
     public void turn() {
         //Returns a string array of names
@@ -93,7 +92,7 @@ public class GameController {
         player.move(diceCup.getFaceValueSum(), true);
         guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
 
-        gameLogic.calculateLiquidation(playerList, squareList);
+        calculateLiquidation(playerList, squareList);
         // Land on
         boolean needsToLiquidate;
         do {
@@ -116,7 +115,7 @@ public class GameController {
     // Throwing dice process
     public void rollDiceLogic() {
         Player player = playerList.getPlayer();
-        gameLogic.calculateLiquidation(playerList, squareList);
+        calculateLiquidation(playerList, squareList);
 
         // roll dice
         diceCup.rollDice();
@@ -172,7 +171,7 @@ public class GameController {
         int remainingPlayercounter = 0;
         int allPlayerCounter = 0;
         Player[] playerArray = playerList.getAllPlayers();
-        gameLogic.calculateLiquidation(playerList, squareList);
+        calculateLiquidation(playerList, squareList);
         //checks for all players if they have lost this turn
         for (Player playerName : playerArray) {
             if (!playerName.isHasLost() && (playerName.getBalance().getAmount()<0 || playerName.isAboutToLose())) {
@@ -251,5 +250,27 @@ public class GameController {
                 guiController.killPlayer(playerName.getName(), playerArray.length);
             }
         }
+    }
+
+    public void calculateLiquidation(PlayerList playerList, SquareController squareList) {
+        int liquidationMoney = playerList.getPlayer().getBalance().getAmount();
+
+        String[] ownedStreets = squareList.getOwnedStreetNames(playerList.getPlayer().getName());
+        String[] ownedProperties = squareList.getOwnedPropertyNames(playerList.getPlayer().getName());
+
+        for (int i = 0; i < ownedProperties.length; i++) {
+            if (!squareList.searchProperty(ownedProperties[i]).getMortgaged()) {
+                liquidationMoney += squareList.searchProperty(ownedProperties[i]).getPrice() / 2;
+            }
+        }
+
+        for (int i = 0; i < ownedStreets.length; i++) {
+            if (squareList.searchStreet(ownedStreets[i]).isPaired()) {
+                int numberOfHouses= squareList.searchStreet(ownedStreets[i]).getNumberOfHouses();
+                int housePrice = squareList.searchStreet(ownedStreets[i]).getHousePrice();
+                liquidationMoney += numberOfHouses * housePrice;
+            }
+        }
+        playerList.getPlayer().setLiqudationValue(liquidationMoney);
     }
 }
