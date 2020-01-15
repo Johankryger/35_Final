@@ -18,6 +18,7 @@ public class CardType6 extends ChanceCard {
         for (int i = 0; i < names.length; i++) {
             if (names[i] != playerList.getPlayer().getName()) {
                 playerList.transfer(amount, names[i], playerList.getPlayer().getName());
+                guiController.updateBalance(playerList.searchPlayer(names[i]).getName(),playerList.searchPlayer(names[i]).getBalance().getAmount());
             }
         }
     }
