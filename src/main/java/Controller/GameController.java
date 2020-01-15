@@ -1,7 +1,7 @@
 package Controller;
 
 import Entity.*;
-import Entity.chance.ChanceList;
+import Entity.chance.ChanceCardController;
 import Entity.square.SquareController;
 import message.Message;
 
@@ -14,7 +14,7 @@ public class GameController {
     private PlayerList playerList = new PlayerList();
     private SquareController squareList = new SquareController();
     private PropertyController propertyController = new PropertyController();
-    private ChanceList chanceList;
+    private ChanceCardController chanceList;
     private GameLogic gameLogic = new GameLogic();
     private LiquidateLogic liquidateLogic = new LiquidateLogic();
 
@@ -22,7 +22,7 @@ public class GameController {
         //Returns a string array of names
         String[] names = guiController.startMenu();
         playerList.addPlayers(names, names.length);
-        chanceList = new ChanceList(); // chanceList object is made after startMenu() because startMenu() sets the language
+        chanceList = new ChanceCardController(); // chanceList object is made after startMenu() because startMenu() sets the language
     }
 
     public Player getPlayer() {

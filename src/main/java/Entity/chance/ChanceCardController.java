@@ -7,7 +7,7 @@ import message.Message;
 
 import java.util.Random;
 
-public class ChanceList {
+public class ChanceCardController {
     private int cardIndex = 0;
     private ChanceCard[] chanceCards = {
             new CardType1(Message.getMessage("Chancecard", 15), -200),
@@ -71,7 +71,7 @@ public class ChanceList {
     };
     private int[] cardDeck = new int[chanceCards.length];
 
-    public ChanceList() {
+    public ChanceCardController() {
         Random random = new Random();
 
         // this for-loop generates an unique random number between 1 and chanceCards.length and enters them into the cardDeck array
