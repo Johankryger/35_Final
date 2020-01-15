@@ -129,9 +129,10 @@ public class GUIController {
         }
 
         //Checks for the same name
+        String[] names =
         for (int i = 0; i <names.length ; i++) {
-            for (int j = 0; j < names.length; j++) {
-                j = i +1;
+            for (int j = i+1; j < names.length -1; j++) {
+
                 if (names[i].equals(names[j])){
                     names[j] = "Player " + (i+1);
                 }
