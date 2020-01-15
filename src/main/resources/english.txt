@@ -98,45 +98,45 @@ Cost: 8.000kr
 
 Desc
 You receive 4000 kr. each time your pass START.
-Rent of Land: _______ 50 kr. w/ 1 house: _________ 250 kr. > 2 houses: __________ 750 kr. > 3 houses: _________ 2.250 kr. > 4 houses: _________ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
+Rent of Land: _______ 50 kr. w/ 1 house: ________ 250 kr. > 2 houses: ________ 750 kr. > 3 houses: _______ 2.250 kr. > 4 houses: _______ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
 Chance
-Rent of Land: _______ 50 kr. w/ 1 house: __________ 250 kr. > 2 houses: __________ 750 kr. > 3 houses: _________ 2.250 kr. > 4 houses: _________ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
+Rent of Land: _______ 50 kr. w/ 1 house: ________ 250 kr. > 2 houses: ________ 750 kr. > 3 houses: _______ 2.250 kr. > 4 houses: _______ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
 Pay income tax: 10% or 4000 kr.
-Rent: _____________ 500 kr. If 2 shipping companies are owned: 1.000 kr. If 3 shipping companies are owned: 2.000 kr. If 4 shipping companies are owned: 4.000 kr.
-Rent of land: ______ 100 kr. w/ 1 house: __________ 600 kr. > 2 houses: _________ 1.800 kr. > 3 houses: _________ 5.400 kr. > 4 houses: _________ 8.000 kr. > hotel: _________ 11.000 kr. Each house costs 1000 kr.
+Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
+Rent of land: ______ 100 kr. w/ 1 house: ________ 600 kr. > 2 houses: _______ 1.800 kr. > 3 houses: _______ 5.400 kr. > 4 houses: _______ 8.000 kr. > hotel: _________ 11.000 kr. Each house costs 1000 kr.
 Chance
-Rent of land: ______ 100 kr. w/ 1 house: __________ 600 kr. > 2 houses: _________ 1.800 kr. > 3 houses: _________ 5.400 kr. > 4 houses: _________ 8.000 kr. > hotel: _________ 11.000 kr. Each house costs 1000 kr.
-Rent of land: ______ 150 kr. w/ 1 house: __________ 800 kr. > 2 houses: _________ 2.000 kr. > 3 houses: _________ 6.000 kr. > 4 houses: _________ 9.000 kr. > hotel: _________ 12.000 kr. Each house costs 1000 kr.
+Rent of land: ______ 100 kr. w/ 1 house: ________ 600 kr. > 2 houses: _______ 1.800 kr. > 3 houses: _______ 5.400 kr. > 4 houses: _______ 8.000 kr. > hotel: _________ 11.000 kr. Each house costs 1000 kr.
+Rent of land: ______ 150 kr. w/ 1 house: ________ 800 kr. > 2 houses: _______ 2.000 kr. > 3 houses: _______ 6.000 kr. > 4 houses: _______ 9.000 kr. > hotel: _________ 12.000 kr. Each house costs 1000 kr.
 You are either visiting or spending your time in jail.
-Rent of land: ______ 200 kr. w/ 1 house: __________ 1.000 kr. > 2 houses: _________ 3.000 kr. > 3 houses: _________ 9.000 kr. > 4 houses: _________ 12.500 kr. > hotel: _________ 15.000 kr. Each house costs 2.000 kr.
+Rent of land: ______ 200 kr. w/ 1 house: _______ 1.000 kr. > 2 houses: _______ 3.000 kr. > 3 houses: _______ 9.000 kr. > 4 houses: ______ 12.500 kr. > hotel: _________ 15.000 kr. Each house costs 2.000 kr.
 If one company is owned. One hundred times the ammount of eyes on the diceroll is pad. If both SQUASH og Cola is owned, the dobbelt is paid.
-Rent of land: ______ 200 kr. w/ 1 house: __________ 1.000 kr. > 2 houses: _________ 3.000 kr. > 3 houses: _________ 9.000 kr. > 4 houses: _________ 12.500 kr. > hotel: _________ 15.000 kr. Each house costs 2.000 kr.
-Rent of land: ______ 250 kr. w/ 1 house: __________ 1.250 kr. > 2 houses: _________ 3.750 kr. > 3 houses: _________ 10.000 kr. > 4 houses: _________ 14.000 kr. > hotel: _________ 18.000 kr. Each house costs 2.000 kr.
-Rent: ______ 500 kr. If 2 shipping companies are owned: 1.000 kr. If 3 shipping companies are owned: 2.000 kr. If 4 shipping companies are owned: 4.000 kr.
-Rent of land: ______ 300 kr. w/ 1 house: __________ 1.400 kr. > 2 houses: _________ 4.000 kr. > 3 houses: _________ 11.000 kr. > 4 houses: _________ 15.000 kr. > hotel: _________ 19.000 kr. Each house costs 2.000 kr.
+Rent of land: ______ 200 kr. w/ 1 house: ______ 1.000 kr. > 2 houses: _______ 3.000 kr. > 3 houses: _______ 9.000 kr. > 4 houses: ______ 12.500 kr. > hotel: _________ 15.000 kr. Each house costs 2.000 kr.
+Rent of land: ______ 250 kr. w/ 1 house: ______ 1.250 kr. > 2 houses: _______ 3.750 kr. > 3 houses: ______ 10.000 kr. > 4 houses: ______ 14.000 kr. > hotel: _________ 18.000 kr. Each house costs 2.000 kr.
+Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
+Rent of land: ______ 300 kr. w/ 1 house: ______ 1.400 kr. > 2 houses: _______ 4.000 kr. > 3 houses: ______ 11.000 kr. > 4 houses: ______ 15.000 kr. > hotel: _________ 19.000 kr. Each house costs 2.000 kr.
 Chance
-Rent of land: ______ 300 kr. w/ 1 house: __________ 1.400 kr. > 2 houses: _________ 4.000 kr. > 3 houses: _________ 11.000 kr. > 4 houses: _________ 15.000 kr. > hotel: _________ 19.000 kr. Each house costs 2.000 kr.
-Rent of land: ______ 350 kr. w/ 1 house: __________ 1.600 kr. > 2 houses: _________ 4.400 kr. > 3 houses: _________ 12.000 kr. > 4 houses: _________ 16.000 kr. > hotel: _________ 20.000 kr. Each house costs 2.000 kr.
+Rent of land: ______ 300 kr. w/ 1 house: ______ 1.400 kr. > 2 houses: _______ 4.000 kr. > 3 houses: ______ 11.000 kr. > 4 houses: ______ 15.000 kr. > hotel: _________ 19.000 kr. Each house costs 2.000 kr.
+Rent of land: ______ 350 kr. w/ 1 house: ______ 1.600 kr. > 2 houses: _______ 4.400 kr. > 3 houses: ______ 12.000 kr. > 4 houses: ______ 16.000 kr. > hotel: _________ 20.000 kr. Each house costs 2.000 kr.
 Parking
-Rent of land: ______ 350 kr. w/ 1 house: __________ 1.800 kr. > 2 houses: _________ 5.000 kr. > 3 houses: _________ 14.000 kr. > 4 houses: _________ 17.500 kr. > hotel: _________ 21.000 kr. Each house costs 3.000 kr.
+Rent of land: ______ 350 kr. w/ 1 house: ______ 1.800 kr. > 2 houses: ______ 5.000 kr. > 3 houses: ______ 14.000 kr. > 4 houses: ______ 17.500 kr. > hotel: _________ 21.000 kr. Each house costs 3.000 kr.
 Chance
-Rent of land: ______ 350 kr. w/ 1 house: __________ 1.800 kr. > 2 houses: _________ 5.000 kr. > 3 houses: _________ 14.000 kr. > 4 houses: _________ 17.500 kr. > hotel: _________ 21.000 kr. Each house costs 3.000 kr.
-Rent of land: ______ 400 kr. w/ 1 house: __________ 2.000 kr. > 2 houses: _________ 6.000 kr. > 3 houses: _________ 15.000 kr. > 4 houses: _________ 18.500 kr. > hotel: _________ 22.000 kr. Each house costs 3.000 kr.
-Rent of land: ______ 500 kr. If 2 shipping companies are owned: 1.000 kr. If 3 shipping companies are owned: 2.000 kr. If 4 shipping companies are owned: 4.000 kr.
-Rent of land: ______ 450 kr. w/ 1 house: __________ 2.200 kr. > 2 houses: _________ 6.600 kr. > 3 houses: _________ 16.000 kr. > 4 houses: _________ 19.500 kr. > hotel: _________ 23.000 kr. Each house costs 3.000 kr.
-Rent of land: ______ 450 kr. w/ 1 house: __________ 2.200 kr. > 2 houses: _________ 6.600 kr. > 3 houses: _________ 16.000 kr. > 4 houses: _________ 19.500 kr. > hotel: _________ 23.000 kr. Each house costs 3.000 kr.
+Rent of land: ______ 350 kr. w/ 1 house: ______ 1.800 kr. > 2 houses: ______ 5.000 kr. > 3 houses: ______ 14.000 kr. > 4 houses: ______ 17.500 kr. > hotel: _________ 21.000 kr. Each house costs 3.000 kr.
+Rent of land: ______ 400 kr. w/ 1 house: ______ 2.000 kr. > 2 houses: ______ 6.000 kr. > 3 houses: ______ 15.000 kr. > 4 houses: ______ 18.500 kr. > hotel: _________ 22.000 kr. Each house costs 3.000 kr.
+Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
+Rent of land: ______ 450 kr. w/ 1 house: _______ 2.200 kr. > 2 houses: _______ 6.600 kr. > 3 houses: ______ 16.000 kr. > 4 houses: ______ 19.500 kr. > hotel: _________ 23.000 kr. Each house costs 3.000 kr.
+Rent of land: ______ 450 kr. w/ 1 house: _______ 2.200 kr. > 2 houses: _______ 6.600 kr. > 3 houses: ______ 16.000 kr. > 4 houses: ______ 19.500 kr. > hotel: _________ 23.000 kr. Each house costs 3.000 kr.
 If one company is owned. One hundred times the ammount of eyes on the diceroll is pad. If both SQUASH og Cola is owned, the dobbelt is paid.
-Rent of land: ______ 500 kr. w/ 1 house: __________ 2.400 kr. > 2 houses: _________ 7.200 kr. > 3 houses: _________ 17.000 kr. > 4 houses: _________ 20.500 kr. > hotel: _________ 24.000 kr. Each house costs 3.000 kr.
+Rent of land: ______ 500 kr. w/ 1 house: _______ 2.400 kr. > 2 houses: _______ 7.200 kr. > 3 houses: ______ 17.000 kr. > 4 houses: ______ 20.500 kr. > hotel: _________ 24.000 kr. Each house costs 3.000 kr.
 You are imprisoned
-Rent of land: ______ 550 kr. w/ 1 house: __________ 2.600 kr. > 2 houses: _________ 7.800 kr. > 3 houses: _________ 18.000 kr. > 4 houses: _________ 22.000 kr. > hotel: _________ 25.000 kr. Each house costs 4.000 kr.
-Rent of land: ______ 550 kr. w/ 1 house: __________ 2.600 kr. > 2 houses: _________ 7.800 kr. > 3 houses: _________ 18.000 kr. > 4 houses: _________ 22.000 kr. > hotel: _________ 25.000 kr. Each house costs 4.000 kr.
+Rent of land: ______ 550 kr. w/ 1 house: _______ 2.600 kr. > 2 houses: _______ 7.800 kr. > 3 houses: ______ 18.000 kr. > 4 houses: ______ 22.000 kr. > hotel: _________ 25.000 kr. Each house costs 4.000 kr.
+Rent of land: ______ 550 kr. w/ 1 house: _______ 2.600 kr. > 2 houses: _______ 7.800 kr. > 3 houses: ______ 18.000 kr. > 4 houses: ______ 22.000 kr. > hotel: _________ 25.000 kr. Each house costs 4.000 kr.
 Chance
-Rent of land: ______ 600 kr. w/ 1 house: __________ 3.000 kr. > 2 houses: _________ 9.000 kr. > 3 houses: _________ 20.000 kr. > 4 houses: _________ 24.000 kr. > hotel: _________ 28.000 kr. Each house costs 4.000 kr.
-Rent of land: ______ 500 kr. If 2 shipping companies are owned: 1.000 kr. If 3 shipping companies are owned: 2.000 kr. If 4 shipping companies are owned: 4.000 kr.
+Rent of land: ______ 600 kr. w/ 1 house: _______ 3.000 kr. > 2 houses: _______ 9.000 kr. > 3 houses: ______ 20.000 kr. > 4 houses: ______ 24.000 kr. > hotel: _________ 28.000 kr. Each house costs 4.000 kr.
+Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
 Chance
-Rent of land: ______ 700 kr. w/ 1 house: __________ 3.500 kr. > 2 houses: _________ 10.000 kr. > 3 houses: _________ 22.000 kr. > 4 houses: _________ 26.000 kr. > hotel: _________ 30.000 kr. Each house costs 4.000 kr.
+Rent of land: ______ 700 kr. w/ 1 house: _______ 3.500 kr. > 2 houses: ______ 10.000 kr. > 3 houses: ______ 22.000 kr. > 4 houses: ______ 26.000 kr. > hotel: _________ 30.000 kr. Each house costs 4.000 kr.
 Pay extraodinary state tax: 2000 kr.
-Rent of land: ______ 1.000 kr. w/ 1 house: __________ 4.000 kr. > 2 houses: _________ 12.000 kr. > 3 houses: _________ 28.000 kr. > 4 houses: _________ 34.000 kr. > hotel: _________ 40.000 kr. Each house costs 4.000 kr.
+Rent of land: ______ 1.000 kr. w/ 1 house: _______ 4.000 kr. > 2 houses: ______ 12.000 kr. > 3 houses: ______ 28.000 kr. > 4 houses: ______ 34.000 kr. > hotel: _________ 40.000 kr. Each house costs 4.000 kr.
 
 In Jail
 You have been jailed! What will you do?

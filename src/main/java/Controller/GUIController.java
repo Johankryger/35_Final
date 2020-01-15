@@ -33,7 +33,7 @@ public class GUIController {
             new GUI_Street("Hellerupvej", (Message.getMessage("SubText", 19)), (Message.getMessage("Desc", 19)), (Message.getMessage("SubText", 19)), new Color(162, 163, 162), Color.white),
             new GUI_Street("Strandvejen", (Message.getMessage("SubText", 20)), (Message.getMessage("Desc", 20)), (Message.getMessage("SubText", 20)), new Color(162, 163, 162), Color.white),
             new GUI_Refuge("src/main/resources/Pictures/parking.png", (Message.getMessage("Title",2)), (Message.getMessage("SubText", 21)), (Message.getMessage("Desc", 21)), Color.black, Color.white),
-            new GUI_Street("Trianglen", (Message.getMessage("SubText", 22)), (Message.getMessage("SubText", 22)), (Message.getMessage("Desc", 22)), Color.RED, Color.white),
+            new GUI_Street("Trianglen", (Message.getMessage("SubText", 22)), (Message.getMessage("Desc", 22)), (Message.getMessage("Desc", 22)), Color.RED, Color.white),
             new GUI_Chance("?",(Message.getMessage("SubText",23)),(Message.getMessage("Desc",23)),Color.black,Color.white),
             new GUI_Street("Østerbrogade", (Message.getMessage("SubText", 24)), (Message.getMessage("Desc", 24)), (Message.getMessage("SubText", 24)), Color.RED, Color.white),
             new GUI_Street("Grønningen", (Message.getMessage("SubText", 25)), (Message.getMessage("Desc", 25)), (Message.getMessage("SubText", 25)), Color.RED, Color.white),

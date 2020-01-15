@@ -3,7 +3,7 @@ package Controller;
 import message.Message;
 
 public class Controller {
-    private Message message = new Message("Dansk");
+    private Message message = new Message("English");
     private GameController gameController = new GameController();
 
     public void start() {
