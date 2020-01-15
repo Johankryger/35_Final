@@ -10,7 +10,7 @@ import message.Message;
 import staticclasses.ArrayMethods;
 
 public class PropertyController {
-    private PropertyLogic propertyLogic = new PropertyLogic();
+
     private Trade trade = new Trade();
 
     public String[] makeMortgageArray(String playerName, SquareController squareList){
@@ -19,7 +19,7 @@ public class PropertyController {
         mortgageMenu[0] = Message.getMessage("Manage", 1);
 
         for (int i = 0; i < ownedProperties.length; i++) {
-            if (propertyLogic.canMortgage(squareList.searchProperty(ownedProperties[i]), squareList))
+            if (canMortgage(squareList.searchProperty(ownedProperties[i]), squareList))
                 mortgageMenu = ArrayMethods.addToArray(mortgageMenu,ownedProperties[i]);
         }
         return mortgageMenu;
@@ -57,7 +57,7 @@ public class PropertyController {
         sellHouseMenu[0] = Message.getMessage("Manage", 1);
 
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (propertyLogic.canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList)) {
+            if (canSellHouse(squareList.searchStreet(ownedStreets[i]), squareList)) {
                 sellHouseMenu = ArrayMethods.addToArray(sellHouseMenu,ownedStreets[i]);
             }
         }
