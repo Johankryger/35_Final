@@ -2,7 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 import message.Message;
 
 import java.util.Random;
@@ -94,7 +94,7 @@ public class ChanceList {
         }
     }
 
-    public void pickCard(PlayerList playerList, SquareList squareList, GUIController guiController) {
+    public void pickCard(PlayerList playerList, SquareController squareList, GUIController guiController) {
         chanceCards[cardDeck[cardIndex] - 1].chanceAction(playerList, squareList, guiController);
         cardIndex = (cardIndex + 1) % chanceCards.length;
         guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());

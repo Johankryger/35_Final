@@ -1,10 +1,10 @@
 package Entity;
 
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 
 public class LiquidateLogic {
 
-    public void liquidate(PlayerList playerList, String playerName, SquareList squareList, int amountToPay) {
+    public void liquidate(PlayerList playerList, String playerName, SquareController squareList, int amountToPay) {
 
     }
 }

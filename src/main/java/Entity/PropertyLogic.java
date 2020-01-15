@@ -1,12 +1,12 @@
 package Entity;
 
 import Entity.square.Property;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 import Entity.square.Street;
 
 public class PropertyLogic {
 
-    public boolean canMortgage(Property property, SquareList squareList) {
+    public boolean canMortgage(Property property, SquareController squareList) {
         boolean canMortgage = true;
         String fieldName = property.getFieldName();
 
@@ -38,7 +38,7 @@ public class PropertyLogic {
         return canMortgage;
     }
 
-    public boolean canBuildHouse(Street street, SquareList squareList) {
+    public boolean canBuildHouse(Street street, SquareController squareList) {
         boolean canBuild = true;
         String owner = street.getOwner();
         int numberOfHouses = street.getNumberOfHouses();
@@ -58,7 +58,7 @@ public class PropertyLogic {
         return canBuild;
     }
 
-    public boolean canSellHouse(Street street, SquareList squareList) {
+    public boolean canSellHouse(Street street, SquareController squareList) {
         boolean canSellHouse = true;
         int numberOfHouses = street.getNumberOfHouses();
         String streetName = street.getFieldName();

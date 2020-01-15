@@ -2,7 +2,7 @@ package Controller;
 
 import Entity.*;
 import Entity.chance.ChanceList;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 import message.Message;
 
 public class GameController {
@@ -12,7 +12,7 @@ public class GameController {
     private GUIController guiController = new GUIController();
     private DiceCup diceCup = new DiceCup();
     private PlayerList playerList = new PlayerList();
-    private SquareList squareList = new SquareList();
+    private SquareController squareList = new SquareController();
     private PropertyController propertyController = new PropertyController();
     private ChanceList chanceList;
     private GameLogic gameLogic = new GameLogic();

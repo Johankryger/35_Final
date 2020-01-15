@@ -1,10 +1,10 @@
 package Entity;
 
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 
 public class GameLogic {
 
-    public void calculateLiquidation(PlayerList playerList, SquareList squareList) {
+    public void calculateLiquidation(PlayerList playerList, SquareController squareList) {
         int liquidationMoney = playerList.getPlayer().getBalance().getAmount();
 
         String[] ownedStreets = squareList.getOwnedStreetNames(playerList.getPlayer().getName());

@@ -2,7 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 // metode brugt til a opkræve et antal penge for hert hus eller hotel spilleren ejer
 public class CardType8 extends ChanceCard {
     private int houseTax;
@@ -15,7 +15,7 @@ public class CardType8 extends ChanceCard {
     }
 
     @Override
-    public void chanceAction(PlayerList playerList, SquareList squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
         guiController.showChanceCard(msg);
         String playerName = playerList.getPlayer().getName();
         String[] ownedStreets = squareList.getOwnedStreetNames(playerName);

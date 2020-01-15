@@ -2,7 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 
 public abstract class ChanceCard {
     protected String msg;
@@ -11,5 +11,5 @@ public abstract class ChanceCard {
         this.msg = msg;
     }
 
-    public abstract void chanceAction(PlayerList playerList, SquareList squareList, GUIController guiController);
+    public abstract void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController);
 }

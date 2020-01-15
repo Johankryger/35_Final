@@ -1,15 +1,13 @@
 package Entity;
 
 import Controller.GUIController;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 import message.Message;
 import staticclasses.ArrayMethods;
 
-import java.lang.reflect.Array;
-
 public class Trade {
 
-    public void trade(PlayerList playerList, SquareList squareList, GUIController guiController) {
+    public void trade(PlayerList playerList, SquareController squareList, GUIController guiController) {
         String playerName = playerList.getPlayer().getName();
         String[] owendStreets = squareList.getOwnedStreetNames(playerName);
         String[] ownedShips = squareList.getOwnedShipNames(playerName);

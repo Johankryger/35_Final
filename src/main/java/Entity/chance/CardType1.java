@@ -2,7 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 
 // metode for at modtage eller betale et fast antal penge
 public class CardType1 extends ChanceCard {
@@ -14,7 +14,7 @@ public class CardType1 extends ChanceCard {
     }
 
     @Override
-    public void chanceAction(PlayerList playerList, SquareList squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
         guiController.showChanceCard(msg);
         playerList.getPlayer().getBalance().add(amountAdded);
         guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());

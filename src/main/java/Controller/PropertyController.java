@@ -3,7 +3,7 @@ package Controller;
 import Entity.PlayerList;
 import Entity.PropertyLogic;
 import Entity.Trade;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 import message.Message;
 import staticclasses.ArrayMethods;
 
@@ -11,7 +11,7 @@ public class PropertyController {
     private PropertyLogic propertyLogic = new PropertyLogic();
     private Trade trade = new Trade();
 
-    public String[] makeMortgageArray(String playerName, SquareList squareList){
+    public String[] makeMortgageArray(String playerName, SquareController squareList){
         String[] ownedProperties = squareList.getOwnedPropertyNames(playerName);
         String[] mortgageMenu = new String[1];
         mortgageMenu[0] = Message.getMessage("Manage", 1);
@@ -23,7 +23,7 @@ public class PropertyController {
         return mortgageMenu;
     }
 
-    public String[] unMortgageArray(String playerName,SquareList squareList){
+    public String[] unMortgageArray(String playerName, SquareController squareList){
         String[] ownedProperties = squareList.getOwnedPropertyNames(playerName);
         String[] unMortgageMenu = new String[1];
         unMortgageMenu[0] = Message.getMessage("Manage", 1);
@@ -35,7 +35,7 @@ public class PropertyController {
         return unMortgageMenu;
     }
 
-    public String[] buyHouseArray(String playerName, SquareList squareList){
+    public String[] buyHouseArray(String playerName, SquareController squareList){
         String[] ownedStreets = squareList.getOwnedStreetNames(playerName);
         String[] buyHouseMenu = new String[1];
         buyHouseMenu[0] = Message.getMessage("Manage", 1);
@@ -49,7 +49,7 @@ public class PropertyController {
     }
 
 
-    public String[] sellHouseArray(String playerName, SquareList squareList) {
+    public String[] sellHouseArray(String playerName, SquareController squareList) {
         String[] ownedStreets = squareList.getOwnedStreetNames(playerName);
         String[] sellHouseMenu = new String[1];
         sellHouseMenu[0] = Message.getMessage("Manage", 1);
@@ -64,7 +64,7 @@ public class PropertyController {
 
 
 
-    public void manageMenu(GUIController guiController, PlayerList playerList, SquareList squareList) {
+    public void manageMenu(GUIController guiController, PlayerList playerList, SquareController squareList) {
             String option2 = guiController.scrollList(Message.getMessage("Manage", 2), Message.getMessage("Manage", 1), Message.getMessage("Manage", 4), Message.getMessage("Manage", 5), Message.getMessage("Manage", 6), Message.getMessage("Manage", 7), Message.getMessage("Manage", 8));
             String name = playerList.getPlayer().getName();
 
@@ -148,7 +148,7 @@ public class PropertyController {
 
     }
 
-    public void liquidateMenu(PlayerList playerList, String playerName, SquareList squareList, GUIController guiController, int amountToPay) {
+    public void liquidateMenu(PlayerList playerList, String playerName, SquareController squareList, GUIController guiController, int amountToPay) {
         String option = guiController.button((Message.getMessage("Manage",2) + " "), Message.getMessage("Manage", 4), Message.getMessage("Manage", 7), Message.getMessage("Manage", 8));
 
         if (option.equals(Message.getMessage("Manage", 4))) {

@@ -4,7 +4,7 @@ import staticclasses.ArrayMethods;
 
 import java.lang.reflect.Array;
 
-public class SquareList {
+public class SquareController {
     private Street[] streets;
     private Ship[] ships;
     private Tax[] taxes;
@@ -15,7 +15,7 @@ public class SquareList {
     private Square[][] squares;
     private Property[][] properties;
 
-    public SquareList() {
+    public SquareController() {
         this.streets = new Street[]{
                 new Street(1, "Rødovrevej", 1200, 50, 1000, 250, 750, 2250, 4000, 6000,"Blue"),
                 new Street(3, "Hvidovrevej", 1200, 50, 1000, 250, 750, 2250, 4000, 6000, "Blue"),

@@ -2,7 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 
 public class CardType4 extends ChanceCard {
 // metode til at rykke spillerens brik 3 felter tilbage
@@ -10,7 +10,7 @@ public class CardType4 extends ChanceCard {
         super(msg);
     }
 
-    public void chanceAction(PlayerList playerList, SquareList squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
         guiController.showChanceCard(msg);
         int currentPos = playerList.getPlayer().getFieldPos();
         int afterPos = (currentPos - 3 + 40) % 40;

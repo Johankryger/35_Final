@@ -1,6 +1,6 @@
 package Controller;
 
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 import gui_fields.*;
 import gui_main.GUI;
 import message.Message;
@@ -290,7 +290,7 @@ public class GUIController {
         return userNumber;
     }
 
-    public void removeLoser(String name, int position, SquareList squareList){
+    public void removeLoser(String name, int position, SquareController squareList){
         GUI_Player choosenPlayer = null;
         for (GUI_Player p: gui_players) {
             if (p.getName().equals(name)){

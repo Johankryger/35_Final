@@ -2,7 +2,7 @@ package Entity.chance;
 
 import Controller.GUIController;
 import Entity.PlayerList;
-import Entity.square.SquareList;
+import Entity.square.SquareController;
 
 public class CardType9 extends ChanceCard {
     public CardType9(String msg) {
@@ -10,7 +10,7 @@ public class CardType9 extends ChanceCard {
     }
 
     @Override
-    public void chanceAction(PlayerList playerList, SquareList squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
         guiController.showChanceCard(msg);
 
         String[] ownedStreets = squareList.getOwnedStreetNames(playerList.getPlayer().getName());
