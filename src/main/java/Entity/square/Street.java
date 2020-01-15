@@ -62,7 +62,7 @@ public class Street extends Property {
                     playerList.getPlayer().setAboutToLose(true);
                     return false;
                 }
-                gui.button((Message.getMessage("General",5)) + " "  + rent + " " + (Message.getMessage("General",6))+ owner, (Message.getMessage("General",7)));
+                gui.button((Message.getMessage("General",5)) + " "  + rent + " " + (Message.getMessage("General",6))+ " " + owner, (Message.getMessage("General",7)));
                 playerList.transfer(rent, playerList.getPlayer().getName(), owner);
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
                 gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
