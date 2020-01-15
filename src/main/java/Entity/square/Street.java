@@ -127,6 +127,23 @@ public class Street extends Property {
 
     public void setNumberOfHouses(int numberOfHouses) {
         this.numberOfHouses = numberOfHouses;
+        switch (numberOfHouses) {
+            case 1:
+                this.rent = oneHouseRent;
+                break;
+            case 2:
+                this.rent = twoHouseRent;
+                break;
+            case 3:
+                this.rent = threeHouseRent;
+                break;
+            case 4:
+                this.rent = fourHouseRent;
+                break;
+            case 5:
+                this.rent = hotelRent;
+                break;
+        }
     }
 
     public int getHousePrice() {

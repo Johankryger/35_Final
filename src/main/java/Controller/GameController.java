@@ -197,6 +197,7 @@ public class GameController {
                         squareList.searchProperty(p).setMortgaged(false);
                         if (squareList.searchStreet(p) != null) {
                             squareList.searchStreet(p).setNumberOfHouses(0);
+                            guiController.setHouses(0,squareList.searchStreet(p).getFieldPosition());
                         }
                         squareList.searchProperty(p).setOwner("bank");
                     }
@@ -210,6 +211,7 @@ public class GameController {
                             int houseMoney = squareList.searchStreet(p).getHousePrice() / 2;
                             totalHouseMoney += houses * houseMoney;
                             squareList.searchStreet(p).setNumberOfHouses(0);
+                            guiController.setHouses(0,squareList.searchStreet(p).getFieldPosition());
                             playerList.searchPlayer(owner).getBalance().add(totalHouseMoney);
                         }
                         squareList.searchProperty(p).setOwner(owner);
