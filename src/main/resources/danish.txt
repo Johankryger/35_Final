@@ -185,3 +185,4 @@ Hvem vil du bytte med?
 Beløb
 Ejendomme
 Acceptere du handlen?
+Dit bud:

@@ -90,7 +90,7 @@ public class GUIController {
                 ((GUI_Brewery) field).setBorder(Color.black, Color.black);
         }
 
-        String language = gui.getUserButtonPressed("Choose language", "Dansk", "English");
+        String language = gui.getUserButtonPressed("Choose language // Vælg sprog", "Dansk", "English");
         Message.setLanguage(language);
         int balance = 30000;
         int amountOfPlayers = gui.getUserInteger(Message.getMessage("start menu",1), 3 ,6);

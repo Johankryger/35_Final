@@ -184,3 +184,4 @@ Who do you want to trade with?
 Amount
 Properties
 Do you accept the offer?
+Your offer:

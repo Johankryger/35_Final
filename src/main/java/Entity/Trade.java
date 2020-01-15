@@ -40,7 +40,7 @@ public class Trade {
 
         do {
 
-            playerChoice = guiController.scrollList("Your offer: ", tradeMenuArray);
+            playerChoice = guiController.scrollList((Message.getMessage("Trading",15)), tradeMenuArray);
             if (!playerChoice.equals(Message.getMessage("Trading", 3)) && !playerChoice.equals(Message.getMessage("Trading", 2)) && !playerChoice.equals(Message.getMessage("Trading", 1))) {
                 tradeOfferArray = ArrayMethods.addToArray(tradeOfferArray, playerChoice);
                 tradeMenuArray = ArrayMethods.removeFromArray(tradeMenuArray, playerChoice);

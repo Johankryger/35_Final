@@ -149,7 +149,7 @@ public class PropertyController {
     }
 
     public void liquidateMenu(PlayerList playerList, String playerName, SquareList squareList, GUIController guiController, int amountToPay) {
-        String option = guiController.button("Choose option", Message.getMessage("Manage", 4), Message.getMessage("Manage", 7), Message.getMessage("Manage", 8));
+        String option = guiController.button((Message.getMessage("Manage",2) + " "), Message.getMessage("Manage", 4), Message.getMessage("Manage", 7), Message.getMessage("Manage", 8));
 
         if (option.equals(Message.getMessage("Manage", 4))) {
             String mortgageOption;
