@@ -152,12 +152,12 @@ General
 Want to buy
 ?
 Buy
-Auction
+End turn
 You pay
  to
 Okay
 You can't afford this property
-
+You have drawn a chancecard!
 
 Manage
 Go back

@@ -109,7 +109,7 @@ public class PropertyController {
                     } while (!unMortgageOption.equals(Message.getMessage("Manage", 1)));
                     manageMenu(guiController, playerList, squareList);
                     break;
-                case "Buy house":
+                case "Build house":
                 case "Byg hus":
                     String buildHouseOption;
                     do {

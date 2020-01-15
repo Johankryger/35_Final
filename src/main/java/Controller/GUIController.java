@@ -135,7 +135,16 @@ public class GUIController {
             gui.addPlayer(gui_players[i]);
             fields[0].setCar(gui_players[i], true);
         }
+
+
+
         return names;
+    }
+
+    public void killPlayer(String name, int placed) {
+        GUI_Player player = searchGUIPlayer(name);
+        player.setName(name + " - " + placed + "th place");
+        player.setBalance(0);
     }
 
     public void showDice(int[] values) {

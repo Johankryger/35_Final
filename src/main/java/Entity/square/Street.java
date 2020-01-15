@@ -124,6 +124,10 @@ public class Street extends Property {
         return numberOfHouses;
     }
 
+    public void setNumberOfHouses(int numberOfHouses) {
+        this.numberOfHouses = numberOfHouses;
+    }
+
     public int getHousePrice() {
         return housePrice;
     }

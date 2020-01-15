@@ -120,7 +120,7 @@ public class Trade {
                     if (tradingAnswser.equals(Message.getMessage("Trading", 8))) {
 
                         for (int i = 0; i < tradeOfferArray.length; i++) {
-                            squareList.searchStreet(tradeOfferArray[i]).setOwner(chosenTrader);
+                            squareList.searchProperty(tradeOfferArray[i]).setOwner(chosenTrader);
                             if (squareList.searchProperty(tradeOfferArray[i]).getMortgaged()) {
                                 guiController.mortgageProperty(chosenTrader,squareList.searchProperty(tradeOfferArray[i]).getFieldPosition());
                             } else {
@@ -129,7 +129,7 @@ public class Trade {
                         }
 
                         for (int i = 0; i < receivingOfferArray.length; i++) {
-                            squareList.searchStreet(receivingOfferArray[i]).setOwner(playerName);
+                            squareList.searchProperty(receivingOfferArray[i]).setOwner(playerName);
                             if (squareList.searchProperty(receivingOfferArray[i]).getMortgaged()) {
                                 guiController.mortgageProperty(playerName,squareList.searchProperty(receivingOfferArray[i]).getFieldPosition());
                             } else {

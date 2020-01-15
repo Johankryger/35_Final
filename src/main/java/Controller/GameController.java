@@ -180,10 +180,36 @@ public class GameController {
                     owner = squareList.searchProperty(squareList.getSquare(pos).getFieldName()).getOwner();
                 } else owner = "bank";
 
+
+
                 if (owner.equals(playerName.getName()) || owner.equals("bank")) {
-                    squareList.giveLoserProperty(playerName.getName(), "bank");
+                    String[] ownedProperties = squareList.getOwnedPropertyNames(playerName.getName());
+                    for (String p : ownedProperties) {
+                        squareList.searchProperty(p).setMortgaged(false);
+                        if (squareList.searchStreet(p) != null) {
+                            squareList.searchStreet(p).setNumberOfHouses(0);
+                        }
+                        squareList.searchProperty(p).setOwner("bank");
+                    }
                 } else {
-                    squareList.giveLoserProperty(playerName.getName(), owner);
+                    String[] ownedProperties = squareList.getOwnedPropertyNames(playerName.getName());
+                    for (String p : ownedProperties) {
+                        // sell houses and transfer money
+                        if (squareList.searchStreet(p) != null) {
+                            int totalHouseMoney = 0;
+                            int houses = squareList.searchStreet(p).getNumberOfHouses();
+                            int houseMoney = squareList.searchStreet(p).getHousePrice() / 2;
+                            totalHouseMoney += houses * houseMoney;
+                            squareList.searchStreet(p).setNumberOfHouses(0);
+                            playerList.searchPlayer(owner).getBalance().add(totalHouseMoney);
+                        }
+                        squareList.searchProperty(p).setOwner(owner);
+                        if (squareList.searchProperty(p).getMortgaged()) {
+                            guiController.mortgageProperty(owner, squareList.searchProperty(p).getFieldPosition());
+                        } else {
+                            guiController.buyProperty(owner, squareList.searchProperty(p).getFieldPosition());
+                        }
+                    }
                 }
 
                 //makes new array of remaining players
@@ -205,6 +231,13 @@ public class GameController {
                 if (!(playerList.getIndex() == 0))
                     playerList.setIndex((playerList.getIndex() - 1) % remainingPlayers.length);
                 else playerList.setIndex(playerList.getIndex());
+
+                if (!owner.equals("bank")) {
+                    playerList.searchPlayer(owner).getBalance().add(playerName.getBalance().getAmount());
+                    guiController.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
+                }
+                guiController.button(playerName.getName() + " has lost", "Ok");
+                guiController.killPlayer(playerName.getName(), playerArray.length);
             }
         }
     }

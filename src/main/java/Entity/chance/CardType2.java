@@ -23,7 +23,7 @@ public class CardType2 extends ChanceCard {
             steps= 40 - beforePos + position;
         }
         playerList.getPlayer().move(steps,true);
-        guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), beforePos, position);
+        guiController.movePlayerFast(playerList.getPlayer().getName(), beforePos, position);
         squareList.getSquare(position).squareAction(playerList, guiController, 1337);
     }
 }

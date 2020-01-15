@@ -152,11 +152,12 @@ General
 Vil du købe
 ?
 Køb
-Auktion
+Slut tur
 Du betaler
- til
+til
 Okay
 Du har ikke råd til denne ejendom
+Du har trukket et chancekort!
 
 
 Manage

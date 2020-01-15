@@ -37,7 +37,7 @@ public class CardType3 extends ChanceCard {
                 break;
         }
         int afterPos = playerList.getPlayer().getFieldPos();
-        guiController.movePlayer(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount(), beforePos, afterPos);
+        guiController.movePlayerFast(playerList.getPlayer().getName(), beforePos, afterPos);
         String ownedBy = squareList.getShip(afterPos).getOwner();
 
         if (ownedBy != "bank" && ownedBy != playerList.getPlayer().getName()) {

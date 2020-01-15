@@ -97,7 +97,7 @@ public class ChanceList {
         chanceCards[cardDeck[cardIndex] - 1].chanceAction(playerList, squareList, guiController);
         cardIndex = (cardIndex + 1) % chanceCards.length;
         guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-        guiController.button("Du har trukket et chancekort", "Okeydokey!");
+        guiController.button(Message.getMessage("General", 9), Message.getMessage("General", 7));
     }
 
 

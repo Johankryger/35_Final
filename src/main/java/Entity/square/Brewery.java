@@ -3,6 +3,7 @@ package Entity.square;
 
 import Controller.GUIController;
 import Entity.PlayerList;
+import message.Message;
 
 public class Brewery extends Property {
 
@@ -24,9 +25,9 @@ public class Brewery extends Property {
 
             String option;
             if (playerList.getPlayer().getLiqudationValue() >= price)
-                option = gui.button("Want to buy " + fieldName + "?", "Buy", "Auction");
+                option = gui.button(Message.getMessage("General", 1) + " "+fieldName + "?", Message.getMessage("General", 3), Message.getMessage("General", 4));
             else
-                option = gui.button("You can't afford this property",  "Auction");
+                option = gui.button(Message.getMessage("General", 8),  Message.getMessage("General", 4));
             if (option.equals("Buy")) {
                 if (price > playerList.getPlayer().getBalance().getAmount()) {
                     playerList.getPlayer().setMoneyToPay(playerList.getPlayer().getBalance().getAmount()-price);
@@ -50,7 +51,7 @@ public class Brewery extends Property {
                     playerList.getPlayer().setHasLost(true);
                     return false;
                 }
-                gui.button("You pay " + rent * diceSum + " to " + owner, "Okay");
+                gui.button( Message.getMessage("General", 8) + " " + rent * diceSum + " "+Message.getMessage("General", 4)+" " + owner, Message.getMessage("General", 7));
                 playerList.transfer(rent * diceSum, playerList.getPlayer().getName(), owner);
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
                 gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
