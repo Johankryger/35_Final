@@ -51,7 +51,7 @@ Title
 På besøg
 Parkering
 Gå i fængsel
-Betal indkomstskat: 10% eller 4000 kr.
+Betal indkomstskat: 4000 kr.
 Betal ekstraordinær statskat: 2000 kr.
 
 SubText
@@ -101,7 +101,7 @@ De modtager 4000 kr. hver gang de passere START.
 Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.
 Prøv lykken
 Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.
-Betal indkomstskat: 10% eller 4000 kr.
+Betal indkomstskat: 4000 kr.
 Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
 Leje af grund: ______ 100 kr. m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr. Hvert hus koster 1000 kr.
 Prøv lykken
@@ -158,6 +158,7 @@ til
 Okay
 Du har ikke råd til denne ejendom
 Du har trukket et chancekort!
+i skat
 
 
 Manage

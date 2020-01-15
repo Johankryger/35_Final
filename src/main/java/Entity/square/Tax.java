@@ -2,6 +2,7 @@ package Entity.square;
 
 import Controller.GUIController;
 import Entity.PlayerList;
+import message.Message;
 
 public class Tax extends Square {
     private int taxAmount = 0;
@@ -19,7 +20,7 @@ public class Tax extends Square {
                 taxAmount = 2000;
             }
             playerList.getPlayer().getBalance().pay(taxAmount);
-            gui.button("You pay " + taxAmount + " in taxes", "Ok");
+            gui.button((Message.getMessage("General",5)) + " " + taxAmount + " " + (Message.getMessage("General",10)), (Message.getMessage("General",7)));
             gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
         }
 
@@ -45,7 +46,7 @@ public class Tax extends Square {
             taxAmount = 2000;
         }
         playerList.getPlayer().getBalance().pay(taxAmount);
-        gui.button("You pay " + taxAmount + " in taxes", "Ok");
+        gui.button((Message.getMessage("General",5)) + " " + taxAmount + " " + (Message.getMessage("General",10)), (Message.getMessage("General",7)));
         gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
         return false;
     }

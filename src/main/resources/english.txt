@@ -51,8 +51,8 @@ Title
 Just visiting
 Free parking
 Go to jail
-Pay income tax: 10% or 4000 kr.
-Pay extraodinary state tax: 2000 kr.
+Pay income tax: 4000 kr.
+Pay extraordinary state tax: 2000 kr.
 
 SubText
 Get 4000kr
@@ -101,7 +101,7 @@ You receive 4000 kr. each time your pass START.
 Rent of Land: _______ 50 kr. w/ 1 house: ________ 250 kr. > 2 houses: ________ 750 kr. > 3 houses: _______ 2.250 kr. > 4 houses: _______ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
 Chance
 Rent of Land: _______ 50 kr. w/ 1 house: ________ 250 kr. > 2 houses: ________ 750 kr. > 3 houses: _______ 2.250 kr. > 4 houses: _______ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
-Pay income tax: 10% or 4000 kr.
+Pay income tax: 4000 kr.
 Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
 Rent of land: ______ 100 kr. w/ 1 house: ________ 600 kr. > 2 houses: _______ 1.800 kr. > 3 houses: _______ 5.400 kr. > 4 houses: _______ 8.000 kr. > hotel: _________ 11.000 kr. Each house costs 1000 kr.
 Chance
@@ -158,6 +158,7 @@ You pay
 Okay
 You can't afford this property
 You have drawn a chancecard!
+in taxes
 
 Manage
 Go back
