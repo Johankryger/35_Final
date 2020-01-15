@@ -7,6 +7,7 @@ public class Controller {
     private GameController gameController = new GameController();
 
     public void start() {
+        //Creates Start Menu
         gameController.turn();
         while(true) {
             gameController.checkForLoser();
