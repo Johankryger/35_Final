@@ -5,7 +5,7 @@ import Entity.PlayerList;
 import Entity.square.SquareController;
 
 public class CardType4 extends ChanceCard {
-// metode til at rykke spillerens brik 3 felter tilbage
+// Move back Card. metode til at rykke spillerens brik 3 felter tilbage
     public CardType4(String msg) {
         super(msg);
     }

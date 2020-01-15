@@ -5,6 +5,7 @@ import Entity.PlayerList;
 import Entity.square.SquareController;
 
 public class CardType7 extends ChanceCard {
+    //Go to Jail Card
     public CardType7(String msg) {
         super(msg);
     }

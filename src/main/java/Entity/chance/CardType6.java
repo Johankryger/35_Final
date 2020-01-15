@@ -5,6 +5,7 @@ import Entity.PlayerList;
 import Entity.square.SquareController;
 
 public class CardType6 extends ChanceCard {
+    //Recieve money from everyone Card.
     private int amount;
     public CardType6(String msg, int amount) {
         super(msg);

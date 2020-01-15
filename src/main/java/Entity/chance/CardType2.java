@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
-// metode for at rykke til et bestemt felt og modtage penge hvis start er krydset
+// Move Card. Moves you to a specefic square.
 public class CardType2 extends ChanceCard {
     private int position;
 

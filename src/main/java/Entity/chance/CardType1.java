@@ -4,7 +4,7 @@ import Controller.GUIController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
-// metode for at modtage eller betale et fast antal penge
+// Money Card. Get a value add to your balance or taken away
 public class CardType1 extends ChanceCard {
     private int amountAdded;
 

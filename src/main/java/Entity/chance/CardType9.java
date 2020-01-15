@@ -5,6 +5,7 @@ import Entity.PlayerList;
 import Entity.square.SquareController;
 
 public class CardType9 extends ChanceCard {
+    //Matadorlegat Card
     public CardType9(String msg) {
         super(msg);
     }

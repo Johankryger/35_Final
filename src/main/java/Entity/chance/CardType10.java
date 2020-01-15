@@ -5,7 +5,7 @@ import Entity.PlayerList;
 import Entity.square.SquareController;
 
 public class CardType10 extends ChanceCard {
-
+    //Move 3 Forward Card
     public CardType10(String msg){
         super(msg);
     }
