@@ -2,8 +2,6 @@ package Entity;
 
 public class Player {
     private String name;
-    private int ID;
-    private int finalScore;
     private Balance balance = new Balance();
     private boolean hasLost = false;
     private int fieldPos = 0;
@@ -19,7 +17,6 @@ public class Player {
     public int pairCounter = 0;
 
     private boolean aboutToStartCash;
-    private int turnsInARow = 0;
     private boolean extraTurn = false;
     private boolean gotChanceCard;
     private boolean gotFreeJailCard = false;
@@ -79,10 +76,6 @@ public class Player {
         return needsToLiquidate;
     }
 
-    public void setNeedsToLiquidate(boolean needsToLiquidate) {
-        this.needsToLiquidate = needsToLiquidate;
-    }
-
     public void setHasLost(boolean hasLost) {
         this.hasLost = hasLost;
     }
@@ -131,10 +124,6 @@ public class Player {
         return extraTurn;
     }
 
-    public int getTurnsInARow() {
-        return turnsInARow;
-    }
-
     public void addTurnInJail() {
         this.turnsInJail++;
     }
@@ -170,13 +159,6 @@ public class Player {
         resetTurnsInJail();
     }
 
-    public int getFinalScore() {
-        return finalScore;
-    }
-
-    public void setFinalScore(int finalScore) {
-        this.finalScore = finalScore;
-    }
 
     public int getLiqudationValue() {return liqudationValue;}
 }

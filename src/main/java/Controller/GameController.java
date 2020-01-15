@@ -175,7 +175,6 @@ public class GameController {
         for (Player playerName : playerArray) {
             if (!playerName.isHasLost() && (playerName.getBalance().getAmount()<0 || playerName.isAboutToLose())) {
                 guiController.removeLoser(playerName.getName(), playerName.getFieldPos(), squareList);
-                playerName.setFinalScore(scoreBoard--);
                 playerName.setHasLost(true);
                 playerName.setInJail(false);
                 playerName.extraTurn(false);
