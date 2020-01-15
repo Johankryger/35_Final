@@ -127,7 +127,7 @@ Rent of land: ______ 450 kr. w/ 1 house: _______ 2.200 kr. > 2 houses: _______ 6
 Rent of land: ______ 450 kr. w/ 1 house: _______ 2.200 kr. > 2 houses: _______ 6.600 kr. > 3 houses: ______ 16.000 kr. > 4 houses: ______ 19.500 kr. > hotel: _________ 23.000 kr. Each house costs 3.000 kr.
 If one company is owned. One hundred times the ammount of eyes on the diceroll is pad. If both SQUASH og Cola is owned, the dobbelt is paid.
 Rent of land: ______ 500 kr. w/ 1 house: _______ 2.400 kr. > 2 houses: _______ 7.200 kr. > 3 houses: ______ 17.000 kr. > 4 houses: ______ 20.500 kr. > hotel: _________ 24.000 kr. Each house costs 3.000 kr.
-You are imprisoned
+Go directly to jail. You will not receive 4000 kr. if you pass START.
 Rent of land: ______ 550 kr. w/ 1 house: _______ 2.600 kr. > 2 houses: _______ 7.800 kr. > 3 houses: ______ 18.000 kr. > 4 houses: ______ 22.000 kr. > hotel: _________ 25.000 kr. Each house costs 4.000 kr.
 Rent of land: ______ 550 kr. w/ 1 house: _______ 2.600 kr. > 2 houses: _______ 7.800 kr. > 3 houses: ______ 18.000 kr. > 4 houses: ______ 22.000 kr. > hotel: _________ 25.000 kr. Each house costs 4.000 kr.
 Chance
@@ -146,7 +146,7 @@ Use your release card!
 Try your luck and roll!
 It's
 's turn
-Throw dice!
+Roll dice!
 
 General
 Want to buy
