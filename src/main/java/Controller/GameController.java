@@ -15,7 +15,6 @@ public class GameController {
     private SquareController squareList = new SquareController();
     private PropertyController propertyController = new PropertyController();
     private ChanceCardController chanceList;
-    private GameLogic gameLogic = new GameLogic();
 
     public void turn() {
         //Returns a string array of names
@@ -81,7 +80,7 @@ public class GameController {
         }
 
 
-        gameLogic.calculateLiquidation(playerList, squareList);
+        calculateLiquidation(playerList, squareList);
         //Sets extraTurn to true/false depending on getPair method
     }
 
