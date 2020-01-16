@@ -34,7 +34,7 @@ public class Trade {
 
 
         String playerChoice;
-        int offerAmount = 1;
+        int offerAmount = 0;
 
         do {
 
@@ -61,7 +61,7 @@ public class Trade {
         }
         playerNames = ArrayMethods.removeFromArray(playerNames, playerList.getPlayer().getName());
 
-        int receivingAmount = 1;
+        int receivingAmount = 0;
         String[] receivingOfferArray = new String[0];
 
         if (playerChoice.equals(Message.getMessage("Trading", 2))) {
