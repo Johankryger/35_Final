@@ -11,7 +11,7 @@ public class Balance {
         return amount;
     }
 
-    public void pay(int amount) {
+    public void pay(int amount) {if (!(this.amount<amount) && amount > 0)
         this.amount = this.amount - amount;
     }
 
