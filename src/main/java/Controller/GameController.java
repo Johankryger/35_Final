@@ -133,6 +133,7 @@ public class GameController {
 
         //sets player in jail if rolled pair 3 times in a row.
         if (player.getPairCounter() == 3) {
+            guiController.button(Message.getMessage("In Jail",9),Message.getMessage("General",7));
             player.setInJail(true);
             int startPos = player.getFieldPos();
             guiController.movePlayerFast(player.getName(), startPos, 10);
@@ -161,7 +162,7 @@ public class GameController {
     }
 
     public void endGame(){
-        guiController.button(getPlayer().getName()+" you have won!","Ok");
+        guiController.button(getPlayer().getName()+" "+ Message.getMessage("General",11),Message.getMessage("General",7));
         guiController.close();
     }
 
@@ -238,7 +239,7 @@ public class GameController {
 //                }
                 if (!(playerList.getIndex() == 0))
                     playerList.setIndex((playerList.getIndex() - 1) % remainingPlayers.length);
-                else playerList.setIndex(playerList.getIndex());
+                else playerList.setIndex(playerList.getAllPlayers().length-1);
 
                 if (!owner.equals("bank")) {
                     playerList.searchPlayer(owner).getBalance().add(playerName.getBalance().getAmount());

@@ -147,6 +147,7 @@ Prøv lykken og rul!
 Det er
 's tur,
 Kast terninger!
+Du har slået to ens tre gange i træk og rykker nu i fængsel!
 
 General
 Vil du købe
@@ -159,6 +160,7 @@ Okay
 Du har ikke råd til denne ejendom
 Du har trukket et chancekort!
 i skat
+har vundet
 
 
 Manage

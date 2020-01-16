@@ -147,6 +147,7 @@ Try your luck and roll!
 It's
 's turn
 Roll dice!
+You rolled a pair three times in a row and you'll be moved to jail!
 
 General
 Want to buy
@@ -159,6 +160,7 @@ Okay
 You can't afford this property
 You have drawn a chancecard!
 in taxes
+won
 
 Manage
 Go back

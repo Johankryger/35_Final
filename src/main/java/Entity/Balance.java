@@ -16,6 +16,6 @@ public class Balance {
     }
 
     public void add(int amount) {
-        this.amount = this.amount + amount;
+        if (!(amount<0)) this.amount = this.amount + amount;
     }
 }
