@@ -78,7 +78,6 @@ public class GameController {
     public void movePlayer() {
         // Movement process
         Player player = playerList.getPlayer();
-        System.out.println(player.getName());
         int startPos = player.getFieldPos();
         player.move(diceCup.getFaceValueSum(), true);
         guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
@@ -121,6 +120,7 @@ public class GameController {
 
         //sets player in jail if rolled pair 3 times in a row.
         if (player.getPairCounter() == 3) {
+            guiController.button(Message.getMessage("In Jail",9),Message.getMessage("General",7));
             player.setInJail(true);
             int startPos = player.getFieldPos();
             guiController.movePlayerFast(player.getName(), startPos, 10);
@@ -149,7 +149,7 @@ public class GameController {
     }
 
     public void endGame(){
-        guiController.button(getPlayer().getName()+" you have won!","Ok");
+        guiController.button(getPlayer().getName()+" "+ Message.getMessage("General",11),Message.getMessage("General",7));
         guiController.close();
     }
 

@@ -20,24 +20,32 @@ public class Player {
     private boolean extraTurn = false;
     private boolean gotChanceCard;
     private boolean gotFreeJailCard = false;
+    private static int playerCounter=0;
 
     public Player(String name) {
-        this.name = name;
+        if (name.equals("")) {
+            this.name = "Player " + ++playerCounter;
+        }
+        else {this.name = name; playerCounter++;}
     }
 
+    public static void setPlayerCounter(int playerCounter) { Player.playerCounter = playerCounter; }
+
     public void move(int steps, boolean StartCashPossible) {
-        this.fieldPos = this.fieldPos + steps;
+        if (!(steps<0)) {
+            this.fieldPos = this.fieldPos + steps;
 
-        if (fieldPos > 39) {
-            this.fieldPos = fieldPos - 40;
-            aboutToStartCash = true;
+            if (fieldPos > 39) {
+                this.fieldPos = fieldPos - 40;
+                aboutToStartCash = true;
 
+            }
+            if (StartCashPossible && fieldPos > 0 && aboutToStartCash) {
+                balance.add(4000);
+                aboutToStartCash = false;
+            }
         }
-        if (StartCashPossible && fieldPos > 0 && aboutToStartCash) {
-            balance.add(4000);
-            aboutToStartCash = false;
-        }
-
+        else{this.fieldPos=(fieldPos+steps+40)%40;}
     }
 
     public void setHasLiquidated(boolean hasLiquidated) {
@@ -89,7 +97,7 @@ public class Player {
     }
 
     public void setFieldPos(int fieldPos) {
-        this.fieldPos = fieldPos;
+        if (!(fieldPos<0)) this.fieldPos = fieldPos%40;
     }
 
     public String getName() {
