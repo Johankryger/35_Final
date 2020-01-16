@@ -160,7 +160,7 @@ public class PropertyController {
 
     public void payment(PlayerList playerList, String playerPay, String playerReceiver, SquareController squareList, GUIController guiController, int amountToPay) {
         if (playerList.searchPlayer(playerPay).getLiqudationValue() < amountToPay) {
-            playerList.getPlayer().setAboutToLose(true);
+            playerList.searchPlayer(playerPay).setAboutToLose(true);
         } else if (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
             while (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
                 String option = guiController.button((Message.getMessage("Manage", 2) + " "), Message.getMessage("Manage", 4), Message.getMessage("Manage", 7), Message.getMessage("Manage", 8));
@@ -172,7 +172,7 @@ public class PropertyController {
                             squareList.searchProperty(mortgageOption).setMortgaged(true);
                             int moneyBack = squareList.searchProperty(mortgageOption).getPrice() / 2;
                             playerList.searchPlayer(playerPay).getBalance().add(moneyBack);
-                            guiController.updateBalance(playerPay, playerList.getPlayer().getBalance().getAmount());
+                            guiController.updateBalance(playerPay, playerList.searchPlayer(playerPay).getBalance().getAmount());
                             guiController.mortgageProperty(playerPay, squareList.searchProperty(mortgageOption).getFieldPosition());
                         }
                     } while (!mortgageOption.equals(Message.getMessage("Manage", 1)));
@@ -187,7 +187,7 @@ public class PropertyController {
                             int housePrice = squareList.searchStreet(sellHouseOption).getHousePrice() / 2;
                             playerList.searchPlayer(playerPay).getBalance().add(housePrice);
                             squareList.searchStreet(sellHouseOption).removeHouse();
-                            guiController.updateBalance(playerPay, playerList.getPlayer().getBalance().getAmount());
+                            guiController.updateBalance(playerPay, playerList.searchPlayer(playerPay).getBalance().getAmount());
                             guiController.setHouses(squareList.searchStreet(sellHouseOption).getNumberOfHouses(), squareList.searchStreet(sellHouseOption).getFieldPosition());
                         }
                     } while (!sellHouseOption.equals(Message.getMessage("Manage", 1)));

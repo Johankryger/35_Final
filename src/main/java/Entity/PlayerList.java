@@ -32,6 +32,24 @@ public class PlayerList {
         return names;
     }
 
+    public void killPlayer(String playerName) {
+        Player[] arr = new Player[this.players.length - 1];
+        int counter = 0;
+        for (int i = 0; i < players.length; i++) {
+            if (!players[i].getName().equals(playerName)) {
+                arr[counter] = players[i];
+                counter++;
+            }
+        }
+        this.players = arr;
+
+        if (!(this.index == 0)) {
+            this.index = (this.index - 1) % players.length;
+        } else {
+            this.index = arr.length;
+        }
+    }
+
     public Player getPlayer() {
         return players[index];
     }

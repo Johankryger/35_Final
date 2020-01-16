@@ -19,7 +19,7 @@ public class CardType6 extends ChanceCard {
         String[] names = playerList.getPlayerNames();
         for (int i = 0; i < names.length; i++) {
             if (names[i] != playerList.getPlayer().getName()) {
-                propertyController.payment(playerList, playerList.getPlayer().getName(), names[i], squareController, guiController, amount);
+                propertyController.payment(playerList, names[i], playerList.getPlayer().getName(), squareController, guiController, amount);
                 guiController.updateBalance(playerList.searchPlayer(names[i]).getName(),playerList.searchPlayer(names[i]).getBalance().getAmount());
             }
         }
