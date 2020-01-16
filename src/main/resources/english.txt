@@ -36,6 +36,8 @@ It's you birthday. Receive from each other player Kr. 200.
 You are having a family party and you receive a contribution from each other play of Kr. 500.
 You put up the money for a potluck. Remarkably everybody paid immediately. Receive Kr. 500 from each other player.
 You receive the "Monopoly-Scholarship for the needy" worth Kr. 40.000. Worthy of need means that your fotune Eg. Held cash + Deeds + Building, do not exeed Kr. 15.000.
+It's your lucky day! 40.000 kr. was added to your balance
+Your total value is over 15.000 kr. Too bad.
 
 start menu
 How many players? (Between 3 and 6)
@@ -161,6 +163,7 @@ You can't afford this property
 You have drawn a chancecard!
 in taxes
 won
+You have lost to and given all your belongings to the owner
 
 Manage
 Go back
