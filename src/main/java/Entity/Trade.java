@@ -34,7 +34,7 @@ public class Trade {
 
 
         String playerChoice;
-        int offerAmount = 0;
+        int offerAmount = 1;
 
         do {
 
@@ -44,7 +44,10 @@ public class Trade {
                 tradeMenuArray = ArrayMethods.removeFromArray(tradeMenuArray, playerChoice);
             }
             if (playerChoice.equals(Message.getMessage("Trading", 3))) {
-                offerAmount = guiController.getUserInteger(Message.getMessage("Trading", 6), 0, playerList.getPlayer().getBalance().getAmount());
+                offerAmount = 1;
+                while (offerAmount % 50 != 0 || playerList.getPlayer().getBalance().getAmount() < offerAmount) {
+                    offerAmount = guiController.getUserInteger(Message.getMessage("Trading", 6), 0, playerList.getPlayer().getBalance().getAmount());
+                }
 
             }
 
@@ -58,7 +61,7 @@ public class Trade {
         }
         playerNames = ArrayMethods.removeFromArray(playerNames, playerList.getPlayer().getName());
 
-        int receivingAmount = 0;
+        int receivingAmount = 1;
         String[] receivingOfferArray = new String[0];
 
         if (playerChoice.equals(Message.getMessage("Trading", 2))) {
@@ -94,7 +97,10 @@ public class Trade {
                     theirOfferArray = ArrayMethods.removeFromArray(theirOfferArray, theirOffer);
                 }
                 if (theirOffer.equals(Message.getMessage("Trading", 3))) {
-                    receivingAmount = guiController.getUserInteger(Message.getMessage("Trading", 7), 0, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
+                    receivingAmount = 1;
+                    while (receivingAmount % 50 != 0 || playerList.searchPlayer(chosenTrader).getBalance().getAmount() < receivingAmount) {
+                        receivingAmount = guiController.getUserInteger(Message.getMessage("Trading", 7), 0, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
+                    }
                 }
             } while (!theirOffer.equals(Message.getMessage("Trading", 1)) && !theirOffer.equals(Message.getMessage("Trading", 4)));
 
@@ -135,8 +141,14 @@ public class Trade {
                             }
                         }
 
-                        playerList.searchPlayer(playerName).getBalance().add(receivingAmount - offerAmount);
-                        playerList.searchPlayer(chosenTrader).getBalance().add(offerAmount - receivingAmount);
+                        if (receivingAmount - offerAmount > 0) {
+                            playerList.searchPlayer(playerName).getBalance().add(receivingAmount - offerAmount);
+                            playerList.searchPlayer(chosenTrader).getBalance().pay(receivingAmount - offerAmount);
+                        } else if (receivingAmount - offerAmount < 0) {
+                            playerList.searchPlayer(playerName).getBalance().pay(offerAmount - receivingAmount);
+                            playerList.searchPlayer(chosenTrader).getBalance().add(offerAmount - receivingAmount);
+                        }
+
 
                         guiController.updateBalance(playerName, playerList.searchPlayer(playerName).getBalance().getAmount());
                         guiController.updateBalance(chosenTrader, playerList.searchPlayer(chosenTrader).getBalance().getAmount());

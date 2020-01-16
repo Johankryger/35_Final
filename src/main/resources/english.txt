@@ -181,8 +181,8 @@ Choose player to trade with
 Money offer
 End trade
 What do you want in exchange for your offer?
-How many DKK do you want to offer?
-What amount of DKK do you want?
+How many DKK do you want to offer? (divisible by 50)
+What amount of DKK do you want? (divisible by 50)
 Yes
 No
 Who do you want to trade with?
