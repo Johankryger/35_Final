@@ -4,6 +4,8 @@ import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
+import message.Message;
+
 // Ship card. metode til at rykke brikken til det nærmeste rederi.
 // Multiplier bestemmer om der skal betales dobbelt leje hvis der er ejet.
 public class CardType3 extends ChanceCard {
@@ -42,7 +44,7 @@ public class CardType3 extends ChanceCard {
         String ownedBy = squareController.getShip(afterPos).getOwner();
 
         if (ownedBy != "bank" && ownedBy != playerList.getPlayer().getName()) {
-            guiController.button("You pay " + ownedBy + " " + squareController.getShip(afterPos).getRent() * multiplier + " kr.", "Ok :(");
+            guiController.button(Message.getMessage("General", 5) + " " + ownedBy + " " + squareController.getShip(afterPos).getRent() * multiplier + " kr.", Message.getMessage("General", 7));
             propertyController.payment(playerList, playerList.getPlayer().getName(), ownedBy, squareController, guiController, squareController.getShip(afterPos).getRent() * multiplier);
         } else {
             squareController.getSquare(afterPos).squareAction(playerList, guiController, propertyController, squareController, 1337);

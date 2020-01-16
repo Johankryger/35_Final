@@ -38,7 +38,7 @@ public class Ship extends Property{
                 if (!playerList.getPlayer().isAboutToLose()) {
                     gui.button((Message.getMessage("General",5)) + " "  + rent + " " + (Message.getMessage("General",6))+ " " + owner, (Message.getMessage("General",7)));
                 } else {
-                    gui.button("You have lost to and given all your belongings to the owner", "Okay");
+                    gui.button(Message.getMessage("General", 12), Message.getMessage("General", 7));
                 }
 
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());

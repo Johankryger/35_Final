@@ -4,6 +4,7 @@ import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
+import message.Message;
 
 public class CardType9 extends ChanceCard {
     //Matadorlegat Card
@@ -42,7 +43,7 @@ public class CardType9 extends ChanceCard {
 
         if (totalWealth <= 15000) {
             playerList.getPlayer().getBalance().add(40000);
-            guiController.button("It's your lucky day! 40.000 kr. was added to your balance", "ok");
+            guiController.button(Message.getMessage("Chancecard", 38), Message.getMessage("General", 7));
         } else {
             guiController.button("Your total value is over 15.000 kr. Too bad.");
         }

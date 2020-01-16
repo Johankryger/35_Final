@@ -55,7 +55,7 @@ public class SquareController {
 
         this.breweries = new Brewery[]{
                 new Brewery(28,"Coca-Cola", 3000,100),
-                new Brewery(12,"TUBORG SQUASH",3000,100)
+                new Brewery(12,"Tuborg Squash",3000,100)
         };
 
         this.chanceFields = new ChanceField[] {
