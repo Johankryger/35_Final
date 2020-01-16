@@ -7,20 +7,19 @@ import message.Message;
 
 public class GameController {
     private final int JAIL_BAIL_PRICE = 1000;
-    private int scoreBoard = 1;
 
     private GUIController guiController = new GUIController();
     private DiceCup diceCup = new DiceCup();
     private PlayerList playerList = new PlayerList();
-    private SquareController squareList = new SquareController();
+    private SquareController squareController = new SquareController();
     private PropertyController propertyController = new PropertyController();
-    private ChanceCardController chanceList;
+    private ChanceCardController chanceCardController;
 
     public void turn() {
         //Returns a string array of names
         String[] names = guiController.startMenu();
         playerList.addPlayers(names, names.length);
-        chanceList = new ChanceCardController(); // chanceList object is made after startMenu() because startMenu() sets the language
+        chanceCardController = new ChanceCardController(); // chanceList object is made after startMenu() because startMenu() sets the language
     }
 
     public Player getPlayer() {
@@ -38,7 +37,7 @@ public class GameController {
             msg = guiController.button(Message.getMessage("In Jail",6) + " " +  playerList.getPlayer().getName() + Message.getMessage("In Jail",7), Message.getMessage("In Jail",2), Message.getMessage("In Jail",8));
         }
         if (msg.equals(Message.getMessage("In Jail",2))) {
-            propertyController.manageMenu(guiController, playerList, squareList);
+            propertyController.manageMenu(guiController, playerList, squareController);
         }
         return msg;
     }
@@ -71,7 +70,7 @@ public class GameController {
         }
 
 
-        calculateLiquidation(playerList, squareList);
+        calculateLiquidation(playerList, squareController);
         //Sets extraTurn to true/false depending on getPair method
     }
 
@@ -82,26 +81,26 @@ public class GameController {
         player.move(diceCup.getFaceValueSum(), true);
         guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
 
-        calculateLiquidation(playerList, squareList);
+        calculateLiquidation(playerList, squareController);
         // Land on
-        squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, propertyController, squareList, diceCup.getFaceValueSum());
+        squareController.getSquare(player.getFieldPos()).squareAction(playerList, guiController, propertyController, squareController, diceCup.getFaceValueSum());
 
 
         if (player.hasGotChanceCard()) {
-            chanceList.pickCard(playerList, squareList, guiController, propertyController);
+            chanceCardController.pickCard(playerList, squareController, guiController, propertyController);
             player.setGotChanceCard(false);
         }
 
     }
 
     public void updateProperties() {
-        squareList.checkPairs();
+        squareController.checkPairs();
     }
 
     // Throwing dice process
     public void rollDiceLogic() {
         Player player = playerList.getPlayer();
-        calculateLiquidation(playerList, squareList);
+        calculateLiquidation(playerList, squareController);
 
         // roll dice
         diceCup.rollDice();
@@ -158,11 +157,11 @@ public class GameController {
         int remainingPlayercounter = 0;
         int allPlayerCounter = 0;
         Player[] playerArray = playerList.getAllPlayers();
-        calculateLiquidation(playerList, squareList);
+        calculateLiquidation(playerList, squareController);
         //checks for all players if they have lost this turn
         for (Player player : playerArray) {
             if (!player.isHasLost() && (player.getBalance().getAmount()<0 || player.isAboutToLose())) {
-                guiController.removeLoser(player.getName(), player.getFieldPos(), squareList);
+                guiController.removeLoser(player.getName(), player.getFieldPos(), squareController);
                 player.setHasLost(true);
                 player.setInJail(false);
                 player.extraTurn(false);
@@ -170,45 +169,45 @@ public class GameController {
                 //sets new owner on loser's properties
                 String owner;
                 int pos = player.getFieldPos();
-                if (squareList.inPropertyPosition(pos)) {
-                    owner = squareList.searchProperty(squareList.getSquare(pos).getFieldName()).getOwner();
+                if (squareController.inPropertyPosition(pos)) {
+                    owner = squareController.searchProperty(squareController.getSquare(pos).getFieldName()).getOwner();
                 } else owner = "bank";
 
 
 
                 if (owner.equals(player.getName()) || owner.equals("bank")) {
-                    String[] ownedProperties = squareList.getOwnedPropertyNames(player.getName());
+                    String[] ownedProperties = squareController.getOwnedPropertyNames(player.getName());
                     for (String p : ownedProperties) {
-                        squareList.searchProperty(p).setMortgaged(false);
-                        if (squareList.searchStreet(p) != null) {
-                            squareList.searchStreet(p).setNumberOfHouses(0);
-                            guiController.setHouses(0,squareList.searchStreet(p).getFieldPosition());
+                        squareController.searchProperty(p).setMortgaged(false);
+                        if (squareController.searchStreet(p) != null) {
+                            squareController.searchStreet(p).setNumberOfHouses(0);
+                            guiController.setHouses(0,squareController.searchStreet(p).getFieldPosition());
                         }
-                        squareList.searchProperty(p).setOwner("bank");
+                        squareController.searchProperty(p).setOwner("bank");
                     }
                 } else {
-                    String[] ownedProperties = squareList.getOwnedPropertyNames(player.getName());
+                    String[] ownedProperties = squareController.getOwnedPropertyNames(player.getName());
                     for (String p : ownedProperties) {
                         // sell houses and transfer money
-                        if (squareList.searchStreet(p) != null) {
+                        if (squareController.searchStreet(p) != null) {
                             int totalHouseMoney = 0;
-                            int houses = squareList.searchStreet(p).getNumberOfHouses();
-                            int houseMoney = squareList.searchStreet(p).getHousePrice() / 2;
+                            int houses = squareController.searchStreet(p).getNumberOfHouses();
+                            int houseMoney = squareController.searchStreet(p).getHousePrice() / 2;
                             totalHouseMoney += houses * houseMoney;
-                            squareList.searchStreet(p).setNumberOfHouses(0);
-                            guiController.setHouses(0,squareList.searchStreet(p).getFieldPosition());
+                            squareController.searchStreet(p).setNumberOfHouses(0);
+                            guiController.setHouses(0,squareController.searchStreet(p).getFieldPosition());
                             playerList.searchPlayer(owner).getBalance().add(totalHouseMoney);
                         }
-                        squareList.searchProperty(p).setOwner(owner);
-                        if (squareList.searchProperty(p).getMortgaged()) {
-                            guiController.mortgageProperty(owner, squareList.searchProperty(p).getFieldPosition());
+                        squareController.searchProperty(p).setOwner(owner);
+                        if (squareController.searchProperty(p).getMortgaged()) {
+                            guiController.mortgageProperty(owner, squareController.searchProperty(p).getFieldPosition());
                         } else {
-                            guiController.buyProperty(owner, squareList.searchProperty(p).getFieldPosition());
+                            guiController.buyProperty(owner, squareController.searchProperty(p).getFieldPosition());
                         }
                     }
                 }
 
-                guiController.removeLoser(player.getName(), player.getFieldPos(), squareList);
+                guiController.removeLoser(player.getName(), player.getFieldPos(), squareController);
                 playerList.killPlayer(player.getName());
 
 
