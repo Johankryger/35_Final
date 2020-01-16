@@ -5,7 +5,7 @@ public class Player {
     private Balance balance = new Balance();
     private boolean hasLost = false;
     private int fieldPos = 0;
-    private int liqudationValue;
+    private int liqudationValue=30000;
     private boolean needsToLiquidate;
     private boolean hasLiquidated;
     private int moneyToPay;

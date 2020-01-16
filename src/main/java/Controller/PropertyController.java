@@ -163,7 +163,7 @@ public class PropertyController {
             playerList.searchPlayer(playerPay).setAboutToLose(true);
         } else if (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
             while (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
-                String option = guiController.button((Message.getMessage("Manage", 2) + " "), Message.getMessage("Manage", 4), Message.getMessage("Manage", 7), Message.getMessage("Manage", 8));
+                String option = guiController.button((Message.getMessage("Manage", 2) + " "), Message.getMessage("Manage", 1), Message.getMessage("Manage", 4), Message.getMessage("Manage", 7));
                 if (option.equals(Message.getMessage("Manage", 4))) {
                     String mortgageOption;
                     do {

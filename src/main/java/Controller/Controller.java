@@ -19,7 +19,7 @@ public class Controller {
             }
             gameController.rollDiceLogic();
             gameController.jailLogic(option);
-            if (gameController.getPlayer().isHasLost()){
+            if (gameController.getPlayer().isAboutToLose()){
                 gameController.checkForLoser();
             }
             if (gameController.getPlayer().isInJail()){

@@ -1,41 +1,41 @@
 Chancecard
-Go to prison. Move directly to prison. Even if you pass "START", you don't receive Kr. 4000.
-In the occasion of the king's birthday you are pardonned from prison. This card can be kept until you need it, or you can sell it.
+Move directly to prison. Even if you pass "START", you won't receive kr. 4000.
+In the occasion of the king's birthday you are pardonned from prison. This card will be kept until you need it.
 Move 3 squares forwards
 Move 3 squares backwards
-Travel with the Mols-Line. Move your piece forward, and if you pass "START" receive Kr. 4.000.
-Travel to the nearest shipping company. Move your piece forward, and if you pass "START" receive Kr. 4.000.
-Move forward to Grønningen. If you pass "START" receive Kr. 4.000.
-Move forward to Vimmelskaftet. If you pass "START" receive Kr. 4.000.
-Move forward to Fredriksberg Allé. If you pass "START" receive Kr. 4.000.
-Move forward to Standvejen. If you pass "START" receive Kr. 4.000.
-Go to Rådhuspladsen.
+Travel with the Mols-Line. Move your piece forward, and if you pass "START" receive kr. 4.000.
+Travel to the nearest shipping company. Move your piece forward, and if you pass "START" receive 4.000 kr.
+Move forward to Grønningen. If you pass "START" receive kr. 4.000.
+Move forward to Vimmelskaftet. If you pass "START" receive kr. 4.000.
+Move forward to Fredriksberg Allé. If you pass "START" receive kr. 4.000.
+Move forward to Standvejen. If you pass "START" receive kr. 4.000.
+Move to Rådhuspladsen.
 Move forward to "START"
 Move your piece forward to the nearest shipping company and pay the owner twice the rent you would otherwise pay. If the company is not owned by anyone, you can but it from the bank.
-Pay Kr. 200 for the delivey of 2 cases of beer.
-You have received a parking ticket. Pay a Kr. 200 fine.
-Pay for a carwash and oil change Kr. 300.
-Pay Kr. 3.000 for car repairs.
-You ran a red light. Pay a Kr. 1.000 fine.
-You brought too many cigarettes back from your trip abroad. Pay the customs Kr. 200.
-Pay you car insurance - Kr. 1.000.
-You have bought 4 new tires for your car. Pay Kr. 1.000.
-You received your dental bill pay 2.000.
-Property taxes have risen. The additional costs are: Kr. 800 per. house Kr. 2.300 per. hotel
-Oil prises have risen og you must pay: Kr. 500 per. house Kr. 2.000 per. hotel.
-You premium bond has been extended. You receive Kr. 1.000 from the bank.
-Because of the cost of living you have received a salary increase. Receie Kr. 1.000.
-Your kitchen garden crops sell for Kr. 200, which you receive from the bank.
-You got a row with elleven right in tipning. Receive Kr. 1.000.
-Your receive your dividend. Receive Kr. 1.000 from the bank.
-Your receive the yield of your equities - Kr. 1.000.
-The local authoriy have waived one quarters taxes. Withdraw from the bank 3.000.
-You have won in the Klasselotteri. Receive Kr. 500.
-You have sold some old furniture at a auktion. Receive Kr. 1.000 from the bank.
-It's you birthday. Receive from each other player Kr. 200.
-You are having a family party and you receive a contribution from each other play of Kr. 500.
-You put up the money for a potluck. Remarkably everybody paid immediately. Receive Kr. 500 from each other player.
-You receive the "Monopoly-Scholarship for the needy" worth Kr. 40.000. Worthy of need means that your fotune Eg. Held cash + Deeds + Building, do not exeed Kr. 15.000.
+Pay 200 kr. for the delivey of 2 boxes of beer.
+You have received a parking ticket. Pay a 200 kr. fine.
+Pay 300 kr. for a carwash and oil change.
+Pay 3.000 kr. for car repairs.
+You ran a red light. Pay a fine of 1.000 kr.
+You brought too many cigarettes back from your trip. Pay the customs 200 kr.
+Pay you car insurance - 1.000 kr.
+You have bought 4 new tires for your car. Pay 1.000 kr.
+You received your dental bill pay 2.000 kr.
+Property taxes have risen. The additional costs are: 800 kr. per house and 2.300 kr. per hotel
+Oil prises have risen og you must pay: 500 kr. per house and 2.000 kr. per hotel.
+You premium bond has been extended. You receive 1.000 kr. from the bank.
+Because of the cost of living you have received a raise. Receive 1.000 kr.
+Your kitchen garden crops sell for 200 kr. which you'll receive from the bank.
+You've betted and got all correct. Receive 1.000 kr.
+Your receive your dividend. Receive 1.000 kr. from the bank.
+Your receive the yield of your stocks - 1.000 kr.
+The local authority have waived one quarters taxes. Withdraw from the bank 3.000 kr.
+You've won in the lottery. Receive 500 kr.
+You have sold some old furniture at an auction. Receive 1.000 kr. from the bank.
+It's you birthday. Receive from each other player 200 kr.
+You are having a family party and you receive a contribution from each other play of 500 kr.
+You've paid for a potluck. Strangely, they all pay up at once. Receive 500 kr. from each player.
+You receive the "Monopoly-Scholarship for the needy" worth kr. 40.000. Worthy of need means that your fotune Eg. Held cash + Properties + Buildings, do not exeed kr. 15.000.
 It's your lucky day! 40.000 kr. was added to your balance
 Your total value is over 15.000 kr. Too bad.
 
@@ -57,7 +57,7 @@ Pay income tax: 4000 kr.
 Pay extraordinary state tax: 2000 kr.
 
 SubText
-Get 4000kr
+Recieve 4000kr
 Cost: 1.200kr
 Chance
 Cost: 1.200kr
@@ -141,15 +141,16 @@ Pay extraodinary state tax: 2000 kr.
 Rent of land: ______ 1.000 kr. w/ 1 house: _______ 4.000 kr. > 2 houses: ______ 12.000 kr. > 3 houses: ______ 28.000 kr. > 4 houses: ______ 34.000 kr. > hotel: _________ 40.000 kr. Each house costs 4.000 kr.
 
 In Jail
-You have been jailed! What will you do?
+You have been jailed!
 Manage properties
-Pay 1000,- kr. bail
+Pay 1.000 kr. bail
 Use your release card!
 Try your luck and roll!
 It's
 's turn
 Roll dice!
-You rolled a pair three times in a row and you'll be moved to jail!
+You rolled a pair three times in a row and you'll therefore be imprisoned!
+ What will you do?
 
 General
 Want to buy
@@ -157,13 +158,13 @@ Want to buy
 Buy
 End turn
 You pay
- to
+to
 Okay
 You can't afford this property
 You have drawn a chancecard!
 in taxes
 won
-You have lost to and given all your belongings to the owner
+You have lost and you'll be giving all your belongings to the owner
 
 Manage
 Go back
