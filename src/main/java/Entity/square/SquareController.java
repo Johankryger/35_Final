@@ -42,10 +42,10 @@ public class SquareController {
         };
 
         this.ships = new Ship[]{
-                new Ship(5,"Helsingør-Helsingborg",4000,500,1000,2000,4000),
-                new Ship(15,"Mols-Linien",4000,500,1000,2000,4000),
-                new Ship(25, "Gedser-Rostock",4000,500,1000,2000,4000),
-                new Ship(35,"Rødby-Puttgarden",4000,500,1000,2000,4000)
+                new Ship(5,"Scandlines",4000,500,1000,2000,4000),
+                new Ship(15,"Molslinien",4000,500,1000,2000,4000),
+                new Ship(25, "Mærsk",4000,500,1000,2000,4000),
+                new Ship(35,"DFDS",4000,500,1000,2000,4000)
         };
 
         this.taxes = new Tax[]{
