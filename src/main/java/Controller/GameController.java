@@ -30,9 +30,9 @@ public class GameController {
     public String menu() {
         String msg = "";
         if (playerList.getPlayer().isInJail() && playerList.getPlayer().hasGotFreeJailCard()) {
-            msg = guiController.button(Message.getMessage("In Jail", 1),Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail", 4), Message.getMessage("In Jail",5));
+            msg = guiController.button(Message.getMessage("In Jail", 1)+Message.getMessage("In Jail",10),Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail", 4), Message.getMessage("In Jail",5));
         } else if (playerList.getPlayer().isInJail()) {
-            msg = guiController.button(Message.getMessage("In Jail",1), Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail",5));
+            msg = guiController.button(Message.getMessage("In Jail",1)+Message.getMessage("In Jail",10), Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail",5));
         } else {
             msg = guiController.button(Message.getMessage("In Jail",6) + " " +  playerList.getPlayer().getName() + Message.getMessage("In Jail",7), Message.getMessage("In Jail",2), Message.getMessage("In Jail",8));
         }
@@ -86,11 +86,9 @@ public class GameController {
         squareController.getSquare(player.getFieldPos()).squareAction(playerList, guiController, propertyController, squareController, diceCup.getFaceValueSum());
 
 
-        if (player.hasGotChanceCard()) {
+        while (player.hasGotChanceCard()) {
             chanceCardController.pickCard(playerList, squareController, guiController, propertyController);
-            player.setGotChanceCard(false);
         }
-
     }
 
     public void updateProperties() {

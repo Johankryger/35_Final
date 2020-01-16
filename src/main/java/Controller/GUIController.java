@@ -118,7 +118,7 @@ public class GUIController {
         //requests names and stores them in an array which is returned at end of method
         String[] names = new String[amountOfPlayers];
         for (int i = 0; i < amountOfPlayers; i++) {
-            names[i] = gui.getUserString(Message.getMessage("start menu",2) + (i+1) + Message.getMessage("start menu",3));
+            names[i] = gui.getUserString(Message.getMessage("start menu",2) +" "+ (i+1) + Message.getMessage("start menu",3));
         }
 
         //checks for empty name

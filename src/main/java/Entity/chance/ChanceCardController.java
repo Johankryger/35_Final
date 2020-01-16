@@ -96,10 +96,11 @@ public class ChanceCardController {
     }
 
     public void pickCard(PlayerList playerList, SquareController squareList, GUIController guiController, PropertyController propertyController) {
+        playerList.getPlayer().setGotChanceCard(false);
+        guiController.button(Message.getMessage("General", 9), Message.getMessage("General", 7));
         chanceCards[cardDeck[cardIndex] - 1].chanceAction(playerList, squareList, guiController, propertyController);
         cardIndex = (cardIndex + 1) % chanceCards.length;
         guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-        guiController.button(Message.getMessage("General", 9), Message.getMessage("General", 7));
     }
 
 
