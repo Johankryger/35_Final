@@ -1,6 +1,7 @@
 package Entity.chance;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
@@ -11,5 +12,5 @@ public abstract class ChanceCard {
         this.msg = msg;
     }
 
-    public abstract void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController);
+    public abstract void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController, PropertyController propertyController);
 }

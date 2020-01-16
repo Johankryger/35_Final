@@ -1,6 +1,7 @@
 package Entity.square;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 
 public class Parking extends Square {
@@ -11,8 +12,8 @@ public class Parking extends Square {
     }
 
     @Override
-    public boolean squareAction(PlayerList playerList, GUIController gui, int diceSum) {
-        return false;
+    public void squareAction(PlayerList playerList, GUIController gui, PropertyController propertyController, SquareController squareController, int diceSum) {
+
     }
 
 

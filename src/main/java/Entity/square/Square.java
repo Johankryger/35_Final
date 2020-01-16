@@ -1,6 +1,7 @@
 package Entity.square;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 
 public abstract class Square {
@@ -20,7 +21,7 @@ public abstract class Square {
         return fieldName;
     }
 
-    public abstract boolean squareAction(PlayerList playerList, GUIController gui, int diceSum);
+    public abstract void squareAction(PlayerList playerList, GUIController gui, PropertyController propertyController, SquareController squareController, int diceSum);
 
 }
 

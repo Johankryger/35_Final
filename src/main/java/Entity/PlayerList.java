@@ -40,7 +40,7 @@ public class PlayerList {
         Player choosenPlayer = null;
 
         for (Player p : players) {
-            if (name.equals(p.getName())) {
+            if (name != null && name.equals(p.getName())) {
                 choosenPlayer = p;
             }
         }

@@ -43,16 +43,7 @@ public class GameController {
         return msg;
     }
 
-    public void checkForLost(int amountToPay) {
-        String[] playerNames = playerList.getPlayerNames();
-        for (String playerName : playerNames) {
-            if (playerList.searchPlayer(playerName).isNeedsToLiquidate()) {
-                propertyController.liquidateMenu(playerList, playerName, squareList, guiController, amountToPay);
-            } else {
-                playerList.searchPlayer(playerName);//
-            }
-        }
-    }
+
 
 
     public void jailLogic(String option) {
@@ -93,15 +84,11 @@ public class GameController {
 
         calculateLiquidation(playerList, squareList);
         // Land on
-        boolean needsToLiquidate;
-        do {
-            needsToLiquidate = squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, diceCup.getFaceValueSum());
-            if (needsToLiquidate)
-                propertyController.liquidateMenu(playerList,getPlayer().getName(),squareList,guiController,getPlayer().getMoneyToPay());
-        } while (needsToLiquidate);
+        squareList.getSquare(player.getFieldPos()).squareAction(playerList, guiController, propertyController, squareList, diceCup.getFaceValueSum());
+
 
         if (player.hasGotChanceCard()) {
-            chanceList.pickCard(playerList, squareList, guiController);
+            chanceList.pickCard(playerList, squareList, guiController, propertyController);
             player.setGotChanceCard(false);
         }
 

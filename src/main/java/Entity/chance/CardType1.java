@@ -1,6 +1,7 @@
 package Entity.chance;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
@@ -14,8 +15,12 @@ public class CardType1 extends ChanceCard {
     }
 
     @Override
-    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareController, GUIController guiController, PropertyController propertyController) {
         guiController.showChanceCard(msg);
+        if (amountAdded < 0) {
+            propertyController.payment(playerList, playerList.getPlayer().getName(), null, squareController, guiController, amountAdded * (-1));
+        }
+
         playerList.getPlayer().getBalance().add(amountAdded);
         guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
     }

@@ -1,6 +1,7 @@
 package Entity.square;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import message.Message;
 
@@ -12,43 +13,15 @@ public class Tax extends Square {
     }
 
     @Override
-    public boolean squareAction(PlayerList playerList, GUIController gui, int diceSum) {
-        if (playerList.getPlayer().isHasLiquidated()) {
-            if (fieldPosition == 4) {
-                taxAmount = 4000;
-            } else {
-                taxAmount = 2000;
-            }
-            playerList.getPlayer().getBalance().pay(taxAmount);
-            gui.button((Message.getMessage("General",5)) + " " + taxAmount + " " + (Message.getMessage("General",10)), (Message.getMessage("General",7)));
-            gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-        }
-
-
+    public void squareAction(PlayerList playerList, GUIController gui, PropertyController propertyController, SquareController squareController, int diceSum) {
         if (fieldPosition == 4) {
-            if (playerList.getPlayer().getBalance().getAmount() < 4000 && playerList.getPlayer().getLiqudationValue() >= 4000) {
-                playerList.getPlayer().setMoneyToPay(playerList.getPlayer().getBalance().getAmount() - 4000);
-                return true;
-            } else if (playerList.getPlayer().getBalance().getAmount() < 4000) {
-                playerList.getPlayer().setAboutToLose(true);
-                return false;
-            }
             taxAmount = 4000;
-
         } else {
-            if (playerList.getPlayer().getBalance().getAmount() < 2000 && playerList.getPlayer().getLiqudationValue() >= 2000) {
-                playerList.getPlayer().setMoneyToPay(playerList.getPlayer().getBalance().getAmount() - 2000);
-                return true;
-            } else if (playerList.getPlayer().getBalance().getAmount() < 2000) {
-                playerList.getPlayer().setAboutToLose(true);
-                return false;
-            }
             taxAmount = 2000;
         }
-        playerList.getPlayer().getBalance().pay(taxAmount);
-        gui.button((Message.getMessage("General",5)) + " " + taxAmount + " " + (Message.getMessage("General",10)), (Message.getMessage("General",7)));
+        propertyController.payment(playerList, playerList.getPlayer().getName(), null, squareController, gui, taxAmount);
+        gui.button((Message.getMessage("General", 5)) + " " + taxAmount + " " + (Message.getMessage("General", 10)), (Message.getMessage("General", 7)));
         gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-        return false;
     }
 }
 

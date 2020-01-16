@@ -1,6 +1,7 @@
 package Entity.chance;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 import message.Message;
@@ -94,8 +95,8 @@ public class ChanceCardController {
         }
     }
 
-    public void pickCard(PlayerList playerList, SquareController squareList, GUIController guiController) {
-        chanceCards[cardDeck[cardIndex] - 1].chanceAction(playerList, squareList, guiController);
+    public void pickCard(PlayerList playerList, SquareController squareList, GUIController guiController, PropertyController propertyController) {
+        chanceCards[cardDeck[cardIndex] - 1].chanceAction(playerList, squareList, guiController, propertyController);
         cardIndex = (cardIndex + 1) % chanceCards.length;
         guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
         guiController.button(Message.getMessage("General", 9), Message.getMessage("General", 7));

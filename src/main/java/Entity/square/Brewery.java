@@ -2,6 +2,7 @@ package Entity.square;
 
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import message.Message;
 
@@ -12,52 +13,34 @@ public class Brewery extends Property {
     }
 
     @Override
-    public boolean squareAction(PlayerList playerList, GUIController gui, int diceSum) {
+    public void squareAction(PlayerList playerList, GUIController gui, PropertyController propertyController, SquareController squareController, int diceSum) {
         if (owner.equals("bank")) {
-            if (playerList.getPlayer().isHasLiquidated()) {
-                playerList.getPlayer().getBalance().pay(price);
-                gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
-                owner = playerList.getPlayer().getName();
-                gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-                playerList.getPlayer().setHasLiquidated(false);
-                return false;
+            String option = "";
+            if (playerList.getPlayer().getLiqudationValue() < price) {
+                option = gui.button(Message.getMessage("General", 1) + " " + fieldName + "?", Message.getMessage("General", 4));
+            } else {
+                option = gui.button(Message.getMessage("General", 1) + " " + fieldName + "?", Message.getMessage("General", 3), Message.getMessage("General", 4));
             }
 
-            String option;
-            if (playerList.getPlayer().getLiqudationValue() >= price)
-                option = gui.button(Message.getMessage("General", 1) + " "+fieldName + "?", Message.getMessage("General", 3), Message.getMessage("General", 4));
-            else
-                option = gui.button(Message.getMessage("General", 8),  Message.getMessage("General", 4));
             if (option.equals(Message.getMessage("General",3))) {
-                if (price > playerList.getPlayer().getBalance().getAmount()) {
-                    playerList.getPlayer().setMoneyToPay(playerList.getPlayer().getBalance().getAmount()-price);
-                    return true;
-                }
-                playerList.getPlayer().getBalance().pay(price);
+                propertyController.payment(playerList, playerList.getPlayer().getName(), null, squareController, gui, price);
                 gui.buyProperty(playerList.getPlayer().getName(), fieldPosition);
                 owner = playerList.getPlayer().getName();
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
-            } else {
-                //setAuction(True, fieldPosition);
-                //gui.auction(fieldPosition);
             }
         } else if (!owner.equals(playerList.getPlayer().getName())) {
             if (!playerList.searchPlayer(owner).isInJail()) {
-                if (playerList.getPlayer().getLiqudationValue() >= rent * diceSum && playerList.getPlayer().getBalance().getAmount() < rent * diceSum){
-                    playerList.getPlayer().setMoneyToPay(playerList.getPlayer().getBalance().getAmount()-rent * diceSum);
-                    return true;
+                propertyController.payment(playerList, playerList.getPlayer().getName(), owner, squareController, gui, rent * diceSum);
+                if (!playerList.getPlayer().isAboutToLose()) {
+                    gui.button((Message.getMessage("General",5)) + " "  + rent * diceSum + " " + (Message.getMessage("General",6))+ " " + owner, (Message.getMessage("General",7)));
+                } else {
+                    gui.button("You have lost to and given all your belongings to the owner", "Okay");
                 }
-                else if (playerList.getPlayer().getBalance().getAmount() < rent * diceSum){
-                    playerList.getPlayer().setHasLost(true);
-                    return false;
-                }
-                gui.button( Message.getMessage("General", 5) + " " + rent * diceSum + " "+Message.getMessage("General", 6)+" " + owner, Message.getMessage("General", 7));
-                playerList.transfer(rent * diceSum, playerList.getPlayer().getName(), owner);
+
                 gui.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());
                 gui.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
             }
         }
-        return false;
     }
 
     public void setPaired(boolean isPaired) {

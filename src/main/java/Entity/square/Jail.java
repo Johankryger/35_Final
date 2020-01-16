@@ -1,6 +1,7 @@
 package Entity.square;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import message.Message;
 
@@ -11,7 +12,7 @@ public class Jail extends Square {
     }
 
     @Override
-    public boolean squareAction(PlayerList playerList, GUIController gui, int diceSum) {
+    public void squareAction(PlayerList playerList, GUIController gui, PropertyController propertyController, SquareController squareController, int diceSum) {
         gui.button(Message.getMessage("In Jail", 1), Message.getMessage("General", 7));
         int startPos = playerList.getPlayer().getFieldPos();
         playerList.getPlayer().setFieldPos(10);
@@ -19,6 +20,5 @@ public class Jail extends Square {
         playerList.getPlayer().setInJail(true);
         //Tjek om nedenstående er nødvendig.
         playerList.getPlayer().extraTurn(false);
-        return false;
     }
 }

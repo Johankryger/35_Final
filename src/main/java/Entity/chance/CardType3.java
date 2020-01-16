@@ -1,6 +1,7 @@
 package Entity.chance;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 // Ship card. metode til at rykke brikken til det nærmeste rederi.
@@ -13,7 +14,7 @@ public class CardType3 extends ChanceCard {
     }
 
     @Override
-    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareController, GUIController guiController, PropertyController propertyController) {
         guiController.showChanceCard(msg);
         int beforePos = playerList.getPlayer().getFieldPos();
         switch (beforePos) {
@@ -38,13 +39,13 @@ public class CardType3 extends ChanceCard {
         }
         int afterPos = playerList.getPlayer().getFieldPos();
         guiController.movePlayerFast(playerList.getPlayer().getName(), beforePos, afterPos);
-        String ownedBy = squareList.getShip(afterPos).getOwner();
+        String ownedBy = squareController.getShip(afterPos).getOwner();
 
         if (ownedBy != "bank" && ownedBy != playerList.getPlayer().getName()) {
-            playerList.transfer(squareList.getShip(afterPos).getRent() * multiplier, playerList.getPlayer().getName(), ownedBy);
-            guiController.button("You pay " + ownedBy + " " + squareList.getShip(afterPos).getRent() * multiplier + " kr.", "Ok :(");
+            guiController.button("You pay " + ownedBy + " " + squareController.getShip(afterPos).getRent() * multiplier + " kr.", "Ok :(");
+            propertyController.payment(playerList, playerList.getPlayer().getName(), ownedBy, squareController, guiController, squareController.getShip(afterPos).getRent() * multiplier);
         } else {
-            squareList.getSquare(afterPos).squareAction(playerList, guiController, 1337);
+            squareController.getSquare(afterPos).squareAction(playerList, guiController, propertyController, squareController, 1337);
         }
     }
 }

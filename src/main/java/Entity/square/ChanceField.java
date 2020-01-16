@@ -1,6 +1,7 @@
 package Entity.square;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 
 public class ChanceField extends Square {
@@ -11,8 +12,7 @@ public class ChanceField extends Square {
     }
 
     @Override
-    public boolean squareAction(PlayerList playerList, GUIController gui, int diceSum) {
+    public void squareAction(PlayerList playerList, GUIController gui, PropertyController propertyController, SquareController squareController, int diceSum) {
         playerList.getPlayer().setGotChanceCard(true);
-        return false;
     }
 }

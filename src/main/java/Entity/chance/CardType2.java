@@ -1,6 +1,7 @@
 package Entity.chance;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 // Move Card. Moves you to a specefic square.
@@ -13,7 +14,7 @@ public class CardType2 extends ChanceCard {
     }
 
     @Override
-    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareController, GUIController guiController, PropertyController propertyController) {
         guiController.showChanceCard(msg);
         int beforePos = playerList.getPlayer().getFieldPos();
         int steps = 0;
@@ -24,6 +25,6 @@ public class CardType2 extends ChanceCard {
         }
         playerList.getPlayer().move(steps,true);
         guiController.movePlayerFast(playerList.getPlayer().getName(), beforePos, position);
-        squareList.getSquare(position).squareAction(playerList, guiController, 1337);
+        squareController.getSquare(position).squareAction(playerList, guiController, propertyController, squareController, 1337);
     }
 }

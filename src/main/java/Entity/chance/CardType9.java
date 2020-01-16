@@ -1,6 +1,7 @@
 package Entity.chance;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
@@ -11,26 +12,26 @@ public class CardType9 extends ChanceCard {
     }
 
     @Override
-    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareController, GUIController guiController, PropertyController propertyController) {
         guiController.showChanceCard(msg);
 
-        String[] ownedStreets = squareList.getOwnedStreetNames(playerList.getPlayer().getName());
-        String[] ownedProperties = squareList.getOwnedPropertyNames(playerList.getPlayer().getName());
+        String[] ownedStreets = squareController.getOwnedStreetNames(playerList.getPlayer().getName());
+        String[] ownedProperties = squareController.getOwnedPropertyNames(playerList.getPlayer().getName());
 
         int totalPropertyValue = 0;
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (!squareList.searchProperty(ownedProperties[i]).getMortgaged()) {
-                totalPropertyValue += squareList.searchProperty(ownedProperties[i]).getPrice();
+            if (!squareController.searchProperty(ownedProperties[i]).getMortgaged()) {
+                totalPropertyValue += squareController.searchProperty(ownedProperties[i]).getPrice();
             } else {
-                totalPropertyValue += squareList.searchProperty(ownedProperties[i]).getPrice() / 2;
+                totalPropertyValue += squareController.searchProperty(ownedProperties[i]).getPrice() / 2;
             }
         }
 
         int totalBuildingValue = 0;
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (squareList.searchStreet(ownedStreets[i]).isPaired()) {
-                int numberOfHouses= squareList.searchStreet(ownedStreets[i]).getNumberOfHouses();
-                int housePrice = squareList.searchStreet(ownedStreets[i]).getHousePrice();
+            if (squareController.searchStreet(ownedStreets[i]).isPaired()) {
+                int numberOfHouses= squareController.searchStreet(ownedStreets[i]).getNumberOfHouses();
+                int housePrice = squareController.searchStreet(ownedStreets[i]).getHousePrice();
                 totalBuildingValue += numberOfHouses * housePrice;
             }
         }

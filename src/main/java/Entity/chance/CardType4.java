@@ -1,6 +1,7 @@
 package Entity.chance;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
@@ -10,7 +11,7 @@ public class CardType4 extends ChanceCard {
         super(msg);
     }
 
-    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareController, GUIController guiController, PropertyController propertyController) {
         guiController.showChanceCard(msg);
         int currentPos = playerList.getPlayer().getFieldPos();
         int afterPos = (currentPos - 3 + 40) % 40;
@@ -18,6 +19,6 @@ public class CardType4 extends ChanceCard {
         playerList.getPlayer().setFieldPos(afterPos);
         guiController.moveBackwards(playerList.getPlayer().getName(), currentPos, afterPos);
 
-        squareList.getSquare(afterPos).squareAction(playerList, guiController, 1337);
+        squareController.getSquare(afterPos).squareAction(playerList, guiController, propertyController, squareController, 1337);
     }
 }

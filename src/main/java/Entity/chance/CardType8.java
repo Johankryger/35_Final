@@ -1,6 +1,7 @@
 package Entity.chance;
 
 import Controller.GUIController;
+import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 // Pay Property Tax Card. metode brugt til a opkræve et antal penge for hvert hus eller hotel spilleren ejer
@@ -15,23 +16,23 @@ public class CardType8 extends ChanceCard {
     }
 
     @Override
-    public void chanceAction(PlayerList playerList, SquareController squareList, GUIController guiController) {
+    public void chanceAction(PlayerList playerList, SquareController squareController, GUIController guiController, PropertyController propertyController) {
         guiController.showChanceCard(msg);
         String playerName = playerList.getPlayer().getName();
-        String[] ownedStreets = squareList.getOwnedStreetNames(playerName);
+        String[] ownedStreets = squareController.getOwnedStreetNames(playerName);
 
         int amountOfHouses = 0;
         int amountOfHotels = 0;
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (squareList.searchStreet(ownedStreets[i]).getNumberOfHouses() == 5) {
+            if (squareController.searchStreet(ownedStreets[i]).getNumberOfHouses() == 5) {
                 amountOfHotels++;
             } else {
-                amountOfHouses += squareList.searchStreet(ownedStreets[i]).getNumberOfHouses();
+                amountOfHouses += squareController.searchStreet(ownedStreets[i]).getNumberOfHouses();
             }
         }
         int totalTax = amountOfHouses * houseTax + amountOfHotels * hotelTax;
 
-        playerList.getPlayer().getBalance().pay(totalTax);
+        propertyController.payment(playerList, playerName, null, squareController, guiController, totalTax);
         guiController.updateBalance(playerName, playerList.getPlayer().getBalance().getAmount());
     }
 }
