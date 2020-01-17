@@ -6,9 +6,8 @@ public class Player {
     private boolean hasLost = false;
     private int fieldPos = 0;
     private int liqudationValue=30000;
-    private boolean needsToLiquidate;
-    private boolean hasLiquidated;
-    private int moneyToPay;
+//    private boolean hasLiquidated;
+//    private int moneyToPay;
     private boolean aboutToLose=false;
 
     private boolean inJail;
@@ -48,21 +47,21 @@ public class Player {
         else{this.fieldPos=(fieldPos+steps+40)%40;}
     }
 
-    public void setHasLiquidated(boolean hasLiquidated) {
-        this.hasLiquidated = hasLiquidated;
-    }
+//    public void setHasLiquidated(boolean hasLiquidated) {
+//        this.hasLiquidated = hasLiquidated;
+//    }
 
-    public boolean isHasLiquidated() {
-        return hasLiquidated;
-    }
+//    public boolean isHasLiquidated() {
+//        return hasLiquidated;
+//    }
 
-    public int getMoneyToPay() {
-        return moneyToPay;
-    }
+//    public int getMoneyToPay() {
+//        return moneyToPay;
+//    }
 
-    public void setMoneyToPay(int moneyToPay) {
-        this.moneyToPay = moneyToPay;
-    }
+//    public void setMoneyToPay(int moneyToPay) {
+//        this.moneyToPay = moneyToPay;
+//    }
 
     public boolean isAboutToLose() {
         return aboutToLose;
@@ -80,9 +79,9 @@ public class Player {
         return hasLost;
     }
 
-    public boolean isNeedsToLiquidate() {
-        return needsToLiquidate;
-    }
+//    public boolean isNeedsToLiquidate() {
+//        return needsToLiquidate;
+//    }
 
     public void setHasLost(boolean hasLost) {
         this.hasLost = hasLost;

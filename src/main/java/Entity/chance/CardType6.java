@@ -20,8 +20,8 @@ public class CardType6 extends ChanceCard {
         for (int i = 0; i < names.length; i++) {
             if (names[i] != playerList.getPlayer().getName()) {
                 propertyController.payment(playerList, names[i], playerList.getPlayer().getName(), squareController, guiController, amount);
-                guiController.updateBalance(playerList.searchPlayer(names[i]).getName(),playerList.searchPlayer(names[i]).getBalance().getAmount());
-
+                if (playerList.searchPlayer(names[i]) != null)
+                    guiController.updateBalance(playerList.searchPlayer(names[i]).getName(),playerList.searchPlayer(names[i]).getBalance().getAmount());
             }
         }
         guiController.updateBalance(playerList.getPlayer().getName(), playerList.getPlayer().getBalance().getAmount());

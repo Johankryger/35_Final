@@ -158,55 +158,94 @@ public class PropertyController {
 
     }
 
-    public void payment(PlayerList playerList, String playerPay, String playerReceiver, SquareController squareList, GUIController guiController, int amountToPay) {
+    public void payment(PlayerList playerList, String playerPay, String playerReceiver, SquareController squareController, GUIController guiController, int amountToPay) {
+        // if a player loses
         if (playerList.searchPlayer(playerPay).getLiqudationValue() < amountToPay) {
-            playerList.searchPlayer(playerPay).setAboutToLose(true);
+            // if you have not lost to a player
+            if (playerList.searchPlayer(playerReceiver) == null) {
+                String[] ownedProperties = squareController.getOwnedPropertyNames(playerList.searchPlayer(playerPay).getName());
+                for (String p : ownedProperties) {
+                    squareController.searchProperty(p).setMortgaged(false);
+                    if (squareController.searchStreet(p) != null) {
+                        squareController.searchStreet(p).setNumberOfHouses(0);
+                        guiController.setHouses(0,squareController.searchStreet(p).getFieldPosition());
+                    }
+                    squareController.searchProperty(p).setOwner("bank");
+                }
+            } else {  // if player loses to a player their houses is sold
+                // sell houses and transfer money
+                String[] ownedProperties = squareController.getOwnedPropertyNames(playerList.searchPlayer(playerPay).getName());
+                for (String s : ownedProperties) {
+                    if (squareController.searchStreet(s) != null) {
+                        int totalHouseMoney = 0;
+                        int houses = squareController.searchStreet(s).getNumberOfHouses();
+                        int houseMoney = squareController.searchStreet(s).getHousePrice() / 2;
+                        totalHouseMoney += houses * houseMoney;
+                        squareController.searchStreet(s).setNumberOfHouses(0);
+                        guiController.setHouses(0,squareController.searchStreet(s).getFieldPosition());
+                        playerList.searchPlayer(playerReceiver).getBalance().add(totalHouseMoney);
+                    }
+                    squareController.searchProperty(s).setOwner(playerReceiver); //sets ownership to all properties to the receiver
+                    if (squareController.searchProperty(s).getMortgaged()) {
+                        guiController.mortgageProperty(playerReceiver, squareController.searchProperty(s).getFieldPosition());
+                    } else {
+                        guiController.buyProperty(playerReceiver, squareController.searchProperty(s).getFieldPosition());
+                    }
+                }
+                playerList.searchPlayer(playerReceiver).getBalance().add(playerList.searchPlayer(playerPay).getBalance().getAmount());
+                guiController.updateBalance(playerReceiver, playerList.searchPlayer(playerReceiver).getBalance().getAmount());
+            }
+
+            // removes player from game
+            guiController.removeLoser(playerList.searchPlayer(playerPay).getName(), playerList.searchPlayer(playerPay).getFieldPos(), squareController);
+            playerList.killPlayer(playerList.searchPlayer(playerPay).getName());
+            guiController.button(playerPay + " has lost", "Ok");
+            guiController.killPlayer(playerPay, playerList.getPlayerNames().length + 1);
+
+            // if player needs to sell houses or mortgage to afford
         } else if (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
             while (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
                 String option = guiController.button((Message.getMessage("Manage", 2) + " "), Message.getMessage("Manage", 1), Message.getMessage("Manage", 4), Message.getMessage("Manage", 7));
                 if (option.equals(Message.getMessage("Manage", 4))) {
                     String mortgageOption;
                     do {
-                        mortgageOption = guiController.scrollList(Message.getMessage("Manage", 3), makeMortgageArray(playerPay, squareList));
+                        mortgageOption = guiController.scrollList(Message.getMessage("Manage", 3), makeMortgageArray(playerPay, squareController));
                         if (!mortgageOption.equals(Message.getMessage("Manage", 1))) {
-                            squareList.searchProperty(mortgageOption).setMortgaged(true);
-                            int moneyBack = squareList.searchProperty(mortgageOption).getPrice() / 2;
+                            squareController.searchProperty(mortgageOption).setMortgaged(true);
+                            int moneyBack = squareController.searchProperty(mortgageOption).getPrice() / 2;
                             playerList.searchPlayer(playerPay).getBalance().add(moneyBack);
                             guiController.updateBalance(playerPay, playerList.searchPlayer(playerPay).getBalance().getAmount());
-                            guiController.mortgageProperty(playerPay, squareList.searchProperty(mortgageOption).getFieldPosition());
+                            guiController.mortgageProperty(playerPay, squareController.searchProperty(mortgageOption).getFieldPosition());
                         }
                     } while (!mortgageOption.equals(Message.getMessage("Manage", 1)));
                     if (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
-                        payment(playerList, playerPay, playerReceiver, squareList, guiController, amountToPay);
+                        payment(playerList, playerPay, playerReceiver, squareController, guiController, amountToPay);
                     }
                 } else if (option.equals(Message.getMessage("Manage", 7))) {
                     String sellHouseOption;
                     do {
-                        sellHouseOption = guiController.scrollList(Message.getMessage("Manage", 3), sellHouseArray(playerPay, squareList));
+                        sellHouseOption = guiController.scrollList(Message.getMessage("Manage", 3), sellHouseArray(playerPay, squareController));
                         if (!sellHouseOption.equals(Message.getMessage("Manage", 1))) {
-                            int housePrice = squareList.searchStreet(sellHouseOption).getHousePrice() / 2;
+                            int housePrice = squareController.searchStreet(sellHouseOption).getHousePrice() / 2;
                             playerList.searchPlayer(playerPay).getBalance().add(housePrice);
-                            squareList.searchStreet(sellHouseOption).removeHouse();
+                            squareController.searchStreet(sellHouseOption).removeHouse();
                             guiController.updateBalance(playerPay, playerList.searchPlayer(playerPay).getBalance().getAmount());
-                            guiController.setHouses(squareList.searchStreet(sellHouseOption).getNumberOfHouses(), squareList.searchStreet(sellHouseOption).getFieldPosition());
+                            guiController.setHouses(squareController.searchStreet(sellHouseOption).getNumberOfHouses(), squareController.searchStreet(sellHouseOption).getFieldPosition());
                         }
                     } while (!sellHouseOption.equals(Message.getMessage("Manage", 1)));
                     if (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
-                        payment(playerList, playerPay, playerReceiver, squareList, guiController, amountToPay);
+                        payment(playerList, playerPay, playerReceiver, squareController, guiController, amountToPay);
                     }
                 }
             }
 
-        }
-
-        if (playerList.searchPlayer(playerPay).getBalance().getAmount() >= amountToPay) {
+        } else if (playerList.searchPlayer(playerPay).getBalance().getAmount() >= amountToPay) {
             playerList.searchPlayer(playerPay).getBalance().pay(amountToPay);
-            if (playerList.searchPlayer(playerReceiver) != null) {
-                playerList.searchPlayer(playerReceiver).getBalance().add(amountToPay);
-            }
+            playerList.searchPlayer(playerReceiver).getBalance().add(amountToPay);
         }
 
     }
+
     public boolean canMortgage(Property property, SquareController squareList) {
         boolean canMortgage = true;
         String fieldName = property.getFieldName();

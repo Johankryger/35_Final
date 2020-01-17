@@ -16,9 +16,9 @@ public class PlayerList {
         }
     }
 
-    public void setPlayers(Player[] players) {
-        this.players = players;
-    }
+//    public void setPlayers(Player[] players) {
+//        this.players = players;
+//    }
 
     public Player[] getAllPlayers() {
         return players;
@@ -33,7 +33,11 @@ public class PlayerList {
     }
 
     public void killPlayer(String playerName) {
+
+        boolean playerDiedOnOwnTurn = searchPlayer(playerName) == getPlayer();
+
         Player[] arr = new Player[this.players.length - 1];
+
         int counter = 0;
         for (int i = 0; i < players.length; i++) {
             if (!players[i].getName().equals(playerName)) {
@@ -41,13 +45,18 @@ public class PlayerList {
                 counter++;
             }
         }
+
         this.players = arr;
 
-        if (!(this.index == 0)) {
-            this.index = (this.index - 1) % players.length;
-        } else {
-            this.index = arr.length;
+        if (playerDiedOnOwnTurn) {
+            this.index = (this.index - 1 + players.length) % players.length;
+//            if (!(this.index == 0)) {
+//                this.index = (this.index - 1) % players.length;
+//            } else {
+////                this.index = arr.length % players.length;
+//            }
         }
+
     }
 
     public Player getPlayer() {
@@ -70,12 +79,12 @@ public class PlayerList {
         this.index = ++index % players.length;
     }
 
-    public void transfer(int amount, String from, String to){
-        searchPlayer(from).getBalance().pay(amount);
-        searchPlayer(to).getBalance().add(amount);
-    }
+//    public void transfer(int amount, String from, String to){
+//        searchPlayer(from).getBalance().pay(amount);
+//        searchPlayer(to).getBalance().add(amount);
+//    }
 
-    public void setIndex(int index) {this.index = index;}
+//    public void setIndex(int index) {this.index = index;}
 
-    public int getIndex() {return index;}
+//    public int getIndex() {return index;}
 }

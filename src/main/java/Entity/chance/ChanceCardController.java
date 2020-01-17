@@ -57,7 +57,7 @@ public class ChanceCardController {
             new CardType6(Message.getMessage("Chancecard", 34), 200 ),
 //            new CardType6(Message.getMessage("Chancecard", 35), 500 ),
 //            new CardType6(Message.getMessage("Chancecard", 36), 500 ),
-//
+
 //            new CardType7(Message.getMessage("Chancecard", 1)),
 //            new CardType7(Message.getMessage("Chancecard", 1)),
 //

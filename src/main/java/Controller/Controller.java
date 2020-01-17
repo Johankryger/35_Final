@@ -10,7 +10,7 @@ public class Controller {
         //Creates Start Menu
         gameController.turn();
         while(true) {
-            gameController.checkForLoser();
+//            gameController.checkForLoser();
             if (gameController.checkForEndGame()){break;}
             String option = Message.getMessage("In Jail",2);
             while (option.equals(Message.getMessage("In Jail",2))) {
@@ -19,9 +19,9 @@ public class Controller {
             }
             gameController.rollDiceLogic();
             gameController.jailLogic(option);
-            if (gameController.getPlayer().isAboutToLose()){
-                gameController.checkForLoser();
-            }
+//            if (gameController.getPlayer().isAboutToLose()){
+//                gameController.checkForLoser();
+//            }
             if (gameController.getPlayer().isInJail()){
                 gameController.nextPlayer();
             }

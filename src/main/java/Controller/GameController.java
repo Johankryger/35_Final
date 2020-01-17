@@ -85,7 +85,6 @@ public class GameController {
         // Land on
         squareController.getSquare(player.getFieldPos()).squareAction(playerList, guiController, propertyController, squareController, diceCup.getFaceValueSum());
 
-
         while (player.hasGotChanceCard()) {
             chanceCardController.pickCard(playerList, squareController, guiController, propertyController);
         }
