@@ -65,7 +65,6 @@ public class PropertyController {
     }
 
 
-
     public void manageMenu(GUIController guiController, PlayerList playerList, SquareController squareList) {
             String option2 = guiController.scrollList(Message.getMessage("Manage", 2), Message.getMessage("Manage", 1), Message.getMessage("Manage", 4), Message.getMessage("Manage", 5), Message.getMessage("Manage", 6), Message.getMessage("Manage", 7), Message.getMessage("Manage", 8));
             String name = playerList.getPlayer().getName();

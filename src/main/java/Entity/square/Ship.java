@@ -4,7 +4,6 @@ import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
 import message.Message;
-import staticclasses.ArrayMethods;
 
 public class Ship extends Property{
     int twoShipCoRent, threeShipCoRent, fourShipCoRent;
