@@ -12,7 +12,7 @@ public class Trade {
 
     /**
      * Method to show the trading menu and doing the trading action
-     * Finds owned properties
+     * Finds owned properties and checks if the property is eligible for trading and program does actions according to the choices. E.g. "Go back", "Choose player to trade with", "Choose property" etc.
      * @param playerList to find players
      * @param squareList calls methods to find e.g. ownedProperties or specific type of property
      * @param guiController used to show the tradingmenu and visually show the trading actions on board
