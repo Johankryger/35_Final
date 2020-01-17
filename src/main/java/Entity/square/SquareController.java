@@ -4,6 +4,9 @@ import staticclasses.ArrayMethods;
 
 import java.lang.reflect.Array;
 
+/**
+ * This class creates an array for all of the different squares on the board, and contains info about them in it.
+ */
 public class SquareController {
     private Street[] streets;
     private Ship[] ships;
@@ -15,6 +18,9 @@ public class SquareController {
     private Square[][] squares;
     private Property[][] properties;
 
+    /**
+     * SquareController constructor that contains all information about the squares, in arrays.
+     */
     public SquareController() {
         this.streets = new Street[]{
                 new Street(1, "Rødovrevej", 1200, 50, 1000, 250, 750, 2250, 4000, 6000,"Blue"),
@@ -80,7 +86,11 @@ public class SquareController {
         this.properties = new Property[][] {ships, streets, breweries};
     }
 
-
+    /**
+     * An array method, which loops all the player's properties and adds them to an array of owned properties.
+     * @param playerName name of the player
+     * @return a property array of owned properties.
+     */
     public Property[] ownedProperty(String playerName) {
         int counter = 0;
 
@@ -107,8 +117,9 @@ public class SquareController {
     }
 
 
-
-
+    /**
+     * Method that is used for checking if you own any pairs of property.
+     */
     public void checkPairs() {
         for (Street street : streets) {
             String owner = street.getOwner();
@@ -151,6 +162,11 @@ public class SquareController {
         }
     }
 
+    /**
+     * Method that is used to find a square
+     * @param fieldNr the fieldposition of the square
+     * @return an object of a square
+     */
     public Square getSquare(int fieldNr) {
         Square therightSquare = null;
 
@@ -175,6 +191,11 @@ public class SquareController {
         return theRightShip;
     }
 
+    /**
+     * Method for adding owned ships to an array.
+     * @param playerName name of the player
+     * @return an array of owned ships
+     */
     public String[] getOwnedShipNames(String playerName){
         String[] ownedShips = new String[0];
         for (Ship s: ships){
@@ -184,6 +205,11 @@ public class SquareController {
         }
         return ownedShips;
     }
+    /**
+     * Method for adding owned breweries to an array.
+     * @param playerName name of the player
+     * @return an array of owned breweries
+     */
     public String[] getOwnedBreweryNames(String playerName){
         String[] ownedBrewies = new String[0];
         for (Brewery s: breweries){
