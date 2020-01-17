@@ -4,7 +4,7 @@ public class Player {
     private String name;
     private Balance balance = new Balance();
     private int fieldPos = 0;
-    private int liqudationValue=30000;
+    private int liquidationValue =30000;
 
     private boolean inJail;
     private int turnsInJail;
@@ -44,8 +44,8 @@ public class Player {
     }
 
 
-    public void setLiqudationValue(int liqudationValue) {
-        this.liqudationValue = liqudationValue;
+    public void setLiquidationValue(int liquidationValue) {
+        this.liquidationValue = liquidationValue;
     }
 
     public Balance getBalance() {
@@ -122,5 +122,5 @@ public class Player {
     }
 
 
-    public int getLiqudationValue() {return liqudationValue;}
+    public int getLiquidationValue() {return liquidationValue;}
 }

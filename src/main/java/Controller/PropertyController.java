@@ -178,14 +178,14 @@ public class PropertyController {
                     liquidationMoney += numberOfHouses * housePrice;
                 }
             }
-            playerList.searchPlayer(playerNames[i]).setLiqudationValue(liquidationMoney);
+            playerList.searchPlayer(playerNames[i]).setLiquidationValue(liquidationMoney);
         }
     }
 
     public void payment(PlayerList playerList, String playerPay, String playerReceiver, SquareController squareController, GUIController guiController, int amountToPay) {
         calculateLiquidation(playerList, squareController);
         // if a player loses
-        if (playerList.searchPlayer(playerPay).getLiqudationValue() < amountToPay) {
+        if (playerList.searchPlayer(playerPay).getLiquidationValue() < amountToPay) {
             // if you have not lost to a player
             if (playerList.searchPlayer(playerReceiver) == null) {
                 String[] ownedProperties = squareController.getOwnedPropertyNames(playerList.searchPlayer(playerPay).getName());

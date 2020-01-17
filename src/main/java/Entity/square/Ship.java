@@ -19,7 +19,7 @@ public class Ship extends Property{
     public void squareAction(PlayerList playerList, GUIController gui, PropertyController propertyController, SquareController squareController, int diceSum) {
         if (owner.equals("bank")) {
             String option = "";
-            if (playerList.getPlayer().getLiqudationValue() < price) {
+            if (playerList.getPlayer().getLiquidationValue() < price) {
                 option = gui.button(Message.getMessage("General", 1) + " " + fieldName + "?", Message.getMessage("General", 4));
             } else {
                 option = gui.button(Message.getMessage("General", 1) + " " + fieldName + "?", Message.getMessage("General", 3), Message.getMessage("General", 4));
