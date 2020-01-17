@@ -1,9 +1,16 @@
 package Entity;
 
+/**
+ * Player class used for storing player info
+ */
 public class Player {
+    /**
+     * name of a player
+     */
     private String name;
     private Balance balance = new Balance();
 //    private boolean hasLost = false;
+
     private int fieldPos = 0;
     private int liqudationValue=30000;
 //    private boolean hasLiquidated;
@@ -21,6 +28,10 @@ public class Player {
     private boolean gotFreeJailCard = false;
     private static int playerCounter=0;
 
+    /**
+     * This is a constructor to initialize player object.
+     * @param name an initial player name
+     */
     public Player(String name) {
         if (name.equals("")) {
             this.name = "Player " + ++playerCounter;
@@ -30,6 +41,11 @@ public class Player {
 
     public static void setPlayerCounter(int playerCounter) { Player.playerCounter = playerCounter; }
 
+    /**
+     * This is a method of moving the player
+     * @param steps for moving the player
+     * @param StartCashPossible possibility for the player to receive money when passing start
+     */
     public void move(int steps, boolean StartCashPossible) {
         if (!(steps<0)) {
             this.fieldPos = this.fieldPos + steps;
