@@ -172,7 +172,6 @@ public class GameController {
                 } else owner = "bank";
 
 
-
                 if (owner.equals(player.getName()) || owner.equals("bank")) {
                     String[] ownedProperties = squareController.getOwnedPropertyNames(player.getName());
                     for (String p : ownedProperties) {
@@ -215,31 +214,33 @@ public class GameController {
                     guiController.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
                 }
                 guiController.button(player.getName() + " has lost", "Ok");
-
                 guiController.killPlayer(player.getName(), playerArray.length);
             }
         }
     }
 
     public void calculateLiquidation(PlayerList playerList, SquareController squareList) {
-        int liquidationMoney = playerList.getPlayer().getBalance().getAmount();
+        String[] playerNames = playerList.getPlayerNames();
+        for (int i = 0; i < playerNames.length; i++) {
+            int liquidationMoney = playerList.searchPlayer(playerNames[i]).getBalance().getAmount();
 
-        String[] ownedStreets = squareList.getOwnedStreetNames(playerList.getPlayer().getName());
-        String[] ownedProperties = squareList.getOwnedPropertyNames(playerList.getPlayer().getName());
+            String[] ownedStreets = squareList.getOwnedStreetNames(playerList.searchPlayer(playerNames[i]).getName());
+            String[] ownedProperties = squareList.getOwnedPropertyNames(playerList.searchPlayer(playerNames[i]).getName());
 
-        for (int i = 0; i < ownedProperties.length; i++) {
-            if (!squareList.searchProperty(ownedProperties[i]).getMortgaged()) {
-                liquidationMoney += squareList.searchProperty(ownedProperties[i]).getPrice() / 2;
+            for (int j = 0; j < ownedProperties.length; j++) {
+                if (!squareList.searchProperty(ownedProperties[j]).getMortgaged()) {
+                    liquidationMoney += squareList.searchProperty(ownedProperties[j]).getPrice() / 2;
+                }
             }
-        }
 
-        for (int i = 0; i < ownedStreets.length; i++) {
-            if (squareList.searchStreet(ownedStreets[i]).isPaired()) {
-                int numberOfHouses= squareList.searchStreet(ownedStreets[i]).getNumberOfHouses();
-                int housePrice = squareList.searchStreet(ownedStreets[i]).getHousePrice();
-                liquidationMoney += numberOfHouses * housePrice;
+            for (int j = 0; j < ownedStreets.length; j++) {
+                if (squareList.searchStreet(ownedStreets[j]).isPaired()) {
+                    int numberOfHouses= squareList.searchStreet(ownedStreets[j]).getNumberOfHouses();
+                    int housePrice = squareList.searchStreet(ownedStreets[j]).getHousePrice();
+                    liquidationMoney += numberOfHouses * housePrice;
+                }
             }
+            playerList.searchPlayer(playerNames[i]).setLiqudationValue(liquidationMoney);
         }
-        playerList.getPlayer().setLiqudationValue(liquidationMoney);
     }
 }
