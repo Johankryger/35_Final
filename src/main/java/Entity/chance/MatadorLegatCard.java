@@ -6,12 +6,22 @@ import Entity.PlayerList;
 import Entity.square.SquareController;
 import message.Message;
 
+/**
+ * Gives a matadorlegat card, which gives 40000kr to the player, if he his money <15000kr.
+ */
 public class MatadorLegatCard extends ChanceCard {
-    //Matadorlegat Card
+
     public MatadorLegatCard(String msg) {
         super(msg);
     }
 
+    /**
+     * Finds if player have less than 15000kr in totalwealth, if true then he will receive 40000kr.
+     * @param playerList - to find player
+     * @param squareController - to find field
+     * @param guiController - to show the action on board
+     * @param propertyController - to pay if necessary
+     */
     @Override
     public void chanceAction(PlayerList playerList, SquareController squareController, GUIController guiController, PropertyController propertyController) {
         guiController.showChanceCard(msg);
@@ -45,7 +55,7 @@ public class MatadorLegatCard extends ChanceCard {
             playerList.getPlayer().getBalance().add(40000);
             guiController.button(Message.getMessage("Chancecard", 38), Message.getMessage("General", 7));
         } else {
-            guiController.button("Your total value is over 15.000 kr. Too bad.");
+            guiController.button(Message.getMessage("Chancecard", 39));
         }
     }
 }

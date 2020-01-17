@@ -5,8 +5,11 @@ import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
+/**
+ * Moves player 3 steps forward
+ */
 public class MoveForwardsCard extends ChanceCard {
-    //Move 3 Forward Card
+
     public MoveForwardsCard(String msg){
         super(msg);
     }

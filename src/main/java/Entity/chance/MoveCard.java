@@ -4,15 +4,30 @@ import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
-// Move Card. Moves you to a specefic square.
+
+/**
+ * Moves a player to a specific square
+ */
 public class MoveCard extends ChanceCard {
     private int position;
 
+    /**
+     * The constructor also needs position to know where the player will be moved to
+     * @param msg
+     * @param position
+     */
     public MoveCard(String msg, int position) {
         super(msg);
         this.position = position;
     }
 
+    /**
+     * Method to find out how many steps the gui_car to a player should be moved.
+     * @param playerList - to find player's current position (which chance field he landed on)
+     * @param squareController - to find field
+     * @param guiController - to show the action on board
+     * @param propertyController - to pay if necessary
+     */
     @Override
     public void chanceAction(PlayerList playerList, SquareController squareController, GUIController guiController, PropertyController propertyController) {
         guiController.showChanceCard(msg);

@@ -4,7 +4,10 @@ import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
-// Pay Property Tax Card. metode brugt til a opkræve et antal penge for hvert hus eller hotel spilleren ejer
+
+/**
+ * Method to get tax payment for every house and hotel owned in the game.
+ */
 public class PayPropertyTaxCard extends ChanceCard {
     private int houseTax;
     private int hotelTax;

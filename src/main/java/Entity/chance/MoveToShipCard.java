@@ -6,8 +6,9 @@ import Entity.PlayerList;
 import Entity.square.SquareController;
 import message.Message;
 
-// Ship card. metode til at rykke brikken til det nærmeste rederi.
-// Multiplier bestemmer om der skal betales dobbelt leje hvis der er ejet.
+/**
+ * Method to send player to the nearest ship, and pay double rent of current if it is owned by a player, which isn't the player that landed on it.
+ */
 public class MoveToShipCard extends ChanceCard {
     private int multiplier;
     public MoveToShipCard(String msg, int multiplier) {

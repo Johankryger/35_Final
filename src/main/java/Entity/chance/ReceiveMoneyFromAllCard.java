@@ -5,8 +5,11 @@ import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
+/**
+ * Receive money from all players in the game.
+ */
 public class ReceiveMoneyFromAllCard extends ChanceCard {
-    //Recieve money from everyone Card.
+
     private int amount;
     public ReceiveMoneyFromAllCard(String msg, int amount) {
         super(msg);
