@@ -9,13 +9,8 @@ public class Player {
      */
     private String name;
     private Balance balance = new Balance();
-//    private boolean hasLost = false;
-
     private int fieldPos = 0;
-    private int liqudationValue=30000;
-//    private boolean hasLiquidated;
-//    private int moneyToPay;
-//    private boolean aboutToLose=false;
+    private int liquidationValue =30000;
 
     private boolean inJail;
     private int turnsInJail;
@@ -63,45 +58,10 @@ public class Player {
         else{this.fieldPos=(fieldPos+steps+40)%40;}
     }
 
-//    public void setHasLiquidated(boolean hasLiquidated) {
-//        this.hasLiquidated = hasLiquidated;
-//    }
 
-//    public boolean isHasLiquidated() {
-//        return hasLiquidated;
-//    }
-
-//    public int getMoneyToPay() {
-//        return moneyToPay;
-//    }
-
-//    public void setMoneyToPay(int moneyToPay) {
-//        this.moneyToPay = moneyToPay;
-//    }
-
-//    public boolean isAboutToLose() {
-//        return aboutToLose;
-//    }
-
-//    public void setAboutToLose(boolean aboutToLose) {
-//        this.aboutToLose = aboutToLose;
-//    }
-
-    public void setLiqudationValue(int liqudationValue) {
-        this.liqudationValue = liqudationValue;
+    public void setLiquidationValue(int liquidationValue) {
+        this.liquidationValue = liquidationValue;
     }
-
-//    public boolean isHasLost() {
-//        return hasLost;
-//    }
-
-//    public boolean isNeedsToLiquidate() {
-//        return needsToLiquidate;
-//    }
-
-//    public void setHasLost(boolean hasLost) {
-//        this.hasLost = hasLost;
-//    }
 
     public Balance getBalance() {
         return balance;
@@ -169,12 +129,6 @@ public class Player {
 
     public void resetPairCounter(){pairCounter = 0;}
 
-//    public boolean payJailBail (int money){
-//        getBalance().pay(money);
-//        setInJail(false);
-//        resetTurnsInJail();
-//        return true;
-//    }
 
     public void useBailCard(){
         setGotFreeJailCard(false);
@@ -183,5 +137,5 @@ public class Player {
     }
 
 
-    public int getLiqudationValue() {return liqudationValue;}
+    public int getLiquidationValue() {return liquidationValue;}
 }

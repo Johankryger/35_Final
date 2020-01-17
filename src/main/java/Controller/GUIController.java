@@ -104,7 +104,6 @@ public class GUIController {
                 fields[38].setTitle((Message.getMessage("Title",5)));
         }
 
-
         //makes it invalid to select less or more than 3 or 6 players
         while (true){
             if (amountOfPlayers > 2 && amountOfPlayers < 7){

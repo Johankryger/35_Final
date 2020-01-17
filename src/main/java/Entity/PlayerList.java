@@ -10,15 +10,11 @@ public class PlayerList {
 
     public void addPlayers(String[] playerNames, int amountOfPlayers) {
         this.players = new Player[amountOfPlayers];
-//        Player[] players = new Player[playerNames.length];
         for (int i = 0; i < playerNames.length; i++) {
             players[i] = new Player(playerNames[i]);
         }
     }
 
-//    public void setPlayers(Player[] players) {
-//        this.players = players;
-//    }
 
     public Player[] getAllPlayers() {
         return players;
@@ -50,11 +46,6 @@ public class PlayerList {
 
         if (playerDiedOnOwnTurn) {
             this.index = (this.index - 1 + players.length) % players.length;
-//            if (!(this.index == 0)) {
-//                this.index = (this.index - 1) % players.length;
-//            } else {
-////                this.index = arr.length % players.length;
-//            }
         }
 
     }
@@ -79,12 +70,5 @@ public class PlayerList {
         this.index = ++index % players.length;
     }
 
-//    public void transfer(int amount, String from, String to){
-//        searchPlayer(from).getBalance().pay(amount);
-//        searchPlayer(to).getBalance().add(amount);
-//    }
 
-//    public void setIndex(int index) {this.index = index;}
-
-//    public int getIndex() {return index;}
 }
