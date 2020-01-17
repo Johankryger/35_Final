@@ -5,9 +5,9 @@ import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
-public class CardType4 extends ChanceCard {
+public class MoveBackwardsCard extends ChanceCard {
 // Move back Card. metode til at rykke spillerens brik 3 felter tilbage
-    public CardType4(String msg) {
+    public MoveBackwardsCard(String msg) {
         super(msg);
     }
 

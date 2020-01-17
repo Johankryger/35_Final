@@ -6,10 +6,10 @@ import Entity.PlayerList;
 import Entity.square.SquareController;
 
 // Money Card. Get a value add to your balance or taken away
-public class CardType1 extends ChanceCard {
+public class MoneyCard extends ChanceCard {
     private int amountAdded;
 
-    public CardType1(String msg, int amountAdded) {
+    public MoneyCard(String msg, int amountAdded) {
         super(msg);
         this.amountAdded = amountAdded;
     }

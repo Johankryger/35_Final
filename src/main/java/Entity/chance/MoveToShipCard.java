@@ -8,9 +8,9 @@ import message.Message;
 
 // Ship card. metode til at rykke brikken til det nærmeste rederi.
 // Multiplier bestemmer om der skal betales dobbelt leje hvis der er ejet.
-public class CardType3 extends ChanceCard {
+public class MoveToShipCard extends ChanceCard {
     private int multiplier;
-    public CardType3(String msg, int multiplier) {
+    public MoveToShipCard(String msg, int multiplier) {
         super(msg);
         this.multiplier = multiplier;
     }

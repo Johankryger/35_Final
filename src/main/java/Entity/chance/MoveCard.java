@@ -5,10 +5,10 @@ import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 // Move Card. Moves you to a specefic square.
-public class CardType2 extends ChanceCard {
+public class MoveCard extends ChanceCard {
     private int position;
 
-    public CardType2(String msg, int position) {
+    public MoveCard(String msg, int position) {
         super(msg);
         this.position = position;
     }

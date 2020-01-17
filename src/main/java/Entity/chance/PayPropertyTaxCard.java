@@ -5,11 +5,11 @@ import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 // Pay Property Tax Card. metode brugt til a opkræve et antal penge for hvert hus eller hotel spilleren ejer
-public class CardType8 extends ChanceCard {
+public class PayPropertyTaxCard extends ChanceCard {
     private int houseTax;
     private int hotelTax;
 
-    public CardType8(String msg, int houseTax, int hotelTax) {
+    public PayPropertyTaxCard(String msg, int houseTax, int hotelTax) {
         super(msg);
         this.houseTax = houseTax;
         this.hotelTax = hotelTax;

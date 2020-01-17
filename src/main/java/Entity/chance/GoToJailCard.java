@@ -5,9 +5,9 @@ import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
-public class CardType7 extends ChanceCard {
+public class GoToJailCard extends ChanceCard {
     //Go to Jail Card
-    public CardType7(String msg) {
+    public GoToJailCard(String msg) {
         super(msg);
     }
 

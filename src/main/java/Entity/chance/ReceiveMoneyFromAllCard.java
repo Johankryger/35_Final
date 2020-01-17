@@ -5,10 +5,10 @@ import Controller.PropertyController;
 import Entity.PlayerList;
 import Entity.square.SquareController;
 
-public class CardType6 extends ChanceCard {
+public class ReceiveMoneyFromAllCard extends ChanceCard {
     //Recieve money from everyone Card.
     private int amount;
-    public CardType6(String msg, int amount) {
+    public ReceiveMoneyFromAllCard(String msg, int amount) {
         super(msg);
         this.amount = amount;
     }
