@@ -11,12 +11,15 @@ public class Player {
     private Balance balance = new Balance();
     private int fieldPos = 0;
     private int liquidationValue =30000;
-
     private boolean inJail;
+    /**
+     * The amount of turns the player has spent in jail.
+     */
     private int turnsInJail;
-
+    /**
+     * A counter for dice pairs.
+     */
     public int pairCounter = 0;
-
     private boolean aboutToStartCash;
     private boolean extraTurn = false;
     private boolean gotChanceCard;
@@ -58,7 +61,11 @@ public class Player {
         else{this.fieldPos=(fieldPos+steps+40)%40;}
     }
 
-
+    /**
+     * Sets the players value of liquidation.
+     *
+     * @param liquidationValue the value of all the belongings of the player, if he wishes to sell them.
+     */
     public void setLiquidationValue(int liquidationValue) {
         this.liquidationValue = liquidationValue;
     }
@@ -125,17 +132,28 @@ public class Player {
 
     public int getPairCounter(){return pairCounter;}
 
+    /**
+     * Adds pairs of dice rolls to the counter
+     */
     public void incrementPairCounter(){pairCounter++;}
 
     public void resetPairCounter(){pairCounter = 0;}
 
-
+    /**
+     * Method that works as a bailcard
+     * It removes your free jail card
+     * Removes you from jail
+     * And resets your turns in jail.
+     */
     public void useBailCard(){
         setGotFreeJailCard(false);
         setInJail(false);
         resetTurnsInJail();
     }
 
-
+    /**
+     *
+     * @return the value of all the belongings of the player, if he wishes to sell them.
+     */
     public int getLiquidationValue() {return liquidationValue;}
 }
