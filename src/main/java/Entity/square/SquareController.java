@@ -29,7 +29,7 @@ public class SquareController {
                 new Street(18,"Hellerupvej", 3600,300,2000,1400,4000,11000,15000,19000,"Grey"),
                 new Street(19, "Strandvejen", 4000,350,2000,1600,4400,12000,16000,20000,"Grey"),
                 new Street(21, "Trianglen", 4400,350,3000,1800,5000,14000,17500,21000,"Red"),
-                new Street(23, "Østerbrogade", 4400,350,3000,18000,5000,14000,17500,21000,"Red"),
+                new Street(23, "Østerbrogade", 4400,350,3000,1800,5000,14000,17500,21000,"Red"),
                 new Street(24, "Grønningen", 4800,400,3000,2000,6000,15000,18500,22000,"Red"),
                 new Street(26, "Bredgade", 5200,450,3000,2200,6600,16000,19500,23000,"White"),
                 new Street(27, "Kgs. Nytorv", 5200,450,3000,2200,6600,16000,19500,23000,"White"),

@@ -175,6 +175,7 @@ Unmortgage
 Build house
 Sell house
 Trade
+You have you sell houses or mortgage properties till you can pay:
 
 Trading
 Go back

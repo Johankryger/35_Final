@@ -158,7 +158,33 @@ public class PropertyController {
 
     }
 
+    public void calculateLiquidation(PlayerList playerList, SquareController squareController) {
+        String[] playerNames = playerList.getPlayerNames();
+        for (int i = 0; i < playerNames.length; i++) {
+            int liquidationMoney = playerList.searchPlayer(playerNames[i]).getBalance().getAmount();
+
+            String[] ownedStreets = squareController.getOwnedStreetNames(playerList.searchPlayer(playerNames[i]).getName());
+            String[] ownedProperties = squareController.getOwnedPropertyNames(playerList.searchPlayer(playerNames[i]).getName());
+
+            for (int j = 0; j < ownedProperties.length; j++) {
+                if (!squareController.searchProperty(ownedProperties[j]).getMortgaged()) {
+                    liquidationMoney += squareController.searchProperty(ownedProperties[j]).getPrice() / 2;
+                }
+            }
+
+            for (int j = 0; j < ownedStreets.length; j++) {
+                if (squareController.searchStreet(ownedStreets[j]).isPaired()) {
+                    int numberOfHouses= squareController.searchStreet(ownedStreets[j]).getNumberOfHouses();
+                    int housePrice = squareController.searchStreet(ownedStreets[j]).getHousePrice();
+                    liquidationMoney += numberOfHouses * housePrice;
+                }
+            }
+            playerList.searchPlayer(playerNames[i]).setLiqudationValue(liquidationMoney);
+        }
+    }
+
     public void payment(PlayerList playerList, String playerPay, String playerReceiver, SquareController squareController, GUIController guiController, int amountToPay) {
+        calculateLiquidation(playerList, squareController);
         // if a player loses
         if (playerList.searchPlayer(playerPay).getLiqudationValue() < amountToPay) {
             // if you have not lost to a player
@@ -205,7 +231,7 @@ public class PropertyController {
             // if player needs to sell houses or mortgage to afford
         } else if (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
             while (playerList.searchPlayer(playerPay).getBalance().getAmount() < amountToPay) {
-                String option = guiController.button((Message.getMessage("Manage", 2) + " "), Message.getMessage("Manage", 1), Message.getMessage("Manage", 4), Message.getMessage("Manage", 7));
+                String option = guiController.button(Message.getMessage("Manage", 9) + " " + amountToPay, Message.getMessage("Manage", 4), Message.getMessage("Manage", 7));
                 if (option.equals(Message.getMessage("Manage", 4))) {
                     String mortgageOption;
                     do {
@@ -238,10 +264,13 @@ public class PropertyController {
                     }
                 }
             }
-
+        // if player afford to pay with cash
         } else if (playerList.searchPlayer(playerPay).getBalance().getAmount() >= amountToPay) {
             playerList.searchPlayer(playerPay).getBalance().pay(amountToPay);
-            playerList.searchPlayer(playerReceiver).getBalance().add(amountToPay);
+            if (playerReceiver != null){
+                playerList.searchPlayer(playerReceiver).getBalance().add(amountToPay);
+            }
+
         }
 
     }
@@ -317,11 +346,4 @@ public class PropertyController {
 
         return canSellHouse;
     }
-
-
-
-
-
-
-
 }

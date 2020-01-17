@@ -41,7 +41,7 @@ public class Street extends Property {
         } else if (!owner.equals(playerList.getPlayer().getName())) {
             if (!playerList.searchPlayer(owner).isInJail()) {
                 propertyController.payment(playerList, playerList.getPlayer().getName(), owner, squareController, gui, rent);
-                if (!playerList.getPlayer().isAboutToLose()) {
+                if (playerList.getPlayer() != null) {
                     gui.button((Message.getMessage("General",5)) + " "  + rent + " " + (Message.getMessage("General",6))+ " " + owner, (Message.getMessage("General",7)));
                 } else {
                     gui.button(Message.getMessage("General", 12), Message.getMessage("General", 7));

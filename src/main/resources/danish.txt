@@ -175,6 +175,7 @@ Hæv pantsætning
 Byg hus
 Sælg hus
 Byttehandel
+Du bliver nødt til at sælge huse eller pantsætte grunde til at du kan betale:
 
 Trading
 Gå tilbage

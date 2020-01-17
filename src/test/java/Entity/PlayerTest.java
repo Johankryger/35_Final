@@ -25,19 +25,19 @@ public class PlayerTest {
         assertEquals(10,p4.getFieldPos());
     }
 
-    @Test
-    public void isAboutToLose() {
-        Player p1 = new Player("Skipper Bent");
-        p1.setAboutToLose(true);
-        assertTrue(p1.isAboutToLose());
-    }
-
-    @Test
-    public void isHasLost() {
-        Player p1 = new Player("Mr. Meeseeks");
-        p1.setHasLost(true);
-        assertTrue(p1.isHasLost());
-    }
+//    @Test
+//    public void isAboutToLose() {
+//        Player p1 = new Player("Skipper Bent");
+//        p1.setAboutToLose(true);
+//        assertTrue(p1.isAboutToLose());
+//    }
+//
+//    @Test
+//    public void isHasLost() {
+//        Player p1 = new Player("Mr. Meeseeks");
+//        p1.setHasLost(true);
+//        assertTrue(p1.isHasLost());
+//    }
 
     @Test
     public void setFieldPos() {

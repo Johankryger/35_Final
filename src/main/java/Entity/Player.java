@@ -3,12 +3,12 @@ package Entity;
 public class Player {
     private String name;
     private Balance balance = new Balance();
-    private boolean hasLost = false;
+//    private boolean hasLost = false;
     private int fieldPos = 0;
     private int liqudationValue=30000;
 //    private boolean hasLiquidated;
 //    private int moneyToPay;
-    private boolean aboutToLose=false;
+//    private boolean aboutToLose=false;
 
     private boolean inJail;
     private int turnsInJail;
@@ -63,29 +63,29 @@ public class Player {
 //        this.moneyToPay = moneyToPay;
 //    }
 
-    public boolean isAboutToLose() {
-        return aboutToLose;
-    }
+//    public boolean isAboutToLose() {
+//        return aboutToLose;
+//    }
 
-    public void setAboutToLose(boolean aboutToLose) {
-        this.aboutToLose = aboutToLose;
-    }
+//    public void setAboutToLose(boolean aboutToLose) {
+//        this.aboutToLose = aboutToLose;
+//    }
 
     public void setLiqudationValue(int liqudationValue) {
         this.liqudationValue = liqudationValue;
     }
 
-    public boolean isHasLost() {
-        return hasLost;
-    }
+//    public boolean isHasLost() {
+//        return hasLost;
+//    }
 
 //    public boolean isNeedsToLiquidate() {
 //        return needsToLiquidate;
 //    }
 
-    public void setHasLost(boolean hasLost) {
-        this.hasLost = hasLost;
-    }
+//    public void setHasLost(boolean hasLost) {
+//        this.hasLost = hasLost;
+//    }
 
     public Balance getBalance() {
         return balance;
@@ -153,12 +153,12 @@ public class Player {
 
     public void resetPairCounter(){pairCounter = 0;}
 
-    public boolean payJailBail (int money){
-        getBalance().pay(money);
-        setInJail(false);
-        resetTurnsInJail();
-        return true;
-    }
+//    public boolean payJailBail (int money){
+//        getBalance().pay(money);
+//        setInJail(false);
+//        resetTurnsInJail();
+//        return true;
+//    }
 
     public void useBailCard(){
         setGotFreeJailCard(false);

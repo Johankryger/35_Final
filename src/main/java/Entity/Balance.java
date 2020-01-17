@@ -1,7 +1,7 @@
 package Entity;
 
 public class Balance {
-    private int amount = 251;
+    private int amount = 30000;
 
     public Balance () {
 

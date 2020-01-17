@@ -51,7 +51,9 @@ public class GameController {
         if (player.isInJail() && player.hasGotFreeJailCard()) {
 
             if (option.equals(Message.getMessage("In Jail",3))) {
-                player.payJailBail(JAIL_BAIL_PRICE);
+                propertyController.payment(playerList, player.getName(), null, squareController, guiController, JAIL_BAIL_PRICE);
+                player.setInJail(false);
+                player.resetTurnsInJail();
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                 player.setInJail(false);
             }
@@ -63,14 +65,13 @@ public class GameController {
 
         } else if (player.isInJail()) {
             if (option.equals(Message.getMessage("In Jail",3))) {
-                player.payJailBail(JAIL_BAIL_PRICE);
+                propertyController.payment(playerList, player.getName(), null, squareController, guiController, JAIL_BAIL_PRICE);
+                player.setInJail(false);
+                player.resetTurnsInJail();
                 guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                 player.setInJail(false);
             }
         }
-
-
-        calculateLiquidation(playerList, squareController);
         //Sets extraTurn to true/false depending on getPair method
     }
 
@@ -80,8 +81,6 @@ public class GameController {
         int startPos = player.getFieldPos();
         player.move(diceCup.getFaceValueSum(), true);
         guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
-
-        calculateLiquidation(playerList, squareController);
         // Land on
         squareController.getSquare(player.getFieldPos()).squareAction(playerList, guiController, propertyController, squareController, diceCup.getFaceValueSum());
 
@@ -97,7 +96,6 @@ public class GameController {
     // Throwing dice process
     public void rollDiceLogic() {
         Player player = playerList.getPlayer();
-        calculateLiquidation(playerList, squareController);
 
         // roll dice
         diceCup.rollDice();
@@ -125,10 +123,9 @@ public class GameController {
         } else {
             if (player.isInJail() && !player.hasExtraTurn()) {
                 if (player.getTurnsInJail() == 2) {
-                    if (player.getBalance().getAmount() < JAIL_BAIL_PRICE) {
-                        player.setHasLost(true);
-                    }
-                    player.payJailBail(JAIL_BAIL_PRICE);
+                    propertyController.payment(playerList, player.getName(), null, squareController, guiController, JAIL_BAIL_PRICE);
+                    player.setInJail(false);
+                    player.resetTurnsInJail();
                     guiController.updateBalance(player.getName(), player.getBalance().getAmount());
                 }
                 player.addTurnInJail();
@@ -149,97 +146,73 @@ public class GameController {
         guiController.close();
     }
 
-    public void checkForLoser() {
-        //counters with losername and without losername used in remainingPlayer array
-        int remainingPlayercounter = 0;
-        int allPlayerCounter = 0;
-        Player[] playerArray = playerList.getAllPlayers();
-        calculateLiquidation(playerList, squareController);
-        //checks for all players if they have lost this turn
-        for (Player player : playerArray) {
-            if (!player.isHasLost() && (player.getBalance().getAmount()<0 || player.isAboutToLose())) {
-                guiController.removeLoser(player.getName(), player.getFieldPos(), squareController);
-                player.setHasLost(true);
-                player.setInJail(false);
-                player.extraTurn(false);
+//    public void checkForLoser() {
+//        //counters with losername and without losername used in remainingPlayer array
+//        int remainingPlayercounter = 0;
+//        int allPlayerCounter = 0;
+//        Player[] playerArray = playerList.getAllPlayers();
+//        //checks for all players if they have lost this turn
+//        for (Player player : playerArray) {
+//            if (!player.isHasLost() && (player.getBalance().getAmount()<0 || player.isAboutToLose())) {
+//                guiController.removeLoser(player.getName(), player.getFieldPos(), squareController);
+//                player.setHasLost(true);
+//                player.setInJail(false);
+//                player.extraTurn(false);
+//
+//                //sets new owner on loser's properties
+//                String owner;
+//                int pos = player.getFieldPos();
+//                if (squareController.inPropertyPosition(pos)) {
+//                    owner = squareController.searchProperty(squareController.getSquare(pos).getFieldName()).getOwner();
+//                } else owner = "bank";
+//
+//
+//                if (owner.equals(player.getName()) || owner.equals("bank")) {
+//                    String[] ownedProperties = squareController.getOwnedPropertyNames(player.getName());
+//                    for (String p : ownedProperties) {
+//                        squareController.searchProperty(p).setMortgaged(false);
+//                        if (squareController.searchStreet(p) != null) {
+//                            squareController.searchStreet(p).setNumberOfHouses(0);
+//                            guiController.setHouses(0,squareController.searchStreet(p).getFieldPosition());
+//                        }
+//                        squareController.searchProperty(p).setOwner("bank");
+//                    }
+//                } else {
+//                    String[] ownedProperties = squareController.getOwnedPropertyNames(player.getName());
+//                    for (String p : ownedProperties) {
+//                        // sell houses and transfer money
+//                        if (squareController.searchStreet(p) != null) {
+//                            int totalHouseMoney = 0;
+//                            int houses = squareController.searchStreet(p).getNumberOfHouses();
+//                            int houseMoney = squareController.searchStreet(p).getHousePrice() / 2;
+//                            totalHouseMoney += houses * houseMoney;
+//                            squareController.searchStreet(p).setNumberOfHouses(0);
+//                            guiController.setHouses(0,squareController.searchStreet(p).getFieldPosition());
+//                            playerList.searchPlayer(owner).getBalance().add(totalHouseMoney);
+//                        }
+//                        squareController.searchProperty(p).setOwner(owner);
+//                        if (squareController.searchProperty(p).getMortgaged()) {
+//                            guiController.mortgageProperty(owner, squareController.searchProperty(p).getFieldPosition());
+//                        } else {
+//                            guiController.buyProperty(owner, squareController.searchProperty(p).getFieldPosition());
+//                        }
+//                    }
+//                }
+//
+//                guiController.removeLoser(player.getName(), player.getFieldPos(), squareController);
+//                playerList.killPlayer(player.getName());
+//
+//
+//
+//                if (!owner.equals("bank")) {
+//                    playerList.searchPlayer(owner).getBalance().add(player.getBalance().getAmount());
+//                    guiController.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
+//                }
+//                guiController.button(player.getName() + " has lost", "Ok");
+//                guiController.killPlayer(player.getName(), playerArray.length);
+//            }
+//        }
+//    }
 
-                //sets new owner on loser's properties
-                String owner;
-                int pos = player.getFieldPos();
-                if (squareController.inPropertyPosition(pos)) {
-                    owner = squareController.searchProperty(squareController.getSquare(pos).getFieldName()).getOwner();
-                } else owner = "bank";
 
-
-                if (owner.equals(player.getName()) || owner.equals("bank")) {
-                    String[] ownedProperties = squareController.getOwnedPropertyNames(player.getName());
-                    for (String p : ownedProperties) {
-                        squareController.searchProperty(p).setMortgaged(false);
-                        if (squareController.searchStreet(p) != null) {
-                            squareController.searchStreet(p).setNumberOfHouses(0);
-                            guiController.setHouses(0,squareController.searchStreet(p).getFieldPosition());
-                        }
-                        squareController.searchProperty(p).setOwner("bank");
-                    }
-                } else {
-                    String[] ownedProperties = squareController.getOwnedPropertyNames(player.getName());
-                    for (String p : ownedProperties) {
-                        // sell houses and transfer money
-                        if (squareController.searchStreet(p) != null) {
-                            int totalHouseMoney = 0;
-                            int houses = squareController.searchStreet(p).getNumberOfHouses();
-                            int houseMoney = squareController.searchStreet(p).getHousePrice() / 2;
-                            totalHouseMoney += houses * houseMoney;
-                            squareController.searchStreet(p).setNumberOfHouses(0);
-                            guiController.setHouses(0,squareController.searchStreet(p).getFieldPosition());
-                            playerList.searchPlayer(owner).getBalance().add(totalHouseMoney);
-                        }
-                        squareController.searchProperty(p).setOwner(owner);
-                        if (squareController.searchProperty(p).getMortgaged()) {
-                            guiController.mortgageProperty(owner, squareController.searchProperty(p).getFieldPosition());
-                        } else {
-                            guiController.buyProperty(owner, squareController.searchProperty(p).getFieldPosition());
-                        }
-                    }
-                }
-
-                guiController.removeLoser(player.getName(), player.getFieldPos(), squareController);
-                playerList.killPlayer(player.getName());
-
-
-
-                if (!owner.equals("bank")) {
-                    playerList.searchPlayer(owner).getBalance().add(player.getBalance().getAmount());
-                    guiController.updateBalance(owner, playerList.searchPlayer(owner).getBalance().getAmount());
-                }
-                guiController.button(player.getName() + " has lost", "Ok");
-                guiController.killPlayer(player.getName(), playerArray.length);
-            }
-        }
-    }
-
-    public void calculateLiquidation(PlayerList playerList, SquareController squareList) {
-        String[] playerNames = playerList.getPlayerNames();
-        for (int i = 0; i < playerNames.length; i++) {
-            int liquidationMoney = playerList.searchPlayer(playerNames[i]).getBalance().getAmount();
-
-            String[] ownedStreets = squareList.getOwnedStreetNames(playerList.searchPlayer(playerNames[i]).getName());
-            String[] ownedProperties = squareList.getOwnedPropertyNames(playerList.searchPlayer(playerNames[i]).getName());
-
-            for (int j = 0; j < ownedProperties.length; j++) {
-                if (!squareList.searchProperty(ownedProperties[j]).getMortgaged()) {
-                    liquidationMoney += squareList.searchProperty(ownedProperties[j]).getPrice() / 2;
-                }
-            }
-
-            for (int j = 0; j < ownedStreets.length; j++) {
-                if (squareList.searchStreet(ownedStreets[j]).isPaired()) {
-                    int numberOfHouses= squareList.searchStreet(ownedStreets[j]).getNumberOfHouses();
-                    int housePrice = squareList.searchStreet(ownedStreets[j]).getHousePrice();
-                    liquidationMoney += numberOfHouses * housePrice;
-                }
-            }
-            playerList.searchPlayer(playerNames[i]).setLiqudationValue(liquidationMoney);
-        }
-    }
 }
