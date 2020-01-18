@@ -83,12 +83,8 @@ public class GUIController {
     public String[] startMenu() {
         //sets all fields' property borders to black
         for (GUI_Field field : fields) {
-            if (field instanceof GUI_Street)
-                ((GUI_Street) field).setBorder(Color.black, Color.black);
-            if (field instanceof GUI_Shipping)
-                ((GUI_Shipping) field).setBorder(Color.black, Color.black);
-            if (field instanceof GUI_Brewery)
-                ((GUI_Brewery) field).setBorder(Color.black, Color.black);
+            if (field instanceof GUI_Ownable)
+                ((GUI_Ownable) field).setBorder(Color.black, Color.black);
         }
 
         String language = gui.getUserButtonPressed("Choose language // Vælg sprog", "Dansk", "English");
@@ -213,8 +209,7 @@ public class GUIController {
     }
 
     public void updateBalance(String name, int balance) {
-        GUI_Player choosenPlayer = searchGUIPlayer(name);
-        choosenPlayer.setBalance(balance);
+        searchGUIPlayer(name).setBalance(balance);
     }
 
     public void sleep(int time) {
@@ -236,38 +231,18 @@ public class GUIController {
 
     public void buyProperty(String name, int pos){
         // finds player with the name and the players piece color
-        Color carColor = null;
+        Color carColor = searchGUIPlayer(name).getPrimaryColor();
 
-        for(GUI_Player p: gui_players){
-            if(p.getName().equals(name)){
-                carColor = p.getCar().getPrimaryColor();
-            }
-        }
-
-        if (fields[pos] instanceof GUI_Street)
-            ((GUI_Street) fields[pos]).setBorder(carColor);
-        if (fields[pos] instanceof GUI_Shipping)
-            ((GUI_Shipping) fields[pos]).setBorder(carColor);
-        if (fields[pos] instanceof GUI_Brewery)
-            ((GUI_Brewery) fields[pos]).setBorder(carColor);
+        if (fields[pos] instanceof GUI_Ownable)
+            ((GUI_Ownable) fields[pos]).setBorder(carColor);
     }
 
     public void mortgageProperty(String name, int pos) {
         // finds player with the name and the players piece color
-        Color carColor = null;
+        Color carColor = searchGUIPlayer(name).getPrimaryColor();
 
-        for(GUI_Player p: gui_players){
-            if(p.getName().equals(name)){
-                carColor = p.getCar().getPrimaryColor();
-            }
-        }
-
-        if (fields[pos] instanceof GUI_Street)
-            ((GUI_Street) fields[pos]).setBorder(carColor, Color.black);
-        if (fields[pos] instanceof GUI_Shipping)
-            ((GUI_Shipping) fields[pos]).setBorder(carColor, Color.black);
-        if (fields[pos] instanceof GUI_Brewery)
-            ((GUI_Brewery) fields[pos]).setBorder(carColor, Color.black);
+        if (fields[pos] instanceof GUI_Ownable)
+            ((GUI_Ownable) fields[pos]).setBorder(carColor, Color.black);
     }
 
     public void setHouses(int houses, int pos) {
@@ -281,12 +256,10 @@ public class GUIController {
 
 
     public String button(String msg, String ... buttons) {
-        String buttonPressed = gui.getUserButtonPressed(msg, buttons);
-        return buttonPressed;
+        return gui.getUserButtonPressed(msg, buttons);
     }
     public int getUserInteger(String msg, int min, int max){
-        int userNumber = gui.getUserInteger(msg,min,max);
-        return userNumber;
+        return gui.getUserInteger(msg,min,max);
     }
 
     public void close(){
@@ -294,25 +267,15 @@ public class GUIController {
     }
 
     public void removeLoser(String name, int position, SquareController squareList){
-        GUI_Player choosenPlayer = null;
-        for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
-                choosenPlayer = p;
-            }
-        }
-
         //sets all owned property by losing player to have black border
-        fields[position].setCar(choosenPlayer, false);
-        String[] ownedPropertyNames = squareList.getOwnedPropertyNames(choosenPlayer.getName());
+        fields[position].setCar(searchGUIPlayer(name), false);
+        String[] ownedPropertyNames = squareList.getOwnedPropertyNames(name);
+
         for (String ownedPropertyName : ownedPropertyNames) {
             for (int j = 0; j < fields.length; j++) {
                 if (ownedPropertyName.equals(squareList.getSquare(j).getFieldName())){
-                    if (fields[j] instanceof GUI_Street)
-                    ((GUI_Street) fields[j]).setBorder(Color.black, Color.black);
-                    if (fields[j] instanceof GUI_Shipping)
-                        ((GUI_Shipping) fields[j]).setBorder(Color.black, Color.black);
-                    if (fields[j] instanceof GUI_Brewery)
-                        ((GUI_Brewery) fields[j]).setBorder(Color.black, Color.black);
+                    if (fields[j] instanceof GUI_Ownable)
+                        ((GUI_Ownable) fields[j]).setBorder(Color.black, Color.black);
                 }
             }
         }
