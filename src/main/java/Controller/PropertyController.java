@@ -318,7 +318,7 @@ public class PropertyController {
             String[] ownedStreets = squareList.getOwnedStreetNames(owner);
             for (int i = 0; i < ownedStreets.length; i++) {
                 Street theOtherStreet = squareList.searchStreet(ownedStreets[i]);
-                if (theOtherStreet.getColor().equals(color) && numberOfHouses > theOtherStreet.getNumberOfHouses() && theOtherStreet.getMortgaged()) {
+                if (theOtherStreet.getColor().equals(color) && numberOfHouses > theOtherStreet.getNumberOfHouses() || theOtherStreet.getMortgaged()) {
                     canBuild = false;
                 }
             }
