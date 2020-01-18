@@ -312,7 +312,7 @@ public class PropertyController {
         int numberOfHouses = street.getNumberOfHouses();
         String color = street.getColor();
 
-        if (!street.isPaired() || numberOfHouses == 5) {
+        if (!street.isPaired() || numberOfHouses == 5 || street.getMortgaged()) {
             canBuild = false;
         } else {
             String[] ownedStreets = squareList.getOwnedStreetNames(owner);
