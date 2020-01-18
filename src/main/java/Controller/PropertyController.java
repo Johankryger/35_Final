@@ -174,7 +174,7 @@ public class PropertyController {
             for (int j = 0; j < ownedStreets.length; j++) {
                 if (squareController.searchStreet(ownedStreets[j]).isPaired()) {
                     int numberOfHouses= squareController.searchStreet(ownedStreets[j]).getNumberOfHouses();
-                    int housePrice = squareController.searchStreet(ownedStreets[j]).getHousePrice();
+                    int housePrice = squareController.searchStreet(ownedStreets[j]).getHousePrice() / 2;
                     liquidationMoney += numberOfHouses * housePrice;
                 }
             }
