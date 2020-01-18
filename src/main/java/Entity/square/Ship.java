@@ -1,9 +1,5 @@
 package Entity.square;
 
-import Controller.GUIController;
-import Controller.PropertyController;
-import Entity.PlayerList;
-import message.Message;
 
 public class Ship extends Property{
     int twoShipCoRent, threeShipCoRent, fourShipCoRent;
@@ -30,6 +26,5 @@ public class Ship extends Property{
                 this.rent = 4000;
                 break;
         }
-        System.out.println(ships + " owner: " + owner);
     }
 }

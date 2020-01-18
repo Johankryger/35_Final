@@ -1,13 +1,8 @@
 package Entity.square;
 
-import Controller.GUIController;
-import Controller.PropertyController;
-import Entity.PlayerList;
-import message.Message;
 
 public class Street extends Property {
     private int housePrice, oneHouseRent, twoHouseRent, threeHouseRent, fourHouseRent, hotelRent, numberOfHouses;
-    private boolean canBuildHouse = false;
     private String color;
 
     public Street(int fieldPosition, String fieldName, int price, int rent, int housePrice,
@@ -62,14 +57,6 @@ public class Street extends Property {
                 this.rent = fourHouseRent;
                 break;
         }
-    }
-
-    public void setCanBuildHouse(boolean canBuildHouse) {
-        this.canBuildHouse = canBuildHouse;
-    }
-
-    public boolean isCanBuildHouse() {
-        return canBuildHouse;
     }
 
     public int getNumberOfHouses(){

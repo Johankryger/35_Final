@@ -203,7 +203,6 @@ public class GUIController {
         //move player one square forward at a time
         for (int i = from; i != to; i = ((i - 1) + 40) % 40) {
             sleep(300);
-            System.out.println(i);
             fields[i].setCar(choosenPlayer, false);
             if (i == 0) {
                 fields[39].setCar(choosenPlayer, true);
@@ -222,7 +221,7 @@ public class GUIController {
         try {
             Thread.sleep(time);
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
     }
 

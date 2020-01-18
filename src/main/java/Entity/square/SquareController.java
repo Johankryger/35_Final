@@ -2,7 +2,6 @@ package Entity.square;
 
 import staticclasses.ArrayMethods;
 
-import java.lang.reflect.Array;
 
 public class SquareController {
     private Street[] streets;
