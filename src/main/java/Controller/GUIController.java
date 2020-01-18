@@ -169,22 +169,21 @@ public class GUIController {
         gui.setDice(values[0],values[1]);
     }
 
-    //makes an animation of player's piece moving
+    // makes an animation of player's piece moving
     public void movePlayer(String name, int balance, int from, int to) {
         GUI_Player choosenPlayer = searchGUIPlayer(name);
-        //move player one square forward at a time
-        for (int i = from; i != to; i = (i + 1) %40) {
+        // keeps going adding 1 to i without reaching over 39 till i == to
+        for (int i = from; i != to; i = ++i % 40) {
             sleep(300);
-            fields[i].setCar(choosenPlayer, false);
-            if (i == 39) {
-                fields[0].setCar(choosenPlayer, true);
 
-            } else if (i == 0) {
-                fields[1].setCar(choosenPlayer, true);
+            // move player one square forward at a time
+            fields[i].setCar(choosenPlayer, false);
+            fields[(i + 1) % 40].setCar(choosenPlayer, true); // modulo is used to never each index 40 in case i = 39
+
+            // balance is updating when player moves from position 0 to 1
+            if (i == 0)
                 updateBalance(name, balance);
-            } else {
-                fields[i + 1].setCar(choosenPlayer, true);
-            }
+
         }
     }
 
