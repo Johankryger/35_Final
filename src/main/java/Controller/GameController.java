@@ -23,8 +23,7 @@ public class GameController {
     }
 
     public Player getPlayer() {
-        Player player = playerList.getPlayer();
-        return player;
+        return playerList.getPlayer();
     }
 
     public String menu() {
@@ -47,7 +46,6 @@ public class GameController {
 
     public void jailLogic(String option) {
         Player player = playerList.getPlayer();
-        String jailMsg = option;
         if (player.isInJail() && player.hasGotFreeJailCard()) {
 
             if (option.equals(Message.getMessage("In Jail",3))) {

@@ -9,7 +9,7 @@ public class Player {
     private boolean inJail;
     private int turnsInJail;
 
-    public int pairCounter = 0;
+    private int pairCounter = 0;
 
     private boolean aboutToStartCash;
     private boolean extraTurn = false;

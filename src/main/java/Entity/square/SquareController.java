@@ -106,9 +106,6 @@ public class SquareController {
         return ownedProperties;
     }
 
-
-
-
     public void checkPairs() {
         for (Street street : streets) {
             String owner = street.getOwner();
@@ -139,12 +136,12 @@ public class SquareController {
         for (Ship ship1 : ships) {
             int counter = 0;
             for (Ship ship2 : ships) {
-                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.isMortgaged && !ship2.isMortgaged) {
+                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.getOwner().equals("bank") && !ship1.isMortgaged && !ship2.isMortgaged) {
                     counter++;
                 }
             }
             for (Ship ship2 : ships) {
-                if (ship2.getOwner().equals(ship2.getOwner()) && !ship1.isMortgaged && !ship2.isMortgaged) {
+                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.getOwner().equals("bank") && !ship1.isMortgaged && !ship2.isMortgaged) {
                     ship1.setShipCount(counter);
                 }
             }
@@ -238,7 +235,7 @@ public class SquareController {
         String[] ownedStreets = getOwnedStreetNames(name);
 
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (searchStreet(ownedStreets[i]).getColor() == color && searchStreet(ownedStreets[i]).getNumberOfHouses() > 0){
+            if (searchStreet(ownedStreets[i]).getColor().equals(color) && searchStreet(ownedStreets[i]).getNumberOfHouses() > 0){
                 hasHouse = true;
             }
         }

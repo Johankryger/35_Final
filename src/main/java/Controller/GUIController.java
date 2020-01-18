@@ -56,6 +56,7 @@ public class GUIController {
 
 
     private GUI gui = new GUI(fields);
+
     private GUI_Player[] gui_players;
     private GUI_Car[] gui_cars = {
             new GUI_Car(Color.magenta, Color.magenta, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
@@ -71,7 +72,7 @@ public class GUIController {
         //finds the player with that name
         GUI_Player choosenPlayer = null;
         for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
+            if (p.getName().equals(name)) {
                 choosenPlayer = p;
             }
         }
