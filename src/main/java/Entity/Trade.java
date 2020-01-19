@@ -5,8 +5,18 @@ import Entity.square.SquareController;
 import message.Message;
 import staticclasses.ArrayMethods;
 
+/**
+ * Class that has "trade" method
+ */
 public class Trade {
 
+    /**
+     * Method to show the trading menu and doing the trading action
+     * Finds owned properties and checks if the property is eligible for trading and program does actions according to the choices. E.g. "Go back", "Choose player to trade with", "Choose property" etc.
+     * @param playerList to find players
+     * @param squareList calls methods to find e.g. ownedProperties or specific type of property
+     * @param guiController used to show the tradingmenu and visually show the trading actions on board
+     */
     public void trade(PlayerList playerList, SquareController squareList, GUIController guiController) {
         String playerName = playerList.getPlayer().getName();
         String[] owendStreets = squareList.getOwnedStreetNames(playerName);

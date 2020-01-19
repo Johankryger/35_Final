@@ -8,6 +8,10 @@ import Entity.square.SquareController;
 public abstract class ChanceCard {
     protected String msg;
 
+    /**
+     * Receive a message, which is shown upon being picked in the game.
+     * @param msg a String
+     */
     public ChanceCard(String msg) {
         this.msg = msg;
     }
