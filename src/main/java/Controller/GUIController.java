@@ -124,10 +124,10 @@ public class GUIController {
             }
         }
 
-        //checks if any player is named "Player x"
+        //checks if any player is named "Player x or bank"
         for (int i = 0; i < names.length ; i++) {
             for (int j = 0; j < names.length; j++) {
-                if (names[i].equals("Player " +j) || names[i].equals("Player 6")){
+                if (names[i].equals("Player " +j) || names[i].equals("Player 6") || names[i].equals("bank")){
                     names[i] = "Player 1";
                 }
             }
