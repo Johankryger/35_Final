@@ -1,6 +1,5 @@
 package Entity;
 
-import Entity.Die;
 
 public class DiceCup {
     //Attributes

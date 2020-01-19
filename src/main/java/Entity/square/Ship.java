@@ -2,13 +2,10 @@ package Entity.square;
 
 
 public class Ship extends Property{
-    int twoShipCoRent, threeShipCoRent, fourShipCoRent;
 
-    public Ship(int fieldPosition, String fieldName, int price, int rent, int twoShipCoRent, int threeShipCoRent, int fourShipCoRent) {
+    public Ship(int fieldPosition, String fieldName, int price, int rent) {
         super(fieldPosition, fieldName, price, rent);
-        this.twoShipCoRent = twoShipCoRent;
-        this.threeShipCoRent = threeShipCoRent;
-        this.fourShipCoRent = fourShipCoRent;
+
     }
 
     public void setShipCount(int ships) {
