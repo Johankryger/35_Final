@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
-import Entity.square.SquareController;
+import Controller.SquareController;
 
 /**
  * Gives a Free-card to escape from jail, when it is your turn again

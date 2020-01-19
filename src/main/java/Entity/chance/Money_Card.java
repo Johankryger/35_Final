@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
-import Entity.square.SquareController;
+import Controller.SquareController;
 
 /**
  * Cardtype that gives a certain amount of cash to a person's balance, dependant on the message on the card. This cardtype can give positive and negative cash (take money from balance) to the balance.

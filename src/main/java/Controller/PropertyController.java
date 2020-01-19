@@ -4,7 +4,7 @@ import Entity.PlayerList;
 
 import Entity.Trade;
 import Entity.square.Property;
-import Entity.square.SquareController;
+import SquareController;
 import Entity.square.Street;
 import message.Message;
 import staticclasses.ArrayMethods;

@@ -3,6 +3,7 @@ package Entity.square;
 
 import Controller.GUIController;
 import Controller.PropertyController;
+import Controller.SquareController;
 import Entity.PlayerList;
 import message.Message;
 

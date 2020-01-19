@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
-import Entity.square.SquareController;
+import Controller.SquareController;
 
 /**
  * Method to get tax payment for every house and hotel owned in the game.

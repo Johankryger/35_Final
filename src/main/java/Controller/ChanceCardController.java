@@ -1,9 +1,8 @@
-package Entity.chance;
+package Controller;
 
-import Controller.GUIController;
-import Controller.PropertyController;
 import Entity.PlayerList;
-import Entity.square.SquareController;
+import Entity.chance.*;
+import SquareController;
 import message.Message;
 
 import java.util.Random;

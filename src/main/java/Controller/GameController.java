@@ -1,8 +1,6 @@
 package Controller;
 
 import Entity.*;
-import Entity.chance.ChanceCardController;
-import Entity.square.SquareController;
 import message.Message;
 
 public class GameController {

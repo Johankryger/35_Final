@@ -3,7 +3,7 @@ package Entity.chance;
 import Controller.GUIController;
 import Controller.PropertyController;
 import Entity.PlayerList;
-import Entity.square.SquareController;
+import Controller.SquareController;
 
 /**
  * Receive money from all players in the game.

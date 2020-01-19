@@ -1,7 +1,7 @@
 package Entity;
 
 import Controller.GUIController;
-import Entity.square.SquareController;
+import Controller.SquareController;
 import message.Message;
 import staticclasses.ArrayMethods;
 

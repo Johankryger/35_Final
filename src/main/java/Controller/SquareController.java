@@ -1,5 +1,6 @@
-package Entity.square;
+package Controller;
 
+import Entity.square.*;
 import staticclasses.ArrayMethods;
 
 
