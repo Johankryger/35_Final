@@ -9,9 +9,9 @@ import message.Message;
 /**
  * Method to send player to the nearest ship, and pay double rent of current if it is owned by a player, which isn't the player that landed on it.
  */
-public class MoveToShipCard extends ChanceCard {
+public class MoveToShip_Card extends ChanceCard {
     private int multiplier;
-    public MoveToShipCard(String msg, int multiplier) {
+    public MoveToShip_Card(String msg, int multiplier) {
         super(msg);
         this.multiplier = multiplier;
     }

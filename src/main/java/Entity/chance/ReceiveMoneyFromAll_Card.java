@@ -8,10 +8,10 @@ import Entity.square.SquareController;
 /**
  * Receive money from all players in the game.
  */
-public class ReceiveMoneyFromAllCard extends ChanceCard {
+public class ReceiveMoneyFromAll_Card extends ChanceCard {
 
     private int amount;
-    public ReceiveMoneyFromAllCard(String msg, int amount) {
+    public ReceiveMoneyFromAll_Card(String msg, int amount) {
         super(msg);
         this.amount = amount;
     }

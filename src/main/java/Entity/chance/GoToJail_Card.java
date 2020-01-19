@@ -8,9 +8,9 @@ import Entity.square.SquareController;
     /**
     * Moves a player to jail
     */
-public class GoToJailCard extends ChanceCard {
+public class GoToJail_Card extends ChanceCard {
 
-    public GoToJailCard(String msg) {
+    public GoToJail_Card(String msg) {
         super(msg);
     }
 

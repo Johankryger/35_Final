@@ -8,9 +8,9 @@ import Entity.square.SquareController;
 /**
  * Gives a Free-card to escape from jail, when it is your turn again
  */
-public class JailFreeCard extends ChanceCard {
+public class JailFree_Card extends ChanceCard {
 
-    public JailFreeCard(String msg) {
+    public JailFree_Card(String msg) {
         super(msg);
     }
 

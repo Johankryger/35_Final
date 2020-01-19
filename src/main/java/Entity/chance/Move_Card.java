@@ -8,7 +8,7 @@ import Entity.square.SquareController;
 /**
  * Moves a player to a specific square
  */
-public class MoveCard extends ChanceCard {
+public class Move_Card extends ChanceCard {
     private int position;
 
     /**
@@ -16,7 +16,7 @@ public class MoveCard extends ChanceCard {
      * @param msg
      * @param position
      */
-    public MoveCard(String msg, int position) {
+    public Move_Card(String msg, int position) {
         super(msg);
         this.position = position;
     }

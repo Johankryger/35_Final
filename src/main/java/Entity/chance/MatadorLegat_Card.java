@@ -9,9 +9,9 @@ import message.Message;
 /**
  * Gives a matadorlegat card, which gives 40000kr to the player, if he his money <15000kr.
  */
-public class MatadorLegatCard extends ChanceCard {
+public class MatadorLegat_Card extends ChanceCard {
 
-    public MatadorLegatCard(String msg) {
+    public MatadorLegat_Card(String msg) {
         super(msg);
     }
 

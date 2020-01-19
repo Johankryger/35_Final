@@ -8,9 +8,9 @@ import Entity.square.SquareController;
 /**
  * Moves player 3 steps forward
  */
-public class MoveForwardsCard extends ChanceCard {
+public class MoveForwards_Card extends ChanceCard {
 
-    public MoveForwardsCard(String msg){
+    public MoveForwards_Card(String msg){
         super(msg);
     }
 

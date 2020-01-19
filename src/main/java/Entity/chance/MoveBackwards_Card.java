@@ -8,9 +8,9 @@ import Entity.square.SquareController;
 /**
  * Moves player 3 fields backwards
  */
-public class MoveBackwardsCard extends ChanceCard {
+public class MoveBackwards_Card extends ChanceCard {
 
-    public MoveBackwardsCard(String msg) {
+    public MoveBackwards_Card(String msg) {
         super(msg);
     }
 

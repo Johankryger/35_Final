@@ -8,7 +8,7 @@ import Entity.square.SquareController;
 /**
  * Cardtype that gives a certain amount of cash to a person's balance, dependant on the message on the card. This cardtype can give positive and negative cash (take money from balance) to the balance.
  */
-public class MoneyCard extends ChanceCard {
+public class Money_Card extends ChanceCard {
     private int amountAdded;
 
     /**
@@ -16,7 +16,7 @@ public class MoneyCard extends ChanceCard {
      * @param msg
      * @param amountAdded to see how much will be added to the player's balance
      */
-    public MoneyCard(String msg, int amountAdded) {
+    public Money_Card(String msg, int amountAdded) {
         super(msg);
         this.amountAdded = amountAdded;
     }

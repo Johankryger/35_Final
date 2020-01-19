@@ -8,11 +8,11 @@ import Entity.square.SquareController;
 /**
  * Method to get tax payment for every house and hotel owned in the game.
  */
-public class PayPropertyTaxCard extends ChanceCard {
+public class PayPropertyTax_Card extends ChanceCard {
     private int houseTax;
     private int hotelTax;
 
-    public PayPropertyTaxCard(String msg, int houseTax, int hotelTax) {
+    public PayPropertyTax_Card(String msg, int houseTax, int hotelTax) {
         super(msg);
         this.houseTax = houseTax;
         this.hotelTax = hotelTax;
