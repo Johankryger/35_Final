@@ -15,7 +15,7 @@ public class GameController {
     private PropertyController propertyController = new PropertyController();
     private ChanceCardController chanceCardController;
 
-    public void turn() {
+    public void startUPMenu() {
         //Returns a string array of names
         String[] names = guiController.startMenu();
         playerList.addPlayers(names, names.length);
@@ -26,52 +26,46 @@ public class GameController {
         return playerList.getPlayer();
     }
 
-    public String menu() {
-        String msg = "";
-        if (playerList.getPlayer().isInJail() && playerList.getPlayer().hasGotFreeJailCard()) {
-            msg = guiController.button(Message.getMessage("In Jail", 1)+Message.getMessage("In Jail",10),Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail", 4), Message.getMessage("In Jail",5));
-        } else if (playerList.getPlayer().isInJail()) {
-            msg = guiController.button(Message.getMessage("In Jail",1)+Message.getMessage("In Jail",10), Message.getMessage("In Jail", 2), Message.getMessage("In Jail",3), Message.getMessage("In Jail",5));
-        } else {
-            msg = guiController.button(Message.getMessage("In Jail",6) + " " +  playerList.getPlayer().getName() + Message.getMessage("In Jail",7), Message.getMessage("In Jail",2), Message.getMessage("In Jail",8));
+    public void menu() {
+        // while player has choosen manage properties
+        String msg = Message.getMessage("In Jail", 2);
+        while (msg.equals(Message.getMessage("In Jail", 2))) {
+            squareController.checkPairs(); // checks for pairs of all properties
+
+            if (playerList.getPlayer().isInJail() && playerList.getPlayer().hasGotFreeJailCard()) {
+                // options: manage menu, pay 1000kr, use jailfree card or try roll out of jail
+                msg = guiController.button(Message.getMessage("In Jail", 1) + Message.getMessage("In Jail", 10), Message.getMessage("In Jail", 2), Message.getMessage("In Jail", 3), Message.getMessage("In Jail", 4), Message.getMessage("In Jail", 5));
+            } else if (playerList.getPlayer().isInJail()) {
+                // options: manage menu, pay 1000kr or try roll out of jail
+                msg = guiController.button(Message.getMessage("In Jail", 1) + Message.getMessage("In Jail", 10), Message.getMessage("In Jail", 2), Message.getMessage("In Jail", 3), Message.getMessage("In Jail", 5));
+            } else {
+                // options: manage menu or roll dice
+                msg = guiController.button(Message.getMessage("In Jail", 6) + " " + playerList.getPlayer().getName() + Message.getMessage("In Jail", 7), Message.getMessage("In Jail", 2), Message.getMessage("In Jail", 8));
+            }
+            // manage menu has been chosen
+            if (msg.equals(Message.getMessage("In Jail", 2))) {
+                propertyController.manageMenu(guiController, playerList, squareController);
+            }
         }
-        if (msg.equals(Message.getMessage("In Jail",2))) {
-            propertyController.manageMenu(guiController, playerList, squareController);
-        }
-        return msg;
-    }
 
-
-
-
-    public void jailLogic(String option) {
+        // these if statements are used only when player pays out of jail or use jail free card
         Player player = playerList.getPlayer();
-        if (player.isInJail() && player.hasGotFreeJailCard()) {
-
-            if (option.equals(Message.getMessage("In Jail",3))) {
-                propertyController.payment(playerList, player.getName(), null, squareController, guiController, JAIL_BAIL_PRICE);
-                player.setInJail(false);
-                player.resetTurnsInJail();
-                guiController.updateBalance(player.getName(), player.getBalance().getAmount());
-                player.setInJail(false);
-            }
-
-            if (option.equals(Message.getMessage("In Jail",4))) {
-                player.useBailCard();
-                player.setInJail(false);
-            }
-
-        } else if (player.isInJail()) {
-            if (option.equals(Message.getMessage("In Jail",3))) {
-                propertyController.payment(playerList, player.getName(), null, squareController, guiController, JAIL_BAIL_PRICE);
-                player.setInJail(false);
-                player.resetTurnsInJail();
-                guiController.updateBalance(player.getName(), player.getBalance().getAmount());
-                player.setInJail(false);
-            }
+        if (msg.equals(Message.getMessage("In Jail",3))) {
+            propertyController.payment(playerList, player.getName(), null, squareController, guiController, JAIL_BAIL_PRICE);
+            player.setInJail(false);
+            player.resetTurnsInJail();
+            guiController.updateBalance(player.getName(), player.getBalance().getAmount());
+            player.setInJail(false);
         }
-        //Sets extraTurn to true/false depending on getPair method
+
+        if (msg.equals(Message.getMessage("In Jail",4))) {
+            player.useBailCard();
+            player.setInJail(false);
+        }
+
     }
+
+
 
     public void movePlayer() {
         // Movement process
@@ -87,9 +81,6 @@ public class GameController {
         }
     }
 
-    public void updateProperties() {
-        squareController.checkPairs();
-    }
 
     // Throwing dice process
     public void rollDiceLogic() {
@@ -99,7 +90,7 @@ public class GameController {
         diceCup.rollDice();
         int[] dicearr = diceCup.getFaceValueArray();
         guiController.showDice(dicearr);
-//        int[] dicearr = {1,1};
+
         // checks for pairs
         if (dicearr[0] == dicearr[1]) {
             player.setInJail(false); // in case you are in jail, you will get out if you get a pair

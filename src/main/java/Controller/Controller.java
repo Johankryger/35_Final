@@ -8,18 +8,14 @@ public class Controller {
 
     public void start() {
         //Creates Start Menu
-        gameController.turn();
+        gameController.startUPMenu();
         while (!gameController.checkForEndGame()) {
-            String option = Message.getMessage("In Jail", 2);
-            while (option.equals(Message.getMessage("In Jail", 2))) {
-                gameController.updateProperties();
-                option = gameController.menu();
-            }
+            gameController.menu();
             gameController.rollDiceLogic();
-            gameController.jailLogic(option);
             if (gameController.getPlayer().isInJail()) {
                 gameController.nextPlayer();
             } else {
+                //movePlayer moves player, uses square action and possibly chance card action
                 gameController.movePlayer();
                 if (!gameController.getPlayer().hasExtraTurn()) {
                     gameController.nextPlayer();
