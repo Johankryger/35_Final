@@ -174,7 +174,7 @@ public class PropertyController {
             for (int j = 0; j < ownedStreets.length; j++) {
                 if (squareController.searchStreet(ownedStreets[j]).isPaired()) {
                     int numberOfHouses= squareController.searchStreet(ownedStreets[j]).getNumberOfHouses();
-                    int housePrice = squareController.searchStreet(ownedStreets[j]).getHousePrice();
+                    int housePrice = squareController.searchStreet(ownedStreets[j]).getHousePrice() / 2;
                     liquidationMoney += numberOfHouses * housePrice;
                 }
             }
@@ -312,13 +312,13 @@ public class PropertyController {
         int numberOfHouses = street.getNumberOfHouses();
         String color = street.getColor();
 
-        if (!street.isPaired() || numberOfHouses == 5) {
+        if (!street.isPaired() || numberOfHouses == 5 || street.getMortgaged()) {
             canBuild = false;
         } else {
             String[] ownedStreets = squareList.getOwnedStreetNames(owner);
             for (int i = 0; i < ownedStreets.length; i++) {
                 Street theOtherStreet = squareList.searchStreet(ownedStreets[i]);
-                if (theOtherStreet.getColor().equals(color) && numberOfHouses > theOtherStreet.getNumberOfHouses()) {
+                if (theOtherStreet.getColor().equals(color) && numberOfHouses > theOtherStreet.getNumberOfHouses() || theOtherStreet.getMortgaged()) {
                     canBuild = false;
                 }
             }

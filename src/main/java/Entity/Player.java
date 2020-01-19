@@ -20,6 +20,8 @@ public class Player {
      * A counter for dice pairs.
      */
     public int pairCounter = 0;
+
+
     private boolean aboutToStartCash;
     private boolean extraTurn = false;
     private boolean gotChanceCard;

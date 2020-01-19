@@ -56,6 +56,7 @@ public class GUIController {
 
 
     private GUI gui = new GUI(fields);
+
     private GUI_Player[] gui_players;
     private GUI_Car[] gui_cars = {
             new GUI_Car(Color.magenta, Color.magenta, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),
@@ -71,7 +72,7 @@ public class GUIController {
         //finds the player with that name
         GUI_Player choosenPlayer = null;
         for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
+            if (p.getName().equals(name)) {
                 choosenPlayer = p;
             }
         }
@@ -82,12 +83,8 @@ public class GUIController {
     public String[] startMenu() {
         //sets all fields' property borders to black
         for (GUI_Field field : fields) {
-            if (field instanceof GUI_Street)
-                ((GUI_Street) field).setBorder(Color.black, Color.black);
-            if (field instanceof GUI_Shipping)
-                ((GUI_Shipping) field).setBorder(Color.black, Color.black);
-            if (field instanceof GUI_Brewery)
-                ((GUI_Brewery) field).setBorder(Color.black, Color.black);
+            if (field instanceof GUI_Ownable)
+                ((GUI_Ownable) field).setBorder(Color.black, Color.black);
         }
 
         String language = gui.getUserButtonPressed("Choose language // Vælg sprog", "Dansk", "English");
@@ -127,10 +124,10 @@ public class GUIController {
             }
         }
 
-        //checks if any player is named "Player x"
+        //checks if any player is named "Player x or bank"
         for (int i = 0; i < names.length ; i++) {
             for (int j = 0; j < names.length; j++) {
-                if (names[i].equals("Player " +j) || names[i].equals("Player 6")){
+                if (names[i].equals("Player " +j) || names[i].equals("Player 6") || names[i].equals("bank")){
                     names[i] = "Player 1";
                 }
             }
@@ -172,22 +169,21 @@ public class GUIController {
         gui.setDice(values[0],values[1]);
     }
 
-    //makes an animation of player's piece moving
+    // makes an animation of player's piece moving
     public void movePlayer(String name, int balance, int from, int to) {
         GUI_Player choosenPlayer = searchGUIPlayer(name);
-        //move player one square forward at a time
-        for (int i = from; i != to; i = (i + 1) %40) {
+        // keeps going adding 1 to i without reaching over 39 till i == to
+        for (int i = from; i != to; i = ++i % 40) {
             sleep(300);
-            fields[i].setCar(choosenPlayer, false);
-            if (i == 39) {
-                fields[0].setCar(choosenPlayer, true);
 
-            } else if (i == 0) {
-                fields[1].setCar(choosenPlayer, true);
+            // move player one square forward at a time
+            fields[i].setCar(choosenPlayer, false);
+            fields[(i + 1) % 40].setCar(choosenPlayer, true); // modulo is used to never each index 40 in case i = 39
+
+            // balance is updating when player moves from position 0 to 1
+            if (i == 0)
                 updateBalance(name, balance);
-            } else {
-                fields[i + 1].setCar(choosenPlayer, true);
-            }
+
         }
     }
 
@@ -202,7 +198,6 @@ public class GUIController {
         //move player one square forward at a time
         for (int i = from; i != to; i = ((i - 1) + 40) % 40) {
             sleep(300);
-            System.out.println(i);
             fields[i].setCar(choosenPlayer, false);
             if (i == 0) {
                 fields[39].setCar(choosenPlayer, true);
@@ -213,15 +208,14 @@ public class GUIController {
     }
 
     public void updateBalance(String name, int balance) {
-        GUI_Player choosenPlayer = searchGUIPlayer(name);
-        choosenPlayer.setBalance(balance);
+        searchGUIPlayer(name).setBalance(balance);
     }
 
     public void sleep(int time) {
         try {
             Thread.sleep(time);
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
     }
 
@@ -236,38 +230,18 @@ public class GUIController {
 
     public void buyProperty(String name, int pos){
         // finds player with the name and the players piece color
-        Color carColor = null;
+        Color carColor = searchGUIPlayer(name).getPrimaryColor();
 
-        for(GUI_Player p: gui_players){
-            if(p.getName().equals(name)){
-                carColor = p.getCar().getPrimaryColor();
-            }
-        }
-
-        if (fields[pos] instanceof GUI_Street)
-            ((GUI_Street) fields[pos]).setBorder(carColor);
-        if (fields[pos] instanceof GUI_Shipping)
-            ((GUI_Shipping) fields[pos]).setBorder(carColor);
-        if (fields[pos] instanceof GUI_Brewery)
-            ((GUI_Brewery) fields[pos]).setBorder(carColor);
+        if (fields[pos] instanceof GUI_Ownable)
+            ((GUI_Ownable) fields[pos]).setBorder(carColor);
     }
 
     public void mortgageProperty(String name, int pos) {
         // finds player with the name and the players piece color
-        Color carColor = null;
+        Color carColor = searchGUIPlayer(name).getPrimaryColor();
 
-        for(GUI_Player p: gui_players){
-            if(p.getName().equals(name)){
-                carColor = p.getCar().getPrimaryColor();
-            }
-        }
-
-        if (fields[pos] instanceof GUI_Street)
-            ((GUI_Street) fields[pos]).setBorder(carColor, Color.black);
-        if (fields[pos] instanceof GUI_Shipping)
-            ((GUI_Shipping) fields[pos]).setBorder(carColor, Color.black);
-        if (fields[pos] instanceof GUI_Brewery)
-            ((GUI_Brewery) fields[pos]).setBorder(carColor, Color.black);
+        if (fields[pos] instanceof GUI_Ownable)
+            ((GUI_Ownable) fields[pos]).setBorder(carColor, Color.black);
     }
 
     public void setHouses(int houses, int pos) {
@@ -281,12 +255,10 @@ public class GUIController {
 
 
     public String button(String msg, String ... buttons) {
-        String buttonPressed = gui.getUserButtonPressed(msg, buttons);
-        return buttonPressed;
+        return gui.getUserButtonPressed(msg, buttons);
     }
     public int getUserInteger(String msg, int min, int max){
-        int userNumber = gui.getUserInteger(msg,min,max);
-        return userNumber;
+        return gui.getUserInteger(msg,min,max);
     }
 
     public void close(){
@@ -294,25 +266,15 @@ public class GUIController {
     }
 
     public void removeLoser(String name, int position, SquareController squareList){
-        GUI_Player choosenPlayer = null;
-        for (GUI_Player p: gui_players) {
-            if (p.getName().equals(name)){
-                choosenPlayer = p;
-            }
-        }
-
         //sets all owned property by losing player to have black border
-        fields[position].setCar(choosenPlayer, false);
-        String[] ownedPropertyNames = squareList.getOwnedPropertyNames(choosenPlayer.getName());
+        fields[position].setCar(searchGUIPlayer(name), false);
+        String[] ownedPropertyNames = squareList.getOwnedPropertyNames(name);
+
         for (String ownedPropertyName : ownedPropertyNames) {
             for (int j = 0; j < fields.length; j++) {
                 if (ownedPropertyName.equals(squareList.getSquare(j).getFieldName())){
-                    if (fields[j] instanceof GUI_Street)
-                    ((GUI_Street) fields[j]).setBorder(Color.black, Color.black);
-                    if (fields[j] instanceof GUI_Shipping)
-                        ((GUI_Shipping) fields[j]).setBorder(Color.black, Color.black);
-                    if (fields[j] instanceof GUI_Brewery)
-                        ((GUI_Brewery) fields[j]).setBorder(Color.black, Color.black);
+                    if (fields[j] instanceof GUI_Ownable)
+                        ((GUI_Ownable) fields[j]).setBorder(Color.black, Color.black);
                 }
             }
         }

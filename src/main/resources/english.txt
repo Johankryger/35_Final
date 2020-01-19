@@ -57,7 +57,7 @@ Pay income tax: 4000 kr.
 Pay extraordinary state tax: 2000 kr.
 
 SubText
-Recieve 4000kr
+Get 4000kr
 Cost: 1.200kr
 Chance
 Cost: 1.200kr

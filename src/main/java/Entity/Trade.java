@@ -45,20 +45,22 @@ public class Trade {
 
         String playerChoice;
         int offerAmount = 0;
-
+        String choosenAmount = " DDK: " + offerAmount;
+        String choosenProperty = " ";
         do {
 
-            playerChoice = guiController.scrollList((Message.getMessage("Trading",15)), tradeMenuArray);
+            playerChoice = guiController.scrollList((Message.getMessage("Trading",15)) + choosenAmount + choosenProperty, tradeMenuArray);
             if (!playerChoice.equals(Message.getMessage("Trading", 3)) && !playerChoice.equals(Message.getMessage("Trading", 2)) && !playerChoice.equals(Message.getMessage("Trading", 1))) {
                 tradeOfferArray = ArrayMethods.addToArray(tradeOfferArray, playerChoice);
                 tradeMenuArray = ArrayMethods.removeFromArray(tradeMenuArray, playerChoice);
+                choosenProperty = choosenProperty+ playerChoice + ", ";
             }
             if (playerChoice.equals(Message.getMessage("Trading", 3))) {
                 offerAmount = 1;
                 while (offerAmount % 50 != 0 || playerList.getPlayer().getBalance().getAmount() < offerAmount) {
                     offerAmount = guiController.getUserInteger(Message.getMessage("Trading", 6), 0, playerList.getPlayer().getBalance().getAmount());
                 }
-
+                choosenAmount = " DDK: " + offerAmount;
             }
 
 
@@ -99,18 +101,22 @@ public class Trade {
                 for (int i = 0; i < tradersBreweries.length; i++) {
                     theirOfferArray = ArrayMethods.addToArray(theirOfferArray, tradersBreweries[i]);
                 }
+                choosenAmount = " DDK: " + receivingAmount;
+                choosenProperty = " ";
             do {
-                theirOffer = guiController.scrollList(Message.getMessage("Trading", 5), theirOfferArray);
+                theirOffer = guiController.scrollList(Message.getMessage("Trading", 5) + choosenAmount + choosenProperty, theirOfferArray);
 
                 if (!theirOffer.equals(Message.getMessage("Trading", 3)) && !theirOffer.equals(Message.getMessage("Trading", 4)) && !theirOffer.equals(Message.getMessage("Trading", 1))) {
                     receivingOfferArray = ArrayMethods.addToArray(receivingOfferArray, theirOffer);
                     theirOfferArray = ArrayMethods.removeFromArray(theirOfferArray, theirOffer);
+                    choosenProperty = choosenProperty+ theirOffer + ", ";
                 }
                 if (theirOffer.equals(Message.getMessage("Trading", 3))) {
                     receivingAmount = 1;
                     while (receivingAmount % 50 != 0 || playerList.searchPlayer(chosenTrader).getBalance().getAmount() < receivingAmount) {
                         receivingAmount = guiController.getUserInteger(Message.getMessage("Trading", 7), 0, playerList.searchPlayer(chosenTrader).getBalance().getAmount());
                     }
+                    choosenAmount = " DDK: " + receivingAmount;
                 }
             } while (!theirOffer.equals(Message.getMessage("Trading", 1)) && !theirOffer.equals(Message.getMessage("Trading", 4)));
 

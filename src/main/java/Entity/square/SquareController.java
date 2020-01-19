@@ -2,7 +2,6 @@ package Entity.square;
 
 import staticclasses.ArrayMethods;
 
-import java.lang.reflect.Array;
 
 /**
  * This class creates an array for all of the different squares on the board, and contains info about them in it.
@@ -150,12 +149,12 @@ public class SquareController {
         for (Ship ship1 : ships) {
             int counter = 0;
             for (Ship ship2 : ships) {
-                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.isMortgaged && !ship2.isMortgaged) {
+                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.getOwner().equals("bank") && !ship1.isMortgaged && !ship2.isMortgaged) {
                     counter++;
                 }
             }
             for (Ship ship2 : ships) {
-                if (ship2.getOwner().equals(ship2.getOwner()) && !ship1.isMortgaged && !ship2.isMortgaged) {
+                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.getOwner().equals("bank") && !ship1.isMortgaged && !ship2.isMortgaged) {
                     ship1.setShipCount(counter);
                 }
             }
@@ -264,7 +263,7 @@ public class SquareController {
         String[] ownedStreets = getOwnedStreetNames(name);
 
         for (int i = 0; i < ownedStreets.length; i++) {
-            if (searchStreet(ownedStreets[i]).getColor() == color && searchStreet(ownedStreets[i]).getNumberOfHouses() > 0){
+            if (searchStreet(ownedStreets[i]).getColor().equals(color) && searchStreet(ownedStreets[i]).getNumberOfHouses() > 0){
                 hasHouse = true;
             }
         }
@@ -272,37 +271,4 @@ public class SquareController {
     }
 
 
-
-    //Tjek om nødvendig.  <-- ikke nødvendig dude
-    public void giveLoserProperty(String loserName, String newOwner){
-        for (Street street : streets) {
-            if (street.getOwner().equals(loserName)) {
-                street.setOwner(newOwner);
-            }
-        }
-        for (Brewery brewery : breweries) {
-            if (brewery.getOwner().equals(loserName)) {
-                brewery.setOwner(newOwner);
-            }
-        }
-        for (Ship ships : ships) {
-            if (ships.getOwner().equals(loserName)) {
-                ships.setOwner(newOwner);
-            }
-        }
-    }
-
-    //checks if a players position is on a property
-    public boolean inPropertyPosition(int position) {
-        for (Street street : streets) {
-            if (street.getFieldPosition() == position) return true;
-        }
-        for (Ship ship : ships) {
-            if (ship.getFieldPosition() == position) return true;
-        }
-        for (Brewery brewery : breweries) {
-            if (brewery.getFieldPosition() == position) return true;
-        }
-        return false;
-    }
 }
