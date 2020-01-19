@@ -74,6 +74,7 @@ public class GameController {
         player.move(diceCup.getFaceValueSum(), true);
         guiController.movePlayer(player.getName(), player.getBalance().getAmount(), startPos, player.getFieldPos());
         // Land on
+        propertyController.calculateLiquidation(playerList, squareController);
         squareController.getSquare(player.getFieldPos()).squareAction(playerList, guiController, propertyController, squareController, diceCup.getFaceValueSum());
 
         while (player.hasGotChanceCard()) {
