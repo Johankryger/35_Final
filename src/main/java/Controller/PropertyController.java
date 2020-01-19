@@ -154,7 +154,6 @@ public class PropertyController {
 
             }
 
-
     }
 
     public void calculateLiquidation(PlayerList playerList, SquareController squareController) {

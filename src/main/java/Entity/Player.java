@@ -10,6 +10,9 @@ public class Player {
     private String name;
     private Balance balance = new Balance();
     private int fieldPos = 0;
+    /**
+     * The amount money a player can get if he sell all houses and mortgages all properties.
+     */
     private int liquidationValue =30000;
     private boolean inJail;
     /**
