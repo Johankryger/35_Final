@@ -110,7 +110,7 @@ public class SquareController {
         for (Street street : streets) {
             String owner = street.getOwner();
             String color = street.getColor();
-            if (!owner.equals("bank") && !street.isMortgaged) {
+            if (!owner.equals("bank") && !street.getMortgaged()) {
                 boolean isPaired = true;
                 for (Street otherStreet : streets) {
                     if (color.equals(otherStreet.getColor()) && !owner.equals(otherStreet.getOwner())) {
@@ -125,7 +125,7 @@ public class SquareController {
             }
         }
 
-        if (!breweries[0].getOwner().equals("bank") && breweries[0].getOwner().equals(breweries[1].getOwner()) && !breweries[0].isMortgaged && !breweries[1].isMortgaged) {
+        if (!breweries[0].getOwner().equals("bank") && breweries[0].getOwner().equals(breweries[1].getOwner()) && !breweries[0].getMortgaged() && !breweries[1].getMortgaged()) {
             breweries[0].setPaired(true);
             breweries[1].setPaired(true);
         } else {
@@ -136,12 +136,12 @@ public class SquareController {
         for (Ship ship1 : ships) {
             int counter = 0;
             for (Ship ship2 : ships) {
-                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.getOwner().equals("bank") && !ship1.isMortgaged && !ship2.isMortgaged) {
+                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.getOwner().equals("bank") && !ship1.getMortgaged() && !ship2.getMortgaged()) {
                     counter++;
                 }
             }
             for (Ship ship2 : ships) {
-                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.getOwner().equals("bank") && !ship1.isMortgaged && !ship2.isMortgaged) {
+                if (ship1.getOwner().equals(ship2.getOwner()) && !ship1.getOwner().equals("bank") && !ship1.getMortgaged() && !ship2.getMortgaged()) {
                     ship1.setShipCount(counter);
                 }
             }

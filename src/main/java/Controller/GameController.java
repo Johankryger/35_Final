@@ -3,6 +3,7 @@ package Controller;
 import Entity.*;
 import message.Message;
 
+
 public class GameController {
     private final int JAIL_BAIL_PRICE = 1000;
 

@@ -2,7 +2,7 @@ package Controller;
 
 import Entity.PlayerList;
 import Entity.chance.*;
-import SquareController;
+
 import message.Message;
 
 import java.util.Random;

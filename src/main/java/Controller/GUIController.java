@@ -1,6 +1,6 @@
 package Controller;
 
-import SquareController;
+
 import gui_fields.*;
 import gui_main.GUI;
 import message.Message;
