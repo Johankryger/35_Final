@@ -11,8 +11,8 @@ public abstract class Property extends Square {
     protected int rent;
     protected int defaultRent;
     protected String owner = "bank";
-    boolean isMortgaged;
-    boolean isPaired = false;
+    protected boolean isMortgaged;
+    protected boolean isPaired = false;
 
     public Property(int fieldPosition, String fieldName, int price, int rent) {
         super(fieldPosition, fieldName);
