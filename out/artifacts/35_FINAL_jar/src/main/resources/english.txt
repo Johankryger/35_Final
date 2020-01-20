@@ -99,7 +99,7 @@ Cost: 7.000kr
 Cost: 8.000kr
 
 Desc
-You receive 4000 kr. each time your pass START.
+You receive 4000 kr. each time you pass START.
 Rent of Land: _______ 50 kr. w/ 1 house: ________ 250 kr. > 2 houses: ________ 750 kr. > 3 houses: _______ 2.250 kr. > 4 houses: _______ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
 Chance
 Rent of Land: _______ 50 kr. w/ 1 house: ________ 250 kr. > 2 houses: ________ 750 kr. > 3 houses: _______ 2.250 kr. > 4 houses: _______ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
