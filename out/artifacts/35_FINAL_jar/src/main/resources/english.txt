@@ -1,0 +1,195 @@
+Chancecard
+Move directly to prison. Even if you pass "START", you won't receive kr. 4000.
+In the occasion of the king's birthday you are pardonned from prison. This card will be kept until you need it.
+Move 3 squares forwards
+Move 3 squares backwards
+Travel with the Mols-Line. Move your piece forward, and if you pass "START" receive kr. 4.000.
+Travel to the nearest shipping company. Move your piece forward, and if you pass "START" receive 4.000 kr.
+Move forward to Grønningen. If you pass "START" receive kr. 4.000.
+Move forward to Vimmelskaftet. If you pass "START" receive kr. 4.000.
+Move forward to Fredriksberg Allé. If you pass "START" receive kr. 4.000.
+Move forward to Standvejen. If you pass "START" receive kr. 4.000.
+Move to Rådhuspladsen.
+Move forward to "START"
+Move your piece forward to the nearest shipping company and pay the owner twice the rent you would otherwise pay. If the company is not owned by anyone, you can but it from the bank.
+Pay 200 kr. for the delivey of 2 boxes of beer.
+You have received a parking ticket. Pay a 200 kr. fine.
+Pay 300 kr. for a carwash and oil change.
+Pay 3.000 kr. for car repairs.
+You ran a red light. Pay a fine of 1.000 kr.
+You brought too many cigarettes back from your trip. Pay the customs 200 kr.
+Pay you car insurance - 1.000 kr.
+You have bought 4 new tires for your car. Pay 1.000 kr.
+You received your dental bill pay 2.000 kr.
+Property taxes have risen. The additional costs are: 800 kr. per house and 2.300 kr. per hotel
+Oil prises have risen og you must pay: 500 kr. per house and 2.000 kr. per hotel.
+You premium bond has been extended. You receive 1.000 kr. from the bank.
+Because of the cost of living you have received a raise. Receive 1.000 kr.
+Your kitchen garden crops sell for 200 kr. which you'll receive from the bank.
+You've betted and got all correct. Receive 1.000 kr.
+Your receive your dividend. Receive 1.000 kr. from the bank.
+Your receive the yield of your stocks - 1.000 kr.
+The local authority have waived one quarters taxes. Withdraw from the bank 3.000 kr.
+You've won in the lottery. Receive 500 kr.
+You have sold some old furniture at an auction. Receive 1.000 kr. from the bank.
+It's you birthday. Receive from each other player 200 kr.
+You are having a family party and you receive a contribution from each other play of 500 kr.
+You've paid for a potluck. Strangely, they all pay up at once. Receive 500 kr. from each player.
+You receive the "Monopoly-Scholarship for the needy" worth kr. 40.000. Worthy of need means that your fotune Eg. Held cash + Properties + Buildings, do not exeed kr. 15.000.
+It's your lucky day! 40.000 kr. was added to your balance
+Your total value is over 15.000 kr. Too bad.
+
+start menu
+How many players? (Between 3 and 6)
+Player
+, choose name please:
+
+Fejlbesked
+Invalid amount of players
+
+
+
+Title
+Just visiting
+Free parking
+Go to jail
+Pay income tax: 4000 kr.
+Pay extraordinary state tax: 2000 kr.
+
+SubText
+Get 4000kr
+Cost: 1.200kr
+Chance
+Cost: 1.200kr
+
+Cost: 4.000kr
+Cost: 2.000kr
+Chance
+Cost: 2.000kr
+Cost: 2.400kr
+In jail
+Cost: 2.800kr
+Cost: 3.000kr
+Cost: 2.800kr
+Cost: 3.200kr
+Cost: 4.000kr
+Cost: 3.600kr
+Chance
+Cost: 3.600kr
+Cost: 4.000kr
+Free Parking
+Cost: 4.400kr
+Chance
+Cost: 4.400kr
+Cost: 4.800kr
+Cost: 4.000kr
+Cost: 5.200kr
+Cost: 5.200kr
+Cost: 3.000kr
+Cost: 5.600kr
+Go to prison
+Cost: 6.000kr
+Cost: 6.000kr
+Chance
+Cost: 6.400kr
+Cost: 4.000kr
+Chance
+Cost: 7.000kr
+
+Cost: 8.000kr
+
+Desc
+You receive 4000 kr. each time your pass START.
+Rent of Land: _______ 50 kr. w/ 1 house: ________ 250 kr. > 2 houses: ________ 750 kr. > 3 houses: _______ 2.250 kr. > 4 houses: _______ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
+Chance
+Rent of Land: _______ 50 kr. w/ 1 house: ________ 250 kr. > 2 houses: ________ 750 kr. > 3 houses: _______ 2.250 kr. > 4 houses: _______ 4.000 kr. > hotel: __________ 6.000 kr. Each house costs 1000 kr.
+Pay income tax: 4000 kr.
+Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
+Rent of land: ______ 100 kr. w/ 1 house: ________ 600 kr. > 2 houses: _______ 1.800 kr. > 3 houses: _______ 5.400 kr. > 4 houses: _______ 8.000 kr. > hotel: _________ 11.000 kr. Each house costs 1000 kr.
+Chance
+Rent of land: ______ 100 kr. w/ 1 house: ________ 600 kr. > 2 houses: _______ 1.800 kr. > 3 houses: _______ 5.400 kr. > 4 houses: _______ 8.000 kr. > hotel: _________ 11.000 kr. Each house costs 1000 kr.
+Rent of land: ______ 150 kr. w/ 1 house: ________ 800 kr. > 2 houses: _______ 2.000 kr. > 3 houses: _______ 6.000 kr. > 4 houses: _______ 9.000 kr. > hotel: _________ 12.000 kr. Each house costs 1000 kr.
+You are either visiting or spending your time in jail.
+Rent of land: ______ 200 kr. w/ 1 house: _______ 1.000 kr. > 2 houses: _______ 3.000 kr. > 3 houses: _______ 9.000 kr. > 4 houses: ______ 12.500 kr. > hotel: _________ 15.000 kr. Each house costs 2.000 kr.
+If one company is owned. One hundred times the ammount of eyes on the diceroll is pad. If both SQUASH og Cola is owned, the dobbelt is paid.
+Rent of land: ______ 200 kr. w/ 1 house: ______ 1.000 kr. > 2 houses: _______ 3.000 kr. > 3 houses: _______ 9.000 kr. > 4 houses: ______ 12.500 kr. > hotel: _________ 15.000 kr. Each house costs 2.000 kr.
+Rent of land: ______ 250 kr. w/ 1 house: ______ 1.250 kr. > 2 houses: _______ 3.750 kr. > 3 houses: ______ 10.000 kr. > 4 houses: ______ 14.000 kr. > hotel: _________ 18.000 kr. Each house costs 2.000 kr.
+Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
+Rent of land: ______ 300 kr. w/ 1 house: ______ 1.400 kr. > 2 houses: _______ 4.000 kr. > 3 houses: ______ 11.000 kr. > 4 houses: ______ 15.000 kr. > hotel: _________ 19.000 kr. Each house costs 2.000 kr.
+Chance
+Rent of land: ______ 300 kr. w/ 1 house: ______ 1.400 kr. > 2 houses: _______ 4.000 kr. > 3 houses: ______ 11.000 kr. > 4 houses: ______ 15.000 kr. > hotel: _________ 19.000 kr. Each house costs 2.000 kr.
+Rent of land: ______ 350 kr. w/ 1 house: ______ 1.600 kr. > 2 houses: _______ 4.400 kr. > 3 houses: ______ 12.000 kr. > 4 houses: ______ 16.000 kr. > hotel: _________ 20.000 kr. Each house costs 2.000 kr.
+Parking
+Rent of land: ______ 350 kr. w/ 1 house: ______ 1.800 kr. > 2 houses: ______ 5.000 kr. > 3 houses: ______ 14.000 kr. > 4 houses: ______ 17.500 kr. > hotel: _________ 21.000 kr. Each house costs 3.000 kr.
+Chance
+Rent of land: ______ 350 kr. w/ 1 house: ______ 1.800 kr. > 2 houses: ______ 5.000 kr. > 3 houses: ______ 14.000 kr. > 4 houses: ______ 17.500 kr. > hotel: _________ 21.000 kr. Each house costs 3.000 kr.
+Rent of land: ______ 400 kr. w/ 1 house: ______ 2.000 kr. > 2 houses: ______ 6.000 kr. > 3 houses: ______ 15.000 kr. > 4 houses: ______ 18.500 kr. > hotel: _________ 22.000 kr. Each house costs 3.000 kr.
+Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
+Rent of land: ______ 450 kr. w/ 1 house: _______ 2.200 kr. > 2 houses: _______ 6.600 kr. > 3 houses: ______ 16.000 kr. > 4 houses: ______ 19.500 kr. > hotel: _________ 23.000 kr. Each house costs 3.000 kr.
+Rent of land: ______ 450 kr. w/ 1 house: _______ 2.200 kr. > 2 houses: _______ 6.600 kr. > 3 houses: ______ 16.000 kr. > 4 houses: ______ 19.500 kr. > hotel: _________ 23.000 kr. Each house costs 3.000 kr.
+If one company is owned. One hundred times the ammount of eyes on the diceroll is pad. If both SQUASH og Cola is owned, the dobbelt is paid.
+Rent of land: ______ 500 kr. w/ 1 house: _______ 2.400 kr. > 2 houses: _______ 7.200 kr. > 3 houses: ______ 17.000 kr. > 4 houses: ______ 20.500 kr. > hotel: _________ 24.000 kr. Each house costs 3.000 kr.
+Go directly to jail. You will not receive 4000 kr. if you pass START.
+Rent of land: ______ 550 kr. w/ 1 house: _______ 2.600 kr. > 2 houses: _______ 7.800 kr. > 3 houses: ______ 18.000 kr. > 4 houses: ______ 22.000 kr. > hotel: _________ 25.000 kr. Each house costs 4.000 kr.
+Rent of land: ______ 550 kr. w/ 1 house: _______ 2.600 kr. > 2 houses: _______ 7.800 kr. > 3 houses: ______ 18.000 kr. > 4 houses: ______ 22.000 kr. > hotel: _________ 25.000 kr. Each house costs 4.000 kr.
+Chance
+Rent of land: ______ 600 kr. w/ 1 house: _______ 3.000 kr. > 2 houses: _______ 9.000 kr. > 3 houses: ______ 20.000 kr. > 4 houses: ______ 24.000 kr. > hotel: _________ 28.000 kr. Each house costs 4.000 kr.
+Rent: _____________ 500 kr. If 2 ships are owned: 1.000 kr. If 3 ships are owned: 2.000 kr. If 4 ships are owned: 4.000 kr.
+Chance
+Rent of land: ______ 700 kr. w/ 1 house: _______ 3.500 kr. > 2 houses: ______ 10.000 kr. > 3 houses: ______ 22.000 kr. > 4 houses: ______ 26.000 kr. > hotel: _________ 30.000 kr. Each house costs 4.000 kr.
+Pay extraodinary state tax: 2000 kr.
+Rent of land: ______ 1.000 kr. w/ 1 house: _______ 4.000 kr. > 2 houses: ______ 12.000 kr. > 3 houses: ______ 28.000 kr. > 4 houses: ______ 34.000 kr. > hotel: _________ 40.000 kr. Each house costs 4.000 kr.
+
+In Jail
+You have been jailed!
+Manage properties
+Pay 1.000 kr. bail
+Use your release card!
+Try your luck and roll!
+It's
+'s turn
+Roll dice!
+You rolled a pair three times in a row and you'll therefore be imprisoned!
+ What will you do?
+
+General
+Want to buy
+?
+Buy
+End turn
+You pay
+to
+Okay
+You can't afford this property
+You have drawn a chancecard!
+in taxes
+won
+You have lost and you'll be giving all your belongings to the owner
+
+Manage
+Go back
+Choose option
+Choose property
+Mortgage
+Unmortgage
+Build house
+Sell house
+Trade
+You have you sell houses or mortgage properties till you can pay:
+
+Trading
+Go back
+Choose player to trade with
+Money offer
+End trade
+What do you want in exchange for your offer?
+How many DKK do you want to offer? (divisible by 50)
+What amount of DKK do you want? (divisible by 50)
+Yes
+No
+Who do you want to trade with?
+'s offer
+Amount
+Properties
+Do you accept the offer?
+Your offer:

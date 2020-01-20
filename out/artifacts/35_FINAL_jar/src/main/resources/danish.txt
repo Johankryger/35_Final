@@ -1,0 +1,195 @@
+Chancecard
+Gå i fængel. Ryk direkte til fængslet. Selv om De passeer "START", indkasserer de ikke 4.000 kr.
+I andledningen af kongens fødselsdag benådes De herved for fængsel. Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.
+Ryk tre felter frem.
+Ryk tre felter tilbage.
+Tag med Mols-Linien. Flyt brikke frem, og hvis de passeer "START" indkassér da 4.000 kr.
+Tag med den nærmeste færge. Flyt brikken frem, og hvis de passeer "START" indkassér da 4.000 kr.
+Ryk frem til Grønningen. Hvis de passeer "START" indkassér da 4.000 kr.
+Ryk frem til Vimmelskaftet. Hvis de passeer "START" indkassér da 4.000 kr.
+Ryk frem til Frederiksberg Allé. Hvis de passeer "START" indkassér da 4.000 kr.
+Ryk frem til Strandvejen. Hvis de passeer "START" indkassér da 4.000 kr.
+Tag ind på Rådhuspladsen.
+Ryk frem til "START"
+Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen, kan De købe det af banken.
+Betal 200 kr. for levering af 2 kasser øl.
+De har fået en parkeringsbøde. Betal 200 kr. i bøde.
+Betal for vognvask og smøring 300 kr.
+Betal 3.000 kr. for reperation af Deres vogn.
+De har kørt frem for "Fuldt stop". Betal 1.000 kr. i bøde.
+De har været en tur i udlandet og haft for mange cigaretter med hjem. Betal told 200 kr.
+Betal Deres bilforsikring - 1.000 kr.
+De har købt 4 nye dæk til deres vogn. Betal 1.000 kr.
+De har modtaget Deres tandlægeregning Betal 2.000 kr.
+Ejendomsskatterne er steget. Ekstraudgifterne er: 800 kr. pr. og hus 2.300 kr. pr. hotel
+Oliepriserne er steget, og de skal betale: 500 kr. pr. hus og 2.000 kr. pr. hotel
+Deres præmieobligation er udtrukket. De modtager 1.000 kr. af banken.
+Grundet dyrtiden har De fået gageforhøjelse. Modtag 1.000 kr.
+Værdien af egen avl fra nyttehaven udgør 200 kr. som De modtager af banken.
+De havde en række med elleve rigtige i tipning. Modtag 1.000 kr.
+De modtager Deres aktieudbytte. Modtag 1.000 kr. af banken.
+Modtage udbytte af deres aktier - 1.000 kr.
+Kommunen har eftergivet et kvartals skat. Hæv i banken 3.000 kr.
+De har vundet i Klasselotteriet. Modtag 500 kr.
+De har solgt nogle gamle møblet på auktionen. Modtag 1.000 kr. af banken.
+Det er Deres fødselsdag. Modtag af hver medspiller 200 kr.
+De skal holde familiefest og får et tilskud fra hver medspiller på 500 kr.
+De har lagt penge ud til sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller 500 kr.
+De  modtager "Matador-legatet for værdigt trængende" på kr. 40.000. Ved værdigt trængende forstår, at deres formue, Dvs. Deres kontante penge + Skøder + Bygninger, ikke overstige 15.000 kr.
+Det er din heldige dag! 40.000 kr. er sat ind på din konto
+Din samlede værdi er over 15.000 kr. Øv!
+
+start menu
+Hvor mange spillere? (Mellem 3 og 6)
+Spiller
+, skriv navn:
+
+Fejlbesked
+Ugyldigt antal af spillere
+
+
+
+Title
+På besøg
+Parkering
+Gå i fængsel
+Betal indkomstskat: 4000 kr.
+Betal ekstraordinær statskat: 2000 kr.
+
+SubText
+Få 4000kr
+Pris: 1.200 kr
+Prøv lykken
+Pris: 1.200 kr
+
+Pris: 4.000 kr
+Pris: 2.000 kr
+Prøv lykken
+Pris: 2.000 kr
+Pris: 2.400 kr
+På besøg
+Pris: 2.800 kr
+Pris: 3.000 kr
+Pris: 2.800 kr
+Pris: 3.200 kr
+Pris: 4.000 kr
+Pris: 3.600 kr
+Prøv lykken
+Pris: 3.600 kr
+Pris: 4.000 kr
+parkering
+Pris: 4.400 kr
+Prøv lykken
+Pris: 4.400 kr
+Pris: 4.800 kr
+Pris: 4.000 kr
+Pris: 5.200 kr
+Pris: 5.200 kr
+Pris: 3.000 kr
+Pris: 5.600 kr
+Gå i fængsel
+Pris: 6.000 kr
+Pris: 6.000 kr
+Prøv lykken
+Pris: 6.400 kr
+Pris: 4.000 kr
+Prøv lykken
+Pris: 7.000 kr
+
+Pris: 8.000 kr
+
+Desc
+De modtager 4000 kr. hver gang de passere START.
+Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.
+Prøv lykken
+Leje af grund: _______ 50 kr. m/ 1 hus: __________ 250 kr. > 2 huse: __________ 750 kr. > 3 huse: _________ 2.250 kr. > 4 huse: _________ 4.000 kr. > hotel: __________ 6.000 kr. Hvert hus koster 1000 kr.
+Betal indkomstskat: 4000 kr.
+Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
+Leje af grund: ______ 100 kr. m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr. Hvert hus koster 1000 kr.
+Prøv lykken
+Leje af grund: ______ 100 kr. m/ 1 hus: __________ 600 kr. > 2 huse: _________ 1.800 kr. > 3 huse: _________ 5.400 kr. > 4 huse: _________ 8.000 kr. > hotel: _________ 11.000 kr. Hvert hus koster 1000 kr.
+Leje af grund: ______ 150 kr. m/ 1 hus: __________ 800 kr. > 2 huse: _________ 2.000 kr. > 3 huse: _________ 6.000 kr. > 4 huse: _________ 9.000 kr. > hotel: _________ 12.000 kr. Hvert hus koster 1000 kr.
+Du er enten på besøg eller i fængsel.
+Leje af grund: ______ 200 kr. m/ 1 hus: __________ 1.000 kr. > 2 huse: _________ 3.000 kr. > 3 huse: _________ 9.000 kr. > 4 huse: _________ 12.500 kr. > hotel: _________ 15.000 kr. Hvert hus koster 2.000 kr.
+Hvis 1 virksomhed ejes. betales 100 gange så meget, som øjene viser. Hvis både SQUASH og Cola ejes, betales der dobbelt så meget.
+Leje af grund: ______ 200 kr. m/ 1 hus: __________ 1.000 kr. > 2 huse: _________ 3.000 kr. > 3 huse: _________ 9.000 kr. > 4 huse: _________ 12.500 kr. > hotel: _________ 15.000 kr. Hvert hus koster 2.000 kr.
+Leje af grund: ______ 250 kr. m/ 1 hus: __________ 1.250 kr. > 2 huse: _________ 3.750 kr. > 3 huse: _________ 10.000 kr. > 4 huse: _________ 14.000 kr. > hotel: _________ 18.000 kr. Hvert hus koster 2.000 kr.
+Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
+Leje af grund: ______ 300 kr. m/ 1 hus: __________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: _________ 11.000 kr. > 4 huse: _________ 15.000 kr. > hotel: _________ 19.000 kr. Hvert hus koster 2.000 kr.
+Prøv lykken
+Leje af grund: ______ 300 kr. m/ 1 hus: __________ 1.400 kr. > 2 huse: _________ 4.000 kr. > 3 huse: _________ 11.000 kr. > 4 huse: _________ 15.000 kr. > hotel: _________ 19.000 kr. Hvert hus koster 2.000 kr.
+Leje af grund: ______ 350 kr. m/ 1 hus: __________ 1.600 kr. > 2 huse: _________ 4.400 kr. > 3 huse: _________ 12.000 kr. > 4 huse: _________ 16.000 kr. > hotel: _________ 20.000 kr. Hvert hus koster 2.000 kr.
+Gratis Parking.
+Leje af grund: ______ 350 kr. m/ 1 hus: __________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: _________ 14.000 kr. > 4 huse: _________ 17.500 kr. > hotel: _________ 21.000 kr. Hvert hus koster 3.000 kr.
+Prøv lykken
+Leje af grund: ______ 350 kr. m/ 1 hus: __________ 1.800 kr. > 2 huse: _________ 5.000 kr. > 3 huse: _________ 14.000 kr. > 4 huse: _________ 17.500 kr. > hotel: _________ 21.000 kr. Hvert hus koster 3.000 kr.
+Leje af grund: ______ 400 kr. m/ 1 hus: __________ 2.000 kr. > 2 huse: _________ 6.000 kr. > 3 huse: _________ 15.000 kr. > 4 huse: _________ 18.500 kr. > hotel: _________ 22.000 kr. Hvert hus koster 3.000 kr.
+Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
+Leje af grund: ______ 450 kr. m/ 1 hus: __________ 2.200 kr. > 2 huse: _________ 6.600 kr. > 3 huse: _________ 16.000 kr. > 4 huse: _________ 19.500 kr. > hotel: _________ 23.000 kr. Hvert hus koster 3.000 kr.
+Leje af grund: ______ 450 kr. m/ 1 hus: __________ 2.200 kr. > 2 huse: _________ 6.600 kr. > 3 huse: _________ 16.000 kr. > 4 huse: _________ 19.500 kr. > hotel: _________ 23.000 kr. Hvert hus koster 3.000 kr.
+Hvis 1 virksomhed ejes. betales 100 gange så meget, som øjene viser. Hvis både SQUASH og Cola ejes, betales der dobbelt så meget.
+Leje af grund: ______ 500 kr. m/ 1 hus: __________ 2.400 kr. > 2 huse: _________ 7.200 kr. > 3 huse: _________ 17.000 kr. > 4 huse: _________ 20.500 kr. > hotel: _________ 24.000 kr. Hvert hus koster 3.000 kr.
+Gå direkte i fængsel. Du modtager ikke 4000 kr. hvis du passérer START.
+Leje af grund: ______ 550 kr. m/ 1 hus: __________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: _________ 18.000 kr. > 4 huse: _________ 22.000 kr. > hotel: _________ 25.000 kr. Hvert hus koster 4.000 kr.
+Leje af grund: ______ 550 kr. m/ 1 hus: __________ 2.600 kr. > 2 huse: _________ 7.800 kr. > 3 huse: _________ 18.000 kr. > 4 huse: _________ 22.000 kr. > hotel: _________ 25.000 kr. Hvert hus koster 4.000 kr.
+Prøv lykken
+Leje af grund: ______ 600 kr. m/ 1 hus: __________ 3.000 kr. > 2 huse: _________ 9.000 kr. > 3 huse: _________ 20.000 kr. > 4 huse: _________ 24.000 kr. > hotel: _________ 28.000 kr. Hvert hus koster 4.000 kr.
+Leje: _____________ 500 kr. Hvis 2 rederier ejes: 1.000 kr. Hvis 3 rederier ejes: 2.000 kr. Hvis 4 rederier ejes: 4.000 kr.
+Prøv lykken
+Leje af grund: ______ 700 kr. m/ 1 hus: __________ 3.500 kr. > 2 huse: _________ 10.000 kr. > 3 huse: _________ 22.000 kr. > 4 huse: _________ 26.000 kr. > hotel: _________ 30.000 kr. Hvert hus koster 4.000 kr.
+Betal ekstraordinær statskat: 2000 kr.
+Leje af grund: ______ 1.000 kr. m/ 1 hus: __________ 4.000 kr. > 2 huse: _________ 12.000 kr. > 3 huse: _________ 28.000 kr. > 4 huse: _________ 34.000 kr. > hotel: _________ 40.000 kr. Hvert hus koster 4.000 kr.
+
+In Jail
+Du er blevet fængslet!
+Administrer ejendomme
+Betal 1000,- kr. kaution
+Brug dit løsladelseskort!
+Prøv lykken og rul!
+Det er
+'s tur,
+Kast terninger!
+Du har slået to ens tre gange i træk og bliver derfor fængslet!
+ Hvad vil du foretage dig?
+
+General
+Vil du købe
+?
+Køb
+Slut tur
+Du betaler
+til
+Okay
+Du har ikke råd til denne ejendom
+Du har trukket et chancekort!
+i skat
+har vundet
+Du har tabt og giver alle dine egendele til ejeren
+
+Manage
+Gå tilbage
+Vælg mulighed
+Vælg ejendom
+Pantsæt
+Hæv pantsætning
+Byg hus
+Sælg hus
+Byttehandel
+Du bliver nødt til at sælge huse eller pantsætte grunde til at du kan betale:
+
+Trading
+Gå tilbage
+Vælg spiller at bytte med
+Penge bud
+Afslut byttehandel
+Hvad vil du have i bytte for dit tilbud?
+Hvor mange kroner vil du tilbyde? (skal kun deles med 50)
+Hvor mange kroner vil du have? (skal kun deles med 50)
+Ja
+Nej
+Hvem vil du bytte med?
+'s tilbud
+Beløb
+Ejendomme
+Acceptere du handlen?
+Dit bud:
