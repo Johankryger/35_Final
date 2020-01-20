@@ -71,10 +71,10 @@ public class PropertyController {
 
             switch (option2) {
                 case "Go back":
-                case "Gå tilbage":
+                case "Gaa tilbage":
                     break;
                 case "Mortgage":
-                case "Pantsæt":
+                case "Pantsaet":
                     String mortgageOption;
                     do {
                         mortgageOption = guiController.scrollList(Message.getMessage("Manage", 3), makeMortgageArray(name, squareList));
@@ -89,7 +89,7 @@ public class PropertyController {
                     manageMenu(guiController, playerList, squareList);
                     break;
                 case "Unmortgage":
-                case "Hæv pantsætning":
+                case "Haev pantsaetning":
                     String unMortgageOption;
                     do {
                         unMortgageOption = guiController.scrollList(Message.getMessage("Manage", 3), unMortgageArray(name, squareList));
@@ -133,7 +133,7 @@ public class PropertyController {
                     manageMenu(guiController, playerList, squareList);
                     break;
                 case "Sell house":
-                case "Sælg hus":
+                case "Saelg hus":
                     String sellHouseOption;
                     do {
                         sellHouseOption = guiController.scrollList(Message.getMessage("Manage", 3), sellHouseArray(name, squareList));
